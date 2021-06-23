@@ -120,6 +120,8 @@
    // 关节限位检测
    rpc EnableJointLimit(TrueOrFalse) returns (Response);
    rpc SwitchSimulate(TrueOrFalse) returns (Response);
+   // 连接/断开 MODBUS 设备
+   rpc ConnectExternalIO(ExternalIOState) returns (Response);
  }
 
  message EnableJointBacklash {
@@ -553,6 +555,11 @@ message ModbusExternalIOMapping {
     ModbusAioGroup ai = 3;
     // 所有模拟量输出值
     ModbusAioGroup ao = 4;
+}
+
+message ExternalIOState {
+    int32 id = 1;
+    bool enable = 2; // true 连接 false 断开
 }
 
 message ModbusExternalIO {
