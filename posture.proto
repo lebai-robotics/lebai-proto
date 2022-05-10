@@ -8,20 +8,19 @@ message JointPose {
   repeated double joint = 1;
 }
 
+/// 关节空间参考系类型
+enum JointFrameKind {
+  /// 关节零位
+  JOINT_FRAME_KIND_BASE = 0;
+  /// 当前关节位置
+  JOINT_FRAME_KIND_CURRENT = 1;
+  /// 指定关节位置
+  JOINT_FRAME_KIND_CUSTOM = 99;
+}
 /// 关节空间参考系
 message JointFrame {
-  /// 关节空间参考系类型
-  enum Kind {
-    /// 关节零位
-    KindBase = 0;
-    /// 当前关节位置
-    KindCurrent = 1;
-    /// 指定关节位置
-    KindJoint = 2;
-  }
-
-  Kind kind = 1;
-  /// 此项不为空时: Base/Current无效
+  JointFrameKind kind = 1;
+  /// 自定义关节位置，仅kind=CUSTOM时生效
   JointPose joints = 2;
 }
 
@@ -45,9 +44,11 @@ message Quaternion {
 }
 /// 枚举 姿态
 message Rotation {
-  Euler euler = 10;
-  Quaternion quaternion = 11;
-  RotationMatrix matrix = 12;
+  oneof rotation {
+    Euler euler = 1;
+    Quaternion quaternion = 2;
+    RotationMatrix matrix = 3;
+  }
 }
 /// 位置
 message Position {
@@ -68,23 +69,25 @@ message CartesianMatrix {
   repeated double matrix = 1;
 }
 
+/// 笛卡尔空间参考系类型
+enum CartesianFrameKind {
+  /// 基座
+  CARTESIAN_FRAME_KIND_BASE = 0;
+  /// 法兰平面
+  CARTESIAN_FRAME_KIND_FLANGE = 1;
+  /// TCP
+  CARTESIAN_FRAME_KIND_TCP = 2;
+  /// 自定义
+  CARTESIAN_FRAME_KIND_CUSTOM = 99;
+}
 /// 笛卡尔空间参考系
 message CartesianFrame {
-  /// 笛卡尔空间参考系类型
-  enum Kind {
-    /// 基座
-    KindBase = 0;
-    /// 法兰平面
-    KindFlange = 1;
-    /// TCP
-    KindTcp = 2;
-    /// 点特征
-    KindPoint = 3;
-  }
-
-  Kind kind = 1;
-  /// 此项不为空时: Base无效; Flange/Tcp仅使用rotation
-  CartesianPose point = 2;
+  CartesianFrameKind position_kind = 1;
+  /// 自定义位置，仅position_kind=CUSTOM时生效
+  Position position = 2;
+  CartesianFrameKind rotation_kind = 3;
+  /// 自定义姿态，仅rotation_kind=CUSTOM时生效
+  Rotation rotation = 4;
 }
 
 /// 机器人关节空间
@@ -103,6 +106,8 @@ message CartesianTargetPose {
 }
 /// 枚举 机器人空间
 message Pose {
-  JointTargetPose joint = 1;
-  CartesianTargetPose cart = 2;
+  oneof pose {
+    JointTargetPose joint = 1;
+    CartesianTargetPose cart = 2;
+  }
 }
