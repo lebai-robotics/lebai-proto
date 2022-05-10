@@ -8,18 +8,19 @@ message JointPose {
   repeated double joint = 1;
 }
 
-/// 关节空间参考系类型
-enum JointFrameKind {
-  /// 关节零位
-  JointFrameKindBase = 0;
-  /// 当前关节位置
-  JointFrameKindCurrent = 1;
-  /// 指定关节位置
-  JointFrameKindJoint = 2;
-}
 /// 关节空间参考系
 message JointFrame {
-  JointFrameKind kind = 1;
+  /// 关节空间参考系类型
+  enum Kind {
+    /// 关节零位
+    KindBase = 0;
+    /// 当前关节位置
+    KindCurrent = 1;
+    /// 指定关节位置
+    KindJoint = 2;
+  }
+
+  Kind kind = 1;
   /// 此项不为空时: Base/Current无效
   JointPose joints = 2;
 }
@@ -42,19 +43,12 @@ message Quaternion {
   double j = 3;
   double k = 4;
 }
-/// 位姿类型
-enum RotationKind {
-  RotationKindEuler = 0;
-  RotationKindQuaternion = 1;
-  RotationKindMatrix = 2;
-}
-/// 姿态
+/// 枚举 姿态
 message Rotation {
-  RotationKind kind = 1;
-  /// JSON
-  string data = 2;
+  Euler euler = 10;
+  Quaternion quaternion = 11;
+  RotationMatrix matrix = 12;
 }
-
 /// 位置
 message Position {
   double x = 1;
@@ -74,34 +68,41 @@ message CartesianMatrix {
   repeated double matrix = 1;
 }
 
-/// 笛卡尔空间参考系类型
-enum CartFrameKind {
-  /// 基座
-  CartFrameKindBase = 0;
-  /// 法兰平面
-  CartFrameKindFlange = 1;
-  /// TCP
-  CartFrameKindTcp = 2;
-  /// 点特征
-  CartFrameKindPoint = 3;
-}
 /// 笛卡尔空间参考系
-message CartFrame {
-  CartFrameKind kind = 1;
+message CartesianFrame {
+  /// 笛卡尔空间参考系类型
+  enum Kind {
+    /// 基座
+    KindBase = 0;
+    /// 法兰平面
+    KindFlange = 1;
+    /// TCP
+    KindTcp = 2;
+    /// 点特征
+    KindPoint = 3;
+  }
+
+  Kind kind = 1;
   /// 此项不为空时: Base无效; Flange/Tcp仅使用rotation
   CartesianPose point = 2;
 }
 
-/// 机器人空间类型
-enum RoseKind {
-  PoseKindJoint = 0;
-  PoseKindCart = 1;
+/// 机器人关节空间
+message JointTargetPose {
+  /// 参考系
+  JointFrame base = 1;
+  /// 增量
+  JointPose delta = 2;
 }
-/// 机器人空间
+/// 机器人笛卡尔空间
+message CartesianTargetPose {
+  /// 参考系
+  CartesianFrame base = 1;
+  /// 增量
+  CartesianPose delta = 2;
+}
+/// 枚举 机器人空间
 message Pose {
-  RoseKind kind = 1;
-  /// JSON, 参考系, JointFrame/CartFrame
-  string base = 2;
-  /// JSON, 增量, JointPose/CartesianPose
-  string delta = 3;
+  JointTargetPose joint = 1;
+  CartesianTargetPose cart = 2;
 }
