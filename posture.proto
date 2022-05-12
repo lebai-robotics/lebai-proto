@@ -8,18 +8,18 @@ message JointPose {
   repeated double joint = 1;
 }
 
-/// 关节空间参考系类型
-enum JointFrameKind {
-  /// 关节零位
-  JOINT_FRAME_KIND_BASE = 0;
-  /// 当前关节位置
-  JOINT_FRAME_KIND_CURRENT = 1;
-  /// 指定关节位置
-  JOINT_FRAME_KIND_CUSTOM = 99;
-}
 /// 关节空间参考系
 message JointFrame {
-  JointFrameKind kind = 1;
+  /// 关节空间参考系类型
+  enum Kind {
+    /// 关节零位
+    BASE = 0;
+    /// 当前关节位置
+    CURRENT = 1;
+    /// 指定关节位置
+    CUSTOM = 99;
+  }
+  Kind kind = 1;
   /// 自定义关节位置，仅kind=CUSTOM时生效
   JointPose joints = 2;
 }
@@ -69,23 +69,23 @@ message CartesianMatrix {
   repeated double matrix = 1;
 }
 
-/// 笛卡尔空间参考系类型
-enum CartesianFrameKind {
-  /// 基座
-  CARTESIAN_FRAME_KIND_BASE = 0;
-  /// 法兰平面
-  CARTESIAN_FRAME_KIND_FLANGE = 1;
-  /// TCP
-  CARTESIAN_FRAME_KIND_TCP = 2;
-  /// 自定义
-  CARTESIAN_FRAME_KIND_CUSTOM = 99;
-}
 /// 笛卡尔空间参考系
 message CartesianFrame {
-  CartesianFrameKind position_kind = 1;
+  /// 笛卡尔空间参考系类型
+  enum Kind {
+    /// 基座
+    BASE = 0;
+    /// 法兰平面
+    FLANGE = 1;
+    /// TCP
+    TCP = 2;
+    /// 自定义
+    CUSTOM = 99;
+  }
+  Kind position_kind = 1;
   /// 自定义位置，仅position_kind=CUSTOM时生效
   Position position = 2;
-  CartesianFrameKind rotation_kind = 3;
+  Kind rotation_kind = 3;
   /// 自定义姿态，仅rotation_kind=CUSTOM时生效
   Rotation rotation = 4;
 }

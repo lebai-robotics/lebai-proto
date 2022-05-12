@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+package motion;
+
+message MoveRequest {
+  google.protobuf.Value p = 1;
+  double v = 2;
+  double a = 3;
+  double t = 4;
+  double r = 5;
+}
+
+/// 机器人运动相关服务
+service MotionService {
+  // 关节空间运动
+  rpc Movej(MoveRequest) returns (google.protobuf.Empty);
+  // 直线运动
+  rpc Movel(MoveRequest) returns (google.protobuf.Empty);
+}
