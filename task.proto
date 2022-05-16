@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "sql.proto";
+
+package task;
+
+enum TaskState {
+  WAIT = 0;
+  RUNNING = 1;
+  PAUSE = 2;
+  SUCCESS = 3;
+  /// 用户主动停止
+  INTERRUPT = 4;
+  /// 运行失败
+  FAIL = 5;
+  /// 已弃用
+  BEGIN = 11;
+}
+
+message Model {
+  uint32 id = 1;
+  sql.Status status = 2;
+  uint32 top = 3;
+  uint32 user_id = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+
+  uint32 event_id = 11;
+  TaskState state = 12;
+  //已完成的循环次数
+  uint32 loop_count = 13;
+  //循环次数，默认为1。为0表示无限循环
+  uint32 loop_to = 14;
+  //是否为获得手臂控制权的主任务
+  bool is_main = 15;
+  //是否为仿真模式
+  bool is_simu = 16;
+  /// 输出
+  string stdout = 17;
+  google.protobuf.Timestamp started_at = 18;
+  google.protobuf.Timestamp ended_at = 19;
+  google.protobuf.Timestamp pause_at = 20;
+  /// 之前总共暂停用时ms，不包括本次暂停
+  uint32 pre_pause = 21;
+  /// 运行该任务时原始的场景记录
+  string record = 22;
+}
+
+message ListResponse {
+  repeated Model list = 1;
+  sql.Pagination pager = 2;
+}
+
+message Stdout {
+  bool done = 1;
+  string stdout = 2;
+}
+
+/// 任务相关服务
+service TaskService {
+  // 查询任务
+  rpc LoadTask(sql.Index) returns (Model);
+  // 查询任务列表
+  rpc LoadTaskList(sql.ListRequest) returns (ListResponse);
+  // 获取任务输出
+  rpc GetTaskStdout(sql.Index) returns (Stdout);
+  // 订阅任务输出流
+  rpc SubTaskStdout(sql.Index) returns (stream Stdout);
+}

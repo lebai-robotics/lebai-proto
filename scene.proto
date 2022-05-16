@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "sql.proto";
+
+package scene;
+
+enum Kind {
+  UNSPECIFIED = 0;
+  TIME_LINE = 1;
+  BLOCKLY = 2;
+  LUA = 3;
+  TREE = 4;
+  PYTHON = 5;
+}
+
+message Model {
+  uint32 id = 1;
+  sql.Status status = 2;
+  uint32 top = 3;
+  uint32 user_id = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+
+  string name = 11;
+  Kind kind = 12;
+  string source = 13;
+  string code = 14;
+  bool check_first = 15;
+  string first = 16;
+  uint32 loop_to = 17;
+  string debug = 18;
+}
+
+message ModelField {
+  oneof field {
+    uint32 id = 1;
+    sql.Status status = 2;
+    uint32 top = 3;
+    uint32 user_id = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+
+    string name = 11;
+    Kind kind = 12;
+    string source = 13;
+    string code = 14;
+    bool check_first = 15;
+    string first = 16;
+    uint32 loop_to = 17;
+    string debug = 18;
+  }
+}
+
+message ListResponse {
+  repeated Model list = 1;
+  sql.Pagination pager = 2;
+}
+
+message SaveRequest {
+  sql.Indexes ids = 1;
+  repeated ModelField fields = 2;
+}
+
+message SceneRequest {
+  sql.Index id = 1;
+  bool is_main = 2;
+}
+
+message SceneResponse {
+  uint32 task = 1;
+}
+
+/// 任务相关服务
+service TaskService {
+  // 保存场景
+  rpc SaveScene(SaveRequest) returns (Model);
+  // 查询场景
+  rpc LoadScene(sql.Index) returns (Model);
+  // 查询场景列表
+  rpc LoadSceneList(sql.ListRequest) returns (ListResponse);
+  // 运行场景，返回任务ID
+  rpc Scene(SceneRequest) returns (SceneResponse);
+}

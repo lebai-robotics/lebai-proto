@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package sql;
+
+/// ID/Name 索引
+message Index {
+  oneof index {
+    uint32 id = 1;
+    string name = 2;
+  }
+}
+/// ID 多索引
+message Indexes {
+  uint32 id = 1;
+  repeated uint32 ids = 2;
+}
+
+/// 日期取值范围
+message DateFilter {
+  google.protobuf.Timestamp start = 1;
+  google.protobuf.Timestamp end = 2;
+}
+
+/// 分页器
+message Pagination {
+  uint32 page = 1;
+  uint32 size = 2;
+  uint32 total = 3;
+}
+
+/// 列表查询过滤条件
+message ListFilter {
+  /// where {exact}
+  repeated string exact = 1;
+  /// `id` in {ids}
+  repeated uint32 ids = 2;
+  /// `name` like {keyword}, 如果需要模糊查询，手动添加%
+  string keyword = 3;
+  /// `created_at` between {created}
+  DateFilter created = 4;
+  /// `updated_at` between {updated}
+  DateFilter updated = 5;
+  /// order by {order}
+  string order = 6;
+  bool asc = 7;
+}
+
+/// 数据状态
+enum Status {
+  NORMAL = 0;
+  READ_ONLY = 1;
+  HIDDEN = 2;
+  DELETED = 3;
+}
+
+/// 批量查询请求
+message ListRequest {
+  ListFilter query = 1;
+  Pagination pager = 2;
+}
