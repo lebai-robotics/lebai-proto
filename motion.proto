@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 
-package motion;
+package lebai.motion;
 
 message MoveRequest {
   google.protobuf.Value p = 1;

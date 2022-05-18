@@ -2,17 +2,17 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-package sql;
+package lebai.sql;
 
 /// ID/Name 索引
-message Index {
+message IdOrKey {
   oneof index {
     uint32 id = 1;
-    string name = 2;
+    string key = 2;
   }
 }
 /// ID 多索引
-message Indexes {
+message Ids {
   uint32 id = 1;
   repeated uint32 ids = 2;
 }
@@ -43,20 +43,23 @@ message ListFilter {
   /// `updated_at` between {updated}
   DateFilter updated = 5;
   /// order by {order}
-  string order = 6;
-  bool asc = 7;
+  string order = 11;
+  bool asc = 12;
+  /// 分页
+  Pagination pager = 13;
 }
 
 /// 数据状态
-enum Status {
+enum DataStatus {
   NORMAL = 0;
   READ_ONLY = 1;
   HIDDEN = 2;
   DELETED = 3;
 }
 
-/// 批量查询请求
-message ListRequest {
-  ListFilter query = 1;
-  Pagination pager = 2;
+message IndexRequest {
+  IdOrKey id = 1;
+}
+message IdRequest {
+  uint32 id = 1;
 }

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package posture;
+package lebai.posture;
 
 /// 关节空间 关节角
 message JointPose {

@@ -3,9 +3,9 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "sql.proto";
 
-package scene;
+package lebai.scene;
 
-enum Kind {
+enum SceneKind {
   UNSPECIFIED = 0;
   TIME_LINE = 1;
   BLOCKLY = 2;
@@ -14,16 +14,16 @@ enum Kind {
   PYTHON = 5;
 }
 
-message Model {
+message SceneModel {
   uint32 id = 1;
-  sql.Status status = 2;
+  sql.DataStatus status = 2;
   uint32 top = 3;
   uint32 user_id = 4;
   google.protobuf.Timestamp created_at = 5;
   google.protobuf.Timestamp updated_at = 6;
 
   string name = 11;
-  Kind kind = 12;
+  SceneKind kind = 12;
   string source = 13;
   string code = 14;
   bool check_first = 15;
@@ -32,17 +32,17 @@ message Model {
   string debug = 18;
 }
 
-message ModelField {
+message SceneModelField {
   oneof field {
     uint32 id = 1;
-    sql.Status status = 2;
+    sql.DataStatus status = 2;
     uint32 top = 3;
     uint32 user_id = 4;
     google.protobuf.Timestamp created_at = 5;
     google.protobuf.Timestamp updated_at = 6;
 
     string name = 11;
-    Kind kind = 12;
+    SceneKind kind = 12;
     string source = 13;
     string code = 14;
     bool check_first = 15;
@@ -52,33 +52,38 @@ message ModelField {
   }
 }
 
-message ListResponse {
-  repeated Model list = 1;
+message SceneSaveRequest {
+  sql.Ids ids = 1;
+  repeated SceneModelField fields = 2;
+}
+
+message SceneListRequest {
+  sql.ListFilter filter = 1;
+  repeated SceneModelField exact = 2;
+}
+
+message SceneListResponse {
+  repeated SceneModel list = 1;
   sql.Pagination pager = 2;
 }
 
-message SaveRequest {
-  sql.Indexes ids = 1;
-  repeated ModelField fields = 2;
-}
-
-message SceneRequest {
-  sql.Index id = 1;
+message SceneRunRequest {
+  sql.IdOrKey id = 1;
   bool is_main = 2;
 }
 
-message SceneResponse {
+message SceneRunResponse {
   uint32 task = 1;
 }
 
 /// 任务相关服务
-service TaskService {
+service SceneService {
   // 保存场景
-  rpc SaveScene(SaveRequest) returns (Model);
+  rpc SaveScene(SceneSaveRequest) returns (SceneModel);
   // 查询场景
-  rpc LoadScene(sql.Index) returns (Model);
+  rpc LoadScene(sql.IndexRequest) returns (SceneModel);
   // 查询场景列表
-  rpc LoadSceneList(sql.ListRequest) returns (ListResponse);
+  rpc LoadSceneList(SceneListRequest) returns (SceneListResponse);
   // 运行场景，返回任务ID
-  rpc Scene(SceneRequest) returns (SceneResponse);
+  rpc Scene(SceneRunRequest) returns (SceneRunResponse);
 }
