@@ -4,14 +4,14 @@ import "google/protobuf/timestamp.proto";
 
 package lebai.sql;
 
-/// ID/Name 索引
+/// 枚举 ID/Name 索引
 message IdOrKey {
   oneof index {
     uint32 id = 1;
     string key = 2;
   }
 }
-/// ID 多索引
+/// 枚举 ID 多索引
 message Ids {
   uint32 id = 1;
   repeated uint32 ids = 2;
@@ -25,15 +25,16 @@ message DateFilter {
 
 /// 分页器
 message Pagination {
+  // 第几页 取值[0~total)
   uint32 page = 1;
+  // 每页大小
   uint32 size = 2;
+  // 总共几页
   uint32 total = 3;
 }
 
 /// 列表查询过滤条件
 message ListFilter {
-  /// where {exact}
-  repeated string exact = 1;
   /// `id` in {ids}
   repeated uint32 ids = 2;
   /// `name` like {keyword}, 如果需要模糊查询，手动添加%
@@ -58,7 +59,7 @@ enum DataStatus {
 }
 
 message IndexRequest {
-  IdOrKey id = 1;
+  IdOrKey index = 1;
 }
 message IdRequest {
   uint32 id = 1;

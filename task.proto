@@ -5,16 +5,21 @@ import "sql.proto";
 
 package lebai.task;
 
+// 任务运行状态
 enum TaskState {
+  // 等待启动运行
   WAIT = 0;
+  // 运行中
   RUNNING = 1;
+  // 已暂停
   PAUSE = 2;
+  // 运行成功
   SUCCESS = 3;
   /// 用户主动停止
   INTERRUPT = 4;
   /// 运行失败
   FAIL = 5;
-  /// 已弃用
+  /// 开始运行，已弃用
   BEGIN = 11;
 }
 
@@ -26,7 +31,9 @@ message TaskModel {
   google.protobuf.Timestamp created_at = 5;
   google.protobuf.Timestamp updated_at = 6;
 
+  // 事件ID，已弃用
   uint32 event_id = 11;
+  // 任务运行状态
   TaskState state = 12;
   //已完成的循环次数
   uint32 loop_count = 13;
@@ -38,8 +45,11 @@ message TaskModel {
   bool is_simu = 16;
   /// 输出
   string stdout = 17;
+  // 启动运行时间
   google.protobuf.Timestamp started_at = 18;
+  // 结束运行时间
   google.protobuf.Timestamp ended_at = 19;
+  // 暂停运行时间
   google.protobuf.Timestamp pause_at = 20;
   /// 之前总共暂停用时ms，不包括本次暂停
   uint32 pre_pause = 21;
@@ -47,8 +57,8 @@ message TaskModel {
   string record = 22;
 }
 message TaskModelFields {
-  /// 有效字段的数字值
-  repeated uint32 mark = 1;
+  /// 有效字段
+  repeated string mark = 1;
   TaskModel model = 2;
 }
 
