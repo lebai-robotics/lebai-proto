@@ -40,12 +40,12 @@ message SceneModelFields {
 
 message SceneSaveRequest {
   sql.Ids ids = 1;
-  repeated SceneModelField fields = 2;
+  SceneModelFields fields = 2;
 }
 
 message SceneListRequest {
   sql.ListFilter filter = 1;
-  repeated SceneModelField exact = 2;
+  SceneModelFields exact = 2;
 }
 
 message SceneListResponse {

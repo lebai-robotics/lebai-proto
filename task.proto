@@ -54,7 +54,7 @@ message TaskModelFields {
 
 message TaskListRequest {
   sql.ListFilter filter = 1;
-  repeated TaskModelField exact = 2;
+  TaskModelFields exact = 2;
 }
 
 message TaskListResponse {
