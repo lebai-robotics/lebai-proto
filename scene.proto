@@ -64,7 +64,7 @@ message SceneListResponse {
 }
 
 message SceneRunRequest {
-  sql.IdOrKey id = 1;
+  sql.IdOrKey index = 1;
   // 是否以主任务方式运行
   bool is_main = 2;
 }
