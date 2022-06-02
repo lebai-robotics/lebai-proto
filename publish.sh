@@ -15,6 +15,10 @@ cd ../ # Home
 # Publish ts
 git clone -b out_ts git@codeup.aliyun.com:lebai/software/lebai-proto.git
 pbjs -t json-module -w commonjs -o lebai-proto/lebai.js ./*.proto
+pbjs -t json-module -w commonjs -o lebai-proto/lebai.js ./*.proto
+pbjs -t json-module -w commonjs -o lebai-proto/lebai.js ./*.proto
+pbjs -t static-module ./*.proto | pbts -o lebai-proto/lebai.d.ts -
+pbjs -t static-module ./*.proto | pbts -o lebai-proto/lebai.d.ts -
 pbjs -t static-module ./*.proto | pbts -o lebai-proto/lebai.d.ts -
 cd lebai-proto
 if [[ `git status --porcelain` ]]; then
