@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package lebai.status;
+
+// 机器人状态
+enum RobotState {
+  /// 已断开连接
+  Disconnected = 0;
+  /// 急停停止状态
+  EStop = 1;
+  /// 启动中
+  Booting = 2;
+  /// 电源关闭
+  RobotOff = 3;
+  /// 电源开启
+  RobotOn = 4;
+  /// 空闲中
+  Idle = 5;
+  /// 已暂停
+  Paused = 6;
+  /// 机器人运动中
+  Moving = 7;
+  /// 更新固件中
+  Updating = 8;
+  /// 启动中
+  Starting = 9;
+  /// 停止中
+  Stopping = 10;
+  /// 示教中
+  Teaching = 11;
+  /// 普通停止
+  Stop = 12;
+  /// 微调中
+  Finetuning = 13;
+}
+
+message RobotData {
+  RobotState robot_state = 1;
+  repeated double actual_joint = 2;
+  repeated double actual_pose = 3;
+  repeated double actual_vel = 4;
+  repeated double actual_acc = 5;
+  repeated double actual_torque = 6;
+  double flange_current = 7;
+  repeated double joint_current = 8;
+  repeated double target_joint = 9;
+  repeated double target_pose = 10;
+  repeated double target_vel = 11;
+  repeated double target_acc = 12;
+  repeated double target_torque = 13;
+  repeated double temp = 14;
+}
+
+message SubRobotDataRequest {
+  // 订阅的字段
+  repeated string keys = 1;
+  // 保证interval时间(ms)内至少推送1次
+  uint64 interval = 2;
+}
+/// 机器人状态相关服务
+service StatusService {
+  // 获取机器人状态
+  rpc GetRobotData(google.protobuf.Empty) returns (RobotData);
+  // 订阅机器人状态
+  rpc SubRobotData(SubRobotDataRequest) returns (stream RobotData);
+}
