@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package lebai.signal;
+
+message SetSignalRequest {
+  uint32 key = 1;
+  int32 value  = 2;
+}
+message WaitSignalRequest {
+  uint32 key = 1;
+  int32 value = 2;
+  string relation = 3;
+}
+message GetSignalRequest {
+  uint32 key = 1;
+}
+message GetSignalResponse {
+  int32 value = 1;
+}
+
+/// 信号量相关服务
+service SignalService {
+  rpc SetSignal(SetSignalRequest) returns (GetSignalResponse);
+  rpc GetSignal(GetSignalRequest) returns (GetSignalResponse);
+  rpc WaitSignal(WaitSignalRequest) returns (GetSignalResponse);
+  rpc AddSignal(SetSignalRequest) returns (GetSignalResponse);
+}
