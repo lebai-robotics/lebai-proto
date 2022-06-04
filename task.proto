@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "sql.proto";
 
@@ -77,6 +78,13 @@ message TaskStdout {
   string stdout = 2;
 }
 
+message PauseRequest {
+  // 暂停时间
+  uint64 time = 1;
+  // 等待
+  bool wait = 2;
+}
+
 /// 任务相关服务
 service TaskService {
   // 查询任务
@@ -87,4 +95,10 @@ service TaskService {
   rpc GetTaskStdout(sql.IdRequest) returns (TaskStdout);
   // 订阅任务输出流
   rpc SubTaskStdout(sql.IdRequest) returns (stream TaskStdout);
+  /// 暂停任务与运动
+  rpc Pause(PauseRequest) returns (google.protobuf.Empty);
+  /// 恢复任务与运动
+  rpc Resume(google.protobuf.Empty) returns (google.protobuf.Empty);
+  /// 取消任务与运动
+  rpc Cancel(sql.IdsRequest) returns (google.protobuf.Empty);
 }

@@ -64,3 +64,6 @@ message IndexRequest {
 message IdRequest {
   uint32 id = 1;
 }
+message IdsRequest {
+  Ids index = 1;
+}

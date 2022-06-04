@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package lebai.system;
+
+message SystemInfoResponse {
+  string name = 1;
+  string kernel_version = 2;
+  string os_version = 3;
+  string host_name = 4;
+  uint32 processors_len = 5;
+  uint32 total_memory = 11;
+  uint32 used_memory = 12;
+  uint32 total_swap = 13;
+  uint32 used_swap = 14;
+  repeated string disks = 21;
+  repeated string networks = 31;
+  repeated string components = 41;
+}
+
+/// 系统控制相关服务
+service SystemService {
+  /// 系统信息
+  rpc SystemInfo(google.protobuf.Empty) returns (SystemInfoResponse);
+  /// 急停
+  rpc Estop(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
