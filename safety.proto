@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "posture.proto";
+
+package lebai.safety;
+
+/// 碰撞监测误差
+message CollisionTorqueDiff {
+  repeated double diffs = 1;
+}
+/// 碰撞后执行操作
+enum CollisionDetectorAction {
+  /// 碰撞后急停
+  ESTOP = 0;
+  /// 碰撞后暂停
+  PAUSE = 1;
+  /// 关闭碰撞监测
+  NONE = 2;
+}
+message CollisionDetector {
+  /// 碰撞后执行操作
+  CollisionDetectorAction action = 1;
+  /// action为PAUSE时生效，暂停时间(s)
+  uint32 pause_time = 2;
+  /// 灵敏度[0~100]
+  uint32 sensitivity = 3;
+}
+
+message SetJointLimitRequest {
+  posture.JointPose limit = 1;
+}
+message SetCarttLimitRequest {
+  posture.CartesianPose limit = 1;
+}
+
+/// 操作安全相关服务
+service SafetyService {
+  // 设置碰撞监测误差
+  rpc SetCollisionTorqueDiff(CollisionTorqueDiff) returns (google.protobuf.Empty);
+  // 设置碰撞监测
+  rpc SetCollisionDetector(CollisionDetector) returns (google.protobuf.Empty);
+  // 读取碰撞监测
+  rpc GetCollisionDetector(google.protobuf.Empty) returns (CollisionDetector);
+  // 使能限位检测
+  rpc EnableLimit(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 禁用限位检测
+  rpc DisableLimit(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 设置关节限位
+  rpc SetJointLimit(SetJointLimitRequest) returns (google.protobuf.Empty);
+  // 设置空间限位
+  rpc SetCartLimit(SetCarttLimitRequest) returns (google.protobuf.Empty);
+}

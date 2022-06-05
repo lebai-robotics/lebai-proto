@@ -12,7 +12,7 @@ message MoveParam {
   double r = 5;
 }
 message MoveRequest {
-  double pose = 1;
+  posture.Pose pose = 1;
   double param = 2;
 }
 
