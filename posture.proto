@@ -111,3 +111,27 @@ message Pose {
     CartesianTargetPose cart = 2;
   }
 }
+
+message PoseRequest {
+  Pose pose = 1;
+}
+message KinematicsInverseRequest {
+  Pose pose = 1;
+  JointPose refer = 2;
+}
+message PoseTimesRequest {
+  Pose base = 1;
+  Pose target = 2;
+}
+
+/// 位姿算法相关服务
+service PostureService {
+  // 正解
+  rpc KinematicsForward(PoseRequest) returns (CartesianPose);
+  // 反解
+  rpc KinematicsInverse(KinematicsInverseRequest) returns (JointPose);
+  // 位姿乘
+  rpc PoseTimes(PoseTimesRequest) returns (CartesianPose);
+  // 位姿逆
+  rpc PoseInverse(PoseRequest) returns (CartesianPose);
+}
