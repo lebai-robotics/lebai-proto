@@ -47,6 +47,8 @@ message IoPinModel {
 
   // 使能
   bool enabled = 21;
+  // 使能按键功能(仅DI可用)
+  bool is_button = 22;
   // 轮询更新间隔(毫秒) 0为不自动更新 建议大于70
   uint32 interval = 23;
   // 比较精度（小数点后若干位），默认为小数点后 5 位
