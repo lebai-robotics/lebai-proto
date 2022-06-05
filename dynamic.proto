@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "posture.proto";
+
+package lebai.dynamic;
+
+message Payload {
+  /// 负载质量
+  double mass = 1;
+  /// 负载重心偏移位置
+  posture.Position cog = 2;
+}
+message PayloadMass {
+  /// 负载质量
+  double mass = 1;
+}
+message PayloadCog {
+  /// 负载重心偏移位置
+  posture.Position cog = 1;
+}
+message Gravity {
+  /// 地心引力
+  posture.Position gravity = 1;
+}
+
+/// 动力学相关服务
+service DynamicService {
+  // 设置当前负载
+  rpc SetPayload(Payload) returns (google.protobuf.Empty);
+  // 设置当前负载质量
+  rpc SetPayloadMass(PayloadMass) returns (google.protobuf.Empty);
+  // 设置当前负载重心偏移位置
+  rpc SetPayloadCog(PayloadCog) returns (google.protobuf.Empty);
+  // 获取当前负载
+  rpc GetPayload(google.protobuf.Empty) returns (Payload);
+  // 设置当前地心引力
+  rpc SetGravity(Gravity) returns (google.protobuf.Empty);
+  // 获取当前地心引力
+  rpc GetGravity(google.protobuf.Empty) returns (posture.Position);
+}
