@@ -1,0 +1,151 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "status.proto";
+
+package lebai.led;
+
+/// LED工作模式
+enum LedMode {
+  /// 无动作
+  HoldLed = 0x0;
+  /// 关闭
+  CloseLed = 0x1;
+  /// 常亮
+  OpenLed = 0x2;
+  ///呼吸
+  Breath = 0x3;
+  ///四块流水
+  Four = 0x4;
+  ///同色流水
+  Water = 0x5;
+  ///闪烁
+  Blink = 0x6;
+}
+/// LED运行速度
+enum LedSpeed {
+  /// 无动作
+  HoldLedSpeed = 0x0;
+  /// 快速
+  Fast = 0x1;
+  /// 中速
+  Normal = 0x2;
+  ///慢速
+  Slow = 0x3;
+}
+/// LED颜色
+enum LedColor {
+  /// #ff0000
+  Red = 0;
+  /// #00ff00
+  Green = 1;
+  /// #0000ff
+  Blue = 2;
+  /// #ff00ff
+  Pink = 3;
+  /// #ffff00
+  Yellow = 4;
+  /// #00fff
+  Cyan = 5;
+  /// #808080
+  Gray = 6;
+  /// #a52a2a
+  Brown = 7;
+  /// #ffa500
+  Orange = 8;
+  /// #ffd700
+  Gold = 9;
+  /// #4b0082
+  Indigo = 10;
+  /// #87cefa
+  LightSkyBlue = 11;
+  /// #9400d3
+  DarkViolet = 12;
+  /// #d2691e
+  Chocolate = 13;
+  /// #ff9e9a
+  LightRed = 14;
+  /// #ffffff
+  White = 15;
+}
+/// LED样式
+message LedData {
+  LedMode mode = 1;
+  LedSpeed speed = 2;
+  repeated LedColor color = 3;
+}
+
+/// 风扇工作模式
+enum FanMode {
+  /// 无动作
+  HoldFan = 0x0;
+  /// 关闭
+  CloseFan = 0x1;
+  /// 打开
+  OpenFan = 0x2;
+}
+message FanData {
+  FanMode mode = 1;
+}
+
+/// 语音ID
+enum VoiceKind {
+  Off = 0;
+  Booting = 1;
+  Stoping = 2;
+  CollisionDetected = 3;
+  Upgrade = 4;
+  TeachModeOn = 5;
+  TeachModeOff = 6;
+  FineTunningOn = 7;
+  FineTunningOff = 8;
+  FineTunningChange = 9;
+  Boring = 10;
+  Custom1 = 11;
+  Custom2 = 12;
+  Custom3 = 13;
+  Custom4 = 14;
+  Custom5 = 15;
+}
+/// 语音音量
+enum Volume {
+  /// 静音
+  Mute = 0;
+  /// 低
+  Low = 1;
+  /// 中
+  Mid = 2;
+  /// 高
+  High = 3;
+}
+/// 声音样式
+message VoiceData {
+  VoiceKind voice = 2;
+  Volume volume = 3;
+}
+
+/// 声光交互样式
+message LedStyle {
+  LedData led = 1;
+  VoiceKind voice = 2;
+  Volume volume = 3;
+}
+/// 机器人状态对应的声光交互样式
+message LedStyleItem {
+  status.RobotState state = 1;
+  LedStyle style = 2;
+}
+/// 声光交互样式集
+message LedStyles {
+  map<int32, LedStyle> styles = 1;
+}
+
+/// 灯板声光风扇相关服务
+service LedService {
+  rpc SetLedStyle(LedStyleItem) returns (google.protobuf.Empty);
+  rpc SetLedStyles(LedStyles) returns (google.protobuf.Empty);
+  rpc GetLedStyles(google.protobuf.Empty) returns (LedStyles);
+  rpc SetLed(LedData) returns (google.protobuf.Empty);
+  rpc SetVoice(VoiceData) returns (google.protobuf.Empty);
+  rpc SetFan(FanData) returns (google.protobuf.Empty);
+}
