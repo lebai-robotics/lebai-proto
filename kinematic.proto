@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "posture.proto";
+
+package lebai.kinematic;
+
+/// 关节DH参数
+message DhParam {
+  double a = 1;
+  double alpha = 2;
+  double d = 3;
+  double theta = 4;
+}
+message DhParams {
+  repeated DhParam params = 1;
+}
+
+/// 速度因子(0~100)
+message VelocityFactor {
+  /// 速度因子(0~100)
+  int32 scale = 1;
+}
+
+/// 工具中心点
+message Tcp {
+  posture.CartesianPose pose = 1;
+}
+
+/// 运动学相关服务
+service KinematicService {
+  /// 设置DH参数
+  rpc SetDh(DhParams) returns (google.protobuf.Empty);
+  /// 获取DH参数
+  rpc GetDh(google.protobuf.Empty) returns (DhParams);
+  /// 设置速度因子
+  rpc SetVelocityFactor(VelocityFactor) returns (google.protobuf.Empty);
+  /// 获取速度因子
+  rpc GetVelocityFactor(google.protobuf.Empty) returns (VelocityFactor);
+  /// 设置工具中心点
+  rpc SetTcp(Tcp) returns (google.protobuf.Empty);
+  /// 获取工具中心点
+  rpc GetTcp(google.protobuf.Empty) returns (Tcp);
+}
