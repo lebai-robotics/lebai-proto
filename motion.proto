@@ -25,6 +25,15 @@ message SpeedRequest {
   repeated double velocities = 1;
   MoveParam param = 11;
 }
+message JointMove {
+  double p = 1;
+  double v = 2;
+  double a = 3;
+}
+message MovePvatRequest {
+  double duration = 11;
+  repeated JointMove joints = 1;
+}
 
 enum ForceSensor {
   /// 禁用外力传感器
@@ -76,7 +85,7 @@ service MotionService {
   // 圆形运动
   rpc Movec(MovecRequest) returns (google.protobuf.Empty);
   // 关节空间运动
-  rpc MovePavt(MoveRequest) returns (google.protobuf.Empty);
+  rpc MovePvat(MovePvatRequest) returns (google.protobuf.Empty);
 
   // 关节匀速运动
   rpc SpeedJ(SpeedRequest) returns (google.protobuf.Empty);
@@ -91,9 +100,9 @@ service MotionService {
   /// 读取末端受力
   rpc GetTcpForce(google.protobuf.Empty) returns (Wrench);
   /// 设置力控传感器选型
-  rpc SetForceSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
+  rpc SetForceModeSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
   /// 设置力控参数
-  rpc SetForceParam(ForceModeParam) returns (google.protobuf.Empty);
+  rpc SetForceModeParam(ForceModeParam) returns (google.protobuf.Empty);
   /// 进入力控模式
   rpc ForceMode(ForceModeRequest) returns (google.protobuf.Empty);
   /// 退出力控模式
