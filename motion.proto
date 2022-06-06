@@ -13,13 +13,89 @@ message MoveParam {
 }
 message MoveRequest {
   posture.Pose pose = 1;
-  double param = 2;
+  MoveParam param = 11;
+}
+message MovecRequest {
+  posture.Pose pose_via = 1;
+  posture.Pose pose = 2;
+  double rad = 3;
+  MoveParam param = 11;
+}
+message SpeedRequest {
+  repeated double velocities = 1;
+  MoveParam param = 11;
+}
+
+enum ForceSensor {
+  /// 禁用外力传感器
+  Disable = 0;
+  /// 内部瞬时算法估算
+  Instantaneous = 1;
+  /// 内部连续算法估算
+  Continuous = 2;
+  /// 一维重力传感器
+  Weight1 = 11;
+}
+message SetForceSensorRequest {
+  ForceSensor sensor = 1;
+}
+message Wrench {
+  /// 受力大小
+  posture.Position force = 1;
+  /// 扭矩大小
+  posture.Position torque = 2;
+}
+message ForceModeRequest {
+  /// 限速
+  posture.CartesianPose limit = 1;
+  /// 控制力
+  Wrench wrench = 2;
+}
+message ForceModeParam {
+  /// 启动力阈值
+  double threshold = 1;
+  /// 阻尼系数
+  double damping = 2;
+  /// 物体重量
+  double mass = 3;
 }
 
 /// 机器人运动相关服务
 service MotionService {
+  // 停止所有运动
+  rpc StopMove(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 跳过当前运动
+  rpc SkipMove(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 等待运动结束
+  rpc WaitMove(google.protobuf.Empty) returns (google.protobuf.Empty);
+
   // 关节空间运动
   rpc Movej(MoveRequest) returns (google.protobuf.Empty);
   // 直线运动
   rpc Movel(MoveRequest) returns (google.protobuf.Empty);
+  // 圆形运动
+  rpc Movec(MovecRequest) returns (google.protobuf.Empty);
+  // 关节空间运动
+  rpc MovePavt(MoveRequest) returns (google.protobuf.Empty);
+
+  // 关节匀速运动
+  rpc SpeedJ(SpeedRequest) returns (google.protobuf.Empty);
+  // 沿直线匀速运动
+  rpc SpeedL(SpeedRequest) returns (google.protobuf.Empty);
+
+  // 进入示教模式
+  rpc TeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 退出示教模式
+  rpc EndTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+  /// 读取末端受力
+  rpc GetTcpForce(google.protobuf.Empty) returns (Wrench);
+  /// 设置力控传感器选型
+  rpc SetForceSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
+  /// 设置力控参数
+  rpc SetForceParam(ForceModeParam) returns (google.protobuf.Empty);
+  /// 进入力控模式
+  rpc ForceMode(ForceModeRequest) returns (google.protobuf.Empty);
+  /// 退出力控模式
+  rpc EndForceMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
