@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
-import "posture.proto";
 
 package lebai.safety;
 
@@ -27,19 +26,36 @@ message CollisionDetector {
   uint32 sensitivity = 3;
 }
 
+message JointLimit {
+  double min_position = 1;
+  double max_position = 2;
+  double max_a = 3;
+  double max_v = 4;
+}
+message CartesianLimit {
+  double max_a = 1;
+  double max_v = 2;
+  double eq_radius = 3;
+}
+
+message SetCollisionDetectorRequest {
+  CollisionDetector detector = 1;
+}
 message SetJointLimitRequest {
-  posture.JointPose limit = 1;
+  repeated JointLimit limit = 1;
 }
 message SetCarttLimitRequest {
-  posture.CartesianPose limit = 1;
+  CartesianLimit limit = 1;
 }
 
 /// 操作安全相关服务
 service SafetyService {
   // 设置碰撞监测误差
-  rpc SetCollisionTorqueDiff(CollisionTorqueDiff) returns (google.protobuf.Empty);
+  rpc SetCollisionTorqueDiff(CollisionTorqueDiff)
+      returns (google.protobuf.Empty);
   // 设置碰撞监测
-  rpc SetCollisionDetector(CollisionDetector) returns (google.protobuf.Empty);
+  rpc SetCollisionDetector(SetCollisionDetectorRequest)
+      returns (google.protobuf.Empty);
   // 读取碰撞监测
   rpc GetCollisionDetector(google.protobuf.Empty) returns (CollisionDetector);
   // 使能限位检测
