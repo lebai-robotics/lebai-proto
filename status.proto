@@ -56,8 +56,10 @@ message RobotData {
 message SubRobotDataRequest {
   // 订阅的字段
   repeated string keys = 1;
+  // 保证每次推送至少间隔interval时间(ms)
+  uint64 interval_min = 11;
   // 保证interval时间(ms)内至少推送1次
-  uint64 interval = 2;
+  uint64 interval_max = 12;
 }
 /// 机器人状态相关服务
 service StatusService {
