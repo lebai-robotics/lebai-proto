@@ -21,9 +21,14 @@ message MovecRequest {
   double rad = 3;
   MoveParam param = 11;
 }
-message SpeedRequest {
-  repeated double velocities = 1;
+message SpeedJRequest {
+  posture.JointPose velocity = 1;
   MoveParam param = 11;
+}
+message SpeedLRequest {
+  posture.CartesianPose velocity = 1;
+  MoveParam param = 11;
+  posture.CartesianFrame base = 21;
 }
 message JointMove {
   double p = 1;
@@ -88,9 +93,9 @@ service MotionService {
   rpc MovePvat(MovePvatRequest) returns (google.protobuf.Empty);
 
   // 关节匀速运动
-  rpc SpeedJ(SpeedRequest) returns (google.protobuf.Empty);
+  rpc SpeedJ(SpeedJRequest) returns (google.protobuf.Empty);
   // 沿直线匀速运动
-  rpc SpeedL(SpeedRequest) returns (google.protobuf.Empty);
+  rpc SpeedL(SpeedLRequest) returns (google.protobuf.Empty);
 
   // 进入示教模式
   rpc TeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
