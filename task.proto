@@ -22,6 +22,8 @@ enum TaskState {
   FAIL = 5;
   /// 开始运行，已弃用
   BEGIN = 11;
+  /// 任务停止中
+  INTERRUPTING = 14;
 }
 
 message TaskModel {
