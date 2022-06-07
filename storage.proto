@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package lebai.storage;
+
+message ItemKey {
+  string key = 1;
+}
+message Item {
+  string key = 1;
+  string value = 2;
+}
+
+/// 用户数据存储相关服务
+service StorageService {
+  /// 设置kv数据
+  rpc SetItem(Item) returns (google.protobuf.Empty);
+  /// 获取kv数据
+  rpc GetItem(ItemKey) returns (Item);
+}

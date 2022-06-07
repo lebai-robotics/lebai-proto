@@ -73,7 +73,7 @@ message ForceModeParam {
 service MotionService {
   // 停止所有运动
   rpc StopMove(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 跳过当前运动
+  // 跳过当前运动(已弃用)
   rpc SkipMove(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 等待运动结束
   rpc WaitMove(google.protobuf.Empty) returns (google.protobuf.Empty);
