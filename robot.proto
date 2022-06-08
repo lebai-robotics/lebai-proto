@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "sql.proto";
+
+package lebai.robot;
+
+enum RobotKind {
+  LM3 = 0;
+  LM3_L1 = 1;
+}
+
+message RobotModel {
+  uint32 id = 1;
+  sql.DataStatus status = 2;
+  uint32 top = 3;
+  uint32 user_id = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+
+  // 激活状态
+  bool active = 10;
+  // 名称
+  string name = 11;
+  // 型号
+  RobotKind kind = 12;
+  // 自由度
+  uint32 dof = 13;
+  // DH参数
+  string dh = 14;
+  // 动力学参数
+  string dyn = 15;
+  // 伺服参数
+  string servo = 16;
+}
+
+message RobotModelFields {
+  /// 有效字段
+  repeated string mark = 1;
+  RobotModel model = 2;
+}
+
+message RobotSaveRequest {
+  sql.Ids ids = 1;
+  RobotModelFields fields = 2;
+}
+
+message RobotListRequest {
+  sql.ListFilter filter = 1;
+  RobotModelFields exact = 2;
+}
+
+message RobotListResponse {
+  repeated RobotModel list = 1;
+  sql.Pagination pager = 2;
+}
+
+/// 机器人手臂相关服务
+service RobotService {
+  // 保存机器人模型
+  rpc SaveRobot(RobotSaveRequest) returns (RobotModel);
+  // 查询机器人模型
+  rpc LoadRobot(sql.IndexRequest) returns (RobotModel);
+  // 查询机器人模型列表
+  rpc LoadRobotList(RobotListRequest) returns (RobotListResponse);
+}
