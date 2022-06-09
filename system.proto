@@ -6,13 +6,13 @@ package lebai.system;
 
 message SystemInfoResponse {
   string name = 1;
-  string kernel_version = 2;
-  string os_version = 3;
-  string host_name = 4;
-  uint32 total_memory = 11;
-  uint32 used_memory = 12;
-  uint32 total_swap = 13;
-  uint32 used_swap = 14;
+  string kernel_version = 2 [json_name = "kernel_version"];
+  string os_version = 3 [json_name = "os_version"];
+  string host_name = 4 [json_name = "host_name"];
+  uint32 total_memory = 11 [json_name = "total_memory"];
+  uint32 used_memory = 12 [json_name = "used_memory"];
+  uint32 total_swap = 13 [json_name = "total_swap"];
+  uint32 used_swap = 14 [json_name = "used_swap"];
   repeated string disks = 21;
   repeated string networks = 31;
   repeated string components = 41;

@@ -82,10 +82,10 @@ message CartesianFrame {
     /// 自定义
     CUSTOM = 99;
   }
-  Kind position_kind = 1;
+  Kind position_kind = 1 [json_name = "position_kind"];
   /// 自定义位置，仅position_kind=CUSTOM时生效
   Position position = 2;
-  Kind rotation_kind = 3;
+  Kind rotation_kind = 3 [json_name = "rotation_kind"];
   /// 自定义姿态，仅rotation_kind=CUSTOM时生效
   Rotation rotation = 4;
 }

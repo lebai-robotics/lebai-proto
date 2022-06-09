@@ -23,9 +23,9 @@ message SceneModel {
   uint32 id = 1;
   sql.DataStatus status = 2;
   uint32 top = 3;
-  uint32 user_id = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  uint32 user_id = 4 [json_name = "user_id"];
+  google.protobuf.Timestamp created_at = 5 [json_name = "created_at"];
+  google.protobuf.Timestamp updated_at = 6 [json_name = "updated_at"];
 
   // 场景名
   string name = 11;
@@ -34,11 +34,11 @@ message SceneModel {
   string source = 13;
   string code = 14;
   // 运行前是否校验位置
-  bool check_first = 15;
+  bool check_first = 15 [json_name = "check_first"];
   // 检验位置
   string first = 16;
   // 循环运行次数
-  uint32 loop_to = 17;
+  uint32 loop_to = 17 [json_name = "loop_to"];
   string debug = 18;
 }
 
@@ -66,7 +66,7 @@ message SceneListResponse {
 message SceneRunRequest {
   sql.IdOrKey index = 1;
   // 是否以主任务方式运行
-  bool is_main = 2;
+  bool is_main = 2 [json_name = "is_main"];
 }
 
 message SceneRunResponse {

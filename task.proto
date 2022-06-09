@@ -30,32 +30,32 @@ message TaskModel {
   uint32 id = 1;
   sql.DataStatus status = 2;
   uint32 top = 3;
-  uint32 user_id = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
+  uint32 user_id = 4 [json_name = "user_id"];
+  google.protobuf.Timestamp created_at = 5 [json_name = "created_at"];
+  google.protobuf.Timestamp updated_at = 6 [json_name = "updated_at"];
 
   // 事件ID，已弃用
-  uint32 event_id = 11;
+  uint32 event_id = 11 [json_name = "event_id"];
   // 任务运行状态
   TaskState state = 12;
   //已完成的循环次数
-  uint32 loop_count = 13;
+  uint32 loop_count = 13 [json_name = "loop_count"];
   //循环次数，默认为1。为0表示无限循环
-  uint32 loop_to = 14;
+  uint32 loop_to = 14 [json_name = "loop_to"];
   //是否为获得手臂控制权的主任务
-  bool is_main = 15;
+  bool is_main = 15 [json_name = "is_main"];
   //是否为仿真模式
-  bool is_simu = 16;
+  bool is_simu = 16 [json_name = "is_simu"];
   /// 输出
   string stdout = 17;
   // 启动运行时间
-  google.protobuf.Timestamp started_at = 18;
+  google.protobuf.Timestamp started_at = 18 [json_name = "started_at"];
   // 结束运行时间
-  google.protobuf.Timestamp ended_at = 19;
+  google.protobuf.Timestamp ended_at = 19 [json_name = "ended_at"];
   // 暂停运行时间
-  google.protobuf.Timestamp pause_at = 20;
+  google.protobuf.Timestamp pause_at = 20 [json_name = "pause_at"];
   /// 之前总共暂停用时ms，不包括本次暂停
-  uint32 pre_pause = 21;
+  uint32 pre_pause = 21 [json_name = "pre_pause"];
   /// 运行该任务时原始的场景记录
   string record = 22;
 }

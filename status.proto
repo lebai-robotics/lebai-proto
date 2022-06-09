@@ -37,19 +37,19 @@ enum RobotState {
 }
 
 message RobotData {
-  RobotState robot_state = 1;
-  repeated double actual_joint = 2;
-  repeated double actual_pose = 3;
-  repeated double actual_vel = 4;
-  repeated double actual_acc = 5;
-  repeated double actual_torque = 6;
-  double flange_current = 7;
-  repeated double joint_current = 8;
-  repeated double target_joint = 9;
-  repeated double target_pose = 10;
-  repeated double target_vel = 11;
-  repeated double target_acc = 12;
-  repeated double target_torque = 13;
+  RobotState robot_state = 1 [json_name = "robot_state"];
+  repeated double actual_joint = 2 [json_name = "actual_joint"];
+  repeated double actual_pose = 3 [json_name = "actual_pose"];
+  repeated double actual_vel = 4 [json_name = "actual_vel"];
+  repeated double actual_acc = 5 [json_name = "actual_acc"];
+  repeated double actual_torque = 6 [json_name = "actual_torque"];
+  double flange_current = 7 [json_name = "flange_current"];
+  repeated double joint_current = 8 [json_name = "joint_current"];
+  repeated double target_joint = 9 [json_name = "target_joint"];
+  repeated double target_pose = 10 [json_name = "target_pose"];
+  repeated double target_vel = 11 [json_name = "target_vel"];
+  repeated double target_acc = 12 [json_name = "target_acc"];
+  repeated double target_torque = 13 [json_name = "target_torque"];
   repeated double temp = 14;
 }
 
@@ -57,9 +57,9 @@ message SubRobotDataRequest {
   // 订阅的字段
   repeated string keys = 1;
   // 保证每次推送至少间隔interval时间(ms)
-  uint64 interval_min = 11;
+  uint64 interval_min = 11 [json_name = "interval_min"];
   // 保证interval时间(ms)内至少推送1次
-  uint64 interval_max = 12;
+  uint64 interval_max = 12 [json_name = "interval_max"];
 }
 /// 机器人状态相关服务
 service StatusService {

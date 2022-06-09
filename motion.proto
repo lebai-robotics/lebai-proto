@@ -16,7 +16,7 @@ message MoveRequest {
   MoveParam param = 11;
 }
 message MovecRequest {
-  posture.Pose pose_via = 1;
+  posture.Pose pose_via = 1 [json_name = "pose_via"];
   posture.Pose pose = 2;
   double rad = 3;
   MoveParam param = 11;

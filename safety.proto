@@ -21,21 +21,21 @@ message CollisionDetector {
   /// 碰撞后执行操作
   CollisionDetectorAction action = 1;
   /// action为PAUSE时生效，暂停时间(s)
-  uint32 pause_time = 2;
+  uint32 pause_time = 2 [json_name = "pause_time"];
   /// 灵敏度[0~100]
   uint32 sensitivity = 3;
 }
 
 message JointLimit {
-  double min_position = 1;
-  double max_position = 2;
-  double max_a = 3;
-  double max_v = 4;
+  double min_position = 1 [json_name = "min_position"];
+  double max_position = 2 [json_name = "max_position"];
+  double max_a = 3 [json_name = "max_a"];
+  double max_v = 4 [json_name = "max_v"];
 }
 message CartesianLimit {
-  double max_a = 1;
-  double max_v = 2;
-  double eq_radius = 3;
+  double max_a = 1 [json_name = "max_a"];
+  double max_v = 2 [json_name = "max_v"];
+  double eq_radius = 3 [json_name = "eq_radius"];
 }
 
 message SetCollisionDetectorRequest {

@@ -7,10 +7,10 @@ package lebai.motor;
 
 /// 伺服参数
 message ServoParam {
-  double position_kp = 1;
-  double speed_kp = 2;
-  double speed_it = 3;
-  double torque_cmd_filter = 4;
+  double position_kp = 1 [json_name = "position_kp"];
+  double speed_kp = 2 [json_name = "speed_kp"];
+  double speed_it = 3 [json_name = "speed_it"];
+  double torque_cmd_filter = 4 [json_name = "torque_cmd_filter"];
 }
 message ServoParams {
   repeated ServoParam params = 1;
