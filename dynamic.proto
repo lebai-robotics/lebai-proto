@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "posture.proto";
+import "sql.proto";
 
 package lebai.dynamic;
 
@@ -26,6 +27,12 @@ message Gravity {
 
 /// 动力学相关服务
 service DynamicService {
+  // 保存负载
+  rpc SavePayload(sql.DataSaveRequest) returns (sql.DataModel);
+  // 查询负载
+  rpc LoadPayload(sql.IndexRequest) returns (sql.DataModel);
+  // 查询负载列表
+  rpc LoadPayloadList(sql.DataListRequest) returns (sql.DataListResponse);
   // 设置当前负载
   rpc SetPayload(Payload) returns (google.protobuf.Empty);
   // 设置当前负载质量

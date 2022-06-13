@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "sql.proto";
+
 package lebai.posture;
 
 /// 关节空间 关节角
@@ -126,6 +128,18 @@ message PoseTimesRequest {
 
 /// 位姿算法相关服务
 service PostureService {
+  // 保存路点
+  rpc SavePose(sql.DataSaveRequest) returns (sql.DataModel);
+  // 查询路点
+  rpc LoadPose(sql.IndexRequest) returns (sql.DataModel);
+  // 查询路点列表
+  rpc LoadPoseList(sql.DataListRequest) returns (sql.DataListResponse);
+  // 保存特征
+  rpc SaveFrame(sql.DataSaveRequest) returns (sql.DataModel);
+  // 查询特征
+  rpc LoadFrame(sql.IndexRequest) returns (sql.DataModel);
+  // 查询特征列表
+  rpc LoadFrameList(sql.DataListRequest) returns (sql.DataListResponse);
   // 正解
   rpc KinematicsForward(PoseRequest) returns (CartesianPose);
   // 反解

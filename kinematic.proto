@@ -3,6 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "posture.proto";
+import "sql.proto";
 
 package lebai.kinematic;
 
@@ -38,6 +39,12 @@ service KinematicService {
   rpc SetVelocityFactor(VelocityFactor) returns (google.protobuf.Empty);
   /// 获取速度因子
   rpc GetVelocityFactor(google.protobuf.Empty) returns (google.protobuf.Int32Value);
+  // 保存工具中心点
+  rpc SaveTcp(sql.DataSaveRequest) returns (sql.DataModel);
+  // 查询工具中心点
+  rpc LoadTcp(sql.IndexRequest) returns (sql.DataModel);
+  // 查询工具中心点列表
+  rpc LoadTcpList(sql.DataListRequest) returns (sql.DataListResponse);
   /// 设置工具中心点
   rpc SetTcp(Tcp) returns (google.protobuf.Empty);
   /// 获取工具中心点

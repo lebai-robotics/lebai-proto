@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "status.proto";
+import "sql.proto";
 
 package lebai.led;
 
@@ -142,6 +143,12 @@ message LedStyles {
 
 /// 灯板声光风扇相关服务
 service LedService {
+  // 保存声光样式
+  rpc SaveLedStyle(sql.DataSaveRequest) returns (sql.DataModel);
+  // 查询声光样式
+  rpc LoadLedStyle(sql.IndexRequest) returns (sql.DataModel);
+  // 查询声光样式列表
+  rpc LoadLedStyleList(sql.DataListRequest) returns (sql.DataListResponse);
   rpc SetLedStyle(LedStyleItem) returns (google.protobuf.Empty);
   rpc SetLedStyles(LedStyles) returns (google.protobuf.Empty);
   rpc GetLedStyles(google.protobuf.Empty) returns (LedStyles);

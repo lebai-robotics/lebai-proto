@@ -58,6 +58,42 @@ enum DataStatus {
   DELETED = 3;
 }
 
+/// 通用数据库模型
+message DataModel {
+  uint32 id = 1;
+  sql.DataStatus status = 2;
+  uint32 top = 3;
+  uint32 user_id = 4[json_name="user_id"];
+  google.protobuf.Timestamp created_at = 5[json_name="created_at"];
+  google.protobuf.Timestamp updated_at = 6[json_name="updated_at"];
+
+  // 名称
+  string name = 11;
+  // JSON数据
+  string data = 12;
+}
+
+message DataModelFields {
+  /// 有效字段
+  repeated string mark = 1;
+  DataModel model = 2;
+}
+
+message DataSaveRequest {
+  sql.Ids ids = 1;
+  DataModelFields fields = 2;
+}
+
+message DataListRequest {
+  sql.ListFilter filter = 1;
+  DataModelFields exact = 2;
+}
+
+message DataListResponse {
+  repeated DataModel list = 1;
+  sql.Pagination pager = 2;
+}
+
 message IndexRequest {
   IdOrKey index = 1;
 }
