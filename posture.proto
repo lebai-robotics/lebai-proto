@@ -16,8 +16,10 @@ message JointFrame {
   enum Kind {
     /// 关节零位
     BASE = 0;
-    /// 当前关节位置
+    /// 当前位置的关节位置，以收到指令时为准
     CURRENT = 1;
+    /// 上个目标点的关节位置
+    LAST = 11;
     /// 指定关节位置
     CUSTOM = 99;
   }
@@ -77,10 +79,14 @@ message CartesianFrame {
   enum Kind {
     /// 基座
     BASE = 0;
-    /// 法兰平面
+    /// 当前位置的法兰平面，以收到指令时为准
     FLANGE = 1;
-    /// TCP
+    /// 当前位置的TCP，以收到指令时为准
     TCP = 2;
+    /// 上个目标点的法兰平面
+    LAST_FLANGE = 11;
+    /// 上个目标点的TCP
+    LAST_TCP = 12;
     /// 自定义
     CUSTOM = 99;
   }
