@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "sql.proto";
+
+package lebai.log;
+
+message CallModel {
+  uint32 id = 1;
+  sql.DataStatus status = 2;
+  uint32 top = 3;
+  uint32 user_id = 4 [json_name = "user_id"];
+  google.protobuf.Timestamp created_at = 5 [json_name = "created_at"];
+  google.protobuf.Timestamp updated_at = 6 [json_name = "updated_at"];
+
+  // 方法名
+  string method = 11;
+  // 入参
+  string params = 12;
+}
+
+message CallModelFields {
+  /// 有效字段
+  repeated string mark = 1;
+  CallModel model = 2;
+}
+
+message CallListRequest {
+  sql.ListFilter filter = 1;
+  CallModelFields exact = 2;
+}
+
+message CallListResponse {
+  repeated CallModel list = 1;
+  sql.Pagination pager = 2;
+}
+
+/// 日志相关服务
+service LogService {
+  // 查询调用日志列表
+  rpc LoadCallLogList(CallListRequest) returns (CallListResponse);
+}
