@@ -48,6 +48,12 @@ message MovePvatRequest {
   repeated JointMove joints = 1;
 }
 
+message Wrench {
+  /// 受力大小
+  posture.Position force = 1;
+  /// 扭矩大小
+  posture.Position torque = 2;
+}
 enum ForceSensor {
   /// 禁用外力传感器
   Disable = 0;
@@ -58,14 +64,11 @@ enum ForceSensor {
   /// 一维重力传感器
   Weight1 = 11;
 }
+message SetTcpForceRequest {
+  Wrench force = 1;
+}
 message SetForceSensorRequest {
   ForceSensor sensor = 1;
-}
-message Wrench {
-  /// 受力大小
-  posture.Position force = 1;
-  /// 扭矩大小
-  posture.Position torque = 2;
 }
 message ForceModeRequest {
   /// 限速
@@ -110,6 +113,8 @@ service MotionService {
   // 退出示教模式
   rpc EndTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 
+  /// 设置末端受力
+  rpc SetTcpForce(SetTcpForceRequest) returns (google.protobuf.Empty);
   /// 读取末端受力
   rpc GetTcpForce(google.protobuf.Empty) returns (Wrench);
   /// 设置力控传感器选型
