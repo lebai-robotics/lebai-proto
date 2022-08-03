@@ -4,6 +4,10 @@ import "google/protobuf/empty.proto";
 
 package lebai.system;
 
+message HelloData {
+  string data = 1;
+}
+
 message SystemInfoResponse {
   string name = 1;
   string kernel_version = 2 [json_name = "kernel_version"];
@@ -21,6 +25,8 @@ message SystemInfoResponse {
 
 /// 系统控制相关服务
 service SystemService {
+  /// Hello
+  rpc Hello(HelloData) returns (HelloData);
   /// 系统信息
   rpc SystemInfo(google.protobuf.Empty) returns (SystemInfoResponse);
   /// 关闭机器人电源（关机）
