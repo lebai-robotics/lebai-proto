@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package lebai.db;
+
+message SaveRequest {
+  string dir = 1;
+  string name = 2;
+  /// 通用JSON数据
+  string data = 11;
+}
+
+message LoadRequest {
+  string dir = 1;
+  string name = 2;
+}
+message LoadResponse {
+  /// 通用JSON数据
+  string data = 11;
+}
+message LoadListRequest {
+  string dir = 1;
+}
+message LoadListResponse {
+  /// list of data name
+  repeated string names = 11;
+}
+
+message Dir {
+  string name = 1;
+}
+
+message GetDirsResponse {
+  repeated Dir dirs = 1;
+}
+
+/// 数据库存储相关服务
+service DbService {
+  /// 创建目录
+  rpc SetDir(Dir) returns (google.protobuf.Empty);
+  /// 获取目录列表
+  rpc GetDirs(google.protobuf.Empty) returns (GetDirsResponse);
+}

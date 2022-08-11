@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "sql.proto";
+import "db.proto";
 
 package lebai.task;
 
@@ -27,13 +27,6 @@ enum TaskState {
 }
 
 message TaskModel {
-  uint32 id = 1;
-  sql.DataStatus status = 2;
-  uint32 top = 3;
-  uint32 user_id = 4 [json_name = "user_id"];
-  google.protobuf.Timestamp created_at = 5 [json_name = "created_at"];
-  google.protobuf.Timestamp updated_at = 6 [json_name = "updated_at"];
-
   // 事件ID，已弃用
   uint32 event_id = 11 [json_name = "event_id"];
   // 任务运行状态
@@ -59,21 +52,6 @@ message TaskModel {
   /// 运行该任务时原始的场景记录
   string record = 22;
 }
-message TaskModelFields {
-  /// 有效字段
-  repeated string mark = 1;
-  TaskModel model = 2;
-}
-
-message TaskListRequest {
-  sql.ListFilter filter = 1;
-  TaskModelFields exact = 2;
-}
-
-message TaskListResponse {
-  repeated TaskModel list = 1;
-  sql.Pagination pager = 2;
-}
 
 message TaskStdout {
   bool done = 1;
@@ -90,17 +68,17 @@ message PauseRequest {
 /// 任务相关服务
 service TaskService {
   // 查询任务
-  rpc LoadTask(sql.IdRequest) returns (TaskModel);
+  rpc LoadTask(db.LoadRequest) returns (TaskModel);
   // 查询任务列表
-  rpc LoadTaskList(TaskListRequest) returns (TaskListResponse);
+  rpc LoadTaskList(db.LoadListRequest) returns (db.LoadListResponse);
   // 获取任务输出
-  rpc GetTaskStdout(sql.IdRequest) returns (TaskStdout);
+  rpc GetTaskStdout(db.LoadRequest) returns (TaskStdout);
   // 订阅任务输出流
-  rpc SubTaskStdout(sql.IdRequest) returns (stream TaskStdout);
+  rpc SubTaskStdout(db.LoadRequest) returns (stream TaskStdout);
   /// 暂停任务与运动
   rpc Pause(PauseRequest) returns (google.protobuf.Empty);
   /// 恢复任务与运动
   rpc Resume(google.protobuf.Empty) returns (google.protobuf.Empty);
   /// 取消任务与运动
-  rpc Cancel(sql.IdsRequest) returns (google.protobuf.Empty);
+  rpc Cancel(db.LoadRequest) returns (google.protobuf.Empty);
 }
