@@ -29,9 +29,11 @@ message LoadListResponse {
 
 message Dir {
   string name = 1;
+  /// 内部ID，重命名后ID不变
+  uint32 id = 2;
 }
 
-message GetDirsResponse {
+message Dirs {
   repeated Dir dirs = 1;
 }
 
@@ -40,5 +42,5 @@ service DbService {
   /// 创建目录
   rpc SetDir(Dir) returns (google.protobuf.Empty);
   /// 获取目录列表
-  rpc GetDirs(google.protobuf.Empty) returns (GetDirsResponse);
+  rpc GetDirs(google.protobuf.Empty) returns (Dirs);
 }
