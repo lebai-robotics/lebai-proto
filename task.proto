@@ -86,7 +86,7 @@ service TaskService {
   // 查询任务
   rpc LoadTask(TaskId) returns (Task);
   // 查询任务列表
-  rpc LoadTasks(google.protobuf.Empty) returns (TaskIds);
+  rpc LoadTaskList(google.protobuf.Empty) returns (TaskIds);
   // 查询运行中的任务列表
   rpc LoadRunningTasks(google.protobuf.Empty) returns (Tasks);
   // 获取任务输出

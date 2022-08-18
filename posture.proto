@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-import "sql.proto";
+import "google/protobuf/empty.proto";
+import "db.proto";
 
 package lebai.posture;
 
@@ -119,6 +120,24 @@ message Pose {
     CartesianTargetPose cart = 2;
   }
 }
+message SavePoseRequest {
+  string name = 1;
+  Pose data = 2;
+  string dir = 11;
+}
+
+/// 枚举 参考系
+message Frame {
+  oneof frame {
+    JointFrame joint = 1;
+    CartesianFrame cart = 2;
+  }
+}
+message SaveFrameRequest {
+  string name = 1;
+  Frame data = 2;
+  string dir = 11;
+}
 
 message PoseRequest {
   Pose pose = 1;
@@ -135,17 +154,17 @@ message PoseTimesRequest {
 /// 位姿算法相关服务
 service PostureService {
   // 保存路点
-  rpc SavePose(sql.DataSaveRequest) returns (sql.DataModel);
+  rpc SavePose(SavePoseRequest) returns (google.protobuf.Empty);
   // 查询路点
-  rpc LoadPose(sql.IndexRequest) returns (sql.DataModel);
+  rpc LoadPose(db.LoadRequest) returns (Pose);
   // 查询路点列表
-  rpc LoadPoseList(sql.DataListRequest) returns (sql.DataListResponse);
+  rpc LoadPoseList(db.LoadListRequest) returns (db.LoadListResponse);
   // 保存特征
-  rpc SaveFrame(sql.DataSaveRequest) returns (sql.DataModel);
+  rpc SaveFrame(SaveFrameRequest) returns (google.protobuf.Empty);
   // 查询特征
-  rpc LoadFrame(sql.IndexRequest) returns (sql.DataModel);
+  rpc LoadFrame(db.LoadRequest) returns (Frame);
   // 查询特征列表
-  rpc LoadFrameList(sql.DataListRequest) returns (sql.DataListResponse);
+  rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
   // 正解
   rpc KinematicsForward(PoseRequest) returns (CartesianPose);
   // 反解
