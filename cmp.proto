@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package lebai.cmp;
+
+enum Logic {
+  // 与
+  AND = 0;
+  // 或
+  OR = 2;
+  // 非
+  NOT = 3;
+}
+
+enum Relation {
+  // 等于
+  EQ = 0;
+  // 不等于
+  NEQ = 2;
+  //小于
+  LT = 3;
+  //小于或等于
+  LTE = 4;
+  //大于
+  GT = 5;
+  //大于或等于
+  GTE = 6;
+}
