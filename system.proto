@@ -8,7 +8,7 @@ message HelloData {
   string data = 1;
 }
 
-message SystemInfoResponse {
+message SystemInfo {
   string name = 1;
   string kernel_version = 2 [json_name = "kernel_version"];
   string os_version = 3 [json_name = "os_version"];
@@ -23,12 +23,51 @@ message SystemInfoResponse {
   repeated string processes = 51;
 }
 
+enum RobotModel {
+  LM3 = 0;
+  LM3_L1 = 1;
+  LM3_J5L = 2;
+  LM6J = 11;
+}
+
+message RobotInfo {
+  /// 设备名称（唯一），形如 `lebai-123456`。存在文件。
+  string name = 1;
+  /// 设备型号，如 `LM6J`, `LM3`。存在文件。
+  string model = 2;
+  /// 设备物理唯一标识（以太网 MAC 地址）。存在文件。初始值从 DS 获取。
+  string mac = 3;
+  /// 机器人序列号/主机箱(main_box)序列号/控制箱序列号 `C`。存在文件。
+  string robot = 4;
+  /// 手臂序列号/本机序列号 `R`。存在文件。
+  string arm = 5;
+  // 设备绑定的hash值
+  string cup = 21;
+}
+
+message HardwareInfo {
+  string comboard = 1;
+  repeated string joints = 2;
+  string flange = 3;
+  string led = 4;
+}
+
+message SoftwareInfo {
+  string rc_version = 1 [json_name = "rc_version"];
+}
+
 /// 系统控制相关服务
 service SystemService {
   /// Hello
   rpc Hello(HelloData) returns (HelloData);
   /// 系统信息
-  rpc SystemInfo(google.protobuf.Empty) returns (SystemInfoResponse);
+  rpc GetSystemInfo(google.protobuf.Empty) returns (SystemInfo);
+  /// 机械臂信息
+  rpc GetRobotInfo(google.protobuf.Empty) returns (RobotInfo);
+  /// 硬件信息
+  rpc GetHardwareInfo(google.protobuf.Empty) returns (HardwareInfo);
+  /// 软件信息
+  rpc GetSoftwareInfo(google.protobuf.Empty) returns (SoftwareInfo);
   /// 关闭机器人电源（关机）
   rpc Powerdown(google.protobuf.Empty) returns (google.protobuf.Empty);
   /// 启动机器人（上电）
