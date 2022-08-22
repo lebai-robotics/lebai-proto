@@ -3,15 +3,18 @@ syntax = "proto3";
 package lebai.signal;
 
 message SetSignalRequest {
+  // 取值范围0~255
   uint32 key = 1;
   int32 value  = 2;
 }
 message WaitSignalRequest {
+  // 取值范围0~255
   uint32 key = 1;
   int32 value = 2;
   string relation = 3;
 }
 message GetSignalRequest {
+  // 取值范围0~255
   uint32 key = 1;
 }
 message GetSignalResponse {
