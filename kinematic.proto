@@ -2,8 +2,8 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "db.proto";
 import "posture.proto";
-import "sql.proto";
 
 package lebai.kinematic;
 
@@ -28,9 +28,21 @@ message VelocityFactor {
 message Tcp {
   posture.CartesianPose pose = 1;
 }
+message SaveTcpRequest {
+  string name = 1;
+  Tcp data = 2;
+  string dir = 11;
+}
 
 /// 运动学相关服务
 service KinematicService {
+  // 保存/修改/删除工具中心点
+  rpc SaveTcp(SaveTcpRequest) returns (google.protobuf.Empty);
+  // 查询工具中心点
+  rpc LoadTcp(db.LoadRequest) returns (Tcp);
+  // 查询工具中心点列表
+  rpc LoadTcpList(db.LoadListRequest) returns (db.LoadListResponse);
+
   /// 设置DH参数
   rpc SetDh(DhParams) returns (google.protobuf.Empty);
   /// 获取DH参数
@@ -39,12 +51,6 @@ service KinematicService {
   rpc SetVelocityFactor(VelocityFactor) returns (google.protobuf.Empty);
   /// 获取速度因子
   rpc GetVelocityFactor(google.protobuf.Empty) returns (google.protobuf.Int32Value);
-  // 保存工具中心点
-  rpc SaveTcp(sql.DataSaveRequest) returns (sql.DataModel);
-  // 查询工具中心点
-  rpc LoadTcp(sql.IndexRequest) returns (sql.DataModel);
-  // 查询工具中心点列表
-  rpc LoadTcpList(sql.DataListRequest) returns (sql.DataListResponse);
   /// 设置工具中心点
   rpc SetTcp(Tcp) returns (google.protobuf.Empty);
   /// 获取工具中心点

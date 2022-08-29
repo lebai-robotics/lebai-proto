@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "db.proto";
 import "posture.proto";
-import "sql.proto";
 
 package lebai.dynamic;
 
@@ -11,6 +11,11 @@ message Payload {
   double mass = 1;
   /// 负载重心偏移位置
   posture.Position cog = 2;
+}
+message SavePayloadRequest {
+  string name = 1;
+  Payload data = 2;
+  string dir = 11;
 }
 message PayloadMass {
   /// 负载质量
@@ -27,12 +32,13 @@ message Gravity {
 
 /// 动力学相关服务
 service DynamicService {
-  // 保存负载
-  rpc SavePayload(sql.DataSaveRequest) returns (sql.DataModel);
+  // 保存/修改/删除负载
+  rpc SavePayload(SavePayloadRequest) returns (google.protobuf.Empty);
   // 查询负载
-  rpc LoadPayload(sql.IndexRequest) returns (sql.DataModel);
+  rpc LoadPayload(db.LoadRequest) returns (Payload);
   // 查询负载列表
-  rpc LoadPayloadList(sql.DataListRequest) returns (sql.DataListResponse);
+  rpc LoadPayloadList(db.LoadListRequest) returns (db.LoadListResponse);
+
   // 设置当前负载
   rpc SetPayload(Payload) returns (google.protobuf.Empty);
   // 设置当前负载质量
