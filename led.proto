@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "status.proto";
-import "sql.proto";
+import "db.proto";
 
 package lebai.led;
 
@@ -131,6 +131,11 @@ message LedStyle {
   VoiceKind voice = 2;
   Volume volume = 3;
 }
+message SaveLedStyleRequest {
+  string name = 1;
+  LedStyle data = 2;
+  string dir = 11;
+}
 /// 机器人状态对应的声光交互样式
 message LedStyleItem {
   status.RobotState state = 1;
@@ -143,12 +148,12 @@ message LedStyles {
 
 /// 灯板声光风扇相关服务
 service LedService {
-  // 保存声光样式
-  rpc SaveLedStyle(sql.DataSaveRequest) returns (sql.DataModel);
+  // 保存/修改/删除声光样式
+  rpc SaveLedStyle(SaveLedStyleRequest) returns (google.protobuf.Empty);
   // 查询声光样式
-  rpc LoadLedStyle(sql.IndexRequest) returns (sql.DataModel);
+  rpc LoadLedStyle(db.LoadRequest) returns (LedStyle);
   // 查询声光样式列表
-  rpc LoadLedStyleList(sql.DataListRequest) returns (sql.DataListResponse);
+  rpc LoadLedStyleList(db.LoadListRequest) returns (db.LoadListResponse);
   rpc SetLedStyle(LedStyleItem) returns (google.protobuf.Empty);
   rpc SetLedStyles(LedStyles) returns (google.protobuf.Empty);
   rpc GetLedStyles(google.protobuf.Empty) returns (LedStyles);
