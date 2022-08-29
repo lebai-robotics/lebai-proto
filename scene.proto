@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-import "sql.proto";
+import "google/protobuf/empty.proto";
+import "db.proto";
 
 package lebai.scene;
 
@@ -19,14 +19,7 @@ enum SceneKind {
   PYTHON = 5;
 }
 
-message SceneModel {
-  uint32 id = 1;
-  sql.DataStatus status = 2;
-  uint32 top = 3;
-  uint32 user_id = 4 [json_name = "user_id"];
-  google.protobuf.Timestamp created_at = 5 [json_name = "created_at"];
-  google.protobuf.Timestamp updated_at = 6 [json_name = "updated_at"];
-
+message Scene {
   // 场景名
   string name = 11;
   // 场景类型
@@ -41,49 +34,34 @@ message SceneModel {
   uint32 loop_to = 17 [json_name = "loop_to"];
   string debug = 18;
 }
-
-message SceneModelFields {
-  /// 有效字段
-  repeated string mark = 1;
-  SceneModel model = 2;
+message SaveSceneRequest {
+  string name = 1;
+  Scene data = 2;
+  string dir = 11;
 }
 
-message SceneSaveRequest {
-  sql.Ids ids = 1;
-  SceneModelFields fields = 2;
-}
-
-message SceneListRequest {
-  sql.ListFilter filter = 1;
-  SceneModelFields exact = 2;
-}
-
-message SceneListResponse {
-  repeated SceneModel list = 1;
-  sql.Pagination pager = 2;
-}
-
-message SceneRunRequest {
-  sql.IdOrKey index = 1;
+message RunSceneRequest {
+  string name = 1;
   // 是否以主任务方式运行
   bool is_main = 2 [json_name = "is_main"];
   // 循环次数，默认1
   uint32 toop_to = 3 [json_name = "toop_to"];
+  string dir = 11;
 }
 
-message SceneRunResponse {
+message RunSceneResponse {
   // 任务Id
   uint32 task = 1;
 }
 
 /// 任务相关服务
 service SceneService {
-  // 保存场景
-  rpc SaveScene(SceneSaveRequest) returns (SceneModel);
+  // 保存/修改/删除场景
+  rpc SaveScene(SaveSceneRequest) returns (google.protobuf.Empty);
   // 查询场景
-  rpc LoadScene(sql.IndexRequest) returns (SceneModel);
+  rpc LoadScene(db.LoadRequest) returns (Scene);
   // 查询场景列表
-  rpc LoadSceneList(SceneListRequest) returns (SceneListResponse);
+  rpc LoadSceneList(db.LoadListRequest) returns (db.LoadListResponse);
   // 运行场景，返回任务ID
-  rpc Scene(SceneRunRequest) returns (SceneRunResponse);
+  rpc RunScene(RunSceneRequest) returns (RunSceneResponse);
 }

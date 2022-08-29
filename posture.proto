@@ -153,22 +153,18 @@ message PoseTimesRequest {
 
 /// 位姿算法相关服务
 service PostureService {
-  // 保存路点
+  // 保存/修改/删除路点
   rpc SavePose(SavePoseRequest) returns (google.protobuf.Empty);
   // 查询路点
   rpc LoadPose(db.LoadRequest) returns (Pose);
   // 查询路点列表
   rpc LoadPoseList(db.LoadListRequest) returns (db.LoadListResponse);
-  // 删除路点
-  rpc DeletePose(db.DeleteRequest) returns (google.protobuf.Empty);
-  // 保存特征
+  // 保存/修改/删除特征
   rpc SaveFrame(SaveFrameRequest) returns (google.protobuf.Empty);
   // 查询特征
   rpc LoadFrame(db.LoadRequest) returns (Frame);
   // 查询特征列表
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
-  // 删除特征
-  rpc DeleteFrame(db.DeleteRequest) returns (google.protobuf.Empty);
   // 正解
   rpc KinematicsForward(PoseRequest) returns (CartesianPose);
   // 反解
