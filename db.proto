@@ -26,6 +26,10 @@ message LoadListResponse {
   /// list of data name
   repeated string names = 2;
 }
+message DeleteRequest {
+  string name = 1;
+  string dir = 11;
+}
 
 message Dir {
   string name = 1;
