@@ -3,14 +3,14 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "db.proto";
 
-package lebai.robot;
+package lebai.structure;
 
 enum RobotKind {
   LM3 = 0;
   LM3_L1 = 1;
 }
 
-message Robot {
+message Structure {
   // 激活状态
   bool active = 10;
   // 名称
@@ -26,18 +26,18 @@ message Robot {
   // 伺服参数
   string servo = 16;
 }
-message SaveRobotRequest {
+message SaveStructureRequest {
   string name = 1;
-  Robot data = 2;
+  Structure data = 2;
   string dir = 11;
 }
 
 /// 机器人手臂相关服务
-service RobotService {
+service StructureService {
   // 保存机器人模型
-  rpc SaveRobot(SaveRobotRequest) returns (google.protobuf.Empty);
+  rpc SaveStructure(SaveStructureRequest) returns (google.protobuf.Empty);
   // 查询机器人模型
-  rpc LoadRobot(db.LoadRequest) returns (Robot);
+  rpc LoadStructure(db.LoadRequest) returns (Structure);
   // 查询机器人模型列表
-  rpc LoadRobotList(db.LoadListRequest) returns (db.LoadListResponse);
+  rpc LoadStructureList(db.LoadListRequest) returns (db.LoadListResponse);
 }
