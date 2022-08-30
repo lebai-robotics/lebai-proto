@@ -1,0 +1,153 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "db.proto";
+
+package lebai.modbus;
+
+// Modbus设备类型
+enum ModbusKind {
+  // 机箱IO
+  ROBOT = 0;
+  // 法兰IO
+  FLANGE = 1;
+  // 拓展IO
+  EXTRA = 2;
+  // 法兰ModBus
+  MODBUS_FLANGE = 3;
+  /// ModBus RTU
+  MODBUS_RTU = 4;
+  /// ModBus TCP
+  MODBUS_TCP = 5;
+}
+
+// Modbus设备
+message Modbus {
+  // 名称
+  string name = 11;
+  // 类型
+  ModbusKind kind = 12;
+  /// IP地址 或 串口地址
+  string address = 13;
+  /// TCP端口号 或 串口波特率
+  uint32 port = 14;
+  /// ModBus从机地址
+  uint32 slave_id = 15 [json_name = "slave_id"];
+  // 使能
+  bool enabled = 21;
+  // 在线
+  bool online = 22;
+}
+message SaveModbusRequest {
+  string name = 1;
+  Modbus data = 2;
+  string dir = 11;
+}
+
+// Modbus寄存器类型
+enum ModbusRegisterKind {
+  // DI
+  DISCRETE_INPUT = 0;
+  // DO
+  COIL = 1;
+  // AI
+  INPUT_REGISTER = 2;
+  // AO
+  HOLDING_REGISTER = 3;
+}
+
+// Modbus寄存器
+message ModbusRegister {
+  string device = 8;
+
+  // 名称
+  string name = 11;
+  ModbusRegisterKind kind = 12;
+  // ModBus内存地址
+  uint32 address = 13;
+
+  // 使能
+  bool enabled = 21;
+  // 使能按键功能(仅DI可用)
+  bool is_button = 22 [json_name = "is_button"];
+  // 轮询更新间隔(毫秒) 0为不自动更新 建议大于70
+  uint32 interval = 23;
+  // 比较精度（小数点后若干位），默认为小数点后 5 位
+  uint32 precision = 24;
+  // 原始值
+  uint32 value = 25;
+}
+message SaveModbusRegisterRequest {
+  string device = 1;
+  string name = 2;
+  ModbusRegister data = 11;
+}
+message LoadModbusRegisterRequest {
+  string device = 1;
+  string name = 2;
+}
+message LoadModbusRegisterListRequest {
+  string device = 1;
+}
+
+message SetRegisterRequest {
+  string device = 1;
+  string pin = 2;
+  uint32 value = 11;
+}
+message SetRegistersRequest {
+  string device = 1;
+  string pin = 2;
+  repeated uint32 values = 11;
+}
+message GetRegisterRequest {
+  string device = 1;
+  string pin = 2;
+}
+message GetRegisterResponse {
+  uint32 value = 11;
+}
+message GetRegistersRequest {
+  string device = 1;
+  string pin = 2;
+  uint32 count = 11;
+}
+message GetRegistersResponse {
+  repeated uint32 values = 11;
+}
+
+/// Modbus相关服务
+service ModbusService {
+  // 保存Modbus设备
+  rpc SaveModbus(SaveModbusRequest) returns (google.protobuf.Empty);
+  // 查询Modbus设备
+  rpc LoadModbus(db.LoadRequest) returns (Modbus);
+  // 查询Modbus设备列表
+  rpc LoadModbusList(db.LoadListRequest) returns (db.LoadListResponse);
+  // 保存Modbus寄存器
+  rpc SaveModbusRegister(SaveModbusRegisterRequest)
+      returns (google.protobuf.Empty);
+  // 查询Modbus寄存器
+  rpc LoadModbusRegister(LoadModbusRegisterRequest) returns (ModbusRegister);
+  // 查询Modbus寄存器列表
+  rpc LoadModbusRegisterList(LoadModbusRegisterListRequest)
+      returns (db.LoadListResponse);
+
+  // Get DIs
+  rpc ReadDiscreteInputs(GetRegistersRequest) returns (GetRegistersResponse);
+  // Get DOs
+  rpc ReadCoils(GetRegistersRequest) returns (GetRegistersResponse);
+  // Set DO
+  rpc WriteSingleCoil(SetRegisterRequest) returns (google.protobuf.Empty);
+  // Set DOs
+  rpc WriteMultipleCoils(SetRegistersRequest) returns (google.protobuf.Empty);
+  // Get AIs
+  rpc ReadInputRegisters(GetRegistersRequest) returns (GetRegistersResponse);
+  // Get AOs
+  rpc ReadHoldingRegisters(GetRegistersRequest) returns (GetRegistersResponse);
+  // Set AO
+  rpc WriteSingleRegister(SetRegisterRequest) returns (google.protobuf.Empty);
+  // Set AOs
+  rpc WriteMultipleRegisters(SetRegistersRequest)
+      returns (google.protobuf.Empty);
+}
