@@ -94,6 +94,8 @@ service MotionService {
   // 等待运动结束
   rpc WaitMove(google.protobuf.Empty) returns (google.protobuf.Empty);
 
+  // 关节空间跟随运动
+  rpc Towardj(MoveRequest) returns (google.protobuf.Empty);
   // 关节空间运动
   rpc Movej(MoveRequest) returns (google.protobuf.Empty);
   // 直线运动
