@@ -35,10 +35,10 @@ message RotationMatrix {
   repeated double matrix = 1;
 }
 /// 欧拉角
-message Euler {
-  double roll = 1;
-  double pitch = 2;
-  double yaw = 3;
+message EulerZyx {
+  double x = 1;
+  double y = 2;
+  double z = 3;
 }
 /// 四元组
 message Quaternion {
@@ -49,11 +49,9 @@ message Quaternion {
 }
 /// 枚举 姿态
 message Rotation {
-  oneof rotation {
-    Euler euler = 1;
-    Quaternion quaternion = 2;
-    RotationMatrix matrix = 3;
-  }
+  EulerZyx euler_zyx = 1 [json_name = "euler_zyx"];
+  Quaternion quaternion = 2;
+  RotationMatrix matrix = 3;
 }
 /// 位置
 message Position {
