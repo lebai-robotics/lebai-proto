@@ -102,6 +102,8 @@ service RobotController {
   // 停止当前移动
   rpc StopMove(google.protobuf.Empty) returns (CmdId);
 
+  // 跟随移动
+  rpc TowardJ(MoveJRequest) returns (CmdId);
   // 圆弧移动
   rpc MoveC(MoveCRequest) returns (CmdId);
   // 关节空间线性移动
