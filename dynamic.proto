@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "db.proto";
 import "posture.proto";
 
@@ -12,18 +13,16 @@ message Payload {
   /// 负载重心偏移位置
   posture.Position cog = 2;
 }
+message SetPayloadRequest {
+  /// 负载质量
+  google.protobuf.DoubleValue mass = 1;
+  /// 负载重心偏移位置
+  posture.Position cog = 2;
+}
 message SavePayloadRequest {
   string name = 1;
   Payload data = 2;
   string dir = 11;
-}
-message PayloadMass {
-  /// 负载质量
-  double mass = 1;
-}
-message PayloadCog {
-  /// 负载重心偏移位置
-  posture.Position cog = 1;
 }
 message Gravity {
   /// 地心引力
@@ -40,15 +39,11 @@ service DynamicService {
   rpc LoadPayloadList(db.LoadListRequest) returns (db.LoadListResponse);
 
   // 设置当前负载
-  rpc SetPayload(Payload) returns (google.protobuf.Empty);
-  // 设置当前负载质量
-  rpc SetPayloadMass(PayloadMass) returns (google.protobuf.Empty);
-  // 设置当前负载重心偏移位置
-  rpc SetPayloadCog(PayloadCog) returns (google.protobuf.Empty);
+  rpc SetPayload(SetPayloadRequest) returns (google.protobuf.Empty);
   // 获取当前负载
   rpc GetPayload(google.protobuf.Empty) returns (Payload);
   // 设置当前地心引力
   rpc SetGravity(Gravity) returns (google.protobuf.Empty);
   // 获取当前地心引力
-  rpc GetGravity(google.protobuf.Empty) returns (posture.Position);
+  rpc GetGravity(google.protobuf.Empty) returns (Gravity);
 }

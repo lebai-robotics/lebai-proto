@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "posture.proto";
 
 package lebai.motion;
@@ -64,13 +65,10 @@ enum ForceSensor {
   /// 一维重力传感器
   Weight1 = 11;
 }
-message SetTcpForceRequest {
-  Wrench force = 1;
-}
 message SetForceSensorRequest {
   ForceSensor sensor = 1;
 }
-message ForceModeRequest {
+message StartForceModeRequest {
   /// 限速
   posture.CartesianPose limit = 1;
   /// 控制力
@@ -83,6 +81,14 @@ message ForceModeParam {
   double damping = 2;
   /// 物体重量
   double mass = 3;
+}
+message SetForceModeParamRequest {
+  /// 启动力阈值
+  google.protobuf.DoubleValue threshold = 1;
+  /// 阻尼系数
+  google.protobuf.DoubleValue damping = 2;
+  /// 物体重量
+  google.protobuf.DoubleValue mass = 3;
 }
 
 /// 机器人运动相关服务
@@ -116,15 +122,15 @@ service MotionService {
   rpc EndTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 
   /// 设置末端受力
-  rpc SetTcpForce(SetTcpForceRequest) returns (google.protobuf.Empty);
+  rpc SetTcpForce(Wrench) returns (google.protobuf.Empty);
   /// 读取末端受力
   rpc GetTcpForce(google.protobuf.Empty) returns (Wrench);
   /// 设置力控传感器选型
   rpc SetForceModeSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
   /// 设置力控参数
-  rpc SetForceModeParam(ForceModeParam) returns (google.protobuf.Empty);
+  rpc SetForceModeParam(SetForceModeParamRequest) returns (google.protobuf.Empty);
   /// 进入力控模式
-  rpc ForceMode(ForceModeRequest) returns (google.protobuf.Empty);
+  rpc StartForceMode(StartForceModeRequest) returns (google.protobuf.Empty);
   /// 退出力控模式
   rpc EndForceMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

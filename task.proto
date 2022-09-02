@@ -94,9 +94,9 @@ service TaskService {
   // 订阅任务输出流
   rpc SubTaskStdout(TaskId) returns (stream TaskStdout);
   /// 暂停任务与运动
-  rpc Pause(PauseRequest) returns (google.protobuf.Empty);
+  rpc PauseTask(PauseRequest) returns (google.protobuf.Empty);
   /// 恢复任务与运动
-  rpc Resume(TaskId) returns (google.protobuf.Empty);
+  rpc ResumeTask(TaskId) returns (google.protobuf.Empty);
   /// 取消任务与运动
-  rpc Cancel(TaskId) returns (google.protobuf.Empty);
+  rpc CancelTask(TaskId) returns (google.protobuf.Empty);
 }

@@ -163,6 +163,7 @@ service PostureService {
   rpc LoadFrame(db.LoadRequest) returns (Frame);
   // 查询特征列表
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
+
   // 正解
   rpc KinematicsForward(PoseRequest) returns (CartesianPose);
   // 反解

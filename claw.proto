@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "cmp.proto";
 
 package lebai.claw;
@@ -29,20 +30,22 @@ message Claw {
 message InitClawRequest {
   bool force = 1;
 }
+message SetClawRequest {
+  google.protobuf.DoubleValue force = 1;
+  google.protobuf.DoubleValue amplitude = 2;
+  google.protobuf.DoubleValue weight = 3;
+}
 message SetClawAoRequest {
   Address address = 1;
   double value = 2;
 }
-message GetClawHoldOnResponse {
-  bool hold_on = 1 [json_name = "hold_on"];
-}
-message GetClawAoRequest {
+message GetClawAiRequest {
   Address address = 1;
 }
-message GetClawAoResponse {
+message GetClawAiResponse {
   double value = 2;
 }
-message WaitClawAoRequest {
+message WaitClawAiRequest {
   Address address = 1;
   double value = 2;
   cmp.Relation relation = 3;
@@ -53,13 +56,13 @@ service ClawService {
   /// 初始化手爪
   rpc InitClaw(InitClawRequest) returns (google.protobuf.Empty);
   /// 设置手爪数据
-  rpc SetClaw(Claw) returns (google.protobuf.Empty);
+  rpc SetClaw(SetClawRequest) returns (google.protobuf.Empty);
   /// 获取手爪幅度是否稳定
-  rpc GetClawHoldOn(google.protobuf.Empty) returns (GetClawHoldOnResponse);
+  rpc GetClaw(google.protobuf.Empty) returns (Claw);
   /// 设置手爪指定数据
-  rpc SetClawAio(SetClawAoRequest) returns (google.protobuf.Empty);
+  rpc SetClawAo(SetClawAoRequest) returns (google.protobuf.Empty);
   /// 读取手爪指定数据
-  rpc GetClawAio(GetClawAoRequest) returns (GetClawAoResponse);
+  rpc GetClawAi(GetClawAiRequest) returns (GetClawAiResponse);
   /// 等待手爪指定数据
-  rpc WaitClawAio(WaitClawAoRequest) returns (google.protobuf.Empty);
+  rpc WaitClawAi(WaitClawAiRequest) returns (google.protobuf.Empty);
 }

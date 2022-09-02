@@ -154,6 +154,7 @@ service LedService {
   rpc LoadLedStyle(db.LoadRequest) returns (LedStyle);
   // 查询声光样式列表
   rpc LoadLedStyleList(db.LoadListRequest) returns (db.LoadListResponse);
+
   rpc SetLedStyle(LedStyleItem) returns (google.protobuf.Empty);
   rpc SetLedStyles(LedStyles) returns (google.protobuf.Empty);
   rpc GetLedStyles(google.protobuf.Empty) returns (LedStyles);
