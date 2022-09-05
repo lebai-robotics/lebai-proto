@@ -29,3 +29,17 @@ pbjs -t json-module -w commonjs -o lebai.js ./*.proto
 ```bash
 pbjs -t static-module ./*.proto | pbts -o lebai.d.ts -
 ```
+
+## Python
+
+### 安装
+
+```bash
+python -m pip install grpcio-tools
+```
+
+### 构造文件
+
+```bash
+python -m grpc_tools.protoc -I./ --python_out=./python --grpc_python_out=./python ./*.proto
+```
