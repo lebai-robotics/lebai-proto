@@ -5,15 +5,27 @@ import "google/protobuf/empty.proto";
 package lebai.file;
 
 message File {
+  bool is_dir = 3 [json_name = "is_dir"];
+  bytes data = 10;
+}
+message FileIndex {
   string dir = 1;
   string name = 2;
-  bytes data = 10;
 }
 message FileName {
   string name = 2;
   bool is_dir = 10 [json_name = "is_dir"];
 }
 
+message SaveFileRequest {
+  string dir = 1;
+  string name = 2;
+  File file = 10;
+}
+message RenameFileRequest {
+  FileIndex from = 1;
+  FileIndex to = 2;
+}
 message LoadFileRequest {
   string dir = 1;
   string name = 2;
@@ -29,9 +41,11 @@ message LoadFileListResponse {
 /// 文件存储相关服务
 service FileService {
   // 保存文件
-  rpc SaveFile(File) returns (google.protobuf.Empty);
+  rpc SaveFile(SaveFileRequest) returns (google.protobuf.Empty);
+  // 重命名文件
+  rpc RenameFile(RenameFileRequest) returns (google.protobuf.Empty);
   // 查询文件
-  rpc LoadFile(LoadFileRequest) returns (File);
+  rpc LoadFile(LoadFileRequest) returns (SaveFileRequest);
   // 查询文件列表
   rpc LoadFileList(LoadFileListRequest) returns (LoadFileListResponse);
 }
