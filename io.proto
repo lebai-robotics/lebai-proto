@@ -28,50 +28,70 @@ enum AnalogMode {
   CURRENT = 1;
 }
 
-message SetIoPinRequest {
+message SetDoPinRequest {
   IoDevice device = 1;
   uint32 pin = 2;
   uint32 value = 11;
 }
-message SetIoPinsRequest {
+message SetDoPinsRequest {
   IoDevice device = 1;
   uint32 pin = 2;
   repeated uint32 values = 11;
 }
-message WaitIoPinRequest {
-  IoDevice device = 1;
-  uint32 pin = 2;
-  uint32 value = 11;
-  cmp.Relation relation = 12;
-}
-message GetIoPinRequest {
+message GetDioPinRequest {
   IoDevice device = 1;
   uint32 pin = 2;
 }
-message GetIoPinResponse {
+message GetDioPinResponse {
   uint32 value = 11;
 }
-message GetIoPinsRequest {
+message GetDioPinsRequest {
   IoDevice device = 1;
   uint32 pin = 2;
   uint32 count = 11;
 }
-message GetIoPinsResponse {
+message GetDioPinsResponse {
   repeated uint32 values = 11;
+}
+
+message SetAoPinRequest {
+  IoDevice device = 1;
+  uint32 pin = 2;
+  double value = 11;
+}
+message SetAoPinsRequest {
+  IoDevice device = 1;
+  uint32 pin = 2;
+  repeated double values = 11;
+}
+message GetAioPinRequest {
+  IoDevice device = 1;
+  uint32 pin = 2;
+}
+message GetAioPinResponse {
+  double value = 11;
+}
+message GetAioPinsRequest {
+  IoDevice device = 1;
+  uint32 pin = 2;
+  uint32 count = 11;
+}
+message GetAioPinsResponse {
+  repeated double values = 11;
 }
 
 /// IO相关服务
 service IoService {
-  rpc GetDi(GetIoPinRequest) returns (GetIoPinResponse);
-  rpc GetDis(GetIoPinsRequest) returns (GetIoPinsResponse);
-  rpc GetDo(GetIoPinRequest) returns (GetIoPinResponse);
-  rpc GetDos(GetIoPinsRequest) returns (GetIoPinsResponse);
-  rpc SetDo(SetIoPinRequest) returns (google.protobuf.Empty);
-  rpc SetDos(SetIoPinsRequest) returns (google.protobuf.Empty);
-  rpc GetAi(GetIoPinRequest) returns (GetIoPinResponse);
-  rpc GetAis(GetIoPinsRequest) returns (GetIoPinsResponse);
-  rpc GetAo(GetIoPinRequest) returns (GetIoPinResponse);
-  rpc GetAos(GetIoPinsRequest) returns (GetIoPinsResponse);
-  rpc SetAo(SetIoPinRequest) returns (google.protobuf.Empty);
-  rpc SetAos(SetIoPinsRequest) returns (google.protobuf.Empty);
+  rpc GetDi(GetDioPinRequest) returns (GetDioPinResponse);
+  rpc GetDis(GetDioPinsRequest) returns (GetDioPinsResponse);
+  rpc GetDo(GetDioPinRequest) returns (GetDioPinResponse);
+  rpc GetDos(GetDioPinsRequest) returns (GetDioPinsResponse);
+  rpc SetDo(SetDoPinRequest) returns (google.protobuf.Empty);
+  rpc SetDos(SetDoPinsRequest) returns (google.protobuf.Empty);
+  rpc GetAi(GetAioPinRequest) returns (GetAioPinResponse);
+  rpc GetAis(GetAioPinsRequest) returns (GetAioPinsResponse);
+  rpc GetAo(GetAioPinRequest) returns (GetAioPinResponse);
+  rpc GetAos(GetAioPinsRequest) returns (GetAioPinsResponse);
+  rpc SetAo(SetAoPinRequest) returns (google.protobuf.Empty);
+  rpc SetAos(SetAoPinsRequest) returns (google.protobuf.Empty);
 }

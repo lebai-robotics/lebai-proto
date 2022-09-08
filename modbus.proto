@@ -90,6 +90,32 @@ message LoadModbusRegisterListRequest {
   string device = 1;
 }
 
+message SetCoilRequest {
+  string device = 1;
+  string pin = 2;
+  bool value = 11;
+}
+message SetCoilsRequest {
+  string device = 1;
+  string pin = 2;
+  repeated bool values = 11;
+}
+message GetCoilRequest {
+  string device = 1;
+  string pin = 2;
+}
+message GetCoilResponse {
+  bool value = 11;
+}
+message GetCoilsRequest {
+  string device = 1;
+  string pin = 2;
+  uint32 count = 11;
+}
+message GetCoilsResponse {
+  repeated bool values = 11;
+}
+
 message SetRegisterRequest {
   string device = 1;
   string pin = 2;
@@ -134,13 +160,13 @@ service ModbusService {
       returns (db.LoadListResponse);
 
   // Get DIs
-  rpc ReadDiscreteInputs(GetRegistersRequest) returns (GetRegistersResponse);
+  rpc ReadDiscreteInputs(GetCoilsRequest) returns (GetCoilsResponse);
   // Get DOs
-  rpc ReadCoils(GetRegistersRequest) returns (GetRegistersResponse);
+  rpc ReadCoils(GetCoilsRequest) returns (GetCoilsResponse);
   // Set DO
-  rpc WriteSingleCoil(SetRegisterRequest) returns (google.protobuf.Empty);
+  rpc WriteSingleCoil(SetCoilRequest) returns (google.protobuf.Empty);
   // Set DOs
-  rpc WriteMultipleCoils(SetRegistersRequest) returns (google.protobuf.Empty);
+  rpc WriteMultipleCoils(SetCoilsRequest) returns (google.protobuf.Empty);
   // Get AIs
   rpc ReadInputRegisters(GetRegistersRequest) returns (GetRegistersResponse);
   // Get AOs
