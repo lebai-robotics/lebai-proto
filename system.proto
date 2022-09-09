@@ -45,11 +45,53 @@ message RobotInfo {
   string cup = 21;
 }
 
+enum FirmwarePartition {
+  A = 0;
+  B = 1;
+  C = 2;
+  UNKNOWN = 3;
+}
+message ComboardInfo {
+  string sn = 1;
+  string version = 2;
+  FirmwarePartition partition = 3;
+  uint32 di_num = 11 [json_name = "di_num"];
+  uint32 do_num = 12 [json_name = "do_num"];
+  uint32 ai_num = 13 [json_name = "ai_num"];
+  uint32 ao_num = 14 [json_name = "ao_num"];
+}
+message JointInfo {
+  string sn = 1;
+  string version = 2;
+  FirmwarePartition partition = 3;
+}
+message FlangeInfo {
+  string sn = 1;
+  string version = 2;
+  FirmwarePartition partition = 3;
+  uint32 di_num = 11 [json_name = "di_num"];
+  uint32 do_num = 12 [json_name = "do_num"];
+  uint32 ai_num = 13 [json_name = "ai_num"];
+  uint32 ao_num = 14 [json_name = "ao_num"];
+}
+message LedInfo {
+  string sn = 1;
+  string version = 2;
+  FirmwarePartition partition = 3;
+}
+message ExtraIoInfo {
+  bool valid = 1;
+  uint32 di_num = 11 [json_name = "di_num"];
+  uint32 do_num = 12 [json_name = "do_num"];
+  uint32 ai_num = 13 [json_name = "ai_num"];
+  uint32 ao_num = 14 [json_name = "ao_num"];
+}
 message HardwareInfo {
-  string comboard = 1;
-  repeated string joints = 2;
-  string flange = 3;
-  string led = 4;
+  ComboardInfo comboard = 1;
+  repeated JointInfo joints = 2;
+  FlangeInfo flange = 3;
+  LedInfo led = 4;
+  ExtraIoInfo extra_io = 11 [json_name = "extra_io"];
 }
 
 message SoftwareInfo {
