@@ -19,6 +19,27 @@ message SetZeroRequest {
   posture.JointPose pose = 1;
 }
 
+message ExtraServoParam {
+  double acc_position_kp = 1 [json_name = "acc_position_kp"];
+  double acc_speed_kp = 2 [json_name = "acc_speed_kp"];
+  double acc_speed_it = 3 [json_name = "acc_speed_it"];
+  double uni_position_kp = 4 [json_name = "uni_position_kp"];
+  double uni_speed_kp = 5 [json_name = "uni_speed_kp"];
+  double uni_speed_it = 6 [json_name = "uni_speed_it"];
+  double dec_position_kp = 7 [json_name = "dec_position_kp"];
+  double dec_speed_kp = 8 [json_name = "dec_speed_kp"];
+  double dec_speed_it = 9 [json_name = "dec_speed_it"];
+}
+
+message ExtraServoParams {
+  repeated ExtraServoParam params = 1;
+  repeated bool valids = 2;
+}
+
+message ResetExtraServoParamsRequest {
+  repeated bool valids = 1;
+}
+
 /// 关节电机相关服务
 service MotorService {
   /// 设置伺服参数
@@ -27,4 +48,8 @@ service MotorService {
   rpc GetServoParams(google.protobuf.Empty) returns (ServoParams);
   /// 设置关节零位
   rpc SetZero(SetZeroRequest) returns (google.protobuf.Empty);
+  /// 设置所有extra伺服参数
+  rpc SetExtraServoParams(ExtraServoParams) returns (google.protobuf.Empty);
+  /// 重置extra伺服参数
+  rpc ResetExtraServoParams(ResetExtraServoParamsRequest) returns (google.protobuf.Empty);
 }
