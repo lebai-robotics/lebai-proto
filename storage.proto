@@ -11,6 +11,10 @@ message Item {
   string key = 1;
   string value = 2;
 }
+
+message GetItemsRequest {
+  string prefix = 1;
+}
 message Items {
   repeated Item items = 1;
 }
@@ -21,6 +25,6 @@ service StorageService {
   rpc SetItem(Item) returns (google.protobuf.Empty);
   /// 获取kv数据
   rpc GetItem(ItemKey) returns (Item);
-  /// 获取kv数据,支持使用%模糊匹配
-  rpc GetItems(ItemKey) returns (Items);
+  /// 获取指定前缀的全部kv数据
+  rpc GetItems(GetItemsRequest) returns (Items);
 }
