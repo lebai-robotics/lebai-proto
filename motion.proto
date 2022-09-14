@@ -101,23 +101,23 @@ service MotionService {
   rpc WaitMove(google.protobuf.Empty) returns (google.protobuf.Empty);
 
   // 关节空间跟随运动
-  rpc Towardj(MoveRequest) returns (google.protobuf.Empty);
+  rpc TowardJoint(MoveRequest) returns (google.protobuf.Empty);
   // 关节空间运动
-  rpc Movej(MoveRequest) returns (google.protobuf.Empty);
+  rpc MoveJoint(MoveRequest) returns (google.protobuf.Empty);
   // 直线运动
-  rpc Movel(MoveRequest) returns (google.protobuf.Empty);
+  rpc MoveLinear(MoveRequest) returns (google.protobuf.Empty);
   // 圆形运动
-  rpc Movec(MovecRequest) returns (google.protobuf.Empty);
+  rpc MoveCircular(MovecRequest) returns (google.protobuf.Empty);
   // 关节空间运动
   rpc MovePvat(MovePvatRequest) returns (google.protobuf.Empty);
 
   // 关节匀速运动
-  rpc SpeedJ(SpeedJRequest) returns (google.protobuf.Empty);
+  rpc SpeedJoint(SpeedJRequest) returns (google.protobuf.Empty);
   // 沿直线匀速运动
-  rpc SpeedL(SpeedLRequest) returns (google.protobuf.Empty);
+  rpc SpeedLinear(SpeedLRequest) returns (google.protobuf.Empty);
 
   // 进入示教模式
-  rpc TeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc StartTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 退出示教模式
   rpc EndTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 
@@ -128,7 +128,8 @@ service MotionService {
   /// 设置力控传感器选型
   rpc SetForceModeSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
   /// 设置力控参数
-  rpc SetForceModeParam(SetForceModeParamRequest) returns (google.protobuf.Empty);
+  rpc SetForceModeParam(SetForceModeParamRequest)
+      returns (google.protobuf.Empty);
   /// 进入力控模式
   rpc StartForceMode(StartForceModeRequest) returns (google.protobuf.Empty);
   /// 退出力控模式

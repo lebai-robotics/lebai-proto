@@ -140,11 +140,11 @@ message SaveFrameRequest {
 message PoseRequest {
   Pose pose = 1;
 }
-message KinematicsInverseRequest {
+message GetInverseKinRequest {
   Pose pose = 1;
   JointPose refer = 2;
 }
-message PoseTimesRequest {
+message GetPoseMultiplyRequest {
   Pose base = 1;
   Pose target = 2;
 }
@@ -165,11 +165,11 @@ service PostureService {
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
 
   // 正解
-  rpc KinematicsForward(PoseRequest) returns (CartesianPose);
+  rpc GetForwardKin(PoseRequest) returns (CartesianPose);
   // 反解
-  rpc KinematicsInverse(KinematicsInverseRequest) returns (JointPose);
+  rpc GetInverseKin(GetInverseKinRequest) returns (JointPose);
   // 位姿乘
-  rpc PoseTimes(PoseTimesRequest) returns (CartesianPose);
+  rpc GetPoseMultiply(GetPoseMultiplyRequest) returns (CartesianPose);
   // 位姿逆
-  rpc PoseInverse(PoseRequest) returns (CartesianPose);
+  rpc GetPoseInverse(PoseRequest) returns (CartesianPose);
 }
