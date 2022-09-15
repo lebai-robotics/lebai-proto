@@ -26,13 +26,20 @@ message JointFrame {
   }
   Kind kind = 1;
   // 自定义关节位置，仅kind=CUSTOM时生效
-  JointPose joints = 2;
+  JointPose pose = 2;
 }
 
 // 姿态3*3矩阵
 message RotationMatrix {
-  // 9个元素
-  repeated double matrix = 1;
+  double m11 = 11;
+  double m12 = 12;
+  double m13 = 13;
+  double m21 = 21;
+  double m22 = 22;
+  double m23 = 23;
+  double m31 = 31;
+  double m32 = 32;
+  double m33 = 33;
 }
 // 欧拉角
 message EulerZyx {
@@ -68,8 +75,22 @@ message CartesianPose {
 
 // 笛卡尔空间 位姿4*4矩阵
 message CartesianMatrix {
-  // 16个元素
-  repeated double matrix = 1;
+  double m11 = 11;
+  double m12 = 12;
+  double m13 = 13;
+  double m14 = 14;
+  double m21 = 21;
+  double m22 = 22;
+  double m23 = 23;
+  double m24 = 24;
+  double m31 = 31;
+  double m32 = 32;
+  double m33 = 33;
+  double m34 = 34;
+  double m41 = 41;
+  double m42 = 42;
+  double m43 = 43;
+  double m44 = 44;
 }
 
 // 笛卡尔空间参考系
