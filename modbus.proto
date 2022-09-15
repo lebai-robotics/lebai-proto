@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package lebai.modbus;
+
 import "google/protobuf/empty.proto";
 import "db.proto";
-
-package lebai.modbus;
 
 // Modbus设备类型
 enum ModbusKind {

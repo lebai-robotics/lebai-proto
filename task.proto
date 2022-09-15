@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package lebai.task;
+
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-
-package lebai.task;
 
 // 任务运行状态
 enum TaskState {

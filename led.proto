@@ -1,10 +1,10 @@
 syntax = "proto3";
 
+package lebai.led;
+
 import "google/protobuf/empty.proto";
 import "status.proto";
 import "db.proto";
-
-package lebai.led;
 
 // LED工作模式
 enum LedMode {

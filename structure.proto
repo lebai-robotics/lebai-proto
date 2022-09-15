@@ -1,10 +1,10 @@
 syntax = "proto3";
 
+package lebai.structure;
+
 import "google/protobuf/empty.proto";
 import "db.proto";
 import "system.proto";
-
-package lebai.structure;
 
 message Structure {
   // 激活状态

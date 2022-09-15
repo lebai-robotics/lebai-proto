@@ -1,10 +1,10 @@
 syntax = "proto3";
 
+package lebai.claw;
+
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "cmp.proto";
-
-package lebai.claw;
 
 enum Address {
   // 目标开度

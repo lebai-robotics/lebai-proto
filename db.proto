@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package lebai.db;
+
+import "google/protobuf/empty.proto";
 
 message SaveRequest {
   string name = 1;

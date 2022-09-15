@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package lebai.io;
+
+import "google/protobuf/empty.proto";
 
 // IO设备类型
 enum IoDevice {

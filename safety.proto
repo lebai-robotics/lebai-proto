@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package lebai.safety;
+
+import "google/protobuf/empty.proto";
 
 // 碰撞监测误差
 message CollisionTorqueDiff {

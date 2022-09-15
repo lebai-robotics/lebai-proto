@@ -1,11 +1,11 @@
 syntax = "proto3";
 
+package lebai.dynamic;
+
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "db.proto";
 import "posture.proto";
-
-package lebai.dynamic;
 
 message Payload {
   // 负载质量

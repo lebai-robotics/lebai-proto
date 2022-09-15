@@ -1,10 +1,10 @@
 syntax = "proto3";
 
+package lebai.kinematic;
+
 import "google/protobuf/empty.proto";
 import "db.proto";
 import "posture.proto";
-
-package lebai.kinematic;
 
 // 关节DH参数
 message DhParam {

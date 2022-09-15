@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package lebai.scene;
+
 import "google/protobuf/empty.proto";
 import "db.proto";
-
-package lebai.scene;
 
 // 场景类型
 enum SceneKind {

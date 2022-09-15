@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package lebai.posture;
+
 import "google/protobuf/empty.proto";
 import "db.proto";
-
-package lebai.posture;
 
 // 关节空间 关节角
 message JointPose {

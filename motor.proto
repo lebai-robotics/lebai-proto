@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package lebai.motor;
+
 import "google/protobuf/empty.proto";
 import "posture.proto";
-
-package lebai.motor;
 
 // 伺服参数
 message ServoParam {
