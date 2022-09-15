@@ -145,19 +145,6 @@ message SavePoseRequest {
   string dir = 11;
 }
 
-// 枚举 参考系
-message Frame {
-  oneof frame {
-    JointFrame joint = 1;
-    CartesianFrame cart = 2;
-  }
-}
-message SaveFrameRequest {
-  string name = 1;
-  Frame data = 2;
-  string dir = 11;
-}
-
 message PoseRequest {
   Pose pose = 1;
 }
@@ -179,9 +166,9 @@ service PostureService {
   // 查询路点列表
   rpc LoadPoseList(db.LoadListRequest) returns (db.LoadListResponse);
   // 保存/修改/删除特征
-  rpc SaveFrame(SaveFrameRequest) returns (google.protobuf.Empty);
+  rpc SaveFrame(SavePoseRequest) returns (google.protobuf.Empty);
   // 查询特征
-  rpc LoadFrame(db.LoadRequest) returns (Frame);
+  rpc LoadFrame(db.LoadRequest) returns (Pose);
   // 查询特征列表
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
 
