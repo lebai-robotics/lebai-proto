@@ -45,7 +45,7 @@ message RunSceneRequest {
   // 是否以主任务方式运行
   bool is_main = 2 [json_name = "is_main"];
   // 循环次数，默认1
-  uint32 toop_to = 3 [json_name = "toop_to"];
+  uint32 loop_to = 3 [json_name = "loop_to"];
   string dir = 11;
 }
 

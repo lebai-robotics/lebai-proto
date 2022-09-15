@@ -73,7 +73,7 @@ enum LedColor {
 message LedData {
   LedMode mode = 1;
   LedSpeed speed = 2;
-  repeated LedColor color = 3;
+  repeated LedColor colors = 3;
 }
 
 // 风扇工作模式

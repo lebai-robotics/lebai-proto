@@ -4,7 +4,7 @@ package lebai.storage;
 
 import "google/protobuf/empty.proto";
 
-message ItemKey {
+message ItemIndex {
   string key = 1;
 }
 message Item {
@@ -24,7 +24,7 @@ service StorageService {
   // 设置kv数据
   rpc SetItem(Item) returns (google.protobuf.Empty);
   // 获取kv数据
-  rpc GetItem(ItemKey) returns (Item);
+  rpc GetItem(ItemIndex) returns (Item);
   // 获取指定前缀的全部kv数据
   rpc GetItems(GetItemsRequest) returns (Items);
 }

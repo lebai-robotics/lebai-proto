@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package lebai.signal;
 
+import "google/protobuf/empty.proto";
+import "cmp.proto";
+
 message SetSignalRequest {
   // 取值范围0~255
   uint32 key = 1;
@@ -11,7 +14,7 @@ message WaitSignalRequest {
   // 取值范围0~255
   uint32 key = 1;
   int32 value = 2;
-  string relation = 3;
+  cmp.Relation relation = 3;
 }
 message GetSignalRequest {
   // 取值范围0~255
@@ -23,8 +26,8 @@ message GetSignalResponse {
 
 // 信号量相关服务
 service SignalService {
-  rpc SetSignal(SetSignalRequest) returns (GetSignalResponse);
+  rpc SetSignal(SetSignalRequest) returns (google.protobuf.Empty);
   rpc GetSignal(GetSignalRequest) returns (GetSignalResponse);
-  rpc WaitSignal(WaitSignalRequest) returns (GetSignalResponse);
-  rpc AddSignal(SetSignalRequest) returns (GetSignalResponse);
+  rpc WaitSignal(WaitSignalRequest) returns (google.protobuf.Empty);
+  rpc AddSignal(SetSignalRequest) returns (google.protobuf.Empty);
 }

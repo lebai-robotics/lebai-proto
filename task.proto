@@ -25,7 +25,7 @@ enum TaskState {
   INTERRUPTING = 14;
 }
 
-message TaskId {
+message TaskIndex {
   uint32 id = 1;
 }
 
@@ -84,19 +84,19 @@ message PauseRequest {
 // 任务相关服务
 service TaskService {
   // 查询任务
-  rpc LoadTask(TaskId) returns (Task);
+  rpc LoadTask(TaskIndex) returns (Task);
   // 查询任务列表
   rpc LoadTaskList(google.protobuf.Empty) returns (TaskIds);
   // 查询运行中的任务列表
   rpc LoadRunningTasks(google.protobuf.Empty) returns (Tasks);
   // 获取任务输出
-  rpc GetTaskStdout(TaskId) returns (TaskStdout);
+  rpc GetTaskStdout(TaskIndex) returns (TaskStdout);
   // 订阅任务输出流
-  rpc SubTaskStdout(TaskId) returns (stream TaskStdout);
+  rpc SubTaskStdout(TaskIndex) returns (stream TaskStdout);
   // 暂停任务与运动
   rpc PauseTask(PauseRequest) returns (google.protobuf.Empty);
   // 恢复任务与运动
-  rpc ResumeTask(TaskId) returns (google.protobuf.Empty);
+  rpc ResumeTask(TaskIndex) returns (google.protobuf.Empty);
   // 取消任务与运动
-  rpc CancelTask(TaskId) returns (google.protobuf.Empty);
+  rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
 }
