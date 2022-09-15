@@ -5,113 +5,113 @@ import "db.proto";
 
 package lebai.posture;
 
-/// 关节空间 关节角
+// 关节空间 关节角
 message JointPose {
-  /// 关节度数（PI代表180°）
+  // 关节度数（PI代表180°）
   repeated double joint = 1;
 }
 
-/// 关节空间参考系
+// 关节空间参考系
 message JointFrame {
-  /// 关节空间参考系类型
+  // 关节空间参考系类型
   enum Kind {
-    /// 关节零位
+    // 关节零位
     BASE = 0;
-    /// 当前位置的关节位置，以收到指令时为准
+    // 当前位置的关节位置，以收到指令时为准
     CURRENT = 1;
-    /// 上个目标点的关节位置
+    // 上个目标点的关节位置
     LAST = 11;
-    /// 指定关节位置
+    // 指定关节位置
     CUSTOM = 99;
   }
   Kind kind = 1;
-  /// 自定义关节位置，仅kind=CUSTOM时生效
+  // 自定义关节位置，仅kind=CUSTOM时生效
   JointPose joints = 2;
 }
 
-/// 姿态3*3矩阵
+// 姿态3*3矩阵
 message RotationMatrix {
-  /// 9个元素
+  // 9个元素
   repeated double matrix = 1;
 }
-/// 欧拉角
+// 欧拉角
 message EulerZyx {
   double x = 1;
   double y = 2;
   double z = 3;
 }
-/// 四元组
+// 四元组
 message Quaternion {
   double w = 1;
   double i = 2;
   double j = 3;
   double k = 4;
 }
-/// 枚举 姿态
+// 枚举 姿态
 message Rotation {
   EulerZyx euler_zyx = 1 [json_name = "euler_zyx"];
   Quaternion quaternion = 2;
   RotationMatrix matrix = 3;
 }
-/// 位置
+// 位置
 message Position {
   double x = 1;
   double y = 2;
   double z = 3;
 }
 
-/// 笛卡尔空间 位姿
+// 笛卡尔空间 位姿
 message CartesianPose {
   Position position = 1;
   Rotation rotation = 2;
 }
 
-/// 笛卡尔空间 位姿4*4矩阵
+// 笛卡尔空间 位姿4*4矩阵
 message CartesianMatrix {
-  /// 16个元素
+  // 16个元素
   repeated double matrix = 1;
 }
 
-/// 笛卡尔空间参考系
+// 笛卡尔空间参考系
 message CartesianFrame {
-  /// 笛卡尔空间参考系类型
+  // 笛卡尔空间参考系类型
   enum Kind {
-    /// 基座
+    // 基座
     BASE = 0;
-    /// 当前位置的法兰平面，以收到指令时为准
+    // 当前位置的法兰平面，以收到指令时为准
     FLANGE = 1;
-    /// 当前位置的TCP，以收到指令时为准
+    // 当前位置的TCP，以收到指令时为准
     TCP = 2;
-    /// 上个目标点的法兰平面
+    // 上个目标点的法兰平面
     LAST_FLANGE = 11;
-    /// 上个目标点的TCP
+    // 上个目标点的TCP
     LAST_TCP = 12;
-    /// 自定义
+    // 自定义
     CUSTOM = 99;
   }
   Kind position_kind = 1 [json_name = "position_kind"];
-  /// 自定义位置，仅position_kind=CUSTOM时生效
+  // 自定义位置，仅position_kind=CUSTOM时生效
   Position position = 2;
   Kind rotation_kind = 3 [json_name = "rotation_kind"];
-  /// 自定义姿态，仅rotation_kind=CUSTOM时生效
+  // 自定义姿态，仅rotation_kind=CUSTOM时生效
   Rotation rotation = 4;
 }
 
-/// 机器人关节空间
+// 机器人关节空间
 message JointTargetPose {
-  /// 参考系
+  // 参考系
   JointFrame base = 1;
-  /// 增量
+  // 增量
   JointPose delta = 2;
 }
-/// 机器人笛卡尔空间
+// 机器人笛卡尔空间
 message CartesianTargetPose {
-  /// 参考系
+  // 参考系
   CartesianFrame base = 1;
-  /// 增量
+  // 增量
   CartesianPose delta = 2;
 }
-/// 枚举 机器人空间
+// 枚举 机器人空间
 message Pose {
   oneof pose {
     JointTargetPose joint = 1;
@@ -124,7 +124,7 @@ message SavePoseRequest {
   string dir = 11;
 }
 
-/// 枚举 参考系
+// 枚举 参考系
 message Frame {
   oneof frame {
     JointFrame joint = 1;
@@ -149,7 +149,7 @@ message GetPoseMultiplyRequest {
   Pose target = 2;
 }
 
-/// 位姿算法相关服务
+// 位姿算法相关服务
 service PostureService {
   // 保存/修改/删除路点
   rpc SavePose(SavePoseRequest) returns (google.protobuf.Empty);

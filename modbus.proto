@@ -15,9 +15,9 @@ enum ModbusKind {
   EXTRA = 2;
   // 法兰ModBus
   MODBUS_FLANGE = 3;
-  /// ModBus RTU
+  // ModBus RTU
   MODBUS_RTU = 4;
-  /// ModBus TCP
+  // ModBus TCP
   MODBUS_TCP = 5;
 }
 
@@ -27,11 +27,11 @@ message Modbus {
   string name = 11;
   // 类型
   ModbusKind kind = 12;
-  /// IP地址 或 串口地址
+  // IP地址 或 串口地址
   string address = 13;
-  /// TCP端口号 或 串口波特率
+  // TCP端口号 或 串口波特率
   uint32 port = 14;
-  /// ModBus从机地址
+  // ModBus从机地址
   uint32 slave_id = 15 [json_name = "slave_id"];
   // 使能
   bool enabled = 21;
@@ -142,7 +142,7 @@ message GetRegistersResponse {
   repeated uint32 values = 11;
 }
 
-/// Modbus相关服务
+// Modbus相关服务
 service ModbusService {
   // 保存Modbus设备
   rpc SaveModbus(SaveModbusRequest) returns (google.protobuf.Empty);

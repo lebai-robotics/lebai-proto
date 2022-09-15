@@ -35,7 +35,7 @@ message SpeedJRequest {
 message SpeedLRequest {
   posture.CartesianPose velocity = 1;
   SpeedParam param = 11;
-  /// 参考系方向
+  // 参考系方向
   posture.CartesianFrame base = 21;
 }
 
@@ -50,48 +50,48 @@ message MovePvatRequest {
 }
 
 message Wrench {
-  /// 受力大小
+  // 受力大小
   posture.Position force = 1;
-  /// 扭矩大小
+  // 扭矩大小
   posture.Position torque = 2;
 }
 enum ForceSensor {
-  /// 禁用外力传感器
-  Disable = 0;
-  /// 内部瞬时算法估算
-  Instantaneous = 1;
-  /// 内部连续算法估算
-  Continuous = 2;
-  /// 一维重力传感器
-  Weight1 = 11;
+  // 禁用外力传感器
+  DISABLE = 0;
+  // 内部瞬时算法估算
+  INSTANTANEOUS = 1;
+  // 内部连续算法估算
+  CONTINUOUS = 2;
+  // 一维重力传感器
+  WEIGHT1 = 11;
 }
 message SetForceSensorRequest {
   ForceSensor sensor = 1;
 }
 message StartForceModeRequest {
-  /// 限速
+  // 限速
   posture.CartesianPose limit = 1;
-  /// 控制力
+  // 控制力
   Wrench wrench = 2;
 }
 message ForceModeParam {
-  /// 启动力阈值
+  // 启动力阈值
   double threshold = 1;
-  /// 阻尼系数
+  // 阻尼系数
   double damping = 2;
-  /// 物体重量
+  // 物体重量
   double mass = 3;
 }
 message SetForceModeParamRequest {
-  /// 启动力阈值
+  // 启动力阈值
   google.protobuf.DoubleValue threshold = 1;
-  /// 阻尼系数
+  // 阻尼系数
   google.protobuf.DoubleValue damping = 2;
-  /// 物体重量
+  // 物体重量
   google.protobuf.DoubleValue mass = 3;
 }
 
-/// 机器人运动相关服务
+// 机器人运动相关服务
 service MotionService {
   // 停止所有运动
   rpc StopMove(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -121,17 +121,17 @@ service MotionService {
   // 退出示教模式
   rpc EndTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 
-  /// 设置末端受力
+  // 设置末端受力
   rpc SetTcpForce(Wrench) returns (google.protobuf.Empty);
-  /// 读取末端受力
+  // 读取末端受力
   rpc GetTcpForce(google.protobuf.Empty) returns (Wrench);
-  /// 设置力控传感器选型
+  // 设置力控传感器选型
   rpc SetForceModeSensor(SetForceSensorRequest) returns (google.protobuf.Empty);
-  /// 设置力控参数
+  // 设置力控参数
   rpc SetForceModeParam(SetForceModeParamRequest)
       returns (google.protobuf.Empty);
-  /// 进入力控模式
+  // 进入力控模式
   rpc StartForceMode(StartForceModeRequest) returns (google.protobuf.Empty);
-  /// 退出力控模式
+  // 退出力控模式
   rpc EndForceMode(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

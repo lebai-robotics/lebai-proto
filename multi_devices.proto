@@ -15,7 +15,7 @@ message DiscoverRobotsResponse {
   // 设备列表
   repeated DeviceInfo devices = 1;
 }
-/// 多机协同相关服务
+// 多机协同相关服务
 service MultiDevicesService {
   // 设备发现
   rpc DiscoverRobots(google.protobuf.Empty) returns (DiscoverRobotsResponse);

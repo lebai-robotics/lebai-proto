@@ -5,7 +5,7 @@ import "posture.proto";
 
 package lebai.motor;
 
-/// 伺服参数
+// 伺服参数
 message ServoParam {
   double position_kp = 1 [json_name = "position_kp"];
   double speed_kp = 2 [json_name = "speed_kp"];
@@ -40,16 +40,16 @@ message ResetExtraServoParamsRequest {
   repeated bool valids = 1;
 }
 
-/// 关节电机相关服务
+// 关节电机相关服务
 service MotorService {
-  /// 设置伺服参数
+  // 设置伺服参数
   rpc SetServoParams(ServoParams) returns (google.protobuf.Empty);
-  /// 获取伺服参数
+  // 获取伺服参数
   rpc GetServoParams(google.protobuf.Empty) returns (ServoParams);
-  /// 设置关节零位
+  // 设置关节零位
   rpc SetZero(SetZeroRequest) returns (google.protobuf.Empty);
-  /// 设置所有extra伺服参数
+  // 设置所有extra伺服参数
   rpc SetExtraServoParams(ExtraServoParams) returns (google.protobuf.Empty);
-  /// 重置extra伺服参数
+  // 重置extra伺服参数
   rpc ResetExtraServoParams(ResetExtraServoParamsRequest) returns (google.protobuf.Empty);
 }

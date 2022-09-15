@@ -2,13 +2,9 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "db.proto";
+import "system.proto";
 
 package lebai.structure;
-
-enum RobotKind {
-  LM3 = 0;
-  LM3_L1 = 1;
-}
 
 message Structure {
   // 激活状态
@@ -16,7 +12,7 @@ message Structure {
   // 名称
   string name = 11;
   // 型号
-  RobotKind kind = 12;
+  system.RobotModel kind = 12;
   // 自由度
   uint32 dof = 13;
   // DH参数
@@ -32,7 +28,7 @@ message SaveStructureRequest {
   string dir = 11;
 }
 
-/// 机器人手臂相关服务
+// 机器人手臂相关服务
 service StructureService {
   // 保存机器人模型
   rpc SaveStructure(SaveStructureRequest) returns (google.protobuf.Empty);

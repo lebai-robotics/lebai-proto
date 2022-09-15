@@ -6,7 +6,7 @@ package lebai.db;
 
 message SaveRequest {
   string name = 1;
-  /// 通用JSON数据
+  // 通用JSON数据
   string data = 2;
   string dir = 11;
 }
@@ -16,14 +16,14 @@ message LoadRequest {
   string dir = 11;
 }
 message LoadResponse {
-  /// 通用JSON数据
+  // 通用JSON数据
   string data = 2;
 }
 message LoadListRequest {
   string dir = 11;
 }
 message LoadListResponse {
-  /// list of data name
+  // list of data name
   repeated string names = 2;
 }
 message DeleteRequest {
@@ -33,7 +33,7 @@ message DeleteRequest {
 
 message Dir {
   string name = 1;
-  /// 内部ID，重命名后ID不变
+  // 内部ID，重命名后ID不变
   uint32 id = 2;
 }
 
@@ -46,12 +46,12 @@ message Dirs {
   repeated Dir dirs = 1;
 }
 
-/// 数据库存储相关服务
+// 数据库存储相关服务
 service DbService {
-  /// 创建目录
+  // 创建目录
   rpc CreateDir(Dir) returns (google.protobuf.Empty);
-  /// 目录重命名
+  // 目录重命名
   rpc UpdateDir(UpdateDirRequest) returns (google.protobuf.Empty);
-  /// 获取目录列表
+  // 获取目录列表
   rpc GetDirs(google.protobuf.Empty) returns (Dirs);
 }

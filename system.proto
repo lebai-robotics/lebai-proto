@@ -31,15 +31,15 @@ enum RobotModel {
 }
 
 message RobotInfo {
-  /// 设备名称（唯一），形如 `lebai-123456`。存在文件。
+  // 设备名称（唯一），形如 `lebai-123456`。存在文件。
   string name = 1;
-  /// 设备型号，如 `LM6J`, `LM3`。存在文件。
+  // 设备型号，如 `LM6J`, `LM3`。存在文件。
   string model = 2;
-  /// 设备物理唯一标识（以太网 MAC 地址）。存在文件。初始值从 DS 获取。
+  // 设备物理唯一标识（以太网 MAC 地址）。存在文件。初始值从 DS 获取。
   string mac = 3;
-  /// 机器人序列号/主机箱(main_box)序列号/控制箱序列号 `C`。存在文件。
+  // 机器人序列号/主机箱(main_box)序列号/控制箱序列号 `C`。存在文件。
   string robot = 4;
-  /// 手臂序列号/本机序列号 `R`。存在文件。
+  // 手臂序列号/本机序列号 `R`。存在文件。
   string arm = 5;
   // 设备绑定的hash值
   string cup = 21;
@@ -98,26 +98,26 @@ message SoftwareInfo {
   string rc_version = 1 [json_name = "rc_version"];
 }
 
-/// 系统控制相关服务
+// 系统控制相关服务
 service SystemService {
-  /// Hello
+  // Hello
   rpc Hello(HelloData) returns (HelloData);
-  /// 系统信息
+  // 系统信息
   rpc GetSystemInfo(google.protobuf.Empty) returns (SystemInfo);
-  /// 机械臂信息
+  // 机械臂信息
   rpc GetRobotInfo(google.protobuf.Empty) returns (RobotInfo);
-  /// 硬件信息
+  // 硬件信息
   rpc GetHardwareInfo(google.protobuf.Empty) returns (HardwareInfo);
-  /// 软件信息
+  // 软件信息
   rpc GetSoftwareInfo(google.protobuf.Empty) returns (SoftwareInfo);
-  /// 关闭机器人电源（关机）
+  // 关闭机器人电源（关机）
   rpc Powerdown(google.protobuf.Empty) returns (google.protobuf.Empty);
-  /// 启动机器人（上电）
+  // 启动机器人（上电）
   rpc StartSys(google.protobuf.Empty) returns (google.protobuf.Empty);
-  /// 停止机器人（下电）
+  // 停止机器人（下电）
   rpc StopSys(google.protobuf.Empty) returns (google.protobuf.Empty);
-  /// 停止机器人运动（不下电）
+  // 停止机器人运动（不下电）
   rpc Stop(google.protobuf.Empty) returns (google.protobuf.Empty);
-  /// 急停
+  // 急停
   rpc Estop(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

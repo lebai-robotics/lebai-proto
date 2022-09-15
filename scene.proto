@@ -54,7 +54,7 @@ message RunSceneResponse {
   uint32 task = 1;
 }
 
-/// 任务相关服务
+// 任务相关服务
 service SceneService {
   // 保存/修改/删除场景
   rpc SaveScene(SaveSceneRequest) returns (google.protobuf.Empty);

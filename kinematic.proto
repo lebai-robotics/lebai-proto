@@ -6,7 +6,7 @@ import "posture.proto";
 
 package lebai.kinematic;
 
-/// 关节DH参数
+// 关节DH参数
 message DhParam {
   double a = 1;
   double alpha = 2;
@@ -17,13 +17,13 @@ message DhParams {
   repeated DhParam params = 1;
 }
 
-/// 速度因子(0~100)
+// 速度因子(0~100)
 message VelocityFactor {
-  /// 速度因子(0~100)
+  // 速度因子(0~100)
   int32 scale = 1;
 }
 
-/// 工具中心点
+// 工具中心点
 message Tcp {
   posture.CartesianPose pose = 1;
 }
@@ -33,7 +33,7 @@ message SaveTcpRequest {
   string dir = 11;
 }
 
-/// 运动学相关服务
+// 运动学相关服务
 service KinematicService {
   // 保存/修改/删除工具中心点
   rpc SaveTcp(SaveTcpRequest) returns (google.protobuf.Empty);
@@ -42,16 +42,16 @@ service KinematicService {
   // 查询工具中心点列表
   rpc LoadTcpList(db.LoadListRequest) returns (db.LoadListResponse);
 
-  /// 设置DH参数
+  // 设置DH参数
   rpc SetDh(DhParams) returns (google.protobuf.Empty);
-  /// 获取DH参数
+  // 获取DH参数
   rpc GetDh(google.protobuf.Empty) returns (DhParams);
-  /// 设置速度因子
+  // 设置速度因子
   rpc SetVelocityFactor(VelocityFactor) returns (google.protobuf.Empty);
-  /// 获取速度因子
+  // 获取速度因子
   rpc GetVelocityFactor(google.protobuf.Empty) returns (VelocityFactor);
-  /// 设置工具中心点
+  // 设置工具中心点
   rpc SetTcp(Tcp) returns (google.protobuf.Empty);
-  /// 获取工具中心点
+  // 获取工具中心点
   rpc GetTcp(google.protobuf.Empty) returns (Tcp);
 }

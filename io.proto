@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
-import "cmp.proto";
 
 package lebai.io;
 
@@ -80,7 +79,7 @@ message GetAioPinsResponse {
   repeated double values = 11;
 }
 
-/// IO相关服务
+// IO相关服务
 service IoService {
   rpc GetDi(GetDioPinRequest) returns (GetDioPinResponse);
   rpc GetDis(GetDioPinsRequest) returns (GetDioPinsResponse);

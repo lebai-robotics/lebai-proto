@@ -7,16 +7,28 @@ import "cmp.proto";
 package lebai.claw;
 
 enum Address {
+  // 目标开度
   AMPLITUDE = 0;
+  // 目标力度
   FORCE = 1;
+  // 上传电压数字
   VOLTAGE = 2;
+  // 上传激光测距
   DISTANCE = 3;
+  // 接收DO指令
   DO = 4;
+  // 当前开度
   ACTUAL_AMPLITUDE = 5;
-  ActualForce = 6;
+  // 当前力度（已弃用）
+  ACTUAL_FORCE = 6;
+  // 强制初始化手爪
   INIT = 8;
+  // 手爪状态标识符
   FLAG = 9;
+  // 手爪错误标识符
   ERROR = 10;
+
+  // （已弃用）
   WEIGHT = 11;
 }
 
@@ -51,18 +63,18 @@ message WaitClawAiRequest {
   cmp.Relation relation = 3;
 }
 
-/// 手爪相关服务
+// 手爪相关服务
 service ClawService {
-  /// 初始化手爪
+  // 初始化手爪
   rpc InitClaw(InitClawRequest) returns (google.protobuf.Empty);
-  /// 设置手爪数据
+  // 设置手爪数据
   rpc SetClaw(SetClawRequest) returns (google.protobuf.Empty);
-  /// 获取手爪幅度是否稳定
+  // 获取手爪幅度是否稳定
   rpc GetClaw(google.protobuf.Empty) returns (Claw);
-  /// 设置手爪指定数据
+  // 设置手爪指定数据
   rpc SetClawAo(SetClawAoRequest) returns (google.protobuf.Empty);
-  /// 读取手爪指定数据
+  // 读取手爪指定数据
   rpc GetClawAi(GetClawAiRequest) returns (GetClawAiResponse);
-  /// 等待手爪指定数据
+  // 等待手爪指定数据
   rpc WaitClawAi(WaitClawAiRequest) returns (google.protobuf.Empty);
 }

@@ -8,15 +8,15 @@ import "posture.proto";
 package lebai.dynamic;
 
 message Payload {
-  /// 负载质量
+  // 负载质量
   double mass = 1;
-  /// 负载重心偏移位置
+  // 负载重心偏移位置
   posture.Position cog = 2;
 }
 message SetPayloadRequest {
-  /// 负载质量
+  // 负载质量
   google.protobuf.DoubleValue mass = 1;
-  /// 负载重心偏移位置
+  // 负载重心偏移位置
   posture.Position cog = 2;
 }
 message SavePayloadRequest {
@@ -25,11 +25,11 @@ message SavePayloadRequest {
   string dir = 11;
 }
 message Gravity {
-  /// 地心引力
+  // 地心引力
   posture.Position gravity = 1;
 }
 
-/// 动力学相关服务
+// 动力学相关服务
 service DynamicService {
   // 保存/修改/删除负载
   rpc SavePayload(SavePayloadRequest) returns (google.protobuf.Empty);

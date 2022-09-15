@@ -38,7 +38,7 @@ message LoadFileListResponse {
   repeated FileName files = 1;
 }
 
-/// 文件存储相关服务
+// 文件存储相关服务
 service FileService {
   // 保存文件
   rpc SaveFile(SaveFileRequest) returns (google.protobuf.Empty);
