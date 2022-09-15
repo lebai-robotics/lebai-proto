@@ -9,7 +9,7 @@ enum RobotState {
   // 已断开连接
   DISCONNECTED = 0;
   // 急停停止状态
-  E_STOP = 1;
+  ESTOP = 1;
   // 启动中
   BOOTING = 2;
   // 电源关闭
