@@ -21,31 +21,36 @@ enum Address {
   ACTUAL_AMPLITUDE = 5;
   // 当前力度（已弃用）
   ACTUAL_FORCE = 6;
+  // 当前负载重量（已弃用）
+  WEIGHT = 7;
   // 强制初始化手爪
   INIT = 8;
   // 手爪状态标识符
   FLAG = 9;
   // 手爪错误标识符
   ERROR = 10;
-
-  // （已弃用）
-  WEIGHT = 11;
 }
 
 message Claw {
+  // 力度
   double force = 1;
+  // 开度
   double amplitude = 2;
+  // 负载重量（已弃用）
   double weight = 3;
+  // 开度是否稳定
   bool hold_on = 4 [json_name = "hold_on"];
 }
 
 message InitClawRequest {
+  // 强制
   bool force = 1;
 }
 message SetClawRequest {
+  // 力度
   google.protobuf.DoubleValue force = 1;
+  // 开度
   google.protobuf.DoubleValue amplitude = 2;
-  google.protobuf.DoubleValue weight = 3;
 }
 message SetClawAoRequest {
   Address address = 1;
