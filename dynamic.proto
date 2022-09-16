@@ -24,10 +24,6 @@ message SavePayloadRequest {
   Payload data = 2;
   string dir = 11;
 }
-message Gravity {
-  // 地心引力
-  posture.Position gravity = 1;
-}
 
 // 动力学相关服务
 service DynamicService {
@@ -42,8 +38,8 @@ service DynamicService {
   rpc SetPayload(SetPayloadRequest) returns (google.protobuf.Empty);
   // 获取当前负载
   rpc GetPayload(google.protobuf.Empty) returns (Payload);
-  // 设置当前地心引力
-  rpc SetGravity(Gravity) returns (google.protobuf.Empty);
-  // 获取当前地心引力
-  rpc GetGravity(google.protobuf.Empty) returns (Gravity);
+  // 设置当前地心引力方向
+  rpc SetGravity(posture.Position) returns (google.protobuf.Empty);
+  // 获取当前地心引力方向
+  rpc GetGravity(google.protobuf.Empty) returns (posture.Position);
 }

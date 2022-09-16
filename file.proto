@@ -26,10 +26,6 @@ message RenameFileRequest {
   FileIndex from = 1;
   FileIndex to = 2;
 }
-message LoadFileRequest {
-  string dir = 1;
-  string name = 2;
-}
 
 message LoadFileListRequest {
   string dir = 1;
@@ -45,7 +41,7 @@ service FileService {
   // 重命名文件
   rpc RenameFile(RenameFileRequest) returns (google.protobuf.Empty);
   // 查询文件
-  rpc LoadFile(LoadFileRequest) returns (SaveFileRequest);
+  rpc LoadFile(FileIndex) returns (File);
   // 查询文件列表
   rpc LoadFileList(LoadFileListRequest) returns (LoadFileListResponse);
 }

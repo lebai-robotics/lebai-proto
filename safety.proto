@@ -38,9 +38,6 @@ message CartesianLimit {
   double eq_radius = 3 [json_name = "eq_radius"];
 }
 
-message SetCollisionDetectorRequest {
-  CollisionDetector detector = 1;
-}
 message SetJointLimitRequest {
   repeated JointLimit limit = 1;
 }
@@ -54,8 +51,7 @@ service SafetyService {
   rpc SetCollisionTorqueDiff(CollisionTorqueDiff)
       returns (google.protobuf.Empty);
   // 设置碰撞监测
-  rpc SetCollisionDetector(SetCollisionDetectorRequest)
-      returns (google.protobuf.Empty);
+  rpc SetCollisionDetector(CollisionDetector) returns (google.protobuf.Empty);
   // 读取碰撞监测
   rpc GetCollisionDetector(google.protobuf.Empty) returns (CollisionDetector);
   // 使能限位检测

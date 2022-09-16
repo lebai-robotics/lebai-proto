@@ -17,19 +17,15 @@ message DhParams {
   repeated DhParam params = 1;
 }
 
-// 速度因子(0~100)
-message VelocityFactor {
+// 运动因子
+message KinFactor {
   // 速度因子(0~100)
-  int32 scale = 1;
+  int32 speed_factor = 1;
 }
 
-// 工具中心点
-message Tcp {
-  posture.CartesianPose pose = 1;
-}
 message SaveTcpRequest {
   string name = 1;
-  Tcp data = 2;
+  posture.CartesianPose data = 2;
   string dir = 11;
 }
 
@@ -38,7 +34,7 @@ service KinematicService {
   // 保存/修改/删除工具中心点
   rpc SaveTcp(SaveTcpRequest) returns (google.protobuf.Empty);
   // 查询工具中心点
-  rpc LoadTcp(db.LoadRequest) returns (Tcp);
+  rpc LoadTcp(db.LoadRequest) returns (posture.CartesianPose);
   // 查询工具中心点列表
   rpc LoadTcpList(db.LoadListRequest) returns (db.LoadListResponse);
 
@@ -46,12 +42,12 @@ service KinematicService {
   rpc SetDh(DhParams) returns (google.protobuf.Empty);
   // 获取DH参数
   rpc GetDh(google.protobuf.Empty) returns (DhParams);
-  // 设置速度因子
-  rpc SetVelocityFactor(VelocityFactor) returns (google.protobuf.Empty);
-  // 获取速度因子
-  rpc GetVelocityFactor(google.protobuf.Empty) returns (VelocityFactor);
+  // 设置运动因子
+  rpc SetKinFactor(KinFactor) returns (google.protobuf.Empty);
+  // 获取运动因子
+  rpc GetKinFactor(google.protobuf.Empty) returns (KinFactor);
   // 设置工具中心点
-  rpc SetTcp(Tcp) returns (google.protobuf.Empty);
+  rpc SetTcp(posture.CartesianPose) returns (google.protobuf.Empty);
   // 获取工具中心点
-  rpc GetTcp(google.protobuf.Empty) returns (Tcp);
+  rpc GetTcp(google.protobuf.Empty) returns (posture.CartesianPose);
 }
