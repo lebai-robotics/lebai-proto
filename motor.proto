@@ -17,6 +17,7 @@ message ServoParams {
 }
 message SetZeroRequest {
   posture.JointPose pose = 1;
+  repeated bool valids = 2;
 }
 
 message ExtraServoParam {
