@@ -16,7 +16,7 @@ message ServoParams {
   repeated ServoParam params = 1;
 }
 message SetZeroRequest {
-  posture.JointPose pose = 1;
+  repeated double pose = 1;
   repeated bool valids = 2;
 }
 
@@ -52,5 +52,6 @@ service MotorService {
   // 设置所有extra伺服参数
   rpc SetExtraServoParams(ExtraServoParams) returns (google.protobuf.Empty);
   // 重置extra伺服参数
-  rpc ResetExtraServoParams(ResetExtraServoParamsRequest) returns (google.protobuf.Empty);
+  rpc ResetExtraServoParams(ResetExtraServoParamsRequest)
+      returns (google.protobuf.Empty);
 }
