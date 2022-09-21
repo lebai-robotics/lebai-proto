@@ -3,6 +3,7 @@ syntax = "proto3";
 package lebai.kinematic;
 
 import "google/protobuf/empty.proto";
+import "lebai.proto";
 import "db.proto";
 import "posture.proto";
 
@@ -20,7 +21,22 @@ message DhParams {
 // 运动因子
 message KinFactor {
   // 速度因子(0~100)
-  int32 speed_factor = 1;
+  int32 speed_factor = 1 [json_name = "speed_factor"];
+}
+
+// 运动数据
+message KinData {  
+  repeated double actual_joint_pose = 1 [json_name = "actual_joint_pose"];
+  repeated double actual_joint_speed = 2 [json_name = "actual_joint_speed"];
+  repeated double actual_joint_acc = 3 [json_name = "actual_joint_acc"];
+  repeated double actual_joint_torque = 4 [json_name = "actual_joint_torque"];
+  repeated double target_joint_pose = 11 [json_name = "target_joint_pose"];
+  repeated double target_joint_speed = 12 [json_name = "target_joint_speed"];
+  repeated double target_joint_acc = 13 [json_name = "target_joint_acc"];
+  repeated double target_joint_torque = 14 [json_name = "target_joint_torque"];
+
+  posture.CartesianPose actual_tcp_pose = 21 [json_name = "actual_tcp_pose"];
+  posture.CartesianPose target_tcp_pose = 31 [json_name = "target_tcp_pose"];
 }
 
 message SaveTcpRequest {
@@ -46,6 +62,10 @@ service KinematicService {
   rpc SetKinFactor(KinFactor) returns (google.protobuf.Empty);
   // 获取运动因子
   rpc GetKinFactor(google.protobuf.Empty) returns (KinFactor);
+  // 获取运动数据
+  rpc GetKinData(google.protobuf.Empty) returns (KinData);
+  // 订阅运动数据
+  rpc SubKinData(SubscribeRequest) returns (stream KinData);
   // 设置工具中心点
   rpc SetTcp(posture.CartesianPose) returns (google.protobuf.Empty);
   // 获取工具中心点

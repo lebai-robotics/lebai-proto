@@ -3,7 +3,7 @@ syntax = "proto3";
 package lebai.led;
 
 import "google/protobuf/empty.proto";
-import "status.proto";
+import "system.proto";
 import "db.proto";
 
 // LED工作模式
@@ -138,7 +138,7 @@ message SaveLedStyleRequest {
 }
 // 机器人状态对应的声光交互样式
 message LedStyleItem {
-  status.RobotState state = 1;
+  system.RobotState state = 1;
   LedStyle style = 2;
 }
 // 声光交互样式集

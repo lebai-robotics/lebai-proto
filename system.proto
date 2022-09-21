@@ -3,6 +3,7 @@ syntax = "proto3";
 package lebai.system;
 
 import "google/protobuf/empty.proto";
+import "lebai.proto";
 
 message HelloData {
   string data = 1;
@@ -98,6 +99,51 @@ message SoftwareInfo {
   string rc_version = 1 [json_name = "rc_version"];
 }
 
+// 机器人状态
+enum RobotState {
+  // 已断开连接
+  DISCONNECTED = 0;
+  // 急停停止状态
+  ESTOP = 1;
+  // 启动中
+  BOOTING = 2;
+  // 电源关闭
+  ROBOT_OFF = 3;
+  // 电源开启
+  ROBOT_ON = 4;
+  // 空闲中
+  IDLE = 5;
+  // 已暂停
+  PAUSED = 6;
+  // 机器人运动中
+  MOVING = 7;
+  // 更新固件中
+  UPDATING = 8;
+  // 启动中
+  STARTING = 9;
+  // 停止中
+  STOPPING = 10;
+  // 示教中
+  TEACHING = 11;
+  // 普通停止
+  STOP = 12;
+  // 微调中
+  FINETUNING = 13;
+}
+message GetRobotStateResponse {
+  RobotState state = 1;
+}
+
+// 物理数据
+message PhyData {
+  // 关节温度
+  repeated double joint_temp = 2 [json_name = "joint_temp"];
+  // 关节电压
+  repeated double joint_voltage = 11 [json_name = "joint_voltage"];
+  // 法兰电压
+  double flange_voltage = 12 [json_name = "flange_voltage"];
+}
+
 // 系统控制相关服务
 service SystemService {
   // Hello
@@ -110,6 +156,14 @@ service SystemService {
   rpc GetHardwareInfo(google.protobuf.Empty) returns (HardwareInfo);
   // 软件信息
   rpc GetSoftwareInfo(google.protobuf.Empty) returns (SoftwareInfo);
+  // 获取机器人状态
+  rpc GetRobotState(google.protobuf.Empty) returns (GetRobotStateResponse);
+  // 订阅机器人状态
+  rpc SubRobotState(SubscribeRequest) returns (stream GetRobotStateResponse);
+  // 获取物理数据
+  rpc GetPhyData(google.protobuf.Empty) returns (PhyData);
+  // 订阅物理数据
+  rpc SubPhyData(SubscribeRequest) returns (stream PhyData);
   // 关闭机器人电源（关机）
   rpc Powerdown(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 启动机器人（上电）

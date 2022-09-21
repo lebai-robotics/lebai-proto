@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package lebai;
+
+message SubscribeRequest {
+  // 保证每次推送至少间隔interval时间(ms)
+  uint64 interval_min = 11 [json_name = "interval_min"];
+  // 保证interval时间(ms)内至少推送1次
+  uint64 interval_max = 12 [json_name = "interval_max"];
+}
