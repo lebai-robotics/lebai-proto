@@ -37,6 +37,8 @@ message KinData {
 
   posture.CartesianPose actual_tcp_pose = 21 [json_name = "actual_tcp_pose"];
   posture.CartesianPose target_tcp_pose = 31 [json_name = "target_tcp_pose"];
+
+  posture.CartesianPose actual_flange_pose = 41 [json_name = "actual_flange_pose"];
 }
 
 message SaveTcpRequest {
