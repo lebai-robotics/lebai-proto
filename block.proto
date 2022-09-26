@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package lebai.block;
+
+import "google/protobuf/empty.proto";
+import "db.proto";
+
+message Block {
+  string method = 1;
+  string params = 2;
+}
+
+message SaveBlockRequest {
+  string name = 1;
+  Block data = 2;
+  string dir = 11;
+}
+
+message RunBlockRequest {
+  string name = 1;
+  string dir = 11;
+}
+
+// 动作块相关服务
+service BlockService {
+  // 保存/修改/删除动作块
+  rpc SaveBlock(SaveBlockRequest) returns (google.protobuf.Empty);
+  // 查询动作块
+  rpc LoadBlock(db.LoadRequest) returns (Block);
+  // 查询动作块列表
+  rpc LoadBlockList(db.LoadListRequest) returns (db.LoadListResponse);
+
+  // 运行动作块
+  rpc RunBlock(RunBlockRequest) returns (google.protobuf.Empty);
+}
