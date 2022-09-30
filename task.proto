@@ -5,6 +5,14 @@ package lebai.task;
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
+// 任务类型
+enum TaskKind {
+  // Lua
+  LUA = 0;
+  // 应用程序
+  APP = 10;
+}
+
 // 任务运行状态
 enum TaskState {
   // 等待启动运行
@@ -55,8 +63,15 @@ message Task {
   google.protobuf.Timestamp pause_at = 20 [json_name = "pause_at"];
   // 之前总共暂停用时ms，不包括本次暂停
   uint32 pre_pause = 21 [json_name = "pre_pause"];
-  // 运行该任务时原始的场景记录
-  string record = 22;
+
+  // 任务类型
+  TaskKind kind = 30;
+  // 任务存储目录
+  string dir = 31;
+  // 任务名称
+  string name = 32;
+  // 任务运行参数
+  repeated string params = 33;
 }
 
 message TaskIds {
@@ -70,6 +85,17 @@ message Tasks {
 message TaskStdout {
   bool done = 1;
   string stdout = 2;
+}
+
+message StartTaskRequest {
+  string name = 1;
+  // 是否以主任务方式运行（主任务会排队执行，子任务会并发执行）
+  bool is_main = 2 [json_name = "is_main"];
+  // 循环次数，默认0永久循环运行
+  uint32 loop_to = 3 [json_name = "loop_to"];
+  string dir = 11;
+  TaskKind kind = 12;
+  repeated string params = 22;
 }
 
 message PauseRequest {
@@ -89,6 +115,9 @@ service TaskService {
   rpc LoadTaskList(google.protobuf.Empty) returns (TaskIds);
   // 查询运行中的任务列表
   rpc LoadRunningTasks(google.protobuf.Empty) returns (Tasks);
+
+  // 启动新任务
+  rpc StartTask(StartTaskRequest) returns (TaskIndex);
   // 获取任务输出
   rpc GetTaskStdout(TaskIndex) returns (TaskStdout);
   // 订阅任务输出流

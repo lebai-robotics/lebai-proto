@@ -40,20 +40,6 @@ message SaveSceneRequest {
   string dir = 11;
 }
 
-message RunSceneRequest {
-  string name = 1;
-  // 是否以主任务方式运行
-  bool is_main = 2 [json_name = "is_main"];
-  // 循环次数，默认1
-  uint32 loop_to = 3 [json_name = "loop_to"];
-  string dir = 11;
-}
-
-message RunSceneResponse {
-  // 任务Id
-  uint32 task = 1;
-}
-
 // 任务相关服务
 service SceneService {
   // 保存/修改/删除场景
@@ -62,7 +48,4 @@ service SceneService {
   rpc LoadScene(db.LoadRequest) returns (Scene);
   // 查询场景列表
   rpc LoadSceneList(db.LoadListRequest) returns (db.LoadListResponse);
-
-  // 运行场景，返回任务ID
-  rpc RunScene(RunSceneRequest) returns (RunSceneResponse);
 }

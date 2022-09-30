@@ -7,7 +7,7 @@ import "db.proto";
 
 message Block {
   string method = 1;
-  string params = 2;
+  string param = 2;
 }
 
 message SaveBlockRequest {
