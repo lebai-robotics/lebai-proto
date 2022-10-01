@@ -47,7 +47,7 @@ message Task {
   TaskState state = 12;
   // 已完成的循环次数
   uint32 loop_count = 13 [json_name = "loop_count"];
-  // 循环次数，默认为1。为0表示无限循环
+  // 循环次数，0为无限循环
   uint32 loop_to = 14 [json_name = "loop_to"];
   // 是否为获得手臂控制权的主任务
   bool is_main = 15 [json_name = "is_main"];
