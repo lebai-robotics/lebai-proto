@@ -36,6 +36,37 @@ message LoadFileListResponse {
   repeated FileName files = 1;
 }
 
+// 将文件系统中的files压缩到zip文件的dir目录下
+message ZipRequest {
+  // zip文件在文件系统中的路径
+  FileIndex zip = 1;
+  // 文件系统中的文件或目录
+  repeated string files = 11;
+  // zip文件内部目录
+  string dir = 2;
+}
+// 将zip文件的files解压到文件系统中的dir目录下
+message UnzipRequest {
+  // zip文件在文件系统中的路径
+  FileIndex zip = 1;
+  // zip文件内部文件
+  repeated string files = 2;
+  // 文件系统的路径
+  string dir = 11;
+}
+// 将zip文件的files解压到文件系统中的dir目录下
+message LoadZipListRequest {
+  // zip文件在文件系统中的路径
+  FileIndex zip = 1;
+  // zip文件内部目录
+  string dir = 2;
+  string prefix = 12;
+  string suffix = 13;
+}
+message LoadZipListResponse {
+  repeated FileName files = 1;
+}
+
 // 文件存储相关服务
 service FileService {
   // 保存文件
@@ -46,4 +77,11 @@ service FileService {
   rpc LoadFile(FileIndex) returns (File);
   // 查询文件列表
   rpc LoadFileList(LoadFileListRequest) returns (LoadFileListResponse);
+
+  // 将文件从文件系统中压缩到zip文件中
+  rpc Zip(ZipRequest) returns (google.protobuf.Empty);
+  // 将文件从zip文件中解压到文件系统中
+  rpc Unzip(UnzipRequest) returns (google.protobuf.Empty);
+  // 查询zip文件中的文件列表
+  rpc LoadZipList(LoadZipListRequest) returns (LoadZipListResponse);
 }
