@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package lebai.backup;
+
+import "google/protobuf/empty.proto";
+
+message Options {
+  // 手臂配置（精标、关节圈数、伺服参数）
+  bool arm = 11;
+
+  // 用户配置（安装方向、负载、TCP、速度因子、安全设置、仿真模式）
+  bool config = 21;
+  // 用户数据（工作空间、场景库、位置库等资源库，以及文件系统中以`.`开头的文件及文件夹）
+  bool data = 22;
+  // 用户文件（文件系统中非以`.`开头的文件及文件夹）
+  bool file = 23;
+  // Docker数据
+  bool docker = 24;
+}
+
+message BackupRequest {
+  Options option = 10;
+}
+message BackupResponse {
+  // 备份包文件在文件系统中的路径
+  string file = 1;
+}
+message RestoreRequest {
+  // 备份包文件在文件系统中的路径
+  string file = 1;
+  Options option = 10;
+}
+
+// 备份恢复相关服务
+service BackupService {
+  // 备份
+  rpc Backup(BackupRequest) returns (BackupResponse);
+  // 恢复
+  rpc Restore(RestoreRequest) returns (google.protobuf.Empty);
+}
