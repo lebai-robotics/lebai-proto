@@ -19,11 +19,9 @@ message Options {
 }
 
 message BackupRequest {
-  Options option = 10;
-}
-message BackupResponse {
   // 备份包文件在文件系统中的路径
   string file = 1;
+  Options option = 10;
 }
 message RestoreRequest {
   // 备份包文件在文件系统中的路径
@@ -34,7 +32,7 @@ message RestoreRequest {
 // 备份恢复相关服务
 service BackupService {
   // 备份
-  rpc Backup(BackupRequest) returns (BackupResponse);
+  rpc Backup(BackupRequest) returns (google.protobuf.Empty);
   // 恢复
   rpc Restore(RestoreRequest) returns (google.protobuf.Empty);
 }
