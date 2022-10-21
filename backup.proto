@@ -3,6 +3,19 @@ syntax = "proto3";
 package lebai.backup;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "file.proto";
+import "system.proto";
+
+message BackupInfo {
+  system.SystemInfo system = 1;
+  system.RobotInfo robot = 2;
+  system.HardwareInfo hardware = 3;
+  system.SoftwareInfo software = 4;
+
+  google.protobuf.Timestamp timestamp = 21;
+  Options option = 22;
+}
 
 message Options {
   // 手臂配置（精标、关节圈数、伺服参数）
@@ -20,12 +33,16 @@ message Options {
 
 message BackupRequest {
   // 备份包文件在文件系统中的路径
-  string file = 1;
+  file.FileIndex file = 1;
   Options option = 10;
+}
+message GetBackupInfoRequest {
+  // 备份包文件在文件系统中的路径
+  file.FileIndex file = 1;
 }
 message RestoreRequest {
   // 备份包文件在文件系统中的路径
-  string file = 1;
+  file.FileIndex file = 1;
   Options option = 10;
 }
 
@@ -33,6 +50,8 @@ message RestoreRequest {
 service BackupService {
   // 备份
   rpc Backup(BackupRequest) returns (google.protobuf.Empty);
+  // 备份
+  rpc GetBackupInfo(GetBackupInfoRequest) returns (BackupInfo);
   // 恢复
   rpc Restore(RestoreRequest) returns (google.protobuf.Empty);
 }
