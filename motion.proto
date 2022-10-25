@@ -6,6 +6,10 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "posture.proto";
 
+message MotionIndex {
+  uint32 id = 1;
+}
+
 message MoveParam {
   double velocity = 2;
   double acc = 3;
@@ -97,17 +101,19 @@ service MotionService {
   rpc StopMove(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 跳过当前运动(已弃用)
   rpc SkipMove(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 等待运动结束
-  rpc WaitMove(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 等待指定运动结束(特殊地, 0为等待全部运动)
+  rpc WaitMove(MotionIndex) returns (google.protobuf.Empty);
+  // 查询当前正在运行的MotionId
+  rpc GetRunningMotion(google.protobuf.Empty) returns (MotionIndex);
 
   // 关节空间跟随运动
-  rpc TowardJoint(MoveRequest) returns (google.protobuf.Empty);
+  rpc TowardJoint(MoveRequest) returns (MotionIndex);
   // 关节空间运动
-  rpc MoveJoint(MoveRequest) returns (google.protobuf.Empty);
+  rpc MoveJoint(MoveRequest) returns (MotionIndex);
   // 直线运动
-  rpc MoveLinear(MoveRequest) returns (google.protobuf.Empty);
+  rpc MoveLinear(MoveRequest) returns (MotionIndex);
   // 圆形运动
-  rpc MoveCircular(MovecRequest) returns (google.protobuf.Empty);
+  rpc MoveCircular(MovecRequest) returns (MotionIndex);
   // 关节空间运动
   rpc MovePvat(MovePvatRequest) returns (google.protobuf.Empty);
 
