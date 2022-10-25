@@ -4,7 +4,6 @@ package lebai.backup;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "file.proto";
 import "system.proto";
 
 message BackupInfo {
@@ -32,17 +31,17 @@ message Options {
 }
 
 message BackupRequest {
-  // 备份包文件在文件系统中的路径
-  file.FileIndex file = 1;
+  // 备份包文件在文件系统.backup文件夹下的路径
+  string file = 1;
   Options option = 10;
 }
 message GetBackupInfoRequest {
-  // 备份包文件在文件系统中的路径
-  file.FileIndex file = 1;
+  // 备份包文件在文件系统.backup文件夹下的路径
+  string file = 1;
 }
 message RestoreRequest {
-  // 备份包文件在文件系统中的路径
-  file.FileIndex file = 1;
+  // 备份包文件在文件系统.backup文件夹下的路径
+  string file = 1;
   Options option = 10;
 }
 
@@ -50,7 +49,7 @@ message RestoreRequest {
 service BackupService {
   // 备份
   rpc Backup(BackupRequest) returns (google.protobuf.Empty);
-  // 备份
+  // 获取备份包的设备信息
   rpc GetBackupInfo(GetBackupInfoRequest) returns (BackupInfo);
   // 恢复
   rpc Restore(RestoreRequest) returns (google.protobuf.Empty);
