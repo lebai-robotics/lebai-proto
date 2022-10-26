@@ -10,6 +10,15 @@ message MotionIndex {
   uint32 id = 1;
 }
 
+enum MotionState {
+  WAIT = 0;
+  RUNNING = 1;
+  FINISHED = 2;
+}
+message GetMotionStateResponse {
+  MotionState state = 1;
+}
+
 message MoveParam {
   double velocity = 2;
   double acc = 3;
@@ -103,8 +112,10 @@ service MotionService {
   rpc SkipMove(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 等待指定运动结束(特殊地, 0为等待全部运动)
   rpc WaitMove(MotionIndex) returns (google.protobuf.Empty);
-  // 查询当前正在运行的MotionId
+  // 查询当前正在运行的MotionId(特殊地, 无运动时返回上次MotionId)
   rpc GetRunningMotion(google.protobuf.Empty) returns (MotionIndex);
+  // 查询MotionId的运动状态
+  rpc GetMotionState(MotionIndex) returns (GetMotionStateResponse);
 
   // 关节空间跟随运动
   rpc TowardJoint(MoveRequest) returns (MotionIndex);
