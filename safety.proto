@@ -32,17 +32,13 @@ message JointLimit {
   double max_a = 3 [json_name = "max_a"];
   double max_v = 4 [json_name = "max_v"];
 }
+message JointsLimit {
+  repeated JointLimit joints = 1;
+}
 message CartesianLimit {
   double max_a = 1 [json_name = "max_a"];
   double max_v = 2 [json_name = "max_v"];
   double eq_radius = 3 [json_name = "eq_radius"];
-}
-
-message SetJointLimitRequest {
-  repeated JointLimit limit = 1;
-}
-message SetCarttLimitRequest {
-  CartesianLimit limit = 1;
 }
 
 // 操作安全相关服务
@@ -50,6 +46,9 @@ service SafetyService {
   // 设置碰撞监测误差
   rpc SetCollisionTorqueDiff(CollisionTorqueDiff)
       returns (google.protobuf.Empty);
+  // 读取碰撞监测误差
+  rpc GetCollisionTorqueDiff(google.protobuf.Empty)
+      returns (CollisionTorqueDiff);
   // 设置碰撞监测
   rpc SetCollisionDetector(CollisionDetector) returns (google.protobuf.Empty);
   // 读取碰撞监测
@@ -59,7 +58,11 @@ service SafetyService {
   // 禁用限位检测
   rpc DisableLimit(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 设置关节限位
-  rpc SetJointLimit(SetJointLimitRequest) returns (google.protobuf.Empty);
+  rpc SetJointsLimit(JointsLimit) returns (google.protobuf.Empty);
+  // 读取关节限位
+  rpc GetJointsLimit(google.protobuf.Empty) returns (JointsLimit);
   // 设置空间限位
-  rpc SetCartLimit(SetCarttLimitRequest) returns (google.protobuf.Empty);
+  rpc SetCartLimit(CartesianLimit) returns (google.protobuf.Empty);
+  // 读取空间限位
+  rpc GetCartLimit(google.protobuf.Empty) returns (CartesianLimit);
 }
