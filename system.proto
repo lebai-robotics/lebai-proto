@@ -144,6 +144,35 @@ message PhyData {
   double flange_voltage = 12 [json_name = "flange_voltage"];
 }
 
+// 急停原因
+enum EstopReason {
+  // 未急停
+  NONE = 0;
+  // 软件
+  SYSTEM = 2;
+  // 手动调用接口
+  MANUAL = 3;
+  // 硬急停按钮
+  HARD_ESTOP = 4;
+  // 碰撞
+  COLLISION = 5;
+  // 关节限位
+  JOINT_LIMIT = 6;
+  // 超速
+  EXCEED = 7;
+  // 运动规划错误
+  TRAJECTORY_ERROR = 8;
+  // 通信故障
+  COMM_ERROR = 11;
+  // CAN通信故障
+  CAN_ERROR = 12;
+  // 关节故障
+  JOINT_ERROR = 13;
+}
+message GetEstopReasonResponse {
+  EstopReason reason = 1;
+}
+
 // 系统控制相关服务
 service SystemService {
   // Hello
@@ -168,12 +197,14 @@ service SystemService {
   rpc Powerdown(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 重启系统
   rpc Reboot(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 启动机器人（上电）
+  // 启动机器人
   rpc StartSys(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 停止机器人（下电）
+  // 停止机器人（失能）
   rpc StopSys(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 停止机器人运动（不下电）
+  // 停止机器人运动
   rpc Stop(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 急停
+  // 急停（下电）
   rpc Estop(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 获取急停原因
+  rpc GetEstopReason(google.protobuf.Empty) returns (GetEstopReasonResponse);
 }
