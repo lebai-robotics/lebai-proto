@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package lebai.hardware;
+
+import "google/protobuf/empty.proto";
+
+enum Address {
+  /// 发送时代表广播，接收时代表无设备
+  EMPTY = 0x0;
+  /// 关节1（离基座最近）
+  JOINT1 = 0x1;
+  /// 关节2
+  JOINT2 = 0x2;
+  /// 关节3
+  JOINT3 = 0x3;
+  /// 关节4
+  JOINT4 = 0x4;
+  /// 关节5
+  JOINT5 = 0x5;
+  /// 关节6
+  JOINT6 = 0x6;
+  /// 关节7
+  JOINT7 = 0x7;
+  /// 法兰
+  FLANGE = 0x8;
+  /// 夹爪
+  CLAW = 0x9;
+  /// 灯板
+  LED = 0xA;
+  /// 百分表
+  DIAL = 0xD;
+  /// 通信板
+  COMM_BOARD = 0xE;
+  /// 测试板
+  TEST_BOARD = 0xF;
+}
+enum FirmwarePartition {
+  A = 0;
+  B = 1;
+  C = 2;
+  UNKNOWN = 3;
+}
+
+message StartOtaRequest {
+  Address address = 1;
+  FirmwarePartition partition = 2;
+  // 固件包文件在文件系统.hardware文件夹下的路径
+  string file = 11;
+}
+message SwitchPartitionRequest {
+  Address address = 1;
+  FirmwarePartition partition = 2;
+}
+
+enum Step {
+  // 未升级
+  NONE = 0;
+  // 准备升级
+  WAIT = 1;
+  // 正在上传固件
+  DOWNLOADING = 2;
+  // 正在烧录固件
+  FLASHING = 3;
+  // 重启硬件
+  RESTART = 4;
+  // 完成
+  DONE = 5;
+  // 失败
+  FAIL = 6;
+}
+message OtaState {
+  Step step = 1;
+  uint32 progress = 2;
+}
+
+// 硬件相关服务
+service HardwareService {
+  // 开始升级
+  rpc StartOta(StartOtaRequest) returns (google.protobuf.Empty);
+  // 切换固件分区
+  rpc SwitchPartition(SwitchPartitionRequest) returns (google.protobuf.Empty);
+  // 获取升级进度
+  rpc GetOtaState(google.protobuf.Empty) returns (OtaState);
+}

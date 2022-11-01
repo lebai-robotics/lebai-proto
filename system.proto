@@ -4,6 +4,7 @@ package lebai.system;
 
 import "google/protobuf/empty.proto";
 import "lebai.proto";
+import "hardware.proto";
 
 message HelloData {
   string data = 1;
@@ -46,16 +47,10 @@ message RobotInfo {
   string cup = 21;
 }
 
-enum FirmwarePartition {
-  A = 0;
-  B = 1;
-  C = 2;
-  UNKNOWN = 3;
-}
 message ComboardInfo {
   string sn = 1;
   string version = 2;
-  FirmwarePartition partition = 3;
+  hardware.FirmwarePartition partition = 3;
   uint32 di_num = 11 [json_name = "di_num"];
   uint32 do_num = 12 [json_name = "do_num"];
   uint32 ai_num = 13 [json_name = "ai_num"];
@@ -64,12 +59,12 @@ message ComboardInfo {
 message JointInfo {
   string sn = 1;
   string version = 2;
-  FirmwarePartition partition = 3;
+  hardware.FirmwarePartition partition = 3;
 }
 message FlangeInfo {
   string sn = 1;
   string version = 2;
-  FirmwarePartition partition = 3;
+  hardware.FirmwarePartition partition = 3;
   uint32 di_num = 11 [json_name = "di_num"];
   uint32 do_num = 12 [json_name = "do_num"];
   uint32 ai_num = 13 [json_name = "ai_num"];
@@ -78,7 +73,7 @@ message FlangeInfo {
 message LedInfo {
   string sn = 1;
   string version = 2;
-  FirmwarePartition partition = 3;
+  hardware.FirmwarePartition partition = 3;
 }
 message ExtraIoInfo {
   bool valid = 1;
