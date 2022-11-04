@@ -12,6 +12,10 @@ enum IoDevice {
   FLANGE = 1;
   // 拓展IO
   EXTRA = 2;
+  // 肩部按钮DI
+  SHOULDER = 11;
+  // 法兰按钮DI
+  FLANGE_BTN = 12;
 }
 
 // IO引脚类型
@@ -79,6 +83,53 @@ message GetAioPinsResponse {
   repeated double values = 11;
 }
 
+message ButtonIndex {
+  IoDevice device = 1;
+  // DI引脚号
+  uint32 pin = 2;
+}
+enum ButtonState {
+  // 无动作
+  EMPTY = 0;
+  // 松开长按
+  UP = 1;
+  // 长按
+  LONG_DOWN = 2;
+  // 点击
+  CLICK = 3;
+}
+message ButtonStatus {
+  ButtonState state = 1;
+  // 长按的毫秒数 或 连击的次数
+  uint32 time = 2;
+}
+message ButtonsStatus {
+  ButtonIndex button = 1;
+  ButtonStatus status = 2;
+}
+message ButtonsCondition {
+  // 当一系列按键被同时按下时
+  repeated ButtonIndex pressed = 1;
+  ButtonIndex button = 11;
+  ButtonStatus status = 12;
+}
+enum ButtonsFunction {
+  // 无
+  NONE = 0;
+  // 进入示教模式
+  START_TEACH_MODE = 1;
+  // 退出示教模式
+  END_TEACH_MODE = 2;
+  // 设置关节零位
+  SET_ZERO = 3;
+  // 改变手臂启停状态
+  CHANGE_POWER = 4;
+}
+message ButtonsProgram {
+  ButtonsCondition condition = 1;
+  ButtonsFunction function = 2;
+}
+
 // IO相关服务
 service IoService {
   rpc GetDi(GetDioPinRequest) returns (GetDioPinResponse);
@@ -93,4 +144,8 @@ service IoService {
   rpc GetAos(GetAioPinsRequest) returns (GetAioPinsResponse);
   rpc SetAo(SetAoPinRequest) returns (google.protobuf.Empty);
   rpc SetAos(SetAoPinsRequest) returns (google.protobuf.Empty);
+  rpc EnableButton(ButtonIndex) returns (google.protobuf.Empty);
+  rpc DisableButton(ButtonIndex) returns (google.protobuf.Empty);
+  rpc SetButtonsProgram(ButtonsProgram) returns (google.protobuf.Empty);
+  rpc SubButtonsStatus(google.protobuf.Empty) returns (stream ButtonsStatus);
 }
