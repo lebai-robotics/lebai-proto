@@ -118,30 +118,31 @@ message CartesianFrame {
   Rotation rotation = 4;
 }
 
-// 机器人关节空间
-message JointTargetPose {
-  // 参考系
-  JointFrame base = 1;
-  // 增量
-  JointPose delta = 2;
-}
-// 机器人笛卡尔空间
-message CartesianTargetPose {
-  // 参考系
-  CartesianFrame base = 1;
-  // 增量
-  CartesianPose delta = 2;
-}
 // 枚举 机器人空间
 message Pose {
-  oneof pose {
-    JointTargetPose joint = 1;
-    CartesianTargetPose cart = 2;
+  // 位姿类型，默认笛卡尔空间
+  enum Kind {
+    CARTESIAN = 0;
+    JOINT = 1;
   }
+  Kind kind = 1;
+  // 笛卡尔空间位姿，仅kind=CARTESIAN时生效
+  CartesianPose cart = 11;
+  // 笛卡尔空间参考系索引，仅kind=CARTESIAN时生效
+  db.LoadRequest cart_frame_index = 12 [json_name = "cart_frame_index"];
+  // 笛卡尔空间参考系，仅内部使用，仅kind=CARTESIAN时生效
+  CartesianFrame cart_frame = 13 [json_name = "cart_frame"];
+  // 关节空间位姿，仅kind=JOINT时生效
+  JointPose joint = 21;
 }
 message SavePoseRequest {
   string name = 1;
   Pose data = 2;
+  string dir = 11;
+}
+message SaveFrameRequest {
+  string name = 1;
+  CartesianFrame data = 2;
   string dir = 11;
 }
 
@@ -166,9 +167,9 @@ service PostureService {
   // 查询路点列表
   rpc LoadPoseList(db.LoadListRequest) returns (db.LoadListResponse);
   // 保存/修改/删除特征
-  rpc SaveFrame(SavePoseRequest) returns (google.protobuf.Empty);
+  rpc SaveFrame(SaveFrameRequest) returns (google.protobuf.Empty);
   // 查询特征
-  rpc LoadFrame(db.LoadRequest) returns (Pose);
+  rpc LoadFrame(db.LoadRequest) returns (CartesianFrame);
   // 查询特征列表
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
 
