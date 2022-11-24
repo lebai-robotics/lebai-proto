@@ -49,8 +49,8 @@ message Task {
   uint32 loop_count = 13 [json_name = "loop_count"];
   // 循环次数，0为无限循环
   uint32 loop_to = 14 [json_name = "loop_to"];
-  // 是否为获得手臂控制权的主任务
-  bool is_main = 15 [json_name = "is_main"];
+  // 是否以子任务形式同时运行多个任务
+  bool is_parallel = 15 [json_name = "is_parallel"];
   // 是否为仿真模式
   bool is_simu = 16 [json_name = "is_simu"];
   // 输出
