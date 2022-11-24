@@ -89,8 +89,8 @@ message TaskStdout {
 
 message StartTaskRequest {
   string name = 1;
-  // 是否以主任务方式运行（主任务会排队执行，子任务会并发执行）
-  bool is_main = 2 [json_name = "is_main"];
+  // 是否以子任务形式同时运行多个任务
+  bool is_parallel = 2 [json_name = "is_parallel"];
   // 循环次数，默认0永久循环运行
   uint32 loop_to = 3 [json_name = "loop_to"];
   string dir = 11;
