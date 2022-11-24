@@ -48,6 +48,11 @@ message SaveTcpRequest {
   string dir = 11;
 }
 
+message CalcFrameRequest {
+  posture.CartesianPose o = 1;
+  posture.CartesianPose x = 2;
+  posture.CartesianPose xy = 3;
+}
 message CalcTcpRequest {
   repeated posture.CartesianPose poses = 1;
 }
@@ -73,6 +78,8 @@ service KinematicService {
   rpc GetKinData(google.protobuf.Empty) returns (KinData);
   // 订阅运动数据
   rpc SubKinData(SubscribeRequest) returns (stream KinData);
+  // 三点采样计算原点特征
+  rpc CalcFrame(CalcFrameRequest) returns (posture.CartesianPose);
   // 三点采样计算工具中心点
   rpc CalcTcp(CalcTcpRequest) returns (posture.CartesianPose);
   // 设置工具中心点
