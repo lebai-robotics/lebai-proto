@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package lebai.trigger;
+
+import "google/protobuf/empty.proto";
+import "io.proto";
+
+message Condition {
+  // 当一系列按键被同时按下时
+  repeated io.ButtonIndex pressed = 1;
+  // 当指定按键处于某状态时
+  io.ButtonIndex button = 11;
+  io.ButtonStatus status = 12;
+  // 仅启动时监测一次
+  bool startup = 21;
+}
+enum Function {
+  // 无
+  NONE = 0;
+  // 进入示教模式
+  START_TEACH_MODE = 1;
+  // 退出示教模式
+  END_TEACH_MODE = 2;
+  // 设置关节零位
+  SET_ZERO = 3;
+  // 改变手臂启停状态
+  CHANGE_POWER = 4;
+}
+message Trigger {
+  Condition condition = 1;
+  Function function = 11;
+}
+message Triggers {
+  repeated Trigger triggers = 1;
+}
+
+// 条件任务触发器相关服务
+service TriggerService {
+  rpc SetTrigger(Trigger) returns (google.protobuf.Empty);
+  rpc GetTriggers(google.protobuf.Empty) returns (Triggers);
+}

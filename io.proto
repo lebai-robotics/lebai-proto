@@ -107,28 +107,6 @@ message ButtonsStatus {
   ButtonIndex button = 1;
   ButtonStatus status = 2;
 }
-message ButtonsCondition {
-  // 当一系列按键被同时按下时
-  repeated ButtonIndex pressed = 1;
-  ButtonIndex button = 11;
-  ButtonStatus status = 12;
-}
-enum ButtonsFunction {
-  // 无
-  NONE = 0;
-  // 进入示教模式
-  START_TEACH_MODE = 1;
-  // 退出示教模式
-  END_TEACH_MODE = 2;
-  // 设置关节零位
-  SET_ZERO = 3;
-  // 改变手臂启停状态
-  CHANGE_POWER = 4;
-}
-message ButtonsProgram {
-  ButtonsCondition condition = 1;
-  ButtonsFunction function = 2;
-}
 
 // IO相关服务
 service IoService {
@@ -146,6 +124,5 @@ service IoService {
   rpc SetAos(SetAoPinsRequest) returns (google.protobuf.Empty);
   rpc EnableButton(ButtonIndex) returns (google.protobuf.Empty);
   rpc DisableButton(ButtonIndex) returns (google.protobuf.Empty);
-  rpc SetButtonsProgram(ButtonsProgram) returns (google.protobuf.Empty);
   rpc SubButtonsStatus(google.protobuf.Empty) returns (stream ButtonsStatus);
 }
