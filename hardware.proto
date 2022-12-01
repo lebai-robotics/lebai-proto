@@ -41,6 +41,13 @@ enum FirmwarePartition {
   UNKNOWN = 3;
 }
 
+// 固件信息
+message FirmwareInfo {
+  string sn = 1;
+  string version = 2;
+  FirmwarePartition partition = 3;
+}
+
 message StartOtaRequest {
   Address address = 1;
   FirmwarePartition partition = 2;
