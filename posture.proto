@@ -153,9 +153,9 @@ message GetInverseKinRequest {
   Pose pose = 1;
   JointPose refer = 2;
 }
-message GetPoseMultiplyRequest {
-  Pose base = 1;
-  Pose target = 2;
+message GetPoseTransRequest {
+  Pose from = 1;
+  Pose from_to = 2 [json_name = "from_to"];
 }
 
 // 位姿算法相关服务
@@ -178,7 +178,7 @@ service PostureService {
   // 反解
   rpc GetInverseKin(GetInverseKinRequest) returns (JointPose);
   // 位姿乘
-  rpc GetPoseMultiply(GetPoseMultiplyRequest) returns (CartesianPose);
+  rpc GetPoseTrans(GetPoseTransRequest) returns (CartesianPose);
   // 位姿逆
   rpc GetPoseInverse(PoseRequest) returns (CartesianPose);
 }

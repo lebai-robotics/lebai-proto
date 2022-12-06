@@ -49,7 +49,7 @@ message SpeedLRequest {
   posture.CartesianPose speed = 1;
   SpeedParam param = 11;
   // 参考系方向
-  posture.CartesianFrame base = 21;
+  posture.CartesianFrame frame = 21;
 }
 
 message JointMove {
