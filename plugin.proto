@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package lebai.plugin;
+
+import "google/protobuf/empty.proto";
+
+message PluginInfo {
+  // 唯一ID，英文名
+  string id = 1;
+  // 版本
+  string version = 2;
+  // 插件名称，中文名
+  string name = 5;
+  // 详细介绍
+  string detail = 6;
+}
+message PluginIndex {
+  string id = 1;
+  string version =2;
+}
+message Plugins {
+  repeated PluginInfo plugins = 1;
+}
+
+// 插件相关服务
+service PluginService {
+  // 查询插件信息
+  rpc LoadPlugin(PluginIndex) returns (PluginInfo);
+  // 查询插件市场列表
+  rpc LoadPluginList(google.protobuf.Empty) returns (Plugins);
+
+  // 安装插件
+  rpc InstallPlugin(PluginIndex) returns (google.protobuf.Empty);
+  // 查询已安装的插件列表
+  rpc LoadInstalledPlugins(google.protobuf.Empty) returns (Plugins);
+}
