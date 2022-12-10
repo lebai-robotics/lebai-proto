@@ -43,6 +43,10 @@ message CartesianLimit {
 
 // 操作安全相关服务
 service SafetyService {
+  // 使能碰撞检测
+  rpc EnableCollisionDetector(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 临时禁用碰撞检测
+  rpc DisableCollisionDetector(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 设置碰撞监测误差
   rpc SetCollisionTorqueDiff(CollisionTorqueDiff)
       returns (google.protobuf.Empty);
@@ -55,7 +59,7 @@ service SafetyService {
   rpc GetCollisionDetector(google.protobuf.Empty) returns (CollisionDetector);
   // 使能限位检测
   rpc EnableLimit(google.protobuf.Empty) returns (google.protobuf.Empty);
-  // 禁用限位检测
+  // 临时禁用限位检测
   rpc DisableLimit(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 设置关节限位
   rpc SetJointsLimit(JointsLimit) returns (google.protobuf.Empty);
