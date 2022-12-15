@@ -26,7 +26,7 @@ jobs:
           ref: out_docs
           path: out_docs
       - name: Build Docs
-        run: protoc --doc_out=../out_protobufjs ./*.proto
+        run: protoc --doc_out=../out_docs ./*.proto
         working-directory: proto
       - name: Publish Docs
         run: |
@@ -47,8 +47,8 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-      - name: Install protobufjs
-        run: npm install -g protobufjs
+      - name: Install protobufjs-cli
+        run: npm install -g protobufjs-cli
       - name: Checkout Proto
         uses: actions/checkout@v3
         with:
