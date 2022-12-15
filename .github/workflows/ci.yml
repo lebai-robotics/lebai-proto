@@ -7,8 +7,14 @@ jobs:
     name: Docs
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.17.2
+
       - name: Install Protoc
         uses: arduino/setup-protoc@v1
+      - name: Install proto-gen-doc
+        run: go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
       - name: Checkout Proto
         uses: actions/checkout@v3
         with:
@@ -40,6 +46,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: 'npm'
       - name: Install protobufjs
         run: npm install -g protobufjs
       - name: Checkout Proto
