@@ -46,7 +46,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
       - name: Install protobufjs-cli
         run: npm install -g protobufjs-cli
       - name: Checkout Proto
