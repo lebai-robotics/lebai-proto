@@ -29,7 +29,7 @@ jobs:
           git add .
           git commit -m $(date +%Y%m%d)
           git push
-        working-directory: out_ts
+        working-directory: out_docs
   protobufjs:
     name: protobufjs
     runs-on: ubuntu-latest
