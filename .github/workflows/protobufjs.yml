@@ -3,45 +3,14 @@ on: [push, pull_request]
 env:
   CLICOLOR_FORCE: 1
 jobs:
-  docs:
-    name: Docs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.17.2
-
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v1
-      - name: Install proto-gen-doc
-        run: go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
-      - name: Checkout Proto
-        uses: actions/checkout@v3
-        with:
-          ref: next
-          path: proto
-      - name: Checkout Docs
-        uses: actions/checkout@v3
-        with:
-          ref: out_docs
-          path: out_docs
-      - name: Build Docs
-        run: protoc --doc_out=../out_docs ./*.proto
-        working-directory: proto
-      - name: Publish Docs
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m $(date +%Y%m%d)
-          git push
-        working-directory: out_docs
   protobufjs:
     name: protobufjs
     runs-on: ubuntu-latest
     steps:
       - name: Install Protoc
         uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install NodeJs
         uses: actions/setup-node@v3
         with:
