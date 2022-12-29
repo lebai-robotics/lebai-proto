@@ -22190,7 +22190,16 @@ export namespace lebai {
             START_TEACH_MODE = 1,
             END_TEACH_MODE = 2,
             SET_ZERO = 3,
-            CHANGE_POWER = 4
+            CHANGE_POWER = 4,
+            SCENE_HOOK1 = 11,
+            SCENE_HOOK2 = 12,
+            SCENE_HOOK3 = 13,
+            SCENE_HOOK4 = 14,
+            SCENE_HOOK5 = 15,
+            SCENE_HOOK6 = 16,
+            SCENE_HOOK7 = 17,
+            SCENE_HOOK8 = 18,
+            SCENE_HOOK9 = 19
         }
 
         /** Properties of a Trigger. */
