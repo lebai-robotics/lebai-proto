@@ -13087,6 +13087,307 @@ export namespace lebai {
         }
     }
 
+    /** Namespace message. */
+    namespace message {
+
+        /** Level enum. */
+        enum Level {
+            INFO = 0,
+            WARN = 1,
+            ERROR = 2
+        }
+
+        /** Kind enum. */
+        enum Kind {
+            ESTOP = 0,
+            HARD_ESTOP_LOCK = 1,
+            DRIVER_ERROR = 2,
+            REACH_JOINT_LIMIT = 3,
+            COLLISION_DETECTED = 4,
+            JONIT_SPEED_EXCEED = 5,
+            TRAJECTOR_ERROR = 6,
+            OTA_FAILED = 7
+        }
+
+        /** Properties of a Message. */
+        interface IMessage {
+
+            /** Message level */
+            level?: (lebai.message.Level|null);
+
+            /** Message kind */
+            kind?: (lebai.message.Kind|null);
+
+            /** Message detail */
+            detail?: (string|null);
+
+            /** Message time */
+            time?: (google.protobuf.ITimestamp|null);
+        }
+
+        /** Represents a Message. */
+        class Message implements IMessage {
+
+            /**
+             * Constructs a new Message.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.message.IMessage);
+
+            /** Message level. */
+            public level: lebai.message.Level;
+
+            /** Message kind. */
+            public kind: lebai.message.Kind;
+
+            /** Message detail. */
+            public detail: string;
+
+            /** Message time. */
+            public time?: (google.protobuf.ITimestamp|null);
+
+            /**
+             * Creates a new Message instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Message instance
+             */
+            public static create(properties?: lebai.message.IMessage): lebai.message.Message;
+
+            /**
+             * Encodes the specified Message message. Does not implicitly {@link lebai.message.Message.verify|verify} messages.
+             * @param message Message message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.message.IMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Message message, length delimited. Does not implicitly {@link lebai.message.Message.verify|verify} messages.
+             * @param message Message message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.message.IMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Message message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Message
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.message.Message;
+
+            /**
+             * Decodes a Message message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Message
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.message.Message;
+
+            /**
+             * Verifies a Message message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Message message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Message
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.message.Message;
+
+            /**
+             * Creates a plain object from a Message message. Also converts values to other types if specified.
+             * @param message Message
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.message.Message, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Message to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Message
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a Messages. */
+        interface IMessages {
+
+            /** Messages messages */
+            messages?: (lebai.message.IMessage[]|null);
+        }
+
+        /** Represents a Messages. */
+        class Messages implements IMessages {
+
+            /**
+             * Constructs a new Messages.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.message.IMessages);
+
+            /** Messages messages. */
+            public messages: lebai.message.IMessage[];
+
+            /**
+             * Creates a new Messages instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Messages instance
+             */
+            public static create(properties?: lebai.message.IMessages): lebai.message.Messages;
+
+            /**
+             * Encodes the specified Messages message. Does not implicitly {@link lebai.message.Messages.verify|verify} messages.
+             * @param message Messages message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.message.IMessages, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Messages message, length delimited. Does not implicitly {@link lebai.message.Messages.verify|verify} messages.
+             * @param message Messages message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.message.IMessages, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Messages message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Messages
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.message.Messages;
+
+            /**
+             * Decodes a Messages message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Messages
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.message.Messages;
+
+            /**
+             * Verifies a Messages message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Messages message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Messages
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.message.Messages;
+
+            /**
+             * Creates a plain object from a Messages message. Also converts values to other types if specified.
+             * @param message Messages
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.message.Messages, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Messages to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Messages
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a MessageService */
+        class MessageService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new MessageService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new MessageService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): MessageService;
+
+            /**
+             * Calls GetMessages.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Messages
+             */
+            public getMessages(request: google.protobuf.IEmpty, callback: lebai.message.MessageService.GetMessagesCallback): void;
+
+            /**
+             * Calls GetMessages.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public getMessages(request: google.protobuf.IEmpty): Promise<lebai.message.Messages>;
+
+            /**
+             * Calls SubMessage.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Message
+             */
+            public subMessage(request: google.protobuf.IEmpty, callback: lebai.message.MessageService.SubMessageCallback): void;
+
+            /**
+             * Calls SubMessage.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public subMessage(request: google.protobuf.IEmpty): Promise<lebai.message.Message>;
+        }
+
+        namespace MessageService {
+
+            /**
+             * Callback as used by {@link lebai.message.MessageService#getMessages}.
+             * @param error Error, if any
+             * @param [response] Messages
+             */
+            type GetMessagesCallback = (error: (Error|null), response?: lebai.message.Messages) => void;
+
+            /**
+             * Callback as used by {@link lebai.message.MessageService#subMessage}.
+             * @param error Error, if any
+             * @param [response] Message
+             */
+            type SubMessageCallback = (error: (Error|null), response?: lebai.message.Message) => void;
+        }
+    }
+
     /** Namespace modbus. */
     namespace modbus {
 

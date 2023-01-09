@@ -2395,6 +2395,71 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      message: {
+        nested: {
+          Level: {
+            values: {
+              INFO: 0,
+              WARN: 1,
+              ERROR: 2
+            }
+          },
+          Kind: {
+            values: {
+              ESTOP: 0,
+              HARD_ESTOP_LOCK: 1,
+              DRIVER_ERROR: 2,
+              REACH_JOINT_LIMIT: 3,
+              COLLISION_DETECTED: 4,
+              JONIT_SPEED_EXCEED: 5,
+              TRAJECTOR_ERROR: 6,
+              OTA_FAILED: 7
+            }
+          },
+          Message: {
+            fields: {
+              level: {
+                type: "Level",
+                id: 1
+              },
+              kind: {
+                type: "Kind",
+                id: 2
+              },
+              detail: {
+                type: "string",
+                id: 3
+              },
+              time: {
+                type: "google.protobuf.Timestamp",
+                id: 11
+              }
+            }
+          },
+          Messages: {
+            fields: {
+              messages: {
+                rule: "repeated",
+                type: "Message",
+                id: 1
+              }
+            }
+          },
+          MessageService: {
+            methods: {
+              GetMessages: {
+                requestType: "google.protobuf.Empty",
+                responseType: "Messages"
+              },
+              SubMessage: {
+                requestType: "google.protobuf.Empty",
+                responseType: "Message",
+                responseStream: true
+              }
+            }
+          }
+        }
+      },
       modbus: {
         nested: {
           ModbusKind: {
