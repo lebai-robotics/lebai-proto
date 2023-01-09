@@ -676,6 +676,37 @@
         
           
           <li>
+            <a href="#message.proto">message.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.message.Message"><span class="badge">M</span>Message</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.message.Messages"><span class="badge">M</span>Messages</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.message.Kind"><span class="badge">E</span>Kind</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.message.Level"><span class="badge">E</span>Level</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.message.MessageService"><span class="badge">S</span>MessageService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#modbus.proto">modbus.proto</a>
             <ul>
               
@@ -5209,6 +5240,203 @@
                 <td>SetFan</td>
                 <td><a href="#lebai.led.FanData">FanData</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="message.proto">message.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.message.Message">Message</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>level</td>
+                  <td><a href="#lebai.message.Level">Level</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.message.Kind">Kind</a></td>
+                  <td></td>
+                  <td><p>信息类型，前端提供国际化 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>detail</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>详细信息，供内部人员查看 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>消息产生时间 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.message.Messages">Messages</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#lebai.message.Message">Message</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.message.Kind">Kind</h3>
+        <p>消息类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ESTOP</td>
+                <td>0</td>
+                <td><p>急停</p></td>
+              </tr>
+            
+              <tr>
+                <td>HARD_ESTOP_LOCK</td>
+                <td>1</td>
+                <td><p>请释放硬件急停开关后重试</p></td>
+              </tr>
+            
+              <tr>
+                <td>DRIVER_ERROR</td>
+                <td>2</td>
+                <td><p>硬件驱动故障</p></td>
+              </tr>
+            
+              <tr>
+                <td>REACH_JOINT_LIMIT</td>
+                <td>3</td>
+                <td><p>关节超出临界位置</p></td>
+              </tr>
+            
+              <tr>
+                <td>COLLISION_DETECTED</td>
+                <td>4</td>
+                <td><p>机器人可能被碰撞</p></td>
+              </tr>
+            
+              <tr>
+                <td>JONIT_SPEED_EXCEED</td>
+                <td>5</td>
+                <td><p>关节速度超出限制</p></td>
+              </tr>
+            
+              <tr>
+                <td>TRAJECTOR_ERROR</td>
+                <td>6</td>
+                <td><p>机器人运动规划出错</p></td>
+              </tr>
+            
+              <tr>
+                <td>OTA_FAILED</td>
+                <td>7</td>
+                <td><p>OTA升级失败</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.message.Level">Level</h3>
+        <p>消息等级</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>INFO</td>
+                <td>0</td>
+                <td><p>提示</p></td>
+              </tr>
+            
+              <tr>
+                <td>WARN</td>
+                <td>1</td>
+                <td><p>警告</p></td>
+              </tr>
+            
+              <tr>
+                <td>ERROR</td>
+                <td>2</td>
+                <td><p>故障</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.message.MessageService">MessageService</h3>
+        <p>消息相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetMessages</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.message.Messages">Messages</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SubMessage</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.message.Message">Message</a> stream</td>
                 <td><p></p></td>
               </tr>
             
