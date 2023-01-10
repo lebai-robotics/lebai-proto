@@ -504,6 +504,22 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.io.GetDiosModeRequest"><span class="badge">M</span>GetDiosModeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetDiosModeResponse"><span class="badge">M</span>GetDiosModeResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetDiosRequest"><span class="badge">M</span>GetDiosRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetDiosResponse"><span class="badge">M</span>GetDiosResponse</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.io.SetAoPinRequest"><span class="badge">M</span>SetAoPinRequest</a>
                 </li>
               
@@ -3695,6 +3711,116 @@
 
         
       
+        <h3 id="lebai.io.GetDiosModeRequest">GetDiosModeRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>count</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetDiosModeResponse">GetDiosModeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetDiosRequest">GetDiosRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>count</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetDiosResponse">GetDiosResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.io.SetAoPinRequest">SetAoPinRequest</h3>
         <p></p>
 
@@ -4221,7 +4347,21 @@
                 <td>SetDio</td>
                 <td><a href="#lebai.io.SetDioRequest">SetDioRequest</a></td>
                 <td><a href="#lebai.io.SetDioResponse">SetDioResponse</a></td>
-                <td><p></p></td>
+                <td><p>ARM only</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDios</td>
+                <td><a href="#lebai.io.GetDiosRequest">GetDiosRequest</a></td>
+                <td><a href="#lebai.io.GetDiosResponse">GetDiosResponse</a></td>
+                <td><p>ARM only</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetDiosMode</td>
+                <td><a href="#lebai.io.GetDiosModeRequest">GetDiosModeRequest</a></td>
+                <td><a href="#lebai.io.GetDiosModeRequest">GetDiosModeRequest</a></td>
+                <td><p>ARM only</p></td>
               </tr>
             
           </tbody>
