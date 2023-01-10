@@ -1889,6 +1889,46 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SetDioModeRequest: {
+            fields: {
+              pin: {
+                type: "uint32",
+                id: 1
+              },
+              value: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
+          SetDioModeResponse: {
+            fields: {
+              pin: {
+                type: "uint32",
+                id: 1
+              },
+              success: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
+          SetDioRequest: {
+            fields: {
+              value: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
+          SetDioResponse: {
+            fields: {
+              success: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
           IoService: {
             methods: {
               GetDi: {
@@ -1951,6 +1991,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 requestType: "google.protobuf.Empty",
                 responseType: "ButtonsStatus",
                 responseStream: true
+              },
+              SetDioMode: {
+                requestType: "SetDioModeRequest",
+                responseType: "SetDioModeResponse"
+              },
+              SetDio: {
+                requestType: "SetDioRequest",
+                responseType: "SetDioResponse"
               }
             }
           }
