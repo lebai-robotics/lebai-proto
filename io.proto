@@ -126,6 +126,23 @@ message SetDioResponse {
   bool success = 1;
 }
 
+message GetDiosRequest{
+  uint32 pin = 1;
+  uint32 count = 2;
+}
+
+message GetDiosResponse{
+  repeated bool values = 1;
+}
+
+message GetDiosModeRequest{
+  uint32 pin = 1;
+  uint32 count = 2;
+}
+
+message GetDiosModeResponse{
+  repeated bool values = 1;
+}
 // IO相关服务
 service IoService {
   rpc GetDi(GetDioPinRequest) returns (GetDioPinResponse);
@@ -146,5 +163,10 @@ service IoService {
 
   //ARM only
   rpc SetDioMode(SetDioModeRequest) returns (SetDioModeResponse);
+  //ARM only
   rpc SetDio(SetDioRequest) returns (SetDioResponse);
+  //ARM only
+  rpc GetDios(GetDiosRequest) returns (GetDiosResponse);
+  //ARM only
+  rpc GetDiosMode(GetDiosModeRequest) returns (GetDiosModeRequest);
 }
