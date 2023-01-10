@@ -10753,9 +10753,6 @@ export namespace lebai {
         /** Properties of a SetDioModeResponse. */
         interface ISetDioModeResponse {
 
-            /** SetDioModeResponse pin */
-            pin?: (number|null);
-
             /** SetDioModeResponse success */
             success?: (boolean|null);
         }
@@ -10768,9 +10765,6 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.io.ISetDioModeResponse);
-
-            /** SetDioModeResponse pin. */
-            public pin: number;
 
             /** SetDioModeResponse success. */
             public success: boolean;
@@ -10856,6 +10850,9 @@ export namespace lebai {
         /** Properties of a SetDioRequest. */
         interface ISetDioRequest {
 
+            /** SetDioRequest pin */
+            pin?: (number|null);
+
             /** SetDioRequest value */
             value?: (boolean|null);
         }
@@ -10868,6 +10865,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.io.ISetDioRequest);
+
+            /** SetDioRequest pin. */
+            public pin: number;
 
             /** SetDioRequest value. */
             public value: boolean;

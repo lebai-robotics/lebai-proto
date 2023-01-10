@@ -1903,18 +1903,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           SetDioModeResponse: {
             fields: {
-              pin: {
-                type: "uint32",
-                id: 1
-              },
               success: {
                 type: "bool",
-                id: 2
+                id: 1
               }
             }
           },
           SetDioRequest: {
             fields: {
+              pin: {
+                type: "uint32",
+                id: 1
+              },
               value: {
                 type: "bool",
                 id: 2
@@ -1925,7 +1925,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
             fields: {
               success: {
                 type: "bool",
-                id: 2
+                id: 1
               }
             }
           },
