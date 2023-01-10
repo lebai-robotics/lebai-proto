@@ -114,16 +114,16 @@ message SetDioModeRequest {
 }
 
 message SetDioModeResponse {
-  uint32 pin = 1;
-  bool success = 2;
+  bool success = 1;
 }
 
 message SetDioRequest {
+  uint32 pin = 1;
   bool value = 2;
 }
 
 message SetDioResponse {
-  bool success = 2;
+  bool success = 1;
 }
 
 // IO相关服务
