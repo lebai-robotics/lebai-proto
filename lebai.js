@@ -1929,6 +1929,48 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          GetDiosRequest: {
+            fields: {
+              pin: {
+                type: "uint32",
+                id: 1
+              },
+              count: {
+                type: "uint32",
+                id: 2
+              }
+            }
+          },
+          GetDiosResponse: {
+            fields: {
+              values: {
+                rule: "repeated",
+                type: "bool",
+                id: 1
+              }
+            }
+          },
+          GetDiosModeRequest: {
+            fields: {
+              pin: {
+                type: "uint32",
+                id: 1
+              },
+              count: {
+                type: "uint32",
+                id: 2
+              }
+            }
+          },
+          GetDiosModeResponse: {
+            fields: {
+              values: {
+                rule: "repeated",
+                type: "bool",
+                id: 1
+              }
+            }
+          },
           IoService: {
             methods: {
               GetDi: {
@@ -1999,6 +2041,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               SetDio: {
                 requestType: "SetDioRequest",
                 responseType: "SetDioResponse"
+              },
+              GetDios: {
+                requestType: "GetDiosRequest",
+                responseType: "GetDiosResponse"
+              },
+              GetDiosMode: {
+                requestType: "GetDiosModeRequest",
+                responseType: "GetDiosModeRequest"
               }
             }
           }
