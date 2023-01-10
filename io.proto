@@ -108,6 +108,24 @@ message ButtonsStatus {
   ButtonStatus status = 2;
 }
 
+message SetDioModeRequest {
+  uint32 pin = 1;
+  bool value = 2;
+}
+
+message SetDioModeResponse {
+  uint32 pin = 1;
+  bool success = 2;
+}
+
+message SetDioRequest {
+  bool value = 2;
+}
+
+message SetDioResponse {
+  bool success = 2;
+}
+
 // IO相关服务
 service IoService {
   rpc GetDi(GetDioPinRequest) returns (GetDioPinResponse);
@@ -125,4 +143,8 @@ service IoService {
   rpc EnableButton(ButtonIndex) returns (google.protobuf.Empty);
   rpc DisableButton(ButtonIndex) returns (google.protobuf.Empty);
   rpc SubButtonsStatus(google.protobuf.Empty) returns (stream ButtonsStatus);
+
+  //ARM only
+  rpc SetDioMode(SetDioModeRequest) returns (SetDioModeResponse);
+  rpc SetDio(SetDioRequest) returns (SetDioResponse);
 }
