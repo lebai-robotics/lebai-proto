@@ -2048,7 +2048,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               GetDiosMode: {
                 requestType: "GetDiosModeRequest",
-                responseType: "GetDiosModeRequest"
+                responseType: "GetDiosModeResponse"
               }
             }
           }

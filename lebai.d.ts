@@ -11722,7 +11722,7 @@ export namespace lebai {
             /**
              * Calls GetDiosMode.
              * @param request GetDiosModeRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and GetDiosModeRequest
+             * @param callback Node-style callback called with the error, if any, and GetDiosModeResponse
              */
             public getDiosMode(request: lebai.io.IGetDiosModeRequest, callback: lebai.io.IoService.GetDiosModeCallback): void;
 
@@ -11731,7 +11731,7 @@ export namespace lebai {
              * @param request GetDiosModeRequest message or plain object
              * @returns Promise
              */
-            public getDiosMode(request: lebai.io.IGetDiosModeRequest): Promise<lebai.io.GetDiosModeRequest>;
+            public getDiosMode(request: lebai.io.IGetDiosModeRequest): Promise<lebai.io.GetDiosModeResponse>;
         }
 
         namespace IoService {
@@ -11865,9 +11865,9 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.io.IoService#getDiosMode}.
              * @param error Error, if any
-             * @param [response] GetDiosModeRequest
+             * @param [response] GetDiosModeResponse
              */
-            type GetDiosModeCallback = (error: (Error|null), response?: lebai.io.GetDiosModeRequest) => void;
+            type GetDiosModeCallback = (error: (Error|null), response?: lebai.io.GetDiosModeResponse) => void;
         }
     }
 
