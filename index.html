@@ -512,6 +512,22 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.io.SetDioModeRequest"><span class="badge">M</span>SetDioModeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.SetDioModeResponse"><span class="badge">M</span>SetDioModeResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.SetDioRequest"><span class="badge">M</span>SetDioRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.SetDioResponse"><span class="badge">M</span>SetDioResponse</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.io.SetDoPinRequest"><span class="badge">M</span>SetDoPinRequest</a>
                 </li>
               
@@ -3755,6 +3771,116 @@
 
         
       
+        <h3 id="lebai.io.SetDioModeRequest">SetDioModeRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.SetDioModeResponse">SetDioModeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>success</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.SetDioRequest">SetDioRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.SetDioResponse">SetDioResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>success</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.io.SetDoPinRequest">SetDoPinRequest</h3>
         <p></p>
 
@@ -4081,6 +4207,20 @@
                 <td>SubButtonsStatus</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.io.ButtonsStatus">ButtonsStatus</a> stream</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetDioMode</td>
+                <td><a href="#lebai.io.SetDioModeRequest">SetDioModeRequest</a></td>
+                <td><a href="#lebai.io.SetDioModeResponse">SetDioModeResponse</a></td>
+                <td><p>ARM only</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetDio</td>
+                <td><a href="#lebai.io.SetDioRequest">SetDioRequest</a></td>
+                <td><a href="#lebai.io.SetDioResponse">SetDioResponse</a></td>
                 <td><p></p></td>
               </tr>
             
