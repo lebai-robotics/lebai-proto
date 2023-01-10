@@ -168,5 +168,5 @@ service IoService {
   //ARM only
   rpc GetDios(GetDiosRequest) returns (GetDiosResponse);
   //ARM only
-  rpc GetDiosMode(GetDiosModeRequest) returns (GetDiosModeRequest);
+  rpc GetDiosMode(GetDiosModeRequest) returns (GetDiosModeResponse);
 }
