@@ -1304,6 +1304,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               rotation: {
                 type: "Rotation",
                 id: 4
+              },
+              note: {
+                type: "string",
+                id: 99
               }
             },
             nested: {
@@ -1346,6 +1350,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               joint: {
                 type: "JointPose",
                 id: 21
+              },
+              note: {
+                type: "string",
+                id: 99
               }
             },
             nested: {

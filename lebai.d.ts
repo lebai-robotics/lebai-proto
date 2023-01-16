@@ -6724,6 +6724,9 @@ export namespace lebai {
 
             /** CartesianFrame rotation */
             rotation?: (lebai.posture.IRotation|null);
+
+            /** CartesianFrame note */
+            note?: (string|null);
         }
 
         /** Represents a CartesianFrame. */
@@ -6746,6 +6749,9 @@ export namespace lebai {
 
             /** CartesianFrame rotation. */
             public rotation?: (lebai.posture.IRotation|null);
+
+            /** CartesianFrame note. */
+            public note: string;
 
             /**
              * Creates a new CartesianFrame instance using the specified properties.
@@ -6855,6 +6861,9 @@ export namespace lebai {
 
             /** Pose joint */
             joint?: (lebai.posture.IJointPose|null);
+
+            /** Pose note */
+            note?: (string|null);
         }
 
         /** Represents a Pose. */
@@ -6880,6 +6889,9 @@ export namespace lebai {
 
             /** Pose joint. */
             public joint?: (lebai.posture.IJointPose|null);
+
+            /** Pose note. */
+            public note: string;
 
             /**
              * Creates a new Pose instance using the specified properties.
