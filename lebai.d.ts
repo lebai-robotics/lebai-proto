@@ -9088,6 +9088,12 @@ export namespace lebai {
             AO = 3
         }
 
+        /** DigitalMode enum. */
+        enum DigitalMode {
+            INPUT = 0,
+            OUTPUT = 1
+        }
+
         /** AnalogMode enum. */
         enum AnalogMode {
             VOLTAGE = 0,
@@ -10662,11 +10668,14 @@ export namespace lebai {
         /** Properties of a SetDioModeRequest. */
         interface ISetDioModeRequest {
 
+            /** SetDioModeRequest device */
+            device?: (lebai.io.IoDevice|null);
+
             /** SetDioModeRequest pin */
             pin?: (number|null);
 
-            /** SetDioModeRequest value */
-            value?: (boolean|null);
+            /** SetDioModeRequest mode */
+            mode?: (lebai.io.DigitalMode|null);
         }
 
         /** Represents a SetDioModeRequest. */
@@ -10678,11 +10687,14 @@ export namespace lebai {
              */
             constructor(properties?: lebai.io.ISetDioModeRequest);
 
+            /** SetDioModeRequest device. */
+            public device: lebai.io.IoDevice;
+
             /** SetDioModeRequest pin. */
             public pin: number;
 
-            /** SetDioModeRequest value. */
-            public value: boolean;
+            /** SetDioModeRequest mode. */
+            public mode: lebai.io.DigitalMode;
 
             /**
              * Creates a new SetDioModeRequest instance using the specified properties.
@@ -10762,497 +10774,206 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a SetDioModeResponse. */
-        interface ISetDioModeResponse {
+        /** Properties of a GetDioModeRequest. */
+        interface IGetDioModeRequest {
 
-            /** SetDioModeResponse success */
-            success?: (boolean|null);
-        }
+            /** GetDioModeRequest device */
+            device?: (lebai.io.IoDevice|null);
 
-        /** Represents a SetDioModeResponse. */
-        class SetDioModeResponse implements ISetDioModeResponse {
-
-            /**
-             * Constructs a new SetDioModeResponse.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.io.ISetDioModeResponse);
-
-            /** SetDioModeResponse success. */
-            public success: boolean;
-
-            /**
-             * Creates a new SetDioModeResponse instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns SetDioModeResponse instance
-             */
-            public static create(properties?: lebai.io.ISetDioModeResponse): lebai.io.SetDioModeResponse;
-
-            /**
-             * Encodes the specified SetDioModeResponse message. Does not implicitly {@link lebai.io.SetDioModeResponse.verify|verify} messages.
-             * @param message SetDioModeResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.io.ISetDioModeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified SetDioModeResponse message, length delimited. Does not implicitly {@link lebai.io.SetDioModeResponse.verify|verify} messages.
-             * @param message SetDioModeResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.io.ISetDioModeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a SetDioModeResponse message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns SetDioModeResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.SetDioModeResponse;
-
-            /**
-             * Decodes a SetDioModeResponse message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns SetDioModeResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.SetDioModeResponse;
-
-            /**
-             * Verifies a SetDioModeResponse message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a SetDioModeResponse message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns SetDioModeResponse
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.io.SetDioModeResponse;
-
-            /**
-             * Creates a plain object from a SetDioModeResponse message. Also converts values to other types if specified.
-             * @param message SetDioModeResponse
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.io.SetDioModeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this SetDioModeResponse to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for SetDioModeResponse
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a SetDioRequest. */
-        interface ISetDioRequest {
-
-            /** SetDioRequest pin */
+            /** GetDioModeRequest pin */
             pin?: (number|null);
 
-            /** SetDioRequest value */
-            value?: (boolean|null);
-        }
-
-        /** Represents a SetDioRequest. */
-        class SetDioRequest implements ISetDioRequest {
-
-            /**
-             * Constructs a new SetDioRequest.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.io.ISetDioRequest);
-
-            /** SetDioRequest pin. */
-            public pin: number;
-
-            /** SetDioRequest value. */
-            public value: boolean;
-
-            /**
-             * Creates a new SetDioRequest instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns SetDioRequest instance
-             */
-            public static create(properties?: lebai.io.ISetDioRequest): lebai.io.SetDioRequest;
-
-            /**
-             * Encodes the specified SetDioRequest message. Does not implicitly {@link lebai.io.SetDioRequest.verify|verify} messages.
-             * @param message SetDioRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.io.ISetDioRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified SetDioRequest message, length delimited. Does not implicitly {@link lebai.io.SetDioRequest.verify|verify} messages.
-             * @param message SetDioRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.io.ISetDioRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a SetDioRequest message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns SetDioRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.SetDioRequest;
-
-            /**
-             * Decodes a SetDioRequest message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns SetDioRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.SetDioRequest;
-
-            /**
-             * Verifies a SetDioRequest message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a SetDioRequest message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns SetDioRequest
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.io.SetDioRequest;
-
-            /**
-             * Creates a plain object from a SetDioRequest message. Also converts values to other types if specified.
-             * @param message SetDioRequest
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.io.SetDioRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this SetDioRequest to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for SetDioRequest
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a SetDioResponse. */
-        interface ISetDioResponse {
-
-            /** SetDioResponse success */
-            success?: (boolean|null);
-        }
-
-        /** Represents a SetDioResponse. */
-        class SetDioResponse implements ISetDioResponse {
-
-            /**
-             * Constructs a new SetDioResponse.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.io.ISetDioResponse);
-
-            /** SetDioResponse success. */
-            public success: boolean;
-
-            /**
-             * Creates a new SetDioResponse instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns SetDioResponse instance
-             */
-            public static create(properties?: lebai.io.ISetDioResponse): lebai.io.SetDioResponse;
-
-            /**
-             * Encodes the specified SetDioResponse message. Does not implicitly {@link lebai.io.SetDioResponse.verify|verify} messages.
-             * @param message SetDioResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.io.ISetDioResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified SetDioResponse message, length delimited. Does not implicitly {@link lebai.io.SetDioResponse.verify|verify} messages.
-             * @param message SetDioResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.io.ISetDioResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a SetDioResponse message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns SetDioResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.SetDioResponse;
-
-            /**
-             * Decodes a SetDioResponse message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns SetDioResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.SetDioResponse;
-
-            /**
-             * Verifies a SetDioResponse message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a SetDioResponse message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns SetDioResponse
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.io.SetDioResponse;
-
-            /**
-             * Creates a plain object from a SetDioResponse message. Also converts values to other types if specified.
-             * @param message SetDioResponse
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.io.SetDioResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this SetDioResponse to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for SetDioResponse
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a GetDiosRequest. */
-        interface IGetDiosRequest {
-
-            /** GetDiosRequest pin */
-            pin?: (number|null);
-
-            /** GetDiosRequest count */
+            /** GetDioModeRequest count */
             count?: (number|null);
         }
 
-        /** Represents a GetDiosRequest. */
-        class GetDiosRequest implements IGetDiosRequest {
+        /** Represents a GetDioModeRequest. */
+        class GetDioModeRequest implements IGetDioModeRequest {
 
             /**
-             * Constructs a new GetDiosRequest.
+             * Constructs a new GetDioModeRequest.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.io.IGetDiosRequest);
+            constructor(properties?: lebai.io.IGetDioModeRequest);
 
-            /** GetDiosRequest pin. */
+            /** GetDioModeRequest device. */
+            public device: lebai.io.IoDevice;
+
+            /** GetDioModeRequest pin. */
             public pin: number;
 
-            /** GetDiosRequest count. */
+            /** GetDioModeRequest count. */
             public count: number;
 
             /**
-             * Creates a new GetDiosRequest instance using the specified properties.
+             * Creates a new GetDioModeRequest instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns GetDiosRequest instance
+             * @returns GetDioModeRequest instance
              */
-            public static create(properties?: lebai.io.IGetDiosRequest): lebai.io.GetDiosRequest;
+            public static create(properties?: lebai.io.IGetDioModeRequest): lebai.io.GetDioModeRequest;
 
             /**
-             * Encodes the specified GetDiosRequest message. Does not implicitly {@link lebai.io.GetDiosRequest.verify|verify} messages.
-             * @param message GetDiosRequest message or plain object to encode
+             * Encodes the specified GetDioModeRequest message. Does not implicitly {@link lebai.io.GetDioModeRequest.verify|verify} messages.
+             * @param message GetDioModeRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.io.IGetDiosRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.io.IGetDioModeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified GetDiosRequest message, length delimited. Does not implicitly {@link lebai.io.GetDiosRequest.verify|verify} messages.
-             * @param message GetDiosRequest message or plain object to encode
+             * Encodes the specified GetDioModeRequest message, length delimited. Does not implicitly {@link lebai.io.GetDioModeRequest.verify|verify} messages.
+             * @param message GetDioModeRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.io.IGetDiosRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.io.IGetDioModeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a GetDiosRequest message from the specified reader or buffer.
+             * Decodes a GetDioModeRequest message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns GetDiosRequest
+             * @returns GetDioModeRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.GetDiosRequest;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.GetDioModeRequest;
 
             /**
-             * Decodes a GetDiosRequest message from the specified reader or buffer, length delimited.
+             * Decodes a GetDioModeRequest message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns GetDiosRequest
+             * @returns GetDioModeRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.GetDiosRequest;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.GetDioModeRequest;
 
             /**
-             * Verifies a GetDiosRequest message.
+             * Verifies a GetDioModeRequest message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a GetDiosRequest message from a plain object. Also converts values to their respective internal types.
+             * Creates a GetDioModeRequest message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns GetDiosRequest
+             * @returns GetDioModeRequest
              */
-            public static fromObject(object: { [k: string]: any }): lebai.io.GetDiosRequest;
+            public static fromObject(object: { [k: string]: any }): lebai.io.GetDioModeRequest;
 
             /**
-             * Creates a plain object from a GetDiosRequest message. Also converts values to other types if specified.
-             * @param message GetDiosRequest
+             * Creates a plain object from a GetDioModeRequest message. Also converts values to other types if specified.
+             * @param message GetDioModeRequest
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.io.GetDiosRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.io.GetDioModeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this GetDiosRequest to JSON.
+             * Converts this GetDioModeRequest to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for GetDiosRequest
+             * Gets the default type url for GetDioModeRequest
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a GetDiosResponse. */
-        interface IGetDiosResponse {
+        /** Properties of a GetDioModeResponse. */
+        interface IGetDioModeResponse {
 
-            /** GetDiosResponse values */
-            values?: (boolean[]|null);
+            /** GetDioModeResponse mode */
+            mode?: (lebai.io.DigitalMode|null);
         }
 
-        /** Represents a GetDiosResponse. */
-        class GetDiosResponse implements IGetDiosResponse {
+        /** Represents a GetDioModeResponse. */
+        class GetDioModeResponse implements IGetDioModeResponse {
 
             /**
-             * Constructs a new GetDiosResponse.
+             * Constructs a new GetDioModeResponse.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.io.IGetDiosResponse);
+            constructor(properties?: lebai.io.IGetDioModeResponse);
 
-            /** GetDiosResponse values. */
-            public values: boolean[];
+            /** GetDioModeResponse mode. */
+            public mode: lebai.io.DigitalMode;
 
             /**
-             * Creates a new GetDiosResponse instance using the specified properties.
+             * Creates a new GetDioModeResponse instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns GetDiosResponse instance
+             * @returns GetDioModeResponse instance
              */
-            public static create(properties?: lebai.io.IGetDiosResponse): lebai.io.GetDiosResponse;
+            public static create(properties?: lebai.io.IGetDioModeResponse): lebai.io.GetDioModeResponse;
 
             /**
-             * Encodes the specified GetDiosResponse message. Does not implicitly {@link lebai.io.GetDiosResponse.verify|verify} messages.
-             * @param message GetDiosResponse message or plain object to encode
+             * Encodes the specified GetDioModeResponse message. Does not implicitly {@link lebai.io.GetDioModeResponse.verify|verify} messages.
+             * @param message GetDioModeResponse message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.io.IGetDiosResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.io.IGetDioModeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified GetDiosResponse message, length delimited. Does not implicitly {@link lebai.io.GetDiosResponse.verify|verify} messages.
-             * @param message GetDiosResponse message or plain object to encode
+             * Encodes the specified GetDioModeResponse message, length delimited. Does not implicitly {@link lebai.io.GetDioModeResponse.verify|verify} messages.
+             * @param message GetDioModeResponse message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.io.IGetDiosResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.io.IGetDioModeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a GetDiosResponse message from the specified reader or buffer.
+             * Decodes a GetDioModeResponse message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns GetDiosResponse
+             * @returns GetDioModeResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.GetDiosResponse;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.io.GetDioModeResponse;
 
             /**
-             * Decodes a GetDiosResponse message from the specified reader or buffer, length delimited.
+             * Decodes a GetDioModeResponse message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns GetDiosResponse
+             * @returns GetDioModeResponse
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.GetDiosResponse;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.io.GetDioModeResponse;
 
             /**
-             * Verifies a GetDiosResponse message.
+             * Verifies a GetDioModeResponse message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a GetDiosResponse message from a plain object. Also converts values to their respective internal types.
+             * Creates a GetDioModeResponse message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns GetDiosResponse
+             * @returns GetDioModeResponse
              */
-            public static fromObject(object: { [k: string]: any }): lebai.io.GetDiosResponse;
+            public static fromObject(object: { [k: string]: any }): lebai.io.GetDioModeResponse;
 
             /**
-             * Creates a plain object from a GetDiosResponse message. Also converts values to other types if specified.
-             * @param message GetDiosResponse
+             * Creates a plain object from a GetDioModeResponse message. Also converts values to other types if specified.
+             * @param message GetDioModeResponse
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.io.GetDiosResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.io.GetDioModeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this GetDiosResponse to JSON.
+             * Converts this GetDioModeResponse to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for GetDiosResponse
+             * Gets the default type url for GetDioModeResponse
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -11261,6 +10982,9 @@ export namespace lebai {
 
         /** Properties of a GetDiosModeRequest. */
         interface IGetDiosModeRequest {
+
+            /** GetDiosModeRequest device */
+            device?: (lebai.io.IoDevice|null);
 
             /** GetDiosModeRequest pin */
             pin?: (number|null);
@@ -11277,6 +11001,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.io.IGetDiosModeRequest);
+
+            /** GetDiosModeRequest device. */
+            public device: lebai.io.IoDevice;
 
             /** GetDiosModeRequest pin. */
             public pin: number;
@@ -11365,8 +11092,8 @@ export namespace lebai {
         /** Properties of a GetDiosModeResponse. */
         interface IGetDiosModeResponse {
 
-            /** GetDiosModeResponse values */
-            values?: (boolean[]|null);
+            /** GetDiosModeResponse modes */
+            modes?: (lebai.io.DigitalMode[]|null);
         }
 
         /** Represents a GetDiosModeResponse. */
@@ -11378,8 +11105,8 @@ export namespace lebai {
              */
             constructor(properties?: lebai.io.IGetDiosModeResponse);
 
-            /** GetDiosModeResponse values. */
-            public values: boolean[];
+            /** GetDiosModeResponse modes. */
+            public modes: lebai.io.DigitalMode[];
 
             /**
              * Creates a new GetDiosModeResponse instance using the specified properties.
@@ -11692,7 +11419,7 @@ export namespace lebai {
             /**
              * Calls SetDioMode.
              * @param request SetDioModeRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and SetDioModeResponse
+             * @param callback Node-style callback called with the error, if any, and Empty
              */
             public setDioMode(request: lebai.io.ISetDioModeRequest, callback: lebai.io.IoService.SetDioModeCallback): void;
 
@@ -11701,35 +11428,21 @@ export namespace lebai {
              * @param request SetDioModeRequest message or plain object
              * @returns Promise
              */
-            public setDioMode(request: lebai.io.ISetDioModeRequest): Promise<lebai.io.SetDioModeResponse>;
+            public setDioMode(request: lebai.io.ISetDioModeRequest): Promise<google.protobuf.Empty>;
 
             /**
-             * Calls SetDio.
-             * @param request SetDioRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and SetDioResponse
+             * Calls GetDioMode.
+             * @param request GetDioModeRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and GetDioModeResponse
              */
-            public setDio(request: lebai.io.ISetDioRequest, callback: lebai.io.IoService.SetDioCallback): void;
+            public getDioMode(request: lebai.io.IGetDioModeRequest, callback: lebai.io.IoService.GetDioModeCallback): void;
 
             /**
-             * Calls SetDio.
-             * @param request SetDioRequest message or plain object
+             * Calls GetDioMode.
+             * @param request GetDioModeRequest message or plain object
              * @returns Promise
              */
-            public setDio(request: lebai.io.ISetDioRequest): Promise<lebai.io.SetDioResponse>;
-
-            /**
-             * Calls GetDios.
-             * @param request GetDiosRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and GetDiosResponse
-             */
-            public getDios(request: lebai.io.IGetDiosRequest, callback: lebai.io.IoService.GetDiosCallback): void;
-
-            /**
-             * Calls GetDios.
-             * @param request GetDiosRequest message or plain object
-             * @returns Promise
-             */
-            public getDios(request: lebai.io.IGetDiosRequest): Promise<lebai.io.GetDiosResponse>;
+            public getDioMode(request: lebai.io.IGetDioModeRequest): Promise<lebai.io.GetDioModeResponse>;
 
             /**
              * Calls GetDiosMode.
@@ -11856,23 +11569,16 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.io.IoService#setDioMode}.
              * @param error Error, if any
-             * @param [response] SetDioModeResponse
+             * @param [response] Empty
              */
-            type SetDioModeCallback = (error: (Error|null), response?: lebai.io.SetDioModeResponse) => void;
+            type SetDioModeCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link lebai.io.IoService#setDio}.
+             * Callback as used by {@link lebai.io.IoService#getDioMode}.
              * @param error Error, if any
-             * @param [response] SetDioResponse
+             * @param [response] GetDioModeResponse
              */
-            type SetDioCallback = (error: (Error|null), response?: lebai.io.SetDioResponse) => void;
-
-            /**
-             * Callback as used by {@link lebai.io.IoService#getDios}.
-             * @param error Error, if any
-             * @param [response] GetDiosResponse
-             */
-            type GetDiosCallback = (error: (Error|null), response?: lebai.io.GetDiosResponse) => void;
+            type GetDioModeCallback = (error: (Error|null), response?: lebai.io.GetDioModeResponse) => void;
 
             /**
              * Callback as used by {@link lebai.io.IoService#getDiosMode}.

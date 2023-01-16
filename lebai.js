@@ -1691,6 +1691,12 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               AO: 3
             }
           },
+          DigitalMode: {
+            values: {
+              INPUT: 0,
+              OUTPUT: 1
+            }
+          },
           AnalogMode: {
             values: {
               VOLTAGE: 0,
@@ -1899,83 +1905,66 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           SetDioModeRequest: {
             fields: {
-              pin: {
-                type: "uint32",
+              device: {
+                type: "IoDevice",
                 id: 1
               },
-              value: {
-                type: "bool",
-                id: 2
-              }
-            }
-          },
-          SetDioModeResponse: {
-            fields: {
-              success: {
-                type: "bool",
-                id: 1
-              }
-            }
-          },
-          SetDioRequest: {
-            fields: {
               pin: {
                 type: "uint32",
+                id: 2
+              },
+              mode: {
+                type: "DigitalMode",
+                id: 11
+              }
+            }
+          },
+          GetDioModeRequest: {
+            fields: {
+              device: {
+                type: "IoDevice",
                 id: 1
               },
-              value: {
-                type: "bool",
-                id: 2
-              }
-            }
-          },
-          SetDioResponse: {
-            fields: {
-              success: {
-                type: "bool",
-                id: 1
-              }
-            }
-          },
-          GetDiosRequest: {
-            fields: {
               pin: {
                 type: "uint32",
-                id: 1
+                id: 2
               },
               count: {
                 type: "uint32",
-                id: 2
+                id: 11
               }
             }
           },
-          GetDiosResponse: {
+          GetDioModeResponse: {
             fields: {
-              values: {
-                rule: "repeated",
-                type: "bool",
-                id: 1
+              mode: {
+                type: "DigitalMode",
+                id: 11
               }
             }
           },
           GetDiosModeRequest: {
             fields: {
+              device: {
+                type: "IoDevice",
+                id: 1
+              },
               pin: {
                 type: "uint32",
-                id: 1
+                id: 2
               },
               count: {
                 type: "uint32",
-                id: 2
+                id: 11
               }
             }
           },
           GetDiosModeResponse: {
             fields: {
-              values: {
+              modes: {
                 rule: "repeated",
-                type: "bool",
-                id: 1
+                type: "DigitalMode",
+                id: 11
               }
             }
           },
@@ -2044,15 +2033,11 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               SetDioMode: {
                 requestType: "SetDioModeRequest",
-                responseType: "SetDioModeResponse"
+                responseType: "google.protobuf.Empty"
               },
-              SetDio: {
-                requestType: "SetDioRequest",
-                responseType: "SetDioResponse"
-              },
-              GetDios: {
-                requestType: "GetDiosRequest",
-                responseType: "GetDiosResponse"
+              GetDioMode: {
+                requestType: "GetDioModeRequest",
+                responseType: "GetDioModeResponse"
               },
               GetDiosMode: {
                 requestType: "GetDiosModeRequest",
