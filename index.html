@@ -488,6 +488,14 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.io.GetDioModeRequest"><span class="badge">M</span>GetDioModeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.GetDioModeResponse"><span class="badge">M</span>GetDioModeResponse</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.io.GetDioPinRequest"><span class="badge">M</span>GetDioPinRequest</a>
                 </li>
               
@@ -512,14 +520,6 @@
                 </li>
               
                 <li>
-                  <a href="#lebai.io.GetDiosRequest"><span class="badge">M</span>GetDiosRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.io.GetDiosResponse"><span class="badge">M</span>GetDiosResponse</a>
-                </li>
-              
-                <li>
                   <a href="#lebai.io.SetAoPinRequest"><span class="badge">M</span>SetAoPinRequest</a>
                 </li>
               
@@ -529,18 +529,6 @@
               
                 <li>
                   <a href="#lebai.io.SetDioModeRequest"><span class="badge">M</span>SetDioModeRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.io.SetDioModeResponse"><span class="badge">M</span>SetDioModeResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.io.SetDioRequest"><span class="badge">M</span>SetDioRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.io.SetDioResponse"><span class="badge">M</span>SetDioResponse</a>
                 </li>
               
                 <li>
@@ -558,6 +546,10 @@
               
                 <li>
                   <a href="#lebai.io.ButtonState"><span class="badge">E</span>ButtonState</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.io.DigitalMode"><span class="badge">E</span>DigitalMode</a>
                 </li>
               
                 <li>
@@ -3594,6 +3586,68 @@
 
         
       
+        <h3 id="lebai.io.GetDioModeRequest">GetDioModeRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.io.IoDevice">IoDevice</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pin</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>count</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.io.GetDioModeResponse">GetDioModeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mode</td>
+                  <td><a href="#lebai.io.DigitalMode">DigitalMode</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.io.GetDioPinRequest">GetDioPinRequest</h3>
         <p></p>
 
@@ -3722,6 +3776,13 @@
             <tbody>
               
                 <tr>
+                  <td>device</td>
+                  <td><a href="#lebai.io.IoDevice">IoDevice</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>pin</td>
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
@@ -3753,63 +3814,8 @@
             <tbody>
               
                 <tr>
-                  <td>values</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.io.GetDiosRequest">GetDiosRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>pin</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>count</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.io.GetDiosResponse">GetDiosResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>values</td>
-                  <td><a href="#bool">bool</a></td>
+                  <td>modes</td>
+                  <td><a href="#lebai.io.DigitalMode">DigitalMode</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -3908,59 +3914,11 @@
             <tbody>
               
                 <tr>
-                  <td>pin</td>
-                  <td><a href="#uint32">uint32</a></td>
+                  <td>device</td>
+                  <td><a href="#lebai.io.IoDevice">IoDevice</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.io.SetDioModeResponse">SetDioModeResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>success</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.io.SetDioRequest">SetDioRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
               
                 <tr>
                   <td>pin</td>
@@ -3970,32 +3928,8 @@
                 </tr>
               
                 <tr>
-                  <td>value</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.io.SetDioResponse">SetDioResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>success</td>
-                  <td><a href="#bool">bool</a></td>
+                  <td>mode</td>
+                  <td><a href="#lebai.io.DigitalMode">DigitalMode</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4138,6 +4072,29 @@
                 <td>CLICK</td>
                 <td>3</td>
                 <td><p>点击</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.io.DigitalMode">DigitalMode</h3>
+        <p>数字IO类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>INPUT</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>OUTPUT</td>
+                <td>1</td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
@@ -4339,29 +4296,22 @@
               <tr>
                 <td>SetDioMode</td>
                 <td><a href="#lebai.io.SetDioModeRequest">SetDioModeRequest</a></td>
-                <td><a href="#lebai.io.SetDioModeResponse">SetDioModeResponse</a></td>
-                <td><p>ARM only</p></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
               </tr>
             
               <tr>
-                <td>SetDio</td>
-                <td><a href="#lebai.io.SetDioRequest">SetDioRequest</a></td>
-                <td><a href="#lebai.io.SetDioResponse">SetDioResponse</a></td>
-                <td><p>ARM only</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetDios</td>
-                <td><a href="#lebai.io.GetDiosRequest">GetDiosRequest</a></td>
-                <td><a href="#lebai.io.GetDiosResponse">GetDiosResponse</a></td>
-                <td><p>ARM only</p></td>
+                <td>GetDioMode</td>
+                <td><a href="#lebai.io.GetDioModeRequest">GetDioModeRequest</a></td>
+                <td><a href="#lebai.io.GetDioModeResponse">GetDioModeResponse</a></td>
+                <td><p></p></td>
               </tr>
             
               <tr>
                 <td>GetDiosMode</td>
                 <td><a href="#lebai.io.GetDiosModeRequest">GetDiosModeRequest</a></td>
                 <td><a href="#lebai.io.GetDiosModeResponse">GetDiosModeResponse</a></td>
-                <td><p>ARM only</p></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
