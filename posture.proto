@@ -116,6 +116,7 @@ message CartesianFrame {
   Kind rotation_kind = 3 [json_name = "rotation_kind"];
   // 自定义姿态，仅rotation_kind=CUSTOM时生效
   Rotation rotation = 4;
+  string note = 99;
 }
 
 // 枚举 机器人空间
@@ -134,6 +135,7 @@ message Pose {
   CartesianFrame cart_frame = 13 [json_name = "cart_frame"];
   // 关节空间位姿，仅kind=JOINT时生效
   JointPose joint = 21;
+  string note = 99;
 }
 message SavePoseRequest {
   string name = 1;

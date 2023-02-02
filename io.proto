@@ -25,6 +25,11 @@ enum IoPinKind {
   AI = 2;
   AO = 3;
 }
+// 数字IO类型
+enum DigitalMode {
+  INPUT = 0;
+  OUTPUT = 1;
+}
 // 模拟IO类型
 enum AnalogMode {
   VOLTAGE = 0;
@@ -109,21 +114,25 @@ message ButtonsStatus {
 }
 
 message SetDioModeRequest {
-  uint32 pin = 1;
-  bool value = 2;
+  IoDevice device = 1;
+  uint32 pin = 2;
+  DigitalMode mode = 11;
 }
-
-message SetDioModeResponse {
-  uint32 pin = 1;
-  bool success = 2;
+message GetDioModeRequest{
+  IoDevice device = 1;
+  uint32 pin = 2;
+  uint32 count = 11;
 }
-
-message SetDioRequest {
-  bool value = 2;
+message GetDioModeResponse{
+  DigitalMode mode = 11;
 }
-
-message SetDioResponse {
-  bool success = 2;
+message GetDiosModeRequest{
+  IoDevice device = 1;
+  uint32 pin = 2;
+  uint32 count = 11;
+}
+message GetDiosModeResponse{
+  repeated DigitalMode modes = 11;
 }
 
 // IO相关服务
@@ -144,7 +153,7 @@ service IoService {
   rpc DisableButton(ButtonIndex) returns (google.protobuf.Empty);
   rpc SubButtonsStatus(google.protobuf.Empty) returns (stream ButtonsStatus);
 
-  //ARM only
-  rpc SetDioMode(SetDioModeRequest) returns (SetDioModeResponse);
-  rpc SetDio(SetDioRequest) returns (SetDioResponse);
+  rpc SetDioMode(SetDioModeRequest) returns (google.protobuf.Empty);
+  rpc GetDioMode(GetDioModeRequest) returns (GetDioModeResponse);
+  rpc GetDiosMode(GetDiosModeRequest) returns (GetDiosModeResponse);
 }
