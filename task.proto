@@ -107,6 +107,25 @@ message PauseRequest {
   bool wait = 12;
 }
 
+message Hook{
+  uint32 id = 1;
+  string dir = 2;
+  string name = 3;
+}
+
+message Exec{
+  uint32 id = 1;
+}
+
+message HookResponse{
+  bool success = 1;
+  string error = 2;
+}
+
+message HookList{
+  repeated Hook list = 1;
+}
+
 // 任务相关服务
 service TaskService {
   // 查询任务
@@ -130,4 +149,11 @@ service TaskService {
   rpc ResumeTask(TaskIndex) returns (google.protobuf.Empty);
   // 取消任务与运动
   rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
+
+  //设置钩子
+  rpc SetHook(Hook) returns (HookResponse);
+  //执行钩子
+  rpc ExecHook(Exec) returns (HookResponse);
+  //获取所有钩子
+  rpc GetHook(google.protobuf.Empty) returns (HookList);
 }
