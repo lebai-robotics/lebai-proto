@@ -4031,6 +4031,51 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          Hook: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              },
+              dir: {
+                type: "string",
+                id: 2
+              },
+              name: {
+                type: "string",
+                id: 3
+              }
+            }
+          },
+          Exec: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              }
+            }
+          },
+          HookResponse: {
+            fields: {
+              success: {
+                type: "bool",
+                id: 1
+              },
+              error: {
+                type: "string",
+                id: 2
+              }
+            }
+          },
+          HookList: {
+            fields: {
+              list: {
+                rule: "repeated",
+                type: "Hook",
+                id: 1
+              }
+            }
+          },
           TaskService: {
             methods: {
               LoadTask: {
@@ -4073,6 +4118,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               CancelTask: {
                 requestType: "TaskIndex",
                 responseType: "google.protobuf.Empty"
+              },
+              SetHook: {
+                requestType: "Hook",
+                responseType: "HookResponse"
+              },
+              ExecHook: {
+                requestType: "Exec",
+                responseType: "HookResponse"
+              },
+              GetHook: {
+                requestType: "google.protobuf.Empty",
+                responseType: "HookList"
               }
             }
           }
