@@ -203,7 +203,8 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               LM3: 0,
               LM3_L1: 1,
               LM3_J5L: 2,
-              LM6J: 11
+              LM6J: 11,
+              LA3: 20
             }
           },
           RobotInfo: {
