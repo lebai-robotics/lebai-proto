@@ -30,6 +30,7 @@ enum RobotModel {
   LM3_L1 = 1;
   LM3_J5L = 2;
   LM6J = 11;
+  LA3 = 20;
 }
 
 message RobotInfo {
