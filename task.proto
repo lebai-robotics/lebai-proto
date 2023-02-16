@@ -117,11 +117,6 @@ message Exec{
   uint32 id = 1;
 }
 
-message HookResponse{
-  bool success = 1;
-  string error = 2;
-}
-
 message HookList{
   repeated Hook list = 1;
 }
@@ -151,9 +146,9 @@ service TaskService {
   rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
 
   //设置钩子
-  rpc SetHook(Hook) returns (HookResponse);
+  rpc SetHook(Hook) returns (google.protobuf.Empty);
   //执行钩子
-  rpc ExecHook(Exec) returns (HookResponse);
+  rpc ExecHook(Exec) returns (TaskIndex);
   //获取所有钩子
   rpc GetHook(google.protobuf.Empty) returns (HookList);
 }
