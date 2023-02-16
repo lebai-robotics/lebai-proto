@@ -4055,18 +4055,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          HookResponse: {
-            fields: {
-              success: {
-                type: "bool",
-                id: 1
-              },
-              error: {
-                type: "string",
-                id: 2
-              }
-            }
-          },
           HookList: {
             fields: {
               list: {
@@ -4121,11 +4109,11 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               SetHook: {
                 requestType: "Hook",
-                responseType: "HookResponse"
+                responseType: "google.protobuf.Empty"
               },
               ExecHook: {
                 requestType: "Exec",
-                responseType: "HookResponse"
+                responseType: "TaskIndex"
               },
               GetHook: {
                 requestType: "google.protobuf.Empty",

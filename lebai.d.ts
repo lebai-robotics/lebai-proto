@@ -22940,109 +22940,6 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a HookResponse. */
-        interface IHookResponse {
-
-            /** HookResponse success */
-            success?: (boolean|null);
-
-            /** HookResponse error */
-            error?: (string|null);
-        }
-
-        /** Represents a HookResponse. */
-        class HookResponse implements IHookResponse {
-
-            /**
-             * Constructs a new HookResponse.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IHookResponse);
-
-            /** HookResponse success. */
-            public success: boolean;
-
-            /** HookResponse error. */
-            public error: string;
-
-            /**
-             * Creates a new HookResponse instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns HookResponse instance
-             */
-            public static create(properties?: lebai.task.IHookResponse): lebai.task.HookResponse;
-
-            /**
-             * Encodes the specified HookResponse message. Does not implicitly {@link lebai.task.HookResponse.verify|verify} messages.
-             * @param message HookResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IHookResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified HookResponse message, length delimited. Does not implicitly {@link lebai.task.HookResponse.verify|verify} messages.
-             * @param message HookResponse message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IHookResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a HookResponse message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns HookResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.HookResponse;
-
-            /**
-             * Decodes a HookResponse message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns HookResponse
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.HookResponse;
-
-            /**
-             * Verifies a HookResponse message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a HookResponse message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns HookResponse
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.HookResponse;
-
-            /**
-             * Creates a plain object from a HookResponse message. Also converts values to other types if specified.
-             * @param message HookResponse
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.HookResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this HookResponse to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for HookResponse
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Properties of a HookList. */
         interface IHookList {
 
@@ -23303,7 +23200,7 @@ export namespace lebai {
             /**
              * Calls SetHook.
              * @param request Hook message or plain object
-             * @param callback Node-style callback called with the error, if any, and HookResponse
+             * @param callback Node-style callback called with the error, if any, and Empty
              */
             public setHook(request: lebai.task.IHook, callback: lebai.task.TaskService.SetHookCallback): void;
 
@@ -23312,12 +23209,12 @@ export namespace lebai {
              * @param request Hook message or plain object
              * @returns Promise
              */
-            public setHook(request: lebai.task.IHook): Promise<lebai.task.HookResponse>;
+            public setHook(request: lebai.task.IHook): Promise<google.protobuf.Empty>;
 
             /**
              * Calls ExecHook.
              * @param request Exec message or plain object
-             * @param callback Node-style callback called with the error, if any, and HookResponse
+             * @param callback Node-style callback called with the error, if any, and TaskIndex
              */
             public execHook(request: lebai.task.IExec, callback: lebai.task.TaskService.ExecHookCallback): void;
 
@@ -23326,7 +23223,7 @@ export namespace lebai {
              * @param request Exec message or plain object
              * @returns Promise
              */
-            public execHook(request: lebai.task.IExec): Promise<lebai.task.HookResponse>;
+            public execHook(request: lebai.task.IExec): Promise<lebai.task.TaskIndex>;
 
             /**
              * Calls GetHook.
@@ -23418,16 +23315,16 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.task.TaskService#setHook}.
              * @param error Error, if any
-             * @param [response] HookResponse
+             * @param [response] Empty
              */
-            type SetHookCallback = (error: (Error|null), response?: lebai.task.HookResponse) => void;
+            type SetHookCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.task.TaskService#execHook}.
              * @param error Error, if any
-             * @param [response] HookResponse
+             * @param [response] TaskIndex
              */
-            type ExecHookCallback = (error: (Error|null), response?: lebai.task.HookResponse) => void;
+            type ExecHookCallback = (error: (Error|null), response?: lebai.task.TaskIndex) => void;
 
             /**
              * Callback as used by {@link lebai.task.TaskService#getHook}.
