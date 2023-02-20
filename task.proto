@@ -4,6 +4,7 @@ package lebai.task;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
+import "lebai.proto";
 
 // 任务类型
 enum TaskKind {
@@ -107,20 +108,6 @@ message PauseRequest {
   bool wait = 12;
 }
 
-message Hook{
-  uint32 id = 1;
-  string dir = 2;
-  string name = 3;
-}
-
-message Exec{
-  uint32 id = 1;
-}
-
-message HookList{
-  repeated Hook list = 1;
-}
-
 // 任务相关服务
 service TaskService {
   // 查询任务
@@ -145,12 +132,10 @@ service TaskService {
   // 取消任务与运动
   rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
 
-  //设置钩子
-  rpc SetShortScene(Hook) returns (google.protobuf.Empty);
-  //执行钩子
-  rpc ExecShortScene(Exec) returns (TaskIndex);
-  //获取单个钩子
-  rpc GetShortScene(TaskIndex) returns (Hook);
-  //获取所有钩子
-  rpc GetShortScenes(google.protobuf.Empty) returns (HookList);
+  //设置快捷任务
+  rpc SetShortTask(Shortcut) returns (google.protobuf.Empty);
+  //获取单个快捷任务
+  rpc GetShortTask(ShortcutIndex) returns (Shortcut);
+  //获取所有快捷任务
+  rpc GetShortTasks(google.protobuf.Empty) returns (ShortcutList);
 }

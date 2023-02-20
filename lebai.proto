@@ -2,6 +2,20 @@ syntax = "proto3";
 
 package lebai;
 
+message ShortcutIndex {
+  uint32 id = 1;
+}
+
+message Shortcut{
+  uint32 id = 1;
+  string dir = 2;
+  string name = 3;
+}
+
+message ShortcutList{
+  repeated Shortcut list = 1;
+}
+
 message SubscribeRequest {
   // 保证每次推送至少间隔interval时间(ms)
   uint64 interval_min = 11 [json_name = "interval_min"];
