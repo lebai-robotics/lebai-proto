@@ -146,9 +146,11 @@ service TaskService {
   rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
 
   //设置钩子
-  rpc SetHook(Hook) returns (google.protobuf.Empty);
+  rpc SetShortScene(Hook) returns (google.protobuf.Empty);
   //执行钩子
-  rpc ExecHook(Exec) returns (TaskIndex);
+  rpc ExecShortScene(Exec) returns (TaskIndex);
+  //获取单个钩子
+  rpc GetShortScene(TaskIndex) returns (Hook);
   //获取所有钩子
-  rpc GetHook(google.protobuf.Empty) returns (HookList);
+  rpc GetShortScenes(google.protobuf.Empty) returns (HookList);
 }
