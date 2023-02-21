@@ -578,6 +578,39 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      ShortcutIndex: {
+        fields: {
+          id: {
+            type: "uint32",
+            id: 1
+          }
+        }
+      },
+      Shortcut: {
+        fields: {
+          id: {
+            type: "uint32",
+            id: 1
+          },
+          dir: {
+            type: "string",
+            id: 2
+          },
+          name: {
+            type: "string",
+            id: 3
+          }
+        }
+      },
+      ShortcutList: {
+        fields: {
+          list: {
+            rule: "repeated",
+            type: "Shortcut",
+            id: 1
+          }
+        }
+      },
       SubscribeRequest: {
         fields: {
           intervalMin: {
@@ -1475,325 +1508,17 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 requestType: "PoseRequest",
                 responseType: "CartesianPose"
               },
-              SetShortPosture: {
-                requestType: "task.Hook",
+              SetShortPose: {
+                requestType: "Shortcut",
                 responseType: "google.protobuf.Empty"
               },
-              GetShortPosture: {
-                requestType: "task.TaskIndex",
-                responseType: "task.Hook"
+              GetShortPose: {
+                requestType: "ShortcutIndex",
+                responseType: "Shortcut"
               },
-              GetShortPostures: {
+              GetShortPoses: {
                 requestType: "google.protobuf.Empty",
-                responseType: "task.HookList"
-              }
-            }
-          }
-        }
-      },
-      task: {
-        nested: {
-          TaskKind: {
-            values: {
-              LUA: 0,
-              APP: 10
-            }
-          },
-          TaskState: {
-            values: {
-              WAIT: 0,
-              RUNNING: 1,
-              PAUSE: 2,
-              SUCCESS: 3,
-              INTERRUPT: 4,
-              FAIL: 5,
-              BEGIN: 11,
-              INTERRUPTING: 14
-            }
-          },
-          TaskIndex: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              }
-            }
-          },
-          Task: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              },
-              blockId: {
-                type: "string",
-                id: 10,
-                options: {
-                  json_name: "block_id"
-                }
-              },
-              eventId: {
-                type: "uint32",
-                id: 11,
-                options: {
-                  json_name: "event_id"
-                }
-              },
-              state: {
-                type: "TaskState",
-                id: 12
-              },
-              loopCount: {
-                type: "uint32",
-                id: 13,
-                options: {
-                  json_name: "loop_count"
-                }
-              },
-              loopTo: {
-                type: "uint32",
-                id: 14,
-                options: {
-                  json_name: "loop_to"
-                }
-              },
-              isParallel: {
-                type: "bool",
-                id: 15,
-                options: {
-                  json_name: "is_parallel"
-                }
-              },
-              isSimu: {
-                type: "bool",
-                id: 16,
-                options: {
-                  json_name: "is_simu"
-                }
-              },
-              stdout: {
-                type: "string",
-                id: 17
-              },
-              startedAt: {
-                type: "google.protobuf.Timestamp",
-                id: 18,
-                options: {
-                  json_name: "started_at"
-                }
-              },
-              endedAt: {
-                type: "google.protobuf.Timestamp",
-                id: 19,
-                options: {
-                  json_name: "ended_at"
-                }
-              },
-              pauseAt: {
-                type: "google.protobuf.Timestamp",
-                id: 20,
-                options: {
-                  json_name: "pause_at"
-                }
-              },
-              prePause: {
-                type: "uint32",
-                id: 21,
-                options: {
-                  json_name: "pre_pause"
-                }
-              },
-              kind: {
-                type: "TaskKind",
-                id: 30
-              },
-              dir: {
-                type: "string",
-                id: 31
-              },
-              name: {
-                type: "string",
-                id: 32
-              },
-              params: {
-                rule: "repeated",
-                type: "string",
-                id: 33
-              }
-            }
-          },
-          TaskIds: {
-            fields: {
-              ids: {
-                rule: "repeated",
-                type: "uint32",
-                id: 1
-              }
-            }
-          },
-          Tasks: {
-            fields: {
-              tasks: {
-                rule: "repeated",
-                type: "Task",
-                id: 1
-              }
-            }
-          },
-          TaskStdout: {
-            fields: {
-              done: {
-                type: "bool",
-                id: 1
-              },
-              stdout: {
-                type: "string",
-                id: 2
-              }
-            }
-          },
-          StartTaskRequest: {
-            fields: {
-              name: {
-                type: "string",
-                id: 1
-              },
-              isParallel: {
-                type: "bool",
-                id: 2,
-                options: {
-                  json_name: "is_parallel"
-                }
-              },
-              loopTo: {
-                type: "uint32",
-                id: 3,
-                options: {
-                  json_name: "loop_to"
-                }
-              },
-              dir: {
-                type: "string",
-                id: 11
-              },
-              kind: {
-                type: "TaskKind",
-                id: 12
-              },
-              params: {
-                rule: "repeated",
-                type: "string",
-                id: 22
-              }
-            }
-          },
-          PauseRequest: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              },
-              time: {
-                type: "uint64",
-                id: 11
-              },
-              wait: {
-                type: "bool",
-                id: 12
-              }
-            }
-          },
-          Hook: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              },
-              dir: {
-                type: "string",
-                id: 2
-              },
-              name: {
-                type: "string",
-                id: 3
-              }
-            }
-          },
-          Exec: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              }
-            }
-          },
-          HookList: {
-            fields: {
-              list: {
-                rule: "repeated",
-                type: "Hook",
-                id: 1
-              }
-            }
-          },
-          TaskService: {
-            methods: {
-              LoadTask: {
-                requestType: "TaskIndex",
-                responseType: "Task"
-              },
-              LoadTaskList: {
-                requestType: "google.protobuf.Empty",
-                responseType: "TaskIds"
-              },
-              LoadRunningTasks: {
-                requestType: "google.protobuf.Empty",
-                responseType: "Tasks"
-              },
-              StartTask: {
-                requestType: "StartTaskRequest",
-                responseType: "TaskIndex"
-              },
-              GetTaskStdout: {
-                requestType: "TaskIndex",
-                responseType: "TaskStdout"
-              },
-              SubTaskStdout: {
-                requestType: "TaskIndex",
-                responseType: "TaskStdout",
-                responseStream: true
-              },
-              WaitTask: {
-                requestType: "TaskIndex",
-                responseType: "google.protobuf.Empty"
-              },
-              PauseTask: {
-                requestType: "PauseRequest",
-                responseType: "google.protobuf.Empty"
-              },
-              ResumeTask: {
-                requestType: "TaskIndex",
-                responseType: "google.protobuf.Empty"
-              },
-              CancelTask: {
-                requestType: "TaskIndex",
-                responseType: "google.protobuf.Empty"
-              },
-              SetShortScene: {
-                requestType: "Hook",
-                responseType: "google.protobuf.Empty"
-              },
-              ExecShortScene: {
-                requestType: "Exec",
-                responseType: "TaskIndex"
-              },
-              GetShortScene: {
-                requestType: "TaskIndex",
-                responseType: "Hook"
-              },
-              GetShortScenes: {
-                requestType: "google.protobuf.Empty",
-                responseType: "HookList"
+                responseType: "ShortcutList"
               }
             }
           }
@@ -4135,6 +3860,277 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               LoadStructureList: {
                 requestType: "db.LoadListRequest",
                 responseType: "db.LoadListResponse"
+              }
+            }
+          }
+        }
+      },
+      task: {
+        nested: {
+          TaskKind: {
+            values: {
+              LUA: 0,
+              APP: 10
+            }
+          },
+          TaskState: {
+            values: {
+              WAIT: 0,
+              RUNNING: 1,
+              PAUSE: 2,
+              SUCCESS: 3,
+              INTERRUPT: 4,
+              FAIL: 5,
+              BEGIN: 11,
+              INTERRUPTING: 14
+            }
+          },
+          TaskIndex: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              }
+            }
+          },
+          Task: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              },
+              blockId: {
+                type: "string",
+                id: 10,
+                options: {
+                  json_name: "block_id"
+                }
+              },
+              eventId: {
+                type: "uint32",
+                id: 11,
+                options: {
+                  json_name: "event_id"
+                }
+              },
+              state: {
+                type: "TaskState",
+                id: 12
+              },
+              loopCount: {
+                type: "uint32",
+                id: 13,
+                options: {
+                  json_name: "loop_count"
+                }
+              },
+              loopTo: {
+                type: "uint32",
+                id: 14,
+                options: {
+                  json_name: "loop_to"
+                }
+              },
+              isParallel: {
+                type: "bool",
+                id: 15,
+                options: {
+                  json_name: "is_parallel"
+                }
+              },
+              isSimu: {
+                type: "bool",
+                id: 16,
+                options: {
+                  json_name: "is_simu"
+                }
+              },
+              stdout: {
+                type: "string",
+                id: 17
+              },
+              startedAt: {
+                type: "google.protobuf.Timestamp",
+                id: 18,
+                options: {
+                  json_name: "started_at"
+                }
+              },
+              endedAt: {
+                type: "google.protobuf.Timestamp",
+                id: 19,
+                options: {
+                  json_name: "ended_at"
+                }
+              },
+              pauseAt: {
+                type: "google.protobuf.Timestamp",
+                id: 20,
+                options: {
+                  json_name: "pause_at"
+                }
+              },
+              prePause: {
+                type: "uint32",
+                id: 21,
+                options: {
+                  json_name: "pre_pause"
+                }
+              },
+              kind: {
+                type: "TaskKind",
+                id: 30
+              },
+              dir: {
+                type: "string",
+                id: 31
+              },
+              name: {
+                type: "string",
+                id: 32
+              },
+              params: {
+                rule: "repeated",
+                type: "string",
+                id: 33
+              }
+            }
+          },
+          TaskIds: {
+            fields: {
+              ids: {
+                rule: "repeated",
+                type: "uint32",
+                id: 1
+              }
+            }
+          },
+          Tasks: {
+            fields: {
+              tasks: {
+                rule: "repeated",
+                type: "Task",
+                id: 1
+              }
+            }
+          },
+          TaskStdout: {
+            fields: {
+              done: {
+                type: "bool",
+                id: 1
+              },
+              stdout: {
+                type: "string",
+                id: 2
+              }
+            }
+          },
+          StartTaskRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              isParallel: {
+                type: "bool",
+                id: 2,
+                options: {
+                  json_name: "is_parallel"
+                }
+              },
+              loopTo: {
+                type: "uint32",
+                id: 3,
+                options: {
+                  json_name: "loop_to"
+                }
+              },
+              dir: {
+                type: "string",
+                id: 11
+              },
+              kind: {
+                type: "TaskKind",
+                id: 12
+              },
+              params: {
+                rule: "repeated",
+                type: "string",
+                id: 22
+              }
+            }
+          },
+          PauseRequest: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              },
+              time: {
+                type: "uint64",
+                id: 11
+              },
+              wait: {
+                type: "bool",
+                id: 12
+              }
+            }
+          },
+          TaskService: {
+            methods: {
+              LoadTask: {
+                requestType: "TaskIndex",
+                responseType: "Task"
+              },
+              LoadTaskList: {
+                requestType: "google.protobuf.Empty",
+                responseType: "TaskIds"
+              },
+              LoadRunningTasks: {
+                requestType: "google.protobuf.Empty",
+                responseType: "Tasks"
+              },
+              StartTask: {
+                requestType: "StartTaskRequest",
+                responseType: "TaskIndex"
+              },
+              GetTaskStdout: {
+                requestType: "TaskIndex",
+                responseType: "TaskStdout"
+              },
+              SubTaskStdout: {
+                requestType: "TaskIndex",
+                responseType: "TaskStdout",
+                responseStream: true
+              },
+              WaitTask: {
+                requestType: "TaskIndex",
+                responseType: "google.protobuf.Empty"
+              },
+              PauseTask: {
+                requestType: "PauseRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              ResumeTask: {
+                requestType: "TaskIndex",
+                responseType: "google.protobuf.Empty"
+              },
+              CancelTask: {
+                requestType: "TaskIndex",
+                responseType: "google.protobuf.Empty"
+              },
+              SetShortTask: {
+                requestType: "Shortcut",
+                responseType: "google.protobuf.Empty"
+              },
+              GetShortTask: {
+                requestType: "ShortcutIndex",
+                responseType: "Shortcut"
+              },
+              GetShortTasks: {
+                requestType: "google.protobuf.Empty",
+                responseType: "ShortcutList"
               }
             }
           }

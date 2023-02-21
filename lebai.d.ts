@@ -2564,6 +2564,309 @@ export namespace lebai {
         }
     }
 
+    /** Properties of a ShortcutIndex. */
+    interface IShortcutIndex {
+
+        /** ShortcutIndex id */
+        id?: (number|null);
+    }
+
+    /** Represents a ShortcutIndex. */
+    class ShortcutIndex implements IShortcutIndex {
+
+        /**
+         * Constructs a new ShortcutIndex.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: lebai.IShortcutIndex);
+
+        /** ShortcutIndex id. */
+        public id: number;
+
+        /**
+         * Creates a new ShortcutIndex instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ShortcutIndex instance
+         */
+        public static create(properties?: lebai.IShortcutIndex): lebai.ShortcutIndex;
+
+        /**
+         * Encodes the specified ShortcutIndex message. Does not implicitly {@link lebai.ShortcutIndex.verify|verify} messages.
+         * @param message ShortcutIndex message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: lebai.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ShortcutIndex message, length delimited. Does not implicitly {@link lebai.ShortcutIndex.verify|verify} messages.
+         * @param message ShortcutIndex message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: lebai.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ShortcutIndex message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ShortcutIndex
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.ShortcutIndex;
+
+        /**
+         * Decodes a ShortcutIndex message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ShortcutIndex
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.ShortcutIndex;
+
+        /**
+         * Verifies a ShortcutIndex message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ShortcutIndex message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ShortcutIndex
+         */
+        public static fromObject(object: { [k: string]: any }): lebai.ShortcutIndex;
+
+        /**
+         * Creates a plain object from a ShortcutIndex message. Also converts values to other types if specified.
+         * @param message ShortcutIndex
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: lebai.ShortcutIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ShortcutIndex to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for ShortcutIndex
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a Shortcut. */
+    interface IShortcut {
+
+        /** Shortcut id */
+        id?: (number|null);
+
+        /** Shortcut dir */
+        dir?: (string|null);
+
+        /** Shortcut name */
+        name?: (string|null);
+    }
+
+    /** Represents a Shortcut. */
+    class Shortcut implements IShortcut {
+
+        /**
+         * Constructs a new Shortcut.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: lebai.IShortcut);
+
+        /** Shortcut id. */
+        public id: number;
+
+        /** Shortcut dir. */
+        public dir: string;
+
+        /** Shortcut name. */
+        public name: string;
+
+        /**
+         * Creates a new Shortcut instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Shortcut instance
+         */
+        public static create(properties?: lebai.IShortcut): lebai.Shortcut;
+
+        /**
+         * Encodes the specified Shortcut message. Does not implicitly {@link lebai.Shortcut.verify|verify} messages.
+         * @param message Shortcut message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: lebai.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Shortcut message, length delimited. Does not implicitly {@link lebai.Shortcut.verify|verify} messages.
+         * @param message Shortcut message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: lebai.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Shortcut message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Shortcut
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.Shortcut;
+
+        /**
+         * Decodes a Shortcut message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Shortcut
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.Shortcut;
+
+        /**
+         * Verifies a Shortcut message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Shortcut message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Shortcut
+         */
+        public static fromObject(object: { [k: string]: any }): lebai.Shortcut;
+
+        /**
+         * Creates a plain object from a Shortcut message. Also converts values to other types if specified.
+         * @param message Shortcut
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: lebai.Shortcut, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Shortcut to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for Shortcut
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a ShortcutList. */
+    interface IShortcutList {
+
+        /** ShortcutList list */
+        list?: (lebai.IShortcut[]|null);
+    }
+
+    /** Represents a ShortcutList. */
+    class ShortcutList implements IShortcutList {
+
+        /**
+         * Constructs a new ShortcutList.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: lebai.IShortcutList);
+
+        /** ShortcutList list. */
+        public list: lebai.IShortcut[];
+
+        /**
+         * Creates a new ShortcutList instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ShortcutList instance
+         */
+        public static create(properties?: lebai.IShortcutList): lebai.ShortcutList;
+
+        /**
+         * Encodes the specified ShortcutList message. Does not implicitly {@link lebai.ShortcutList.verify|verify} messages.
+         * @param message ShortcutList message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: lebai.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ShortcutList message, length delimited. Does not implicitly {@link lebai.ShortcutList.verify|verify} messages.
+         * @param message ShortcutList message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: lebai.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ShortcutList message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ShortcutList
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.ShortcutList;
+
+        /**
+         * Decodes a ShortcutList message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ShortcutList
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.ShortcutList;
+
+        /**
+         * Verifies a ShortcutList message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ShortcutList message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ShortcutList
+         */
+        public static fromObject(object: { [k: string]: any }): lebai.ShortcutList;
+
+        /**
+         * Creates a plain object from a ShortcutList message. Also converts values to other types if specified.
+         * @param message ShortcutList
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: lebai.ShortcutList, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ShortcutList to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for ShortcutList
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Properties of a SubscribeRequest. */
     interface ISubscribeRequest {
 
@@ -7663,46 +7966,46 @@ export namespace lebai {
             public getPoseInverse(request: lebai.posture.IPoseRequest): Promise<lebai.posture.CartesianPose>;
 
             /**
-             * Calls SetShortPosture.
-             * @param request Hook message or plain object
+             * Calls SetShortPose.
+             * @param request Shortcut message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
              */
-            public setShortPosture(request: lebai.task.IHook, callback: lebai.posture.PostureService.SetShortPostureCallback): void;
+            public setShortPose(request: lebai.IShortcut, callback: lebai.posture.PostureService.SetShortPoseCallback): void;
 
             /**
-             * Calls SetShortPosture.
-             * @param request Hook message or plain object
+             * Calls SetShortPose.
+             * @param request Shortcut message or plain object
              * @returns Promise
              */
-            public setShortPosture(request: lebai.task.IHook): Promise<google.protobuf.Empty>;
+            public setShortPose(request: lebai.IShortcut): Promise<google.protobuf.Empty>;
 
             /**
-             * Calls GetShortPosture.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Hook
+             * Calls GetShortPose.
+             * @param request ShortcutIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Shortcut
              */
-            public getShortPosture(request: lebai.task.ITaskIndex, callback: lebai.posture.PostureService.GetShortPostureCallback): void;
+            public getShortPose(request: lebai.IShortcutIndex, callback: lebai.posture.PostureService.GetShortPoseCallback): void;
 
             /**
-             * Calls GetShortPosture.
-             * @param request TaskIndex message or plain object
+             * Calls GetShortPose.
+             * @param request ShortcutIndex message or plain object
              * @returns Promise
              */
-            public getShortPosture(request: lebai.task.ITaskIndex): Promise<lebai.task.Hook>;
+            public getShortPose(request: lebai.IShortcutIndex): Promise<lebai.Shortcut>;
 
             /**
-             * Calls GetShortPostures.
+             * Calls GetShortPoses.
              * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and HookList
+             * @param callback Node-style callback called with the error, if any, and ShortcutList
              */
-            public getShortPostures(request: google.protobuf.IEmpty, callback: lebai.posture.PostureService.GetShortPosturesCallback): void;
+            public getShortPoses(request: google.protobuf.IEmpty, callback: lebai.posture.PostureService.GetShortPosesCallback): void;
 
             /**
-             * Calls GetShortPostures.
+             * Calls GetShortPoses.
              * @param request Empty message or plain object
              * @returns Promise
              */
-            public getShortPostures(request: google.protobuf.IEmpty): Promise<lebai.task.HookList>;
+            public getShortPoses(request: google.protobuf.IEmpty): Promise<lebai.ShortcutList>;
         }
 
         namespace PostureService {
@@ -7778,1491 +8081,25 @@ export namespace lebai {
             type GetPoseInverseCallback = (error: (Error|null), response?: lebai.posture.CartesianPose) => void;
 
             /**
-             * Callback as used by {@link lebai.posture.PostureService#setShortPosture}.
+             * Callback as used by {@link lebai.posture.PostureService#setShortPose}.
              * @param error Error, if any
              * @param [response] Empty
              */
-            type SetShortPostureCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type SetShortPoseCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link lebai.posture.PostureService#getShortPosture}.
+             * Callback as used by {@link lebai.posture.PostureService#getShortPose}.
              * @param error Error, if any
-             * @param [response] Hook
+             * @param [response] Shortcut
              */
-            type GetShortPostureCallback = (error: (Error|null), response?: lebai.task.Hook) => void;
+            type GetShortPoseCallback = (error: (Error|null), response?: lebai.Shortcut) => void;
 
             /**
-             * Callback as used by {@link lebai.posture.PostureService#getShortPostures}.
+             * Callback as used by {@link lebai.posture.PostureService#getShortPoses}.
              * @param error Error, if any
-             * @param [response] HookList
+             * @param [response] ShortcutList
              */
-            type GetShortPosturesCallback = (error: (Error|null), response?: lebai.task.HookList) => void;
-        }
-    }
-
-    /** Namespace task. */
-    namespace task {
-
-        /** TaskKind enum. */
-        enum TaskKind {
-            LUA = 0,
-            APP = 10
-        }
-
-        /** TaskState enum. */
-        enum TaskState {
-            WAIT = 0,
-            RUNNING = 1,
-            PAUSE = 2,
-            SUCCESS = 3,
-            INTERRUPT = 4,
-            FAIL = 5,
-            BEGIN = 11,
-            INTERRUPTING = 14
-        }
-
-        /** Properties of a TaskIndex. */
-        interface ITaskIndex {
-
-            /** TaskIndex id */
-            id?: (number|null);
-        }
-
-        /** Represents a TaskIndex. */
-        class TaskIndex implements ITaskIndex {
-
-            /**
-             * Constructs a new TaskIndex.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.ITaskIndex);
-
-            /** TaskIndex id. */
-            public id: number;
-
-            /**
-             * Creates a new TaskIndex instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns TaskIndex instance
-             */
-            public static create(properties?: lebai.task.ITaskIndex): lebai.task.TaskIndex;
-
-            /**
-             * Encodes the specified TaskIndex message. Does not implicitly {@link lebai.task.TaskIndex.verify|verify} messages.
-             * @param message TaskIndex message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.ITaskIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified TaskIndex message, length delimited. Does not implicitly {@link lebai.task.TaskIndex.verify|verify} messages.
-             * @param message TaskIndex message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.ITaskIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a TaskIndex message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns TaskIndex
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskIndex;
-
-            /**
-             * Decodes a TaskIndex message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns TaskIndex
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskIndex;
-
-            /**
-             * Verifies a TaskIndex message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a TaskIndex message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns TaskIndex
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.TaskIndex;
-
-            /**
-             * Creates a plain object from a TaskIndex message. Also converts values to other types if specified.
-             * @param message TaskIndex
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.TaskIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this TaskIndex to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for TaskIndex
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a Task. */
-        interface ITask {
-
-            /** Task id */
-            id?: (number|null);
-
-            /** Task blockId */
-            blockId?: (string|null);
-
-            /** Task eventId */
-            eventId?: (number|null);
-
-            /** Task state */
-            state?: (lebai.task.TaskState|null);
-
-            /** Task loopCount */
-            loopCount?: (number|null);
-
-            /** Task loopTo */
-            loopTo?: (number|null);
-
-            /** Task isParallel */
-            isParallel?: (boolean|null);
-
-            /** Task isSimu */
-            isSimu?: (boolean|null);
-
-            /** Task stdout */
-            stdout?: (string|null);
-
-            /** Task startedAt */
-            startedAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task endedAt */
-            endedAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task pauseAt */
-            pauseAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task prePause */
-            prePause?: (number|null);
-
-            /** Task kind */
-            kind?: (lebai.task.TaskKind|null);
-
-            /** Task dir */
-            dir?: (string|null);
-
-            /** Task name */
-            name?: (string|null);
-
-            /** Task params */
-            params?: (string[]|null);
-        }
-
-        /** Represents a Task. */
-        class Task implements ITask {
-
-            /**
-             * Constructs a new Task.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.ITask);
-
-            /** Task id. */
-            public id: number;
-
-            /** Task blockId. */
-            public blockId: string;
-
-            /** Task eventId. */
-            public eventId: number;
-
-            /** Task state. */
-            public state: lebai.task.TaskState;
-
-            /** Task loopCount. */
-            public loopCount: number;
-
-            /** Task loopTo. */
-            public loopTo: number;
-
-            /** Task isParallel. */
-            public isParallel: boolean;
-
-            /** Task isSimu. */
-            public isSimu: boolean;
-
-            /** Task stdout. */
-            public stdout: string;
-
-            /** Task startedAt. */
-            public startedAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task endedAt. */
-            public endedAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task pauseAt. */
-            public pauseAt?: (google.protobuf.ITimestamp|null);
-
-            /** Task prePause. */
-            public prePause: number;
-
-            /** Task kind. */
-            public kind: lebai.task.TaskKind;
-
-            /** Task dir. */
-            public dir: string;
-
-            /** Task name. */
-            public name: string;
-
-            /** Task params. */
-            public params: string[];
-
-            /**
-             * Creates a new Task instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Task instance
-             */
-            public static create(properties?: lebai.task.ITask): lebai.task.Task;
-
-            /**
-             * Encodes the specified Task message. Does not implicitly {@link lebai.task.Task.verify|verify} messages.
-             * @param message Task message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Task message, length delimited. Does not implicitly {@link lebai.task.Task.verify|verify} messages.
-             * @param message Task message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a Task message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Task
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Task;
-
-            /**
-             * Decodes a Task message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Task
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Task;
-
-            /**
-             * Verifies a Task message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a Task message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Task
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.Task;
-
-            /**
-             * Creates a plain object from a Task message. Also converts values to other types if specified.
-             * @param message Task
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.Task, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Task to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Task
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a TaskIds. */
-        interface ITaskIds {
-
-            /** TaskIds ids */
-            ids?: (number[]|null);
-        }
-
-        /** Represents a TaskIds. */
-        class TaskIds implements ITaskIds {
-
-            /**
-             * Constructs a new TaskIds.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.ITaskIds);
-
-            /** TaskIds ids. */
-            public ids: number[];
-
-            /**
-             * Creates a new TaskIds instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns TaskIds instance
-             */
-            public static create(properties?: lebai.task.ITaskIds): lebai.task.TaskIds;
-
-            /**
-             * Encodes the specified TaskIds message. Does not implicitly {@link lebai.task.TaskIds.verify|verify} messages.
-             * @param message TaskIds message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.ITaskIds, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified TaskIds message, length delimited. Does not implicitly {@link lebai.task.TaskIds.verify|verify} messages.
-             * @param message TaskIds message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.ITaskIds, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a TaskIds message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns TaskIds
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskIds;
-
-            /**
-             * Decodes a TaskIds message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns TaskIds
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskIds;
-
-            /**
-             * Verifies a TaskIds message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a TaskIds message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns TaskIds
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.TaskIds;
-
-            /**
-             * Creates a plain object from a TaskIds message. Also converts values to other types if specified.
-             * @param message TaskIds
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.TaskIds, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this TaskIds to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for TaskIds
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a Tasks. */
-        interface ITasks {
-
-            /** Tasks tasks */
-            tasks?: (lebai.task.ITask[]|null);
-        }
-
-        /** Represents a Tasks. */
-        class Tasks implements ITasks {
-
-            /**
-             * Constructs a new Tasks.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.ITasks);
-
-            /** Tasks tasks. */
-            public tasks: lebai.task.ITask[];
-
-            /**
-             * Creates a new Tasks instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Tasks instance
-             */
-            public static create(properties?: lebai.task.ITasks): lebai.task.Tasks;
-
-            /**
-             * Encodes the specified Tasks message. Does not implicitly {@link lebai.task.Tasks.verify|verify} messages.
-             * @param message Tasks message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.ITasks, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Tasks message, length delimited. Does not implicitly {@link lebai.task.Tasks.verify|verify} messages.
-             * @param message Tasks message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.ITasks, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a Tasks message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Tasks
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Tasks;
-
-            /**
-             * Decodes a Tasks message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Tasks
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Tasks;
-
-            /**
-             * Verifies a Tasks message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a Tasks message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Tasks
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.Tasks;
-
-            /**
-             * Creates a plain object from a Tasks message. Also converts values to other types if specified.
-             * @param message Tasks
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.Tasks, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Tasks to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Tasks
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a TaskStdout. */
-        interface ITaskStdout {
-
-            /** TaskStdout done */
-            done?: (boolean|null);
-
-            /** TaskStdout stdout */
-            stdout?: (string|null);
-        }
-
-        /** Represents a TaskStdout. */
-        class TaskStdout implements ITaskStdout {
-
-            /**
-             * Constructs a new TaskStdout.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.ITaskStdout);
-
-            /** TaskStdout done. */
-            public done: boolean;
-
-            /** TaskStdout stdout. */
-            public stdout: string;
-
-            /**
-             * Creates a new TaskStdout instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns TaskStdout instance
-             */
-            public static create(properties?: lebai.task.ITaskStdout): lebai.task.TaskStdout;
-
-            /**
-             * Encodes the specified TaskStdout message. Does not implicitly {@link lebai.task.TaskStdout.verify|verify} messages.
-             * @param message TaskStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.ITaskStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified TaskStdout message, length delimited. Does not implicitly {@link lebai.task.TaskStdout.verify|verify} messages.
-             * @param message TaskStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.ITaskStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a TaskStdout message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns TaskStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskStdout;
-
-            /**
-             * Decodes a TaskStdout message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns TaskStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskStdout;
-
-            /**
-             * Verifies a TaskStdout message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a TaskStdout message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns TaskStdout
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.TaskStdout;
-
-            /**
-             * Creates a plain object from a TaskStdout message. Also converts values to other types if specified.
-             * @param message TaskStdout
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.TaskStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this TaskStdout to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for TaskStdout
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a StartTaskRequest. */
-        interface IStartTaskRequest {
-
-            /** StartTaskRequest name */
-            name?: (string|null);
-
-            /** StartTaskRequest isParallel */
-            isParallel?: (boolean|null);
-
-            /** StartTaskRequest loopTo */
-            loopTo?: (number|null);
-
-            /** StartTaskRequest dir */
-            dir?: (string|null);
-
-            /** StartTaskRequest kind */
-            kind?: (lebai.task.TaskKind|null);
-
-            /** StartTaskRequest params */
-            params?: (string[]|null);
-        }
-
-        /** Represents a StartTaskRequest. */
-        class StartTaskRequest implements IStartTaskRequest {
-
-            /**
-             * Constructs a new StartTaskRequest.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IStartTaskRequest);
-
-            /** StartTaskRequest name. */
-            public name: string;
-
-            /** StartTaskRequest isParallel. */
-            public isParallel: boolean;
-
-            /** StartTaskRequest loopTo. */
-            public loopTo: number;
-
-            /** StartTaskRequest dir. */
-            public dir: string;
-
-            /** StartTaskRequest kind. */
-            public kind: lebai.task.TaskKind;
-
-            /** StartTaskRequest params. */
-            public params: string[];
-
-            /**
-             * Creates a new StartTaskRequest instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns StartTaskRequest instance
-             */
-            public static create(properties?: lebai.task.IStartTaskRequest): lebai.task.StartTaskRequest;
-
-            /**
-             * Encodes the specified StartTaskRequest message. Does not implicitly {@link lebai.task.StartTaskRequest.verify|verify} messages.
-             * @param message StartTaskRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IStartTaskRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified StartTaskRequest message, length delimited. Does not implicitly {@link lebai.task.StartTaskRequest.verify|verify} messages.
-             * @param message StartTaskRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IStartTaskRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a StartTaskRequest message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns StartTaskRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.StartTaskRequest;
-
-            /**
-             * Decodes a StartTaskRequest message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns StartTaskRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.StartTaskRequest;
-
-            /**
-             * Verifies a StartTaskRequest message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a StartTaskRequest message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns StartTaskRequest
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.StartTaskRequest;
-
-            /**
-             * Creates a plain object from a StartTaskRequest message. Also converts values to other types if specified.
-             * @param message StartTaskRequest
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.StartTaskRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this StartTaskRequest to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for StartTaskRequest
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a PauseRequest. */
-        interface IPauseRequest {
-
-            /** PauseRequest id */
-            id?: (number|null);
-
-            /** PauseRequest time */
-            time?: (number|Long|null);
-
-            /** PauseRequest wait */
-            wait?: (boolean|null);
-        }
-
-        /** Represents a PauseRequest. */
-        class PauseRequest implements IPauseRequest {
-
-            /**
-             * Constructs a new PauseRequest.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IPauseRequest);
-
-            /** PauseRequest id. */
-            public id: number;
-
-            /** PauseRequest time. */
-            public time: (number|Long);
-
-            /** PauseRequest wait. */
-            public wait: boolean;
-
-            /**
-             * Creates a new PauseRequest instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns PauseRequest instance
-             */
-            public static create(properties?: lebai.task.IPauseRequest): lebai.task.PauseRequest;
-
-            /**
-             * Encodes the specified PauseRequest message. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
-             * @param message PauseRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified PauseRequest message, length delimited. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
-             * @param message PauseRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a PauseRequest message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns PauseRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.PauseRequest;
-
-            /**
-             * Decodes a PauseRequest message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns PauseRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.PauseRequest;
-
-            /**
-             * Verifies a PauseRequest message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a PauseRequest message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns PauseRequest
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.PauseRequest;
-
-            /**
-             * Creates a plain object from a PauseRequest message. Also converts values to other types if specified.
-             * @param message PauseRequest
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.PauseRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this PauseRequest to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for PauseRequest
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a Hook. */
-        interface IHook {
-
-            /** Hook id */
-            id?: (number|null);
-
-            /** Hook dir */
-            dir?: (string|null);
-
-            /** Hook name */
-            name?: (string|null);
-        }
-
-        /** Represents a Hook. */
-        class Hook implements IHook {
-
-            /**
-             * Constructs a new Hook.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IHook);
-
-            /** Hook id. */
-            public id: number;
-
-            /** Hook dir. */
-            public dir: string;
-
-            /** Hook name. */
-            public name: string;
-
-            /**
-             * Creates a new Hook instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Hook instance
-             */
-            public static create(properties?: lebai.task.IHook): lebai.task.Hook;
-
-            /**
-             * Encodes the specified Hook message. Does not implicitly {@link lebai.task.Hook.verify|verify} messages.
-             * @param message Hook message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IHook, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Hook message, length delimited. Does not implicitly {@link lebai.task.Hook.verify|verify} messages.
-             * @param message Hook message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IHook, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a Hook message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Hook
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Hook;
-
-            /**
-             * Decodes a Hook message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Hook
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Hook;
-
-            /**
-             * Verifies a Hook message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a Hook message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Hook
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.Hook;
-
-            /**
-             * Creates a plain object from a Hook message. Also converts values to other types if specified.
-             * @param message Hook
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.Hook, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Hook to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Hook
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of an Exec. */
-        interface IExec {
-
-            /** Exec id */
-            id?: (number|null);
-        }
-
-        /** Represents an Exec. */
-        class Exec implements IExec {
-
-            /**
-             * Constructs a new Exec.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IExec);
-
-            /** Exec id. */
-            public id: number;
-
-            /**
-             * Creates a new Exec instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Exec instance
-             */
-            public static create(properties?: lebai.task.IExec): lebai.task.Exec;
-
-            /**
-             * Encodes the specified Exec message. Does not implicitly {@link lebai.task.Exec.verify|verify} messages.
-             * @param message Exec message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IExec, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Exec message, length delimited. Does not implicitly {@link lebai.task.Exec.verify|verify} messages.
-             * @param message Exec message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IExec, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an Exec message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Exec
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Exec;
-
-            /**
-             * Decodes an Exec message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Exec
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Exec;
-
-            /**
-             * Verifies an Exec message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an Exec message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Exec
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.Exec;
-
-            /**
-             * Creates a plain object from an Exec message. Also converts values to other types if specified.
-             * @param message Exec
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.Exec, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Exec to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for Exec
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a HookList. */
-        interface IHookList {
-
-            /** HookList list */
-            list?: (lebai.task.IHook[]|null);
-        }
-
-        /** Represents a HookList. */
-        class HookList implements IHookList {
-
-            /**
-             * Constructs a new HookList.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IHookList);
-
-            /** HookList list. */
-            public list: lebai.task.IHook[];
-
-            /**
-             * Creates a new HookList instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns HookList instance
-             */
-            public static create(properties?: lebai.task.IHookList): lebai.task.HookList;
-
-            /**
-             * Encodes the specified HookList message. Does not implicitly {@link lebai.task.HookList.verify|verify} messages.
-             * @param message HookList message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IHookList, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified HookList message, length delimited. Does not implicitly {@link lebai.task.HookList.verify|verify} messages.
-             * @param message HookList message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IHookList, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a HookList message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns HookList
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.HookList;
-
-            /**
-             * Decodes a HookList message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns HookList
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.HookList;
-
-            /**
-             * Verifies a HookList message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a HookList message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns HookList
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.HookList;
-
-            /**
-             * Creates a plain object from a HookList message. Also converts values to other types if specified.
-             * @param message HookList
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.HookList, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this HookList to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for HookList
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Represents a TaskService */
-        class TaskService extends $protobuf.rpc.Service {
-
-            /**
-             * Constructs a new TaskService service.
-             * @param rpcImpl RPC implementation
-             * @param [requestDelimited=false] Whether requests are length-delimited
-             * @param [responseDelimited=false] Whether responses are length-delimited
-             */
-            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
-
-            /**
-             * Creates new TaskService service using the specified rpc implementation.
-             * @param rpcImpl RPC implementation
-             * @param [requestDelimited=false] Whether requests are length-delimited
-             * @param [responseDelimited=false] Whether responses are length-delimited
-             * @returns RPC service. Useful where requests and/or responses are streamed.
-             */
-            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): TaskService;
-
-            /**
-             * Calls LoadTask.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Task
-             */
-            public loadTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.LoadTaskCallback): void;
-
-            /**
-             * Calls LoadTask.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public loadTask(request: lebai.task.ITaskIndex): Promise<lebai.task.Task>;
-
-            /**
-             * Calls LoadTaskList.
-             * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and TaskIds
-             */
-            public loadTaskList(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.LoadTaskListCallback): void;
-
-            /**
-             * Calls LoadTaskList.
-             * @param request Empty message or plain object
-             * @returns Promise
-             */
-            public loadTaskList(request: google.protobuf.IEmpty): Promise<lebai.task.TaskIds>;
-
-            /**
-             * Calls LoadRunningTasks.
-             * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and Tasks
-             */
-            public loadRunningTasks(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.LoadRunningTasksCallback): void;
-
-            /**
-             * Calls LoadRunningTasks.
-             * @param request Empty message or plain object
-             * @returns Promise
-             */
-            public loadRunningTasks(request: google.protobuf.IEmpty): Promise<lebai.task.Tasks>;
-
-            /**
-             * Calls StartTask.
-             * @param request StartTaskRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and TaskIndex
-             */
-            public startTask(request: lebai.task.IStartTaskRequest, callback: lebai.task.TaskService.StartTaskCallback): void;
-
-            /**
-             * Calls StartTask.
-             * @param request StartTaskRequest message or plain object
-             * @returns Promise
-             */
-            public startTask(request: lebai.task.IStartTaskRequest): Promise<lebai.task.TaskIndex>;
-
-            /**
-             * Calls GetTaskStdout.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and TaskStdout
-             */
-            public getTaskStdout(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.GetTaskStdoutCallback): void;
-
-            /**
-             * Calls GetTaskStdout.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public getTaskStdout(request: lebai.task.ITaskIndex): Promise<lebai.task.TaskStdout>;
-
-            /**
-             * Calls SubTaskStdout.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and TaskStdout
-             */
-            public subTaskStdout(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.SubTaskStdoutCallback): void;
-
-            /**
-             * Calls SubTaskStdout.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public subTaskStdout(request: lebai.task.ITaskIndex): Promise<lebai.task.TaskStdout>;
-
-            /**
-             * Calls WaitTask.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public waitTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.WaitTaskCallback): void;
-
-            /**
-             * Calls WaitTask.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public waitTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls PauseTask.
-             * @param request PauseRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public pauseTask(request: lebai.task.IPauseRequest, callback: lebai.task.TaskService.PauseTaskCallback): void;
-
-            /**
-             * Calls PauseTask.
-             * @param request PauseRequest message or plain object
-             * @returns Promise
-             */
-            public pauseTask(request: lebai.task.IPauseRequest): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls ResumeTask.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public resumeTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.ResumeTaskCallback): void;
-
-            /**
-             * Calls ResumeTask.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public resumeTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls CancelTask.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public cancelTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.CancelTaskCallback): void;
-
-            /**
-             * Calls CancelTask.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public cancelTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls SetShortScene.
-             * @param request Hook message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public setShortScene(request: lebai.task.IHook, callback: lebai.task.TaskService.SetShortSceneCallback): void;
-
-            /**
-             * Calls SetShortScene.
-             * @param request Hook message or plain object
-             * @returns Promise
-             */
-            public setShortScene(request: lebai.task.IHook): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls ExecShortScene.
-             * @param request Exec message or plain object
-             * @param callback Node-style callback called with the error, if any, and TaskIndex
-             */
-            public execShortScene(request: lebai.task.IExec, callback: lebai.task.TaskService.ExecShortSceneCallback): void;
-
-            /**
-             * Calls ExecShortScene.
-             * @param request Exec message or plain object
-             * @returns Promise
-             */
-            public execShortScene(request: lebai.task.IExec): Promise<lebai.task.TaskIndex>;
-
-            /**
-             * Calls GetShortScene.
-             * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Hook
-             */
-            public getShortScene(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.GetShortSceneCallback): void;
-
-            /**
-             * Calls GetShortScene.
-             * @param request TaskIndex message or plain object
-             * @returns Promise
-             */
-            public getShortScene(request: lebai.task.ITaskIndex): Promise<lebai.task.Hook>;
-
-            /**
-             * Calls GetShortScenes.
-             * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and HookList
-             */
-            public getShortScenes(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.GetShortScenesCallback): void;
-
-            /**
-             * Calls GetShortScenes.
-             * @param request Empty message or plain object
-             * @returns Promise
-             */
-            public getShortScenes(request: google.protobuf.IEmpty): Promise<lebai.task.HookList>;
-        }
-
-        namespace TaskService {
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#loadTask}.
-             * @param error Error, if any
-             * @param [response] Task
-             */
-            type LoadTaskCallback = (error: (Error|null), response?: lebai.task.Task) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#loadTaskList}.
-             * @param error Error, if any
-             * @param [response] TaskIds
-             */
-            type LoadTaskListCallback = (error: (Error|null), response?: lebai.task.TaskIds) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#loadRunningTasks}.
-             * @param error Error, if any
-             * @param [response] Tasks
-             */
-            type LoadRunningTasksCallback = (error: (Error|null), response?: lebai.task.Tasks) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#startTask}.
-             * @param error Error, if any
-             * @param [response] TaskIndex
-             */
-            type StartTaskCallback = (error: (Error|null), response?: lebai.task.TaskIndex) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#getTaskStdout}.
-             * @param error Error, if any
-             * @param [response] TaskStdout
-             */
-            type GetTaskStdoutCallback = (error: (Error|null), response?: lebai.task.TaskStdout) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#subTaskStdout}.
-             * @param error Error, if any
-             * @param [response] TaskStdout
-             */
-            type SubTaskStdoutCallback = (error: (Error|null), response?: lebai.task.TaskStdout) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#waitTask}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type WaitTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#pauseTask}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type PauseTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#resumeTask}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type ResumeTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#cancelTask}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type CancelTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#setShortScene}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type SetShortSceneCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#execShortScene}.
-             * @param error Error, if any
-             * @param [response] TaskIndex
-             */
-            type ExecShortSceneCallback = (error: (Error|null), response?: lebai.task.TaskIndex) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#getShortScene}.
-             * @param error Error, if any
-             * @param [response] Hook
-             */
-            type GetShortSceneCallback = (error: (Error|null), response?: lebai.task.Hook) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#getShortScenes}.
-             * @param error Error, if any
-             * @param [response] HookList
-             */
-            type GetShortScenesCallback = (error: (Error|null), response?: lebai.task.HookList) => void;
+            type GetShortPosesCallback = (error: (Error|null), response?: lebai.ShortcutList) => void;
         }
     }
 
@@ -23417,6 +22254,1148 @@ export namespace lebai {
              * @param [response] LoadListResponse
              */
             type LoadStructureListCallback = (error: (Error|null), response?: lebai.db.LoadListResponse) => void;
+        }
+    }
+
+    /** Namespace task. */
+    namespace task {
+
+        /** TaskKind enum. */
+        enum TaskKind {
+            LUA = 0,
+            APP = 10
+        }
+
+        /** TaskState enum. */
+        enum TaskState {
+            WAIT = 0,
+            RUNNING = 1,
+            PAUSE = 2,
+            SUCCESS = 3,
+            INTERRUPT = 4,
+            FAIL = 5,
+            BEGIN = 11,
+            INTERRUPTING = 14
+        }
+
+        /** Properties of a TaskIndex. */
+        interface ITaskIndex {
+
+            /** TaskIndex id */
+            id?: (number|null);
+        }
+
+        /** Represents a TaskIndex. */
+        class TaskIndex implements ITaskIndex {
+
+            /**
+             * Constructs a new TaskIndex.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.ITaskIndex);
+
+            /** TaskIndex id. */
+            public id: number;
+
+            /**
+             * Creates a new TaskIndex instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns TaskIndex instance
+             */
+            public static create(properties?: lebai.task.ITaskIndex): lebai.task.TaskIndex;
+
+            /**
+             * Encodes the specified TaskIndex message. Does not implicitly {@link lebai.task.TaskIndex.verify|verify} messages.
+             * @param message TaskIndex message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.ITaskIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified TaskIndex message, length delimited. Does not implicitly {@link lebai.task.TaskIndex.verify|verify} messages.
+             * @param message TaskIndex message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.ITaskIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a TaskIndex message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns TaskIndex
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskIndex;
+
+            /**
+             * Decodes a TaskIndex message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns TaskIndex
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskIndex;
+
+            /**
+             * Verifies a TaskIndex message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a TaskIndex message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns TaskIndex
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.TaskIndex;
+
+            /**
+             * Creates a plain object from a TaskIndex message. Also converts values to other types if specified.
+             * @param message TaskIndex
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.TaskIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this TaskIndex to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for TaskIndex
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a Task. */
+        interface ITask {
+
+            /** Task id */
+            id?: (number|null);
+
+            /** Task blockId */
+            blockId?: (string|null);
+
+            /** Task eventId */
+            eventId?: (number|null);
+
+            /** Task state */
+            state?: (lebai.task.TaskState|null);
+
+            /** Task loopCount */
+            loopCount?: (number|null);
+
+            /** Task loopTo */
+            loopTo?: (number|null);
+
+            /** Task isParallel */
+            isParallel?: (boolean|null);
+
+            /** Task isSimu */
+            isSimu?: (boolean|null);
+
+            /** Task stdout */
+            stdout?: (string|null);
+
+            /** Task startedAt */
+            startedAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task endedAt */
+            endedAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task pauseAt */
+            pauseAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task prePause */
+            prePause?: (number|null);
+
+            /** Task kind */
+            kind?: (lebai.task.TaskKind|null);
+
+            /** Task dir */
+            dir?: (string|null);
+
+            /** Task name */
+            name?: (string|null);
+
+            /** Task params */
+            params?: (string[]|null);
+        }
+
+        /** Represents a Task. */
+        class Task implements ITask {
+
+            /**
+             * Constructs a new Task.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.ITask);
+
+            /** Task id. */
+            public id: number;
+
+            /** Task blockId. */
+            public blockId: string;
+
+            /** Task eventId. */
+            public eventId: number;
+
+            /** Task state. */
+            public state: lebai.task.TaskState;
+
+            /** Task loopCount. */
+            public loopCount: number;
+
+            /** Task loopTo. */
+            public loopTo: number;
+
+            /** Task isParallel. */
+            public isParallel: boolean;
+
+            /** Task isSimu. */
+            public isSimu: boolean;
+
+            /** Task stdout. */
+            public stdout: string;
+
+            /** Task startedAt. */
+            public startedAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task endedAt. */
+            public endedAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task pauseAt. */
+            public pauseAt?: (google.protobuf.ITimestamp|null);
+
+            /** Task prePause. */
+            public prePause: number;
+
+            /** Task kind. */
+            public kind: lebai.task.TaskKind;
+
+            /** Task dir. */
+            public dir: string;
+
+            /** Task name. */
+            public name: string;
+
+            /** Task params. */
+            public params: string[];
+
+            /**
+             * Creates a new Task instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Task instance
+             */
+            public static create(properties?: lebai.task.ITask): lebai.task.Task;
+
+            /**
+             * Encodes the specified Task message. Does not implicitly {@link lebai.task.Task.verify|verify} messages.
+             * @param message Task message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Task message, length delimited. Does not implicitly {@link lebai.task.Task.verify|verify} messages.
+             * @param message Task message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.ITask, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Task message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Task
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Task;
+
+            /**
+             * Decodes a Task message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Task
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Task;
+
+            /**
+             * Verifies a Task message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Task message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Task
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.Task;
+
+            /**
+             * Creates a plain object from a Task message. Also converts values to other types if specified.
+             * @param message Task
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.Task, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Task to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Task
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a TaskIds. */
+        interface ITaskIds {
+
+            /** TaskIds ids */
+            ids?: (number[]|null);
+        }
+
+        /** Represents a TaskIds. */
+        class TaskIds implements ITaskIds {
+
+            /**
+             * Constructs a new TaskIds.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.ITaskIds);
+
+            /** TaskIds ids. */
+            public ids: number[];
+
+            /**
+             * Creates a new TaskIds instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns TaskIds instance
+             */
+            public static create(properties?: lebai.task.ITaskIds): lebai.task.TaskIds;
+
+            /**
+             * Encodes the specified TaskIds message. Does not implicitly {@link lebai.task.TaskIds.verify|verify} messages.
+             * @param message TaskIds message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.ITaskIds, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified TaskIds message, length delimited. Does not implicitly {@link lebai.task.TaskIds.verify|verify} messages.
+             * @param message TaskIds message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.ITaskIds, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a TaskIds message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns TaskIds
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskIds;
+
+            /**
+             * Decodes a TaskIds message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns TaskIds
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskIds;
+
+            /**
+             * Verifies a TaskIds message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a TaskIds message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns TaskIds
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.TaskIds;
+
+            /**
+             * Creates a plain object from a TaskIds message. Also converts values to other types if specified.
+             * @param message TaskIds
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.TaskIds, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this TaskIds to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for TaskIds
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a Tasks. */
+        interface ITasks {
+
+            /** Tasks tasks */
+            tasks?: (lebai.task.ITask[]|null);
+        }
+
+        /** Represents a Tasks. */
+        class Tasks implements ITasks {
+
+            /**
+             * Constructs a new Tasks.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.ITasks);
+
+            /** Tasks tasks. */
+            public tasks: lebai.task.ITask[];
+
+            /**
+             * Creates a new Tasks instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Tasks instance
+             */
+            public static create(properties?: lebai.task.ITasks): lebai.task.Tasks;
+
+            /**
+             * Encodes the specified Tasks message. Does not implicitly {@link lebai.task.Tasks.verify|verify} messages.
+             * @param message Tasks message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.ITasks, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Tasks message, length delimited. Does not implicitly {@link lebai.task.Tasks.verify|verify} messages.
+             * @param message Tasks message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.ITasks, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Tasks message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Tasks
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.Tasks;
+
+            /**
+             * Decodes a Tasks message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Tasks
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.Tasks;
+
+            /**
+             * Verifies a Tasks message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Tasks message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Tasks
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.Tasks;
+
+            /**
+             * Creates a plain object from a Tasks message. Also converts values to other types if specified.
+             * @param message Tasks
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.Tasks, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Tasks to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Tasks
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a TaskStdout. */
+        interface ITaskStdout {
+
+            /** TaskStdout done */
+            done?: (boolean|null);
+
+            /** TaskStdout stdout */
+            stdout?: (string|null);
+        }
+
+        /** Represents a TaskStdout. */
+        class TaskStdout implements ITaskStdout {
+
+            /**
+             * Constructs a new TaskStdout.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.ITaskStdout);
+
+            /** TaskStdout done. */
+            public done: boolean;
+
+            /** TaskStdout stdout. */
+            public stdout: string;
+
+            /**
+             * Creates a new TaskStdout instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns TaskStdout instance
+             */
+            public static create(properties?: lebai.task.ITaskStdout): lebai.task.TaskStdout;
+
+            /**
+             * Encodes the specified TaskStdout message. Does not implicitly {@link lebai.task.TaskStdout.verify|verify} messages.
+             * @param message TaskStdout message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.ITaskStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified TaskStdout message, length delimited. Does not implicitly {@link lebai.task.TaskStdout.verify|verify} messages.
+             * @param message TaskStdout message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.ITaskStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a TaskStdout message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns TaskStdout
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.TaskStdout;
+
+            /**
+             * Decodes a TaskStdout message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns TaskStdout
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.TaskStdout;
+
+            /**
+             * Verifies a TaskStdout message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a TaskStdout message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns TaskStdout
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.TaskStdout;
+
+            /**
+             * Creates a plain object from a TaskStdout message. Also converts values to other types if specified.
+             * @param message TaskStdout
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.TaskStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this TaskStdout to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for TaskStdout
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a StartTaskRequest. */
+        interface IStartTaskRequest {
+
+            /** StartTaskRequest name */
+            name?: (string|null);
+
+            /** StartTaskRequest isParallel */
+            isParallel?: (boolean|null);
+
+            /** StartTaskRequest loopTo */
+            loopTo?: (number|null);
+
+            /** StartTaskRequest dir */
+            dir?: (string|null);
+
+            /** StartTaskRequest kind */
+            kind?: (lebai.task.TaskKind|null);
+
+            /** StartTaskRequest params */
+            params?: (string[]|null);
+        }
+
+        /** Represents a StartTaskRequest. */
+        class StartTaskRequest implements IStartTaskRequest {
+
+            /**
+             * Constructs a new StartTaskRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.IStartTaskRequest);
+
+            /** StartTaskRequest name. */
+            public name: string;
+
+            /** StartTaskRequest isParallel. */
+            public isParallel: boolean;
+
+            /** StartTaskRequest loopTo. */
+            public loopTo: number;
+
+            /** StartTaskRequest dir. */
+            public dir: string;
+
+            /** StartTaskRequest kind. */
+            public kind: lebai.task.TaskKind;
+
+            /** StartTaskRequest params. */
+            public params: string[];
+
+            /**
+             * Creates a new StartTaskRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns StartTaskRequest instance
+             */
+            public static create(properties?: lebai.task.IStartTaskRequest): lebai.task.StartTaskRequest;
+
+            /**
+             * Encodes the specified StartTaskRequest message. Does not implicitly {@link lebai.task.StartTaskRequest.verify|verify} messages.
+             * @param message StartTaskRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.IStartTaskRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified StartTaskRequest message, length delimited. Does not implicitly {@link lebai.task.StartTaskRequest.verify|verify} messages.
+             * @param message StartTaskRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.IStartTaskRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a StartTaskRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns StartTaskRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.StartTaskRequest;
+
+            /**
+             * Decodes a StartTaskRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns StartTaskRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.StartTaskRequest;
+
+            /**
+             * Verifies a StartTaskRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a StartTaskRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns StartTaskRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.StartTaskRequest;
+
+            /**
+             * Creates a plain object from a StartTaskRequest message. Also converts values to other types if specified.
+             * @param message StartTaskRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.StartTaskRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this StartTaskRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for StartTaskRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a PauseRequest. */
+        interface IPauseRequest {
+
+            /** PauseRequest id */
+            id?: (number|null);
+
+            /** PauseRequest time */
+            time?: (number|Long|null);
+
+            /** PauseRequest wait */
+            wait?: (boolean|null);
+        }
+
+        /** Represents a PauseRequest. */
+        class PauseRequest implements IPauseRequest {
+
+            /**
+             * Constructs a new PauseRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.task.IPauseRequest);
+
+            /** PauseRequest id. */
+            public id: number;
+
+            /** PauseRequest time. */
+            public time: (number|Long);
+
+            /** PauseRequest wait. */
+            public wait: boolean;
+
+            /**
+             * Creates a new PauseRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PauseRequest instance
+             */
+            public static create(properties?: lebai.task.IPauseRequest): lebai.task.PauseRequest;
+
+            /**
+             * Encodes the specified PauseRequest message. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
+             * @param message PauseRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PauseRequest message, length delimited. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
+             * @param message PauseRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PauseRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PauseRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.PauseRequest;
+
+            /**
+             * Decodes a PauseRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PauseRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.PauseRequest;
+
+            /**
+             * Verifies a PauseRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PauseRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PauseRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.task.PauseRequest;
+
+            /**
+             * Creates a plain object from a PauseRequest message. Also converts values to other types if specified.
+             * @param message PauseRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.task.PauseRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PauseRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PauseRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a TaskService */
+        class TaskService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new TaskService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new TaskService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): TaskService;
+
+            /**
+             * Calls LoadTask.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Task
+             */
+            public loadTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.LoadTaskCallback): void;
+
+            /**
+             * Calls LoadTask.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public loadTask(request: lebai.task.ITaskIndex): Promise<lebai.task.Task>;
+
+            /**
+             * Calls LoadTaskList.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and TaskIds
+             */
+            public loadTaskList(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.LoadTaskListCallback): void;
+
+            /**
+             * Calls LoadTaskList.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public loadTaskList(request: google.protobuf.IEmpty): Promise<lebai.task.TaskIds>;
+
+            /**
+             * Calls LoadRunningTasks.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Tasks
+             */
+            public loadRunningTasks(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.LoadRunningTasksCallback): void;
+
+            /**
+             * Calls LoadRunningTasks.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public loadRunningTasks(request: google.protobuf.IEmpty): Promise<lebai.task.Tasks>;
+
+            /**
+             * Calls StartTask.
+             * @param request StartTaskRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and TaskIndex
+             */
+            public startTask(request: lebai.task.IStartTaskRequest, callback: lebai.task.TaskService.StartTaskCallback): void;
+
+            /**
+             * Calls StartTask.
+             * @param request StartTaskRequest message or plain object
+             * @returns Promise
+             */
+            public startTask(request: lebai.task.IStartTaskRequest): Promise<lebai.task.TaskIndex>;
+
+            /**
+             * Calls GetTaskStdout.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and TaskStdout
+             */
+            public getTaskStdout(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.GetTaskStdoutCallback): void;
+
+            /**
+             * Calls GetTaskStdout.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public getTaskStdout(request: lebai.task.ITaskIndex): Promise<lebai.task.TaskStdout>;
+
+            /**
+             * Calls SubTaskStdout.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and TaskStdout
+             */
+            public subTaskStdout(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.SubTaskStdoutCallback): void;
+
+            /**
+             * Calls SubTaskStdout.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public subTaskStdout(request: lebai.task.ITaskIndex): Promise<lebai.task.TaskStdout>;
+
+            /**
+             * Calls WaitTask.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public waitTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.WaitTaskCallback): void;
+
+            /**
+             * Calls WaitTask.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public waitTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls PauseTask.
+             * @param request PauseRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public pauseTask(request: lebai.task.IPauseRequest, callback: lebai.task.TaskService.PauseTaskCallback): void;
+
+            /**
+             * Calls PauseTask.
+             * @param request PauseRequest message or plain object
+             * @returns Promise
+             */
+            public pauseTask(request: lebai.task.IPauseRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls ResumeTask.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public resumeTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.ResumeTaskCallback): void;
+
+            /**
+             * Calls ResumeTask.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public resumeTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls CancelTask.
+             * @param request TaskIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public cancelTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.CancelTaskCallback): void;
+
+            /**
+             * Calls CancelTask.
+             * @param request TaskIndex message or plain object
+             * @returns Promise
+             */
+            public cancelTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls SetShortTask.
+             * @param request Shortcut message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setShortTask(request: lebai.IShortcut, callback: lebai.task.TaskService.SetShortTaskCallback): void;
+
+            /**
+             * Calls SetShortTask.
+             * @param request Shortcut message or plain object
+             * @returns Promise
+             */
+            public setShortTask(request: lebai.IShortcut): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls GetShortTask.
+             * @param request ShortcutIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Shortcut
+             */
+            public getShortTask(request: lebai.IShortcutIndex, callback: lebai.task.TaskService.GetShortTaskCallback): void;
+
+            /**
+             * Calls GetShortTask.
+             * @param request ShortcutIndex message or plain object
+             * @returns Promise
+             */
+            public getShortTask(request: lebai.IShortcutIndex): Promise<lebai.Shortcut>;
+
+            /**
+             * Calls GetShortTasks.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and ShortcutList
+             */
+            public getShortTasks(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.GetShortTasksCallback): void;
+
+            /**
+             * Calls GetShortTasks.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public getShortTasks(request: google.protobuf.IEmpty): Promise<lebai.ShortcutList>;
+        }
+
+        namespace TaskService {
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#loadTask}.
+             * @param error Error, if any
+             * @param [response] Task
+             */
+            type LoadTaskCallback = (error: (Error|null), response?: lebai.task.Task) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#loadTaskList}.
+             * @param error Error, if any
+             * @param [response] TaskIds
+             */
+            type LoadTaskListCallback = (error: (Error|null), response?: lebai.task.TaskIds) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#loadRunningTasks}.
+             * @param error Error, if any
+             * @param [response] Tasks
+             */
+            type LoadRunningTasksCallback = (error: (Error|null), response?: lebai.task.Tasks) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#startTask}.
+             * @param error Error, if any
+             * @param [response] TaskIndex
+             */
+            type StartTaskCallback = (error: (Error|null), response?: lebai.task.TaskIndex) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#getTaskStdout}.
+             * @param error Error, if any
+             * @param [response] TaskStdout
+             */
+            type GetTaskStdoutCallback = (error: (Error|null), response?: lebai.task.TaskStdout) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#subTaskStdout}.
+             * @param error Error, if any
+             * @param [response] TaskStdout
+             */
+            type SubTaskStdoutCallback = (error: (Error|null), response?: lebai.task.TaskStdout) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#waitTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type WaitTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#pauseTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type PauseTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#resumeTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type ResumeTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#cancelTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type CancelTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#setShortTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetShortTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#getShortTask}.
+             * @param error Error, if any
+             * @param [response] Shortcut
+             */
+            type GetShortTaskCallback = (error: (Error|null), response?: lebai.Shortcut) => void;
+
+            /**
+             * Callback as used by {@link lebai.task.TaskService#getShortTasks}.
+             * @param error Error, if any
+             * @param [response] ShortcutList
+             */
+            type GetShortTasksCallback = (error: (Error|null), response?: lebai.ShortcutList) => void;
         }
     }
 
