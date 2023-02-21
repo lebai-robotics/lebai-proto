@@ -618,6 +618,18 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.Shortcut"><span class="badge">M</span>Shortcut</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.ShortcutIndex"><span class="badge">M</span>ShortcutIndex</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.ShortcutList"><span class="badge">M</span>ShortcutList</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.SubscribeRequest"><span class="badge">M</span>SubscribeRequest</a>
                 </li>
               
@@ -1298,18 +1310,6 @@
           <li>
             <a href="#task.proto">task.proto</a>
             <ul>
-              
-                <li>
-                  <a href="#lebai.task.Exec"><span class="badge">M</span>Exec</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.task.Hook"><span class="badge">M</span>Hook</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.task.HookList"><span class="badge">M</span>HookList</a>
-                </li>
               
                 <li>
                   <a href="#lebai.task.PauseRequest"><span class="badge">M</span>PauseRequest</a>
@@ -4741,6 +4741,92 @@
       </div>
       <p></p>
 
+      
+        <h3 id="lebai.Shortcut">Shortcut</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dir</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.ShortcutIndex">ShortcutIndex</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.ShortcutList">ShortcutList</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>list</td>
+                  <td><a href="#lebai.Shortcut">Shortcut</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="lebai.SubscribeRequest">SubscribeRequest</h3>
         <p></p>
@@ -8721,24 +8807,24 @@
               </tr>
             
               <tr>
-                <td>SetShortPosture</td>
-                <td><a href="#lebai.task.Hook">.lebai.task.Hook</a></td>
+                <td>SetShortPose</td>
+                <td><a href="#lebai.Shortcut">.lebai.Shortcut</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>设置钩子</p></td>
+                <td><p>设置快捷路点</p></td>
               </tr>
             
               <tr>
-                <td>GetShortPosture</td>
-                <td><a href="#lebai.task.TaskIndex">.lebai.task.TaskIndex</a></td>
-                <td><a href="#lebai.task.Hook">.lebai.task.Hook</a></td>
-                <td><p>获取单个钩子</p></td>
+                <td>GetShortPose</td>
+                <td><a href="#lebai.ShortcutIndex">.lebai.ShortcutIndex</a></td>
+                <td><a href="#lebai.Shortcut">.lebai.Shortcut</a></td>
+                <td><p>获取单个快捷路点</p></td>
               </tr>
             
               <tr>
-                <td>GetShortPostures</td>
+                <td>GetShortPoses</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#lebai.task.HookList">.lebai.task.HookList</a></td>
-                <td><p>获取所有钩子</p></td>
+                <td><a href="#lebai.ShortcutList">.lebai.ShortcutList</a></td>
+                <td><p>获取所有快捷路点</p></td>
               </tr>
             
           </tbody>
@@ -10490,92 +10576,6 @@
       <p></p>
 
       
-        <h3 id="lebai.task.Exec">Exec</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.task.Hook">Hook</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>dir</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.task.HookList">HookList</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>list</td>
-                  <td><a href="#lebai.task.Hook">Hook</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="lebai.task.PauseRequest">PauseRequest</h3>
         <p></p>
 
@@ -11079,31 +11079,24 @@
               </tr>
             
               <tr>
-                <td>SetShortScene</td>
-                <td><a href="#lebai.task.Hook">Hook</a></td>
+                <td>SetShortTask</td>
+                <td><a href="#lebai.Shortcut">.lebai.Shortcut</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>设置钩子</p></td>
+                <td><p>设置快捷任务</p></td>
               </tr>
             
               <tr>
-                <td>ExecShortScene</td>
-                <td><a href="#lebai.task.Exec">Exec</a></td>
-                <td><a href="#lebai.task.TaskIndex">TaskIndex</a></td>
-                <td><p>执行钩子</p></td>
+                <td>GetShortTask</td>
+                <td><a href="#lebai.ShortcutIndex">.lebai.ShortcutIndex</a></td>
+                <td><a href="#lebai.Shortcut">.lebai.Shortcut</a></td>
+                <td><p>获取单个快捷任务</p></td>
               </tr>
             
               <tr>
-                <td>GetShortScene</td>
-                <td><a href="#lebai.task.TaskIndex">TaskIndex</a></td>
-                <td><a href="#lebai.task.Hook">Hook</a></td>
-                <td><p>获取单个钩子</p></td>
-              </tr>
-            
-              <tr>
-                <td>GetShortScenes</td>
+                <td>GetShortTasks</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#lebai.task.HookList">HookList</a></td>
-                <td><p>获取所有钩子</p></td>
+                <td><a href="#lebai.ShortcutList">.lebai.ShortcutList</a></td>
+                <td><p>获取所有快捷任务</p></td>
               </tr>
             
           </tbody>
