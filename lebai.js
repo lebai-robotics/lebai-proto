@@ -1338,10 +1338,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               rotation: {
                 type: "Rotation",
                 id: 4
-              },
-              note: {
-                type: "string",
-                id: 99
               }
             },
             nested: {
@@ -1384,10 +1380,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               joint: {
                 type: "JointPose",
                 id: 21
-              },
-              note: {
-                type: "string",
-                id: 99
               }
             },
             nested: {
@@ -4166,15 +4158,15 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               END_TEACH_MODE: 2,
               SET_ZERO: 3,
               CHANGE_POWER: 4,
-              SCENE_HOOK1: 11,
-              SCENE_HOOK2: 12,
-              SCENE_HOOK3: 13,
-              SCENE_HOOK4: 14,
-              SCENE_HOOK5: 15,
-              SCENE_HOOK6: 16,
-              SCENE_HOOK7: 17,
-              SCENE_HOOK8: 18,
-              SCENE_HOOK9: 19
+              SHORT_TASK1: 11,
+              SHORT_TASK2: 12,
+              SHORT_TASK3: 13,
+              SHORT_TASK4: 14,
+              SHORT_TASK5: 15,
+              SHORT_TASK6: 16,
+              SHORT_TASK7: 17,
+              SHORT_TASK8: 18,
+              SHORT_TASK9: 19
             }
           },
           Trigger: {
