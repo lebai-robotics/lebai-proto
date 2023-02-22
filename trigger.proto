@@ -25,24 +25,24 @@ enum Function {
   SET_ZERO = 3;
   // 改变手臂启停状态
   CHANGE_POWER = 4;
-  // 运行名称为hook1的场景
-  SCENE_HOOK1 = 11;
-  // 运行名称为hook2的场景
-  SCENE_HOOK2 = 12;
-  // 运行名称为hook3的场景
-  SCENE_HOOK3 = 13;
-  // 运行名称为hook4的场景
-  SCENE_HOOK4 = 14;
-  // 运行名称为hook5的场景
-  SCENE_HOOK5 = 15;
-  // 运行名称为hook6的场景
-  SCENE_HOOK6 = 16;
-  // 运行名称为hook7的场景
-  SCENE_HOOK7 = 17;
-  // 运行名称为hook8的场景
-  SCENE_HOOK8 = 18;
-  // 运行名称为hook9的场景
-  SCENE_HOOK9 = 19;
+  // 运行快捷任务1对应的场景
+  SHORT_TASK1 = 11;
+  // 运行快捷任务2对应的场景
+  SHORT_TASK2 = 12;
+  // 运行快捷任务3对应的场景
+  SHORT_TASK3 = 13;
+  // 运行快捷任务4对应的场景
+  SHORT_TASK4 = 14;
+  // 运行快捷任务5对应的场景
+  SHORT_TASK5 = 15;
+  // 运行快捷任务6对应的场景
+  SHORT_TASK6 = 16;
+  // 运行快捷任务7对应的场景
+  SHORT_TASK7 = 17;
+  // 运行快捷任务8对应的场景
+  SHORT_TASK8 = 18;
+  // 运行快捷任务9对应的场景
+  SHORT_TASK9 = 19;
 }
 message Trigger {
   Condition condition = 1;
