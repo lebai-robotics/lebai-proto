@@ -158,6 +158,10 @@ message GetPoseTransRequest {
   Pose from = 1;
   Pose from_to = 2 [json_name = "from_to"];
 }
+message GetPoseAddRequest {
+  Pose pose = 1;
+  Pose delta = 2;
+}
 
 // 位姿算法相关服务
 service PostureService {
@@ -180,6 +184,8 @@ service PostureService {
   rpc GetInverseKin(GetInverseKinRequest) returns (JointPose);
   // 位姿乘
   rpc GetPoseTrans(GetPoseTransRequest) returns (CartesianPose);
+  // 位姿累加
+  rpc GetPoseAdd(GetPoseAddRequest) returns (CartesianPose);
   // 位姿逆
   rpc GetPoseInverse(PoseRequest) returns (CartesianPose);
 
