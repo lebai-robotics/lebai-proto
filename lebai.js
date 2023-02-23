@@ -1458,6 +1458,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          GetPoseAddRequest: {
+            fields: {
+              pose: {
+                type: "Pose",
+                id: 1
+              },
+              delta: {
+                type: "Pose",
+                id: 2
+              }
+            }
+          },
           PostureService: {
             methods: {
               SavePose: {
@@ -1494,6 +1506,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               GetPoseTrans: {
                 requestType: "GetPoseTransRequest",
+                responseType: "CartesianPose"
+              },
+              GetPoseAdd: {
+                requestType: "GetPoseAddRequest",
                 responseType: "CartesianPose"
               },
               GetPoseInverse: {

@@ -7793,6 +7793,109 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GetPoseAddRequest. */
+        interface IGetPoseAddRequest {
+
+            /** GetPoseAddRequest pose */
+            pose?: (lebai.posture.IPose|null);
+
+            /** GetPoseAddRequest delta */
+            delta?: (lebai.posture.IPose|null);
+        }
+
+        /** Represents a GetPoseAddRequest. */
+        class GetPoseAddRequest implements IGetPoseAddRequest {
+
+            /**
+             * Constructs a new GetPoseAddRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.posture.IGetPoseAddRequest);
+
+            /** GetPoseAddRequest pose. */
+            public pose?: (lebai.posture.IPose|null);
+
+            /** GetPoseAddRequest delta. */
+            public delta?: (lebai.posture.IPose|null);
+
+            /**
+             * Creates a new GetPoseAddRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetPoseAddRequest instance
+             */
+            public static create(properties?: lebai.posture.IGetPoseAddRequest): lebai.posture.GetPoseAddRequest;
+
+            /**
+             * Encodes the specified GetPoseAddRequest message. Does not implicitly {@link lebai.posture.GetPoseAddRequest.verify|verify} messages.
+             * @param message GetPoseAddRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.posture.IGetPoseAddRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetPoseAddRequest message, length delimited. Does not implicitly {@link lebai.posture.GetPoseAddRequest.verify|verify} messages.
+             * @param message GetPoseAddRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.posture.IGetPoseAddRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetPoseAddRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetPoseAddRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.posture.GetPoseAddRequest;
+
+            /**
+             * Decodes a GetPoseAddRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetPoseAddRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.posture.GetPoseAddRequest;
+
+            /**
+             * Verifies a GetPoseAddRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetPoseAddRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetPoseAddRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.posture.GetPoseAddRequest;
+
+            /**
+             * Creates a plain object from a GetPoseAddRequest message. Also converts values to other types if specified.
+             * @param message GetPoseAddRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.posture.GetPoseAddRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetPoseAddRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetPoseAddRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Represents a PostureService */
         class PostureService extends $protobuf.rpc.Service {
 
@@ -7940,6 +8043,20 @@ export namespace lebai {
             public getPoseTrans(request: lebai.posture.IGetPoseTransRequest): Promise<lebai.posture.CartesianPose>;
 
             /**
+             * Calls GetPoseAdd.
+             * @param request GetPoseAddRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and CartesianPose
+             */
+            public getPoseAdd(request: lebai.posture.IGetPoseAddRequest, callback: lebai.posture.PostureService.GetPoseAddCallback): void;
+
+            /**
+             * Calls GetPoseAdd.
+             * @param request GetPoseAddRequest message or plain object
+             * @returns Promise
+             */
+            public getPoseAdd(request: lebai.posture.IGetPoseAddRequest): Promise<lebai.posture.CartesianPose>;
+
+            /**
              * Calls GetPoseInverse.
              * @param request PoseRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and CartesianPose
@@ -8060,6 +8177,13 @@ export namespace lebai {
              * @param [response] CartesianPose
              */
             type GetPoseTransCallback = (error: (Error|null), response?: lebai.posture.CartesianPose) => void;
+
+            /**
+             * Callback as used by {@link lebai.posture.PostureService#getPoseAdd}.
+             * @param error Error, if any
+             * @param [response] CartesianPose
+             */
+            type GetPoseAddCallback = (error: (Error|null), response?: lebai.posture.CartesianPose) => void;
 
             /**
              * Callback as used by {@link lebai.posture.PostureService#getPoseInverse}.
