@@ -159,7 +159,9 @@ message GetPoseTransRequest {
   Pose from_to = 2 [json_name = "from_to"];
 }
 message GetPoseAddRequest {
+  // 关节空间 或 笛卡尔空间
   Pose pose = 1;
+  // 在frame姿态方向的增量
   Pose delta = 2;
 }
 
@@ -184,7 +186,7 @@ service PostureService {
   rpc GetInverseKin(GetInverseKinRequest) returns (JointPose);
   // 位姿乘
   rpc GetPoseTrans(GetPoseTransRequest) returns (CartesianPose);
-  // 位姿累加
+  // 位姿加
   rpc GetPoseAdd(GetPoseAddRequest) returns (CartesianPose);
   // 位姿逆
   rpc GetPoseInverse(PoseRequest) returns (CartesianPose);
