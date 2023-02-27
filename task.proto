@@ -84,8 +84,9 @@ message Tasks {
 }
 
 message TaskStdout {
-  bool done = 1;
-  string stdout = 2;
+  uint32 id = 1;
+  bool done = 11;
+  string stdout = 12;
 }
 
 message StartTaskRequest {
