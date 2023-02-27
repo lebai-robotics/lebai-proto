@@ -4024,13 +4024,17 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           TaskStdout: {
             fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              },
               done: {
                 type: "bool",
-                id: 1
+                id: 11
               },
               stdout: {
                 type: "string",
-                id: 2
+                id: 12
               }
             }
           },

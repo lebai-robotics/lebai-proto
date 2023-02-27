@@ -22877,6 +22877,9 @@ export namespace lebai {
         /** Properties of a TaskStdout. */
         interface ITaskStdout {
 
+            /** TaskStdout id */
+            id?: (number|null);
+
             /** TaskStdout done */
             done?: (boolean|null);
 
@@ -22892,6 +22895,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.task.ITaskStdout);
+
+            /** TaskStdout id. */
+            public id: number;
 
             /** TaskStdout done. */
             public done: boolean;
