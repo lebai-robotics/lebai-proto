@@ -12,7 +12,7 @@ message Structure {
   // 名称
   string name = 11;
   // 型号
-  system.RobotModel kind = 12;
+  system.ArmModel kind = 12;
   // 自由度
   uint32 dof = 13;
   // DH参数

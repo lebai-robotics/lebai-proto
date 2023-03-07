@@ -3,34 +3,69 @@ syntax = "proto3";
 package lebai.plugin;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 
 message PluginInfo {
-  // 唯一ID，英文名
-  string id = 1;
+  // 插件名称
+  string name = 1;
   // 版本
   string version = 2;
-  // 插件名称，中文名
-  string name = 5;
   // 详细介绍
   string detail = 6;
+
+  // 启用插件
+  bool enable = 11;
 }
 message PluginIndex {
-  string id = 1;
-  string version =2;
+  string name = 1;
 }
 message Plugins {
   repeated PluginInfo plugins = 1;
+}
+
+message SetPluginRequest {
+  string name = 1;
+  google.protobuf.BoolValue enable = 11;
+}
+
+message RunPluginRequest {
+  string name = 1;
+  uint32 id = 9;
+  string method = 11;
+  repeated string params = 12;
+}
+message RunPluginIndex {
+  uint32 id = 9;
+}
+message RunPluginStdout {
+  string name = 1;
+  uint32 id = 9;
+  string stdout = 11;
 }
 
 // 插件相关服务
 service PluginService {
   // 查询插件信息
   rpc LoadPlugin(PluginIndex) returns (PluginInfo);
-  // 查询插件市场列表
-  rpc LoadPluginList(google.protobuf.Empty) returns (Plugins);
-
-  // 安装插件
-  rpc InstallPlugin(PluginIndex) returns (google.protobuf.Empty);
   // 查询已安装的插件列表
-  rpc LoadInstalledPlugins(google.protobuf.Empty) returns (Plugins);
+  rpc LoadPlugins(google.protobuf.Empty) returns (Plugins);
+
+  // 从文件系统中安装插件
+  rpc InstallPlugin(PluginIndex) returns (google.protobuf.Empty);
+  // 从文件系统中删除插件
+  rpc UninstallPlugin(PluginIndex) returns (google.protobuf.Empty);
+  // 设置插件
+  rpc SetPlugin(SetPluginRequest) returns (google.protobuf.Empty);
+
+  // 调用守护程序
+  rpc CallPlugin(RunPluginRequest) returns (RunPluginIndex);
+  // 执行命令行程序
+  rpc ExecPlugin(RunPluginRequest) returns (RunPluginIndex);
+  // 等待程序运行结果
+  rpc WaitPluginStdout(RunPluginIndex) returns (RunPluginStdout);
+
+  // 订阅插件通信IPC请求
+  rpc SubPluginIpc(PluginIndex) returns (stream RunPluginRequest);
+  // 响应插件通信IPC请求
+  rpc ResponsePluginIpc(RunPluginStdout) returns (google.protobuf.Empty);
 }

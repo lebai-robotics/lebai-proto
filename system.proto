@@ -25,27 +25,29 @@ message SystemInfo {
   repeated string processes = 51;
 }
 
-enum RobotModel {
+enum BoxModel {
   LM3 = 0;
-  LM3_L1 = 1;
-  LM3_J5L = 2;
-  LM6J = 11;
-  LA3 = 20;
+  LA3 = 10;
+}
+enum ArmModel {
+  J6M1 = 0;
+  J6L1 = 1;
+  J5L1 = 11;
 }
 
 message RobotInfo {
-  // 设备名称（唯一），形如 `lebai-123456`。存在文件。
+  // 设备名称（唯一），形如 `lebai-123456`
   string name = 1;
-  // 设备型号，如 `LM6J`, `LM3`。存在文件。
-  string model = 2;
-  // 设备物理唯一标识（以太网 MAC 地址）。存在文件。初始值从 DS 获取。
+  // 设备物理唯一标识（以太网 MAC 地址）
   string mac = 3;
-  // 机器人序列号/主机箱(main_box)序列号/控制箱序列号 `C`。存在文件。
-  string robot = 4;
-  // 手臂序列号/本机序列号 `R`。存在文件。
-  string arm = 5;
-  // 设备绑定的hash值
-  string cup = 21;
+  // 控制箱型号
+  BoxModel box_model = 21 [json_name = "box_model"];
+  // 控制箱序列号 `C`
+  string box_sn = 22 [json_name = "box_sn"];
+  // 手臂型号
+  ArmModel arm_model = 31 [json_name = "arm_model"];
+  // 手臂序列号 `R`
+  string arm_sn = 32 [json_name = "arm_sn"];
 }
 
 message ComboardInfo {
