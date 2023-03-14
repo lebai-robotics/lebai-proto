@@ -121,6 +121,119 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          MemoryInfo: {
+            fields: {
+              used: {
+                type: "uint64",
+                id: 11
+              },
+              total: {
+                type: "uint64",
+                id: 12
+              },
+              usedSwap: {
+                type: "uint64",
+                id: 21,
+                options: {
+                  json_name: "used_swap"
+                }
+              },
+              totalSwap: {
+                type: "uint64",
+                id: 22,
+                options: {
+                  json_name: "total_swap"
+                }
+              }
+            }
+          },
+          DiskInfo: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              used: {
+                type: "uint64",
+                id: 11
+              },
+              total: {
+                type: "uint64",
+                id: 12
+              }
+            }
+          },
+          NetworkKind: {
+            values: {
+              UNKNOWN: 0,
+              LOCAL: 1,
+              ETHERNET: 2,
+              WIRELESS: 3,
+              CELLULAR: 4,
+              USB: 5,
+              DOCKER: 11
+            }
+          },
+          NetworkInfo: {
+            fields: {
+              ifname: {
+                type: "string",
+                id: 1
+              },
+              kind: {
+                type: "NetworkKind",
+                id: 2
+              },
+              isVirtual: {
+                type: "bool",
+                id: 3,
+                options: {
+                  json_name: "is_virtual"
+                }
+              },
+              mac: {
+                type: "string",
+                id: 9
+              },
+              ips: {
+                rule: "repeated",
+                type: "string",
+                id: 11
+              },
+              gateway: {
+                type: "string",
+                id: 21
+              },
+              netmask: {
+                type: "string",
+                id: 22
+              }
+            }
+          },
+          CpuInfo: {
+            fields: {
+              brand: {
+                type: "string",
+                id: 1
+              },
+              num: {
+                type: "uint32",
+                id: 2
+              },
+              frequency: {
+                type: "uint64",
+                id: 3
+              },
+              temperature: {
+                type: "float",
+                id: 21
+              },
+              critical: {
+                type: "float",
+                id: 22
+              }
+            }
+          },
           SystemInfo: {
             fields: {
               name: {
@@ -148,63 +261,53 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                   json_name: "host_name"
                 }
               },
-              totalMemory: {
-                type: "uint32",
-                id: 11,
-                options: {
-                  json_name: "total_memory"
-                }
-              },
-              usedMemory: {
-                type: "uint32",
-                id: 12,
-                options: {
-                  json_name: "used_memory"
-                }
-              },
-              totalSwap: {
-                type: "uint32",
-                id: 13,
-                options: {
-                  json_name: "total_swap"
-                }
-              },
-              usedSwap: {
-                type: "uint32",
-                id: 14,
-                options: {
-                  json_name: "used_swap"
-                }
+              memory: {
+                type: "MemoryInfo",
+                id: 11
               },
               disks: {
                 rule: "repeated",
-                type: "string",
+                type: "DiskInfo",
                 id: 21
               },
               networks: {
                 rule: "repeated",
-                type: "string",
+                type: "NetworkInfo",
                 id: 31
               },
-              components: {
-                rule: "repeated",
-                type: "string",
+              cpu: {
+                type: "CpuInfo",
                 id: 41
-              },
-              processes: {
-                rule: "repeated",
-                type: "string",
-                id: 51
               }
             }
           },
-          RobotModel: {
+          SetVirtualIpRequest: {
+            fields: {
+              ifname: {
+                type: "string",
+                id: 1
+              },
+              ip: {
+                type: "string",
+                id: 11
+              },
+              netmask: {
+                type: "string",
+                id: 22
+              }
+            }
+          },
+          BoxModel: {
             values: {
               LM3: 0,
-              LM3_L1: 1,
-              LM3_J5L: 2,
-              LM6J: 11,
-              LA3: 20
+              LA3: 10
+            }
+          },
+          ArmModel: {
+            values: {
+              J6M1: 0,
+              J6L1: 1,
+              J5L1: 11
             }
           },
           RobotInfo: {
@@ -213,25 +316,37 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 type: "string",
                 id: 1
               },
-              model: {
-                type: "string",
-                id: 2
-              },
               mac: {
                 type: "string",
                 id: 3
               },
-              robot: {
-                type: "string",
-                id: 4
+              boxModel: {
+                type: "BoxModel",
+                id: 21,
+                options: {
+                  json_name: "box_model"
+                }
               },
-              arm: {
+              boxSn: {
                 type: "string",
-                id: 5
+                id: 22,
+                options: {
+                  json_name: "box_sn"
+                }
               },
-              cup: {
+              armModel: {
+                type: "ArmModel",
+                id: 31,
+                options: {
+                  json_name: "arm_model"
+                }
+              },
+              armSn: {
                 type: "string",
-                id: 21
+                id: 32,
+                options: {
+                  json_name: "arm_sn"
+                }
               }
             }
           },
@@ -527,6 +642,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               GetSoftwareInfo: {
                 requestType: "google.protobuf.Empty",
                 responseType: "SoftwareInfo"
+              },
+              SetVirtualIp: {
+                requestType: "SetVirtualIpRequest",
+                responseType: "google.protobuf.Empty"
               },
               GetRobotState: {
                 requestType: "google.protobuf.Empty",
@@ -3462,7 +3581,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
         nested: {
           PluginInfo: {
             fields: {
-              id: {
+              name: {
                 type: "string",
                 id: 1
               },
@@ -3470,25 +3589,21 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 type: "string",
                 id: 2
               },
-              name: {
-                type: "string",
-                id: 5
-              },
               detail: {
                 type: "string",
                 id: 6
+              },
+              enable: {
+                type: "bool",
+                id: 11
               }
             }
           },
           PluginIndex: {
             fields: {
-              id: {
+              name: {
                 type: "string",
                 id: 1
-              },
-              version: {
-                type: "string",
-                id: 2
               }
             }
           },
@@ -3501,13 +3616,70 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SetPluginRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              enable: {
+                type: "google.protobuf.BoolValue",
+                id: 11
+              }
+            }
+          },
+          RunPluginRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              id: {
+                type: "uint32",
+                id: 9
+              },
+              method: {
+                type: "string",
+                id: 11
+              },
+              params: {
+                rule: "repeated",
+                type: "string",
+                id: 12
+              }
+            }
+          },
+          RunPluginIndex: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 9
+              }
+            }
+          },
+          RunPluginStdout: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              id: {
+                type: "uint32",
+                id: 9
+              },
+              stdout: {
+                type: "string",
+                id: 11
+              }
+            }
+          },
           PluginService: {
             methods: {
               LoadPlugin: {
                 requestType: "PluginIndex",
                 responseType: "PluginInfo"
               },
-              LoadPluginList: {
+              LoadPlugins: {
                 requestType: "google.protobuf.Empty",
                 responseType: "Plugins"
               },
@@ -3515,9 +3687,34 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 requestType: "PluginIndex",
                 responseType: "google.protobuf.Empty"
               },
-              LoadInstalledPlugins: {
-                requestType: "google.protobuf.Empty",
-                responseType: "Plugins"
+              UninstallPlugin: {
+                requestType: "PluginIndex",
+                responseType: "google.protobuf.Empty"
+              },
+              SetPlugin: {
+                requestType: "SetPluginRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              CallPlugin: {
+                requestType: "RunPluginRequest",
+                responseType: "RunPluginIndex"
+              },
+              ExecPlugin: {
+                requestType: "RunPluginRequest",
+                responseType: "RunPluginIndex"
+              },
+              WaitPluginStdout: {
+                requestType: "RunPluginIndex",
+                responseType: "RunPluginStdout"
+              },
+              SubPluginIpc: {
+                requestType: "PluginIndex",
+                responseType: "RunPluginRequest",
+                responseStream: true
+              },
+              ResponsePluginIpc: {
+                requestType: "RunPluginStdout",
+                responseType: "google.protobuf.Empty"
               }
             }
           }
@@ -3818,7 +4015,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 id: 11
               },
               kind: {
-                type: "system.RobotModel",
+                type: "system.ArmModel",
                 id: 12
               },
               dof: {
