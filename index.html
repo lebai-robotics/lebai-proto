@@ -1002,6 +1002,22 @@
                   <a href="#lebai.plugin.Plugins"><span class="badge">M</span>Plugins</a>
                 </li>
               
+                <li>
+                  <a href="#lebai.plugin.RunPluginIndex"><span class="badge">M</span>RunPluginIndex</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.plugin.RunPluginRequest"><span class="badge">M</span>RunPluginRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.plugin.RunPluginStdout"><span class="badge">M</span>RunPluginStdout</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.plugin.SetPluginRequest"><span class="badge">M</span>SetPluginRequest</a>
+                </li>
+              
               
               
               
@@ -1241,6 +1257,14 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.system.CpuInfo"><span class="badge">M</span>CpuInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.system.DiskInfo"><span class="badge">M</span>DiskInfo</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.system.ExtraIoInfo"><span class="badge">M</span>ExtraIoInfo</a>
                 </li>
               
@@ -1273,11 +1297,23 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.system.MemoryInfo"><span class="badge">M</span>MemoryInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.system.NetworkInfo"><span class="badge">M</span>NetworkInfo</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.system.PhyData"><span class="badge">M</span>PhyData</a>
                 </li>
               
                 <li>
                   <a href="#lebai.system.RobotInfo"><span class="badge">M</span>RobotInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.system.SetVirtualIpRequest"><span class="badge">M</span>SetVirtualIpRequest</a>
                 </li>
               
                 <li>
@@ -1290,11 +1326,19 @@
               
               
                 <li>
+                  <a href="#lebai.system.ArmModel"><span class="badge">E</span>ArmModel</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.system.BoxModel"><span class="badge">E</span>BoxModel</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.system.EstopReason"><span class="badge">E</span>EstopReason</a>
                 </li>
               
                 <li>
-                  <a href="#lebai.system.RobotModel"><span class="badge">E</span>RobotModel</a>
+                  <a href="#lebai.system.NetworkKind"><span class="badge">E</span>NetworkKind</a>
                 </li>
               
                 <li>
@@ -7751,14 +7795,7 @@
             <tbody>
               
                 <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -7782,10 +7819,10 @@
             <tbody>
               
                 <tr>
-                  <td>id</td>
+                  <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>唯一ID，英文名 </p></td>
+                  <td><p>插件名称 </p></td>
                 </tr>
               
                 <tr>
@@ -7796,17 +7833,17 @@
                 </tr>
               
                 <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>插件名称，中文名 </p></td>
-                </tr>
-              
-                <tr>
                   <td>detail</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>详细介绍 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>enable</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>启用插件 </p></td>
                 </tr>
               
             </tbody>
@@ -7840,6 +7877,144 @@
 
         
       
+        <h3 id="lebai.plugin.RunPluginIndex">RunPluginIndex</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.plugin.RunPluginRequest">RunPluginRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>method</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>params</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.plugin.RunPluginStdout">RunPluginStdout</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.plugin.SetPluginRequest">SetPluginRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>enable</td>
+                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -7862,24 +8037,66 @@
               </tr>
             
               <tr>
-                <td>LoadPluginList</td>
+                <td>LoadPlugins</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.plugin.Plugins">Plugins</a></td>
-                <td><p>查询插件市场列表</p></td>
+                <td><p>查询已安装的插件列表</p></td>
               </tr>
             
               <tr>
                 <td>InstallPlugin</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>安装插件</p></td>
+                <td><p>从文件系统中安装插件</p></td>
               </tr>
             
               <tr>
-                <td>LoadInstalledPlugins</td>
+                <td>UninstallPlugin</td>
+                <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#lebai.plugin.Plugins">Plugins</a></td>
-                <td><p>查询已安装的插件列表</p></td>
+                <td><p>从文件系统中删除插件</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetPlugin</td>
+                <td><a href="#lebai.plugin.SetPluginRequest">SetPluginRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置插件</p></td>
+              </tr>
+            
+              <tr>
+                <td>CallPlugin</td>
+                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a></td>
+                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
+                <td><p>调用守护程序</p></td>
+              </tr>
+            
+              <tr>
+                <td>ExecPlugin</td>
+                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a></td>
+                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
+                <td><p>执行命令行程序</p></td>
+              </tr>
+            
+              <tr>
+                <td>WaitPluginStdout</td>
+                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
+                <td><a href="#lebai.plugin.RunPluginStdout">RunPluginStdout</a></td>
+                <td><p>等待程序运行结果</p></td>
+              </tr>
+            
+              <tr>
+                <td>SubPluginIpc</td>
+                <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
+                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a> stream</td>
+                <td><p>订阅插件通信IPC请求</p></td>
+              </tr>
+            
+              <tr>
+                <td>ResponsePluginIpc</td>
+                <td><a href="#lebai.plugin.RunPluginStdout">RunPluginStdout</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>响应插件通信IPC请求</p></td>
               </tr>
             
           </tbody>
@@ -9560,7 +9777,7 @@
               
                 <tr>
                   <td>kind</td>
-                  <td><a href="#lebai.system.RobotModel">lebai.system.RobotModel</a></td>
+                  <td><a href="#lebai.system.ArmModel">lebai.system.ArmModel</a></td>
                   <td></td>
                   <td><p>型号 </p></td>
                 </tr>
@@ -9704,6 +9921,96 @@
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.CpuInfo">CpuInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>brand</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>num</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>CPU核心数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frequency</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>CPU核心频率MHz </p></td>
+                </tr>
+              
+                <tr>
+                  <td>temperature</td>
+                  <td><a href="#float">float</a></td>
+                  <td></td>
+                  <td><p>各个核心中的最高温度 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>critical</td>
+                  <td><a href="#float">float</a></td>
+                  <td></td>
+                  <td><p>CPU能容忍的临界温度 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.DiskInfo">DiskInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>硬盘节点 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>used</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>已用字节 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>总共字节 </p></td>
                 </tr>
               
             </tbody>
@@ -10031,6 +10338,117 @@
 
         
       
+        <h3 id="lebai.system.MemoryInfo">MemoryInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>used</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>已用字节 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>总共字节 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>used_swap</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>已用字节 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total_swap</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>总共字节 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.NetworkInfo">NetworkInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ifname</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>网卡接口名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.system.NetworkKind">NetworkKind</a></td>
+                  <td></td>
+                  <td><p>网卡接口名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_virtual</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>是否虚拟IP </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mac</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MAC地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>IP地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>gateway</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>网关地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>netmask</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>子网掩码 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.system.PhyData">PhyData</h3>
         <p>物理数据</p>
 
@@ -10083,42 +10501,80 @@
                   <td>name</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>设备名称（唯一），形如 `lebai-123456`。存在文件。 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>model</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>设备型号，如 `LM6J`, `LM3`。存在文件。 </p></td>
+                  <td><p>设备名称（唯一），形如 `lebai-123456` </p></td>
                 </tr>
               
                 <tr>
                   <td>mac</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>设备物理唯一标识（以太网 MAC 地址）。存在文件。初始值从 DS 获取。 </p></td>
+                  <td><p>设备物理唯一标识（以太网 MAC 地址） </p></td>
                 </tr>
               
                 <tr>
-                  <td>robot</td>
-                  <td><a href="#string">string</a></td>
+                  <td>box_model</td>
+                  <td><a href="#lebai.system.BoxModel">BoxModel</a></td>
                   <td></td>
-                  <td><p>机器人序列号/主机箱(main_box)序列号/控制箱序列号 `C`。存在文件。 </p></td>
+                  <td><p>控制箱型号 </p></td>
                 </tr>
               
                 <tr>
-                  <td>arm</td>
+                  <td>box_sn</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>手臂序列号/本机序列号 `R`。存在文件。 </p></td>
+                  <td><p>控制箱序列号 `C` </p></td>
                 </tr>
               
                 <tr>
-                  <td>cup</td>
+                  <td>arm_model</td>
+                  <td><a href="#lebai.system.ArmModel">ArmModel</a></td>
+                  <td></td>
+                  <td><p>手臂型号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>arm_sn</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>设备绑定的hash值 </p></td>
+                  <td><p>手臂序列号 `R` </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.SetVirtualIpRequest">SetVirtualIpRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>ifname</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>网卡接口名 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ip</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>IP地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>netmask</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>子网掩码 </p></td>
                 </tr>
               
             </tbody>
@@ -10191,58 +10647,30 @@
                 </tr>
               
                 <tr>
-                  <td>total_memory</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>used_memory</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>total_swap</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>used_swap</td>
-                  <td><a href="#uint32">uint32</a></td>
+                  <td>memory</td>
+                  <td><a href="#lebai.system.MemoryInfo">MemoryInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>disks</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#lebai.system.DiskInfo">DiskInfo</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>networks</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#lebai.system.NetworkInfo">NetworkInfo</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>components</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>processes</td>
-                  <td><a href="#string">string</a></td>
-                  <td>repeated</td>
+                  <td>cpu</td>
+                  <td><a href="#lebai.system.CpuInfo">CpuInfo</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -10254,6 +10682,58 @@
         
       
 
+      
+        <h3 id="lebai.system.ArmModel">ArmModel</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>J6M1</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>J6L1</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>J5L1</td>
+                <td>11</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.system.BoxModel">BoxModel</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LM3</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LA3</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
         <h3 id="lebai.system.EstopReason">EstopReason</h3>
         <p>急停原因</p>
@@ -10332,7 +10812,7 @@
           </tbody>
         </table>
       
-        <h3 id="lebai.system.RobotModel">RobotModel</h3>
+        <h3 id="lebai.system.NetworkKind">NetworkKind</h3>
         <p></p>
         <table class="enum-table">
           <thead>
@@ -10341,33 +10821,45 @@
           <tbody>
             
               <tr>
-                <td>LM3</td>
+                <td>UNKNOWN</td>
                 <td>0</td>
-                <td><p></p></td>
+                <td><p>未知</p></td>
               </tr>
             
               <tr>
-                <td>LM3_L1</td>
+                <td>LOCAL</td>
                 <td>1</td>
-                <td><p></p></td>
+                <td><p>本地回环</p></td>
               </tr>
             
               <tr>
-                <td>LM3_J5L</td>
+                <td>ETHERNET</td>
                 <td>2</td>
-                <td><p></p></td>
+                <td><p>以太网</p></td>
               </tr>
             
               <tr>
-                <td>LM6J</td>
+                <td>WIRELESS</td>
+                <td>3</td>
+                <td><p>无线网</p></td>
+              </tr>
+            
+              <tr>
+                <td>CELLULAR</td>
+                <td>4</td>
+                <td><p>蜂窝网</p></td>
+              </tr>
+            
+              <tr>
+                <td>USB</td>
+                <td>5</td>
+                <td><p>USB共享网络</p></td>
+              </tr>
+            
+              <tr>
+                <td>DOCKER</td>
                 <td>11</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>LA3</td>
-                <td>20</td>
-                <td><p></p></td>
+                <td><p>Docker网络</p></td>
               </tr>
             
           </tbody>
@@ -10513,6 +11005,13 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.system.SoftwareInfo">SoftwareInfo</a></td>
                 <td><p>软件信息</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetVirtualIp</td>
+                <td><a href="#lebai.system.SetVirtualIpRequest">SetVirtualIpRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置虚拟IP</p></td>
               </tr>
             
               <tr>
