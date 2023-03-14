@@ -166,7 +166,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           NetworkKind: {
             values: {
               UNKNOWN: 0,
-              LOCAL: 1,
+              LOOPBACK: 1,
               ETHERNET: 2,
               WIRELESS: 3,
               CELLULAR: 4,

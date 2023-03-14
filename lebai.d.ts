@@ -972,7 +972,7 @@ export namespace lebai {
         /** NetworkKind enum. */
         enum NetworkKind {
             UNKNOWN = 0,
-            LOCAL = 1,
+            LOOPBACK = 1,
             ETHERNET = 2,
             WIRELESS = 3,
             CELLULAR = 4,
