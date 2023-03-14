@@ -10,19 +10,85 @@ message HelloData {
   string data = 1;
 }
 
+message MemoryInfo {
+  // 已用字节
+  uint64 used = 11;
+  // 总共字节
+  uint64 total = 12;
+  // 已用字节
+  uint64 used_swap = 21 [json_name = "used_swap"];
+  // 总共字节
+  uint64 total_swap = 22 [json_name = "total_swap"];
+}
+message DiskInfo {
+  // 硬盘节点
+  string name = 1;
+  // 已用字节
+  uint64 used = 11;
+  // 总共字节
+  uint64 total = 12;
+}
+enum NetworkKind {
+  // 未知
+  UNKNOWN = 0;
+  // 本地回环
+  LOCAL = 1;
+  // 以太网
+  ETHERNET = 2;
+  // 无线网
+  WIRELESS = 3;
+  // 蜂窝网
+  CELLULAR = 4;
+  // USB共享网络
+  USB = 5;
+  // Docker网络
+  DOCKER = 11;
+}
+message NetworkInfo {
+  // 网卡接口名
+  string ifname = 1;
+  // 网卡接口名
+  NetworkKind kind = 2;
+  // 是否虚拟IP
+  bool is_virtual = 3 [json_name = "is_virtual"];
+  // MAC地址
+  string mac = 9;
+  // IP地址
+  repeated string ips = 11;
+  // 网关地址
+  string gateway = 21;
+  // 子网掩码
+  string netmask = 22;
+}
+message CpuInfo {
+  string brand = 1;
+  // CPU核心数
+  uint32 num = 2;
+  // CPU核心频率MHz
+  uint64 frequency = 3;
+  // 各个核心中的最高温度
+  float temperature = 21;
+  // CPU能容忍的临界温度
+  float critical = 22;
+}
 message SystemInfo {
   string name = 1;
   string kernel_version = 2 [json_name = "kernel_version"];
   string os_version = 3 [json_name = "os_version"];
   string host_name = 4 [json_name = "host_name"];
-  uint32 total_memory = 11 [json_name = "total_memory"];
-  uint32 used_memory = 12 [json_name = "used_memory"];
-  uint32 total_swap = 13 [json_name = "total_swap"];
-  uint32 used_swap = 14 [json_name = "used_swap"];
-  repeated string disks = 21;
-  repeated string networks = 31;
-  repeated string components = 41;
-  repeated string processes = 51;
+  MemoryInfo memory = 11;
+  repeated DiskInfo disks = 21;
+  repeated NetworkInfo networks = 31;
+  CpuInfo cpu = 41;
+}
+
+message SetVirtualIpRequest {
+  // 网卡接口名
+  string ifname = 1;
+  // IP地址
+  string ip = 11;
+  // 子网掩码
+  string netmask = 22;
 }
 
 enum BoxModel {
@@ -183,6 +249,8 @@ service SystemService {
   rpc GetHardwareInfo(google.protobuf.Empty) returns (HardwareInfo);
   // 软件信息
   rpc GetSoftwareInfo(google.protobuf.Empty) returns (SoftwareInfo);
+  // 设置虚拟IP
+  rpc SetVirtualIp(SetVirtualIpRequest) returns (google.protobuf.Empty);
   // 获取机器人状态
   rpc GetRobotState(google.protobuf.Empty) returns (GetRobotStateResponse);
   // 订阅机器人状态
