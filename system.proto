@@ -32,7 +32,7 @@ enum NetworkKind {
   // 未知
   UNKNOWN = 0;
   // 本地回环
-  LOCAL = 1;
+  LOOPBACK = 1;
   // 以太网
   ETHERNET = 2;
   // 无线网
@@ -47,7 +47,7 @@ enum NetworkKind {
 message NetworkInfo {
   // 网卡接口名
   string ifname = 1;
-  // 网卡接口名
+  // 网卡接口类型
   NetworkKind kind = 2;
   // 是否虚拟IP
   bool is_virtual = 3 [json_name = "is_virtual"];
