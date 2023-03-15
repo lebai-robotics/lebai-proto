@@ -1125,6 +1125,33 @@
         
           
           <li>
+            <a href="#quality.proto">quality.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.quality.Auth"><span class="badge">M</span>Auth</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.quality.BoxTestRequest"><span class="badge">M</span>BoxTestRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.quality.BoxTestResponse"><span class="badge">M</span>BoxTestResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.quality.QualityService"><span class="badge">S</span>QualityService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#safety.proto">safety.proto</a>
             <ul>
               
@@ -9070,6 +9097,118 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.ShortcutList">.lebai.ShortcutList</a></td>
                 <td><p>获取所有快捷路点</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="quality.proto">quality.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.quality.Auth">Auth</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>auth</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.quality.BoxTestRequest">BoxTestRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>auth</td>
+                  <td><a href="#lebai.quality.Auth">Auth</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.quality.BoxTestResponse">BoxTestResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.quality.QualityService">QualityService</h3>
+        <p>质量平台相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BoxTest</td>
+                <td><a href="#lebai.quality.BoxTestRequest">BoxTestRequest</a></td>
+                <td><a href="#lebai.quality.BoxTestResponse">BoxTestResponse</a></td>
+                <td><p>主机箱测试</p></td>
               </tr>
             
           </tbody>
