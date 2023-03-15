@@ -21362,6 +21362,352 @@ export namespace lebai {
         }
     }
 
+    /** Namespace quality. */
+    namespace quality {
+
+        /** Properties of an Auth. */
+        interface IAuth {
+
+            /** Auth time */
+            time?: (string|null);
+
+            /** Auth auth */
+            auth?: (string|null);
+        }
+
+        /** Represents an Auth. */
+        class Auth implements IAuth {
+
+            /**
+             * Constructs a new Auth.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.quality.IAuth);
+
+            /** Auth time. */
+            public time: string;
+
+            /** Auth auth. */
+            public auth: string;
+
+            /**
+             * Creates a new Auth instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Auth instance
+             */
+            public static create(properties?: lebai.quality.IAuth): lebai.quality.Auth;
+
+            /**
+             * Encodes the specified Auth message. Does not implicitly {@link lebai.quality.Auth.verify|verify} messages.
+             * @param message Auth message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.quality.IAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Auth message, length delimited. Does not implicitly {@link lebai.quality.Auth.verify|verify} messages.
+             * @param message Auth message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.quality.IAuth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an Auth message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Auth
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.Auth;
+
+            /**
+             * Decodes an Auth message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Auth
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.Auth;
+
+            /**
+             * Verifies an Auth message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an Auth message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Auth
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.quality.Auth;
+
+            /**
+             * Creates a plain object from an Auth message. Also converts values to other types if specified.
+             * @param message Auth
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.quality.Auth, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Auth to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Auth
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a BoxTestResponse. */
+        interface IBoxTestResponse {
+
+            /** BoxTestResponse status */
+            status?: (number|null);
+        }
+
+        /** Represents a BoxTestResponse. */
+        class BoxTestResponse implements IBoxTestResponse {
+
+            /**
+             * Constructs a new BoxTestResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.quality.IBoxTestResponse);
+
+            /** BoxTestResponse status. */
+            public status: number;
+
+            /**
+             * Creates a new BoxTestResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BoxTestResponse instance
+             */
+            public static create(properties?: lebai.quality.IBoxTestResponse): lebai.quality.BoxTestResponse;
+
+            /**
+             * Encodes the specified BoxTestResponse message. Does not implicitly {@link lebai.quality.BoxTestResponse.verify|verify} messages.
+             * @param message BoxTestResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.quality.IBoxTestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BoxTestResponse message, length delimited. Does not implicitly {@link lebai.quality.BoxTestResponse.verify|verify} messages.
+             * @param message BoxTestResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.quality.IBoxTestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BoxTestResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BoxTestResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.BoxTestResponse;
+
+            /**
+             * Decodes a BoxTestResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BoxTestResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.BoxTestResponse;
+
+            /**
+             * Verifies a BoxTestResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BoxTestResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BoxTestResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.quality.BoxTestResponse;
+
+            /**
+             * Creates a plain object from a BoxTestResponse message. Also converts values to other types if specified.
+             * @param message BoxTestResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.quality.BoxTestResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BoxTestResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BoxTestResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a BoxTestRequest. */
+        interface IBoxTestRequest {
+
+            /** BoxTestRequest auth */
+            auth?: (lebai.quality.IAuth|null);
+        }
+
+        /** Represents a BoxTestRequest. */
+        class BoxTestRequest implements IBoxTestRequest {
+
+            /**
+             * Constructs a new BoxTestRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.quality.IBoxTestRequest);
+
+            /** BoxTestRequest auth. */
+            public auth?: (lebai.quality.IAuth|null);
+
+            /**
+             * Creates a new BoxTestRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BoxTestRequest instance
+             */
+            public static create(properties?: lebai.quality.IBoxTestRequest): lebai.quality.BoxTestRequest;
+
+            /**
+             * Encodes the specified BoxTestRequest message. Does not implicitly {@link lebai.quality.BoxTestRequest.verify|verify} messages.
+             * @param message BoxTestRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.quality.IBoxTestRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BoxTestRequest message, length delimited. Does not implicitly {@link lebai.quality.BoxTestRequest.verify|verify} messages.
+             * @param message BoxTestRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.quality.IBoxTestRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BoxTestRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BoxTestRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.BoxTestRequest;
+
+            /**
+             * Decodes a BoxTestRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BoxTestRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.BoxTestRequest;
+
+            /**
+             * Verifies a BoxTestRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BoxTestRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BoxTestRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.quality.BoxTestRequest;
+
+            /**
+             * Creates a plain object from a BoxTestRequest message. Also converts values to other types if specified.
+             * @param message BoxTestRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.quality.BoxTestRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BoxTestRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BoxTestRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a QualityService */
+        class QualityService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new QualityService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new QualityService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): QualityService;
+
+            /**
+             * Calls BoxTest.
+             * @param request BoxTestRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and BoxTestResponse
+             */
+            public boxTest(request: lebai.quality.IBoxTestRequest, callback: lebai.quality.QualityService.BoxTestCallback): void;
+
+            /**
+             * Calls BoxTest.
+             * @param request BoxTestRequest message or plain object
+             * @returns Promise
+             */
+            public boxTest(request: lebai.quality.IBoxTestRequest): Promise<lebai.quality.BoxTestResponse>;
+        }
+
+        namespace QualityService {
+
+            /**
+             * Callback as used by {@link lebai.quality.QualityService#boxTest}.
+             * @param error Error, if any
+             * @param [response] BoxTestResponse
+             */
+            type BoxTestCallback = (error: (Error|null), response?: lebai.quality.BoxTestResponse) => void;
+        }
+    }
+
     /** Namespace safety. */
     namespace safety {
 

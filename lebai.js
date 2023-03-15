@@ -3720,6 +3720,46 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      quality: {
+        nested: {
+          Auth: {
+            fields: {
+              time: {
+                type: "string",
+                id: 1
+              },
+              auth: {
+                type: "string",
+                id: 2
+              }
+            }
+          },
+          BoxTestResponse: {
+            fields: {
+              status: {
+                type: "int32",
+                id: 1
+              }
+            }
+          },
+          BoxTestRequest: {
+            fields: {
+              auth: {
+                type: "Auth",
+                id: 1
+              }
+            }
+          },
+          QualityService: {
+            methods: {
+              BoxTest: {
+                requestType: "BoxTestRequest",
+                responseType: "BoxTestResponse"
+              }
+            }
+          }
+        }
+      },
       safety: {
         nested: {
           CollisionTorqueDiff: {
