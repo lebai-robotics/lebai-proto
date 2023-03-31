@@ -1133,11 +1133,19 @@
                 </li>
               
                 <li>
-                  <a href="#lebai.quality.BoxTestRequest"><span class="badge">M</span>BoxTestRequest</a>
+                  <a href="#lebai.quality.BoxTestResponse"><span class="badge">M</span>BoxTestResponse</a>
                 </li>
               
                 <li>
-                  <a href="#lebai.quality.BoxTestResponse"><span class="badge">M</span>BoxTestResponse</a>
+                  <a href="#lebai.quality.EmptyRequest"><span class="badge">M</span>EmptyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.quality.InitRobotRequest"><span class="badge">M</span>InitRobotRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.quality.InitRobotResponse"><span class="badge">M</span>InitRobotResponse</a>
                 </li>
               
               
@@ -9142,7 +9150,31 @@
 
         
       
-        <h3 id="lebai.quality.BoxTestRequest">BoxTestRequest</h3>
+        <h3 id="lebai.quality.BoxTestResponse">BoxTestResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.quality.EmptyRequest">EmptyRequest</h3>
         <p></p>
 
         
@@ -9166,7 +9198,7 @@
 
         
       
-        <h3 id="lebai.quality.BoxTestResponse">BoxTestResponse</h3>
+        <h3 id="lebai.quality.InitRobotRequest">InitRobotRequest</h3>
         <p></p>
 
         
@@ -9177,8 +9209,39 @@
             <tbody>
               
                 <tr>
-                  <td>status</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>auth</td>
+                  <td><a href="#lebai.quality.Auth">Auth</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>info</td>
+                  <td><a href="#lebai.system.RobotInfo">lebai.system.RobotInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.quality.InitRobotResponse">InitRobotResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>cup</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -9206,9 +9269,16 @@
             
               <tr>
                 <td>BoxTest</td>
-                <td><a href="#lebai.quality.BoxTestRequest">BoxTestRequest</a></td>
+                <td><a href="#lebai.quality.EmptyRequest">EmptyRequest</a></td>
                 <td><a href="#lebai.quality.BoxTestResponse">BoxTestResponse</a></td>
                 <td><p>主机箱测试</p></td>
+              </tr>
+            
+              <tr>
+                <td>InitRobot</td>
+                <td><a href="#lebai.quality.InitRobotRequest">InitRobotRequest</a></td>
+                <td><a href="#lebai.quality.InitRobotResponse">InitRobotResponse</a></td>
+                <td><p>整机初始化</p></td>
               </tr>
             
           </tbody>
