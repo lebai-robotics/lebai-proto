@@ -3734,6 +3734,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          EmptyRequest: {
+            fields: {
+              auth: {
+                type: "Auth",
+                id: 1
+              }
+            }
+          },
           BoxTestResponse: {
             fields: {
               status: {
@@ -3742,10 +3750,22 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          BoxTestRequest: {
+          InitRobotRequest: {
             fields: {
               auth: {
                 type: "Auth",
+                id: 1
+              },
+              info: {
+                type: "system.RobotInfo",
+                id: 11
+              }
+            }
+          },
+          InitRobotResponse: {
+            fields: {
+              cup: {
+                type: "string",
                 id: 1
               }
             }
@@ -3753,8 +3773,12 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           QualityService: {
             methods: {
               BoxTest: {
-                requestType: "BoxTestRequest",
+                requestType: "EmptyRequest",
                 responseType: "BoxTestResponse"
+              },
+              InitRobot: {
+                requestType: "InitRobotRequest",
+                responseType: "InitRobotResponse"
               }
             }
           }

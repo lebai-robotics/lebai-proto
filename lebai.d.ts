@@ -21468,6 +21468,103 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of an EmptyRequest. */
+        interface IEmptyRequest {
+
+            /** EmptyRequest auth */
+            auth?: (lebai.quality.IAuth|null);
+        }
+
+        /** Represents an EmptyRequest. */
+        class EmptyRequest implements IEmptyRequest {
+
+            /**
+             * Constructs a new EmptyRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.quality.IEmptyRequest);
+
+            /** EmptyRequest auth. */
+            public auth?: (lebai.quality.IAuth|null);
+
+            /**
+             * Creates a new EmptyRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns EmptyRequest instance
+             */
+            public static create(properties?: lebai.quality.IEmptyRequest): lebai.quality.EmptyRequest;
+
+            /**
+             * Encodes the specified EmptyRequest message. Does not implicitly {@link lebai.quality.EmptyRequest.verify|verify} messages.
+             * @param message EmptyRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.quality.IEmptyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified EmptyRequest message, length delimited. Does not implicitly {@link lebai.quality.EmptyRequest.verify|verify} messages.
+             * @param message EmptyRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.quality.IEmptyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an EmptyRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns EmptyRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.EmptyRequest;
+
+            /**
+             * Decodes an EmptyRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns EmptyRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.EmptyRequest;
+
+            /**
+             * Verifies an EmptyRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an EmptyRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns EmptyRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.quality.EmptyRequest;
+
+            /**
+             * Creates a plain object from an EmptyRequest message. Also converts values to other types if specified.
+             * @param message EmptyRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.quality.EmptyRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this EmptyRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for EmptyRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a BoxTestResponse. */
         interface IBoxTestResponse {
 
@@ -21565,97 +21662,200 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a BoxTestRequest. */
-        interface IBoxTestRequest {
+        /** Properties of an InitRobotRequest. */
+        interface IInitRobotRequest {
 
-            /** BoxTestRequest auth */
+            /** InitRobotRequest auth */
             auth?: (lebai.quality.IAuth|null);
+
+            /** InitRobotRequest info */
+            info?: (lebai.system.IRobotInfo|null);
         }
 
-        /** Represents a BoxTestRequest. */
-        class BoxTestRequest implements IBoxTestRequest {
+        /** Represents an InitRobotRequest. */
+        class InitRobotRequest implements IInitRobotRequest {
 
             /**
-             * Constructs a new BoxTestRequest.
+             * Constructs a new InitRobotRequest.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.quality.IBoxTestRequest);
+            constructor(properties?: lebai.quality.IInitRobotRequest);
 
-            /** BoxTestRequest auth. */
+            /** InitRobotRequest auth. */
             public auth?: (lebai.quality.IAuth|null);
 
+            /** InitRobotRequest info. */
+            public info?: (lebai.system.IRobotInfo|null);
+
             /**
-             * Creates a new BoxTestRequest instance using the specified properties.
+             * Creates a new InitRobotRequest instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns BoxTestRequest instance
+             * @returns InitRobotRequest instance
              */
-            public static create(properties?: lebai.quality.IBoxTestRequest): lebai.quality.BoxTestRequest;
+            public static create(properties?: lebai.quality.IInitRobotRequest): lebai.quality.InitRobotRequest;
 
             /**
-             * Encodes the specified BoxTestRequest message. Does not implicitly {@link lebai.quality.BoxTestRequest.verify|verify} messages.
-             * @param message BoxTestRequest message or plain object to encode
+             * Encodes the specified InitRobotRequest message. Does not implicitly {@link lebai.quality.InitRobotRequest.verify|verify} messages.
+             * @param message InitRobotRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.quality.IBoxTestRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.quality.IInitRobotRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified BoxTestRequest message, length delimited. Does not implicitly {@link lebai.quality.BoxTestRequest.verify|verify} messages.
-             * @param message BoxTestRequest message or plain object to encode
+             * Encodes the specified InitRobotRequest message, length delimited. Does not implicitly {@link lebai.quality.InitRobotRequest.verify|verify} messages.
+             * @param message InitRobotRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.quality.IBoxTestRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.quality.IInitRobotRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a BoxTestRequest message from the specified reader or buffer.
+             * Decodes an InitRobotRequest message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns BoxTestRequest
+             * @returns InitRobotRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.BoxTestRequest;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.InitRobotRequest;
 
             /**
-             * Decodes a BoxTestRequest message from the specified reader or buffer, length delimited.
+             * Decodes an InitRobotRequest message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns BoxTestRequest
+             * @returns InitRobotRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.BoxTestRequest;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.InitRobotRequest;
 
             /**
-             * Verifies a BoxTestRequest message.
+             * Verifies an InitRobotRequest message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a BoxTestRequest message from a plain object. Also converts values to their respective internal types.
+             * Creates an InitRobotRequest message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns BoxTestRequest
+             * @returns InitRobotRequest
              */
-            public static fromObject(object: { [k: string]: any }): lebai.quality.BoxTestRequest;
+            public static fromObject(object: { [k: string]: any }): lebai.quality.InitRobotRequest;
 
             /**
-             * Creates a plain object from a BoxTestRequest message. Also converts values to other types if specified.
-             * @param message BoxTestRequest
+             * Creates a plain object from an InitRobotRequest message. Also converts values to other types if specified.
+             * @param message InitRobotRequest
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.quality.BoxTestRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.quality.InitRobotRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this BoxTestRequest to JSON.
+             * Converts this InitRobotRequest to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for BoxTestRequest
+             * Gets the default type url for InitRobotRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an InitRobotResponse. */
+        interface IInitRobotResponse {
+
+            /** InitRobotResponse cup */
+            cup?: (string|null);
+        }
+
+        /** Represents an InitRobotResponse. */
+        class InitRobotResponse implements IInitRobotResponse {
+
+            /**
+             * Constructs a new InitRobotResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.quality.IInitRobotResponse);
+
+            /** InitRobotResponse cup. */
+            public cup: string;
+
+            /**
+             * Creates a new InitRobotResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InitRobotResponse instance
+             */
+            public static create(properties?: lebai.quality.IInitRobotResponse): lebai.quality.InitRobotResponse;
+
+            /**
+             * Encodes the specified InitRobotResponse message. Does not implicitly {@link lebai.quality.InitRobotResponse.verify|verify} messages.
+             * @param message InitRobotResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.quality.IInitRobotResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InitRobotResponse message, length delimited. Does not implicitly {@link lebai.quality.InitRobotResponse.verify|verify} messages.
+             * @param message InitRobotResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.quality.IInitRobotResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InitRobotResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InitRobotResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.quality.InitRobotResponse;
+
+            /**
+             * Decodes an InitRobotResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InitRobotResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.quality.InitRobotResponse;
+
+            /**
+             * Verifies an InitRobotResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InitRobotResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InitRobotResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.quality.InitRobotResponse;
+
+            /**
+             * Creates a plain object from an InitRobotResponse message. Also converts values to other types if specified.
+             * @param message InitRobotResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.quality.InitRobotResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InitRobotResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for InitRobotResponse
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -21684,17 +21884,31 @@ export namespace lebai {
 
             /**
              * Calls BoxTest.
-             * @param request BoxTestRequest message or plain object
+             * @param request EmptyRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and BoxTestResponse
              */
-            public boxTest(request: lebai.quality.IBoxTestRequest, callback: lebai.quality.QualityService.BoxTestCallback): void;
+            public boxTest(request: lebai.quality.IEmptyRequest, callback: lebai.quality.QualityService.BoxTestCallback): void;
 
             /**
              * Calls BoxTest.
-             * @param request BoxTestRequest message or plain object
+             * @param request EmptyRequest message or plain object
              * @returns Promise
              */
-            public boxTest(request: lebai.quality.IBoxTestRequest): Promise<lebai.quality.BoxTestResponse>;
+            public boxTest(request: lebai.quality.IEmptyRequest): Promise<lebai.quality.BoxTestResponse>;
+
+            /**
+             * Calls InitRobot.
+             * @param request InitRobotRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and InitRobotResponse
+             */
+            public initRobot(request: lebai.quality.IInitRobotRequest, callback: lebai.quality.QualityService.InitRobotCallback): void;
+
+            /**
+             * Calls InitRobot.
+             * @param request InitRobotRequest message or plain object
+             * @returns Promise
+             */
+            public initRobot(request: lebai.quality.IInitRobotRequest): Promise<lebai.quality.InitRobotResponse>;
         }
 
         namespace QualityService {
@@ -21705,6 +21919,13 @@ export namespace lebai {
              * @param [response] BoxTestResponse
              */
             type BoxTestCallback = (error: (Error|null), response?: lebai.quality.BoxTestResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.quality.QualityService#initRobot}.
+             * @param error Error, if any
+             * @param [response] InitRobotResponse
+             */
+            type InitRobotCallback = (error: (Error|null), response?: lebai.quality.InitRobotResponse) => void;
         }
     }
 
