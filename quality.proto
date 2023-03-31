@@ -2,21 +2,33 @@ syntax = "proto3";
 
 package lebai.quality;
 
+import "system.proto";
+
 message Auth {
-    string time = 1;
-    string auth = 2;
+  string time = 1;
+  string auth = 2;
+}
+
+message EmptyRequest {
+  Auth auth = 1;
 }
 
 message BoxTestResponse {
-    int32 status = 1;
+  int32 status = 1;
 }
 
-message BoxTestRequest {
-    Auth auth = 1;
+message InitRobotRequest {
+  Auth auth = 1;
+  system.RobotInfo info = 11;
+}
+message InitRobotResponse {
+  string cup = 1;
 }
 
 //质量平台相关服务
 service QualityService {
-    //主机箱测试
-    rpc BoxTest(BoxTestRequest) returns (BoxTestResponse);
+  // 主机箱测试
+  rpc BoxTest(EmptyRequest) returns (BoxTestResponse);
+  // 整机初始化
+  rpc InitRobot(InitRobotRequest) returns (InitRobotResponse);
 }
