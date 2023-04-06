@@ -1711,6 +1711,22 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          DownloadFileRequest: {
+            fields: {
+              dir: {
+                type: "string",
+                id: 1
+              },
+              name: {
+                type: "string",
+                id: 2
+              },
+              url: {
+                type: "string",
+                id: 10
+              }
+            }
+          },
           RenameFileRequest: {
             fields: {
               from: {
@@ -1815,6 +1831,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
             methods: {
               SaveFile: {
                 requestType: "SaveFileRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              DownloadFile: {
+                requestType: "DownloadFileRequest",
                 responseType: "google.protobuf.Empty"
               },
               RenameFile: {

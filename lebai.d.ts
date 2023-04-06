@@ -9235,6 +9235,115 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a DownloadFileRequest. */
+        interface IDownloadFileRequest {
+
+            /** DownloadFileRequest dir */
+            dir?: (string|null);
+
+            /** DownloadFileRequest name */
+            name?: (string|null);
+
+            /** DownloadFileRequest url */
+            url?: (string|null);
+        }
+
+        /** Represents a DownloadFileRequest. */
+        class DownloadFileRequest implements IDownloadFileRequest {
+
+            /**
+             * Constructs a new DownloadFileRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.file.IDownloadFileRequest);
+
+            /** DownloadFileRequest dir. */
+            public dir: string;
+
+            /** DownloadFileRequest name. */
+            public name: string;
+
+            /** DownloadFileRequest url. */
+            public url: string;
+
+            /**
+             * Creates a new DownloadFileRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DownloadFileRequest instance
+             */
+            public static create(properties?: lebai.file.IDownloadFileRequest): lebai.file.DownloadFileRequest;
+
+            /**
+             * Encodes the specified DownloadFileRequest message. Does not implicitly {@link lebai.file.DownloadFileRequest.verify|verify} messages.
+             * @param message DownloadFileRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.file.IDownloadFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DownloadFileRequest message, length delimited. Does not implicitly {@link lebai.file.DownloadFileRequest.verify|verify} messages.
+             * @param message DownloadFileRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.file.IDownloadFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DownloadFileRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DownloadFileRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.file.DownloadFileRequest;
+
+            /**
+             * Decodes a DownloadFileRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DownloadFileRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.file.DownloadFileRequest;
+
+            /**
+             * Verifies a DownloadFileRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DownloadFileRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DownloadFileRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.file.DownloadFileRequest;
+
+            /**
+             * Creates a plain object from a DownloadFileRequest message. Also converts values to other types if specified.
+             * @param message DownloadFileRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.file.DownloadFileRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DownloadFileRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for DownloadFileRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a RenameFileRequest. */
         interface IRenameFileRequest {
 
@@ -10009,6 +10118,20 @@ export namespace lebai {
             public saveFile(request: lebai.file.ISaveFileRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls DownloadFile.
+             * @param request DownloadFileRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public downloadFile(request: lebai.file.IDownloadFileRequest, callback: lebai.file.FileService.DownloadFileCallback): void;
+
+            /**
+             * Calls DownloadFile.
+             * @param request DownloadFileRequest message or plain object
+             * @returns Promise
+             */
+            public downloadFile(request: lebai.file.IDownloadFileRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls RenameFile.
              * @param request RenameFileRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -10101,6 +10224,13 @@ export namespace lebai {
              * @param [response] Empty
              */
             type SaveFileCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.file.FileService#downloadFile}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type DownloadFileCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.file.FileService#renameFile}.
