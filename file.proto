@@ -22,6 +22,12 @@ message SaveFileRequest {
   string name = 2;
   File file = 10;
 }
+message DownloadFileRequest {
+  string dir = 1;
+  string name = 2;
+  string url = 10;
+}
+
 message RenameFileRequest {
   FileIndex from = 1;
   FileIndex to = 2;
@@ -71,6 +77,8 @@ message LoadZipListResponse {
 service FileService {
   // 保存文件
   rpc SaveFile(SaveFileRequest) returns (google.protobuf.Empty);
+  // 下载文件
+  rpc DownloadFile(DownloadFileRequest) returns (google.protobuf.Empty);
   // 重命名文件
   rpc RenameFile(RenameFileRequest) returns (google.protobuf.Empty);
   // 查询文件
