@@ -92,12 +92,17 @@ message SetVirtualIpRequest {
 }
 
 enum BoxModel {
+  // 初代常规机箱
   LM3 = 0;
+  // 树莓派机箱
   LA3 = 10;
 }
 enum ArmModel {
+  // 6轴常规臂。简写时可省略
   J6M1 = 0;
+  // 6轴加长臂。简写为L1
   J6L1 = 1;
+  // 5轴加长臂
   J5L1 = 11;
 }
 
