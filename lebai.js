@@ -350,177 +350,55 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          ComboardInfo: {
+          DeviceInfo: {
             fields: {
-              sn: {
-                type: "string",
-                id: 1
-              },
-              version: {
-                type: "string",
-                id: 2
-              },
-              partition: {
-                type: "hardware.FirmwarePartition",
-                id: 3
-              },
-              diNum: {
-                type: "uint32",
-                id: 11,
-                options: {
-                  json_name: "di_num"
-                }
-              },
-              doNum: {
-                type: "uint32",
-                id: 12,
-                options: {
-                  json_name: "do_num"
-                }
-              },
-              dioNum: {
-                type: "uint32",
-                id: 13,
-                options: {
-                  json_name: "dio_num"
-                }
-              },
-              aiNum: {
-                type: "uint32",
-                id: 21,
-                options: {
-                  json_name: "ai_num"
-                }
-              },
-              aoNum: {
-                type: "uint32",
-                id: 22,
-                options: {
-                  json_name: "ao_num"
-                }
-              }
-            }
-          },
-          JointInfo: {
-            fields: {
-              sn: {
-                type: "string",
-                id: 1
-              },
-              version: {
-                type: "string",
-                id: 2
-              },
-              partition: {
-                type: "hardware.FirmwarePartition",
-                id: 3
-              }
-            }
-          },
-          FlangeInfo: {
-            fields: {
-              sn: {
-                type: "string",
-                id: 1
-              },
-              version: {
-                type: "string",
-                id: 2
-              },
-              partition: {
-                type: "hardware.FirmwarePartition",
-                id: 3
-              },
-              diNum: {
-                type: "uint32",
-                id: 11,
-                options: {
-                  json_name: "di_num"
-                }
-              },
-              doNum: {
-                type: "uint32",
-                id: 12,
-                options: {
-                  json_name: "do_num"
-                }
-              },
-              dioNum: {
-                type: "uint32",
-                id: 13,
-                options: {
-                  json_name: "dio_num"
-                }
-              },
-              aiNum: {
-                type: "uint32",
-                id: 21,
-                options: {
-                  json_name: "ai_num"
-                }
-              },
-              aoNum: {
-                type: "uint32",
-                id: 22,
-                options: {
-                  json_name: "ao_num"
-                }
-              }
-            }
-          },
-          LedInfo: {
-            fields: {
-              sn: {
-                type: "string",
-                id: 1
-              },
-              version: {
-                type: "string",
-                id: 2
-              },
-              partition: {
-                type: "hardware.FirmwarePartition",
-                id: 3
-              }
-            }
-          },
-          ExtraIoInfo: {
-            fields: {
-              valid: {
+              invalid: {
                 type: "bool",
                 id: 1
               },
+              sn: {
+                type: "string",
+                id: 11
+              },
+              version: {
+                type: "string",
+                id: 12
+              },
+              partition: {
+                type: "hardware.FirmwarePartition",
+                id: 13
+              },
               diNum: {
                 type: "uint32",
-                id: 11,
+                id: 21,
                 options: {
                   json_name: "di_num"
                 }
               },
               doNum: {
                 type: "uint32",
-                id: 12,
+                id: 22,
                 options: {
                   json_name: "do_num"
                 }
               },
               dioNum: {
                 type: "uint32",
-                id: 13,
+                id: 23,
                 options: {
                   json_name: "dio_num"
                 }
               },
               aiNum: {
                 type: "uint32",
-                id: 21,
+                id: 26,
                 options: {
                   json_name: "ai_num"
                 }
               },
               aoNum: {
                 type: "uint32",
-                id: 22,
+                id: 27,
                 options: {
                   json_name: "ao_num"
                 }
@@ -530,24 +408,24 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           HardwareInfo: {
             fields: {
               comboard: {
-                type: "ComboardInfo",
+                type: "DeviceInfo",
                 id: 1
               },
               joints: {
                 rule: "repeated",
-                type: "JointInfo",
+                type: "DeviceInfo",
                 id: 2
               },
               flange: {
-                type: "FlangeInfo",
+                type: "DeviceInfo",
                 id: 3
               },
               led: {
-                type: "LedInfo",
+                type: "DeviceInfo",
                 id: 4
               },
               extraIo: {
-                type: "ExtraIoInfo",
+                type: "DeviceInfo",
                 id: 11,
                 options: {
                   json_name: "extra_io"

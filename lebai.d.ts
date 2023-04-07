@@ -1622,623 +1622,145 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a ComboardInfo. */
-        interface IComboardInfo {
+        /** Properties of a DeviceInfo. */
+        interface IDeviceInfo {
 
-            /** ComboardInfo sn */
+            /** DeviceInfo invalid */
+            invalid?: (boolean|null);
+
+            /** DeviceInfo sn */
             sn?: (string|null);
 
-            /** ComboardInfo version */
+            /** DeviceInfo version */
             version?: (string|null);
 
-            /** ComboardInfo partition */
+            /** DeviceInfo partition */
             partition?: (lebai.hardware.FirmwarePartition|null);
 
-            /** ComboardInfo diNum */
+            /** DeviceInfo diNum */
             diNum?: (number|null);
 
-            /** ComboardInfo doNum */
+            /** DeviceInfo doNum */
             doNum?: (number|null);
 
-            /** ComboardInfo dioNum */
+            /** DeviceInfo dioNum */
             dioNum?: (number|null);
 
-            /** ComboardInfo aiNum */
+            /** DeviceInfo aiNum */
             aiNum?: (number|null);
 
-            /** ComboardInfo aoNum */
+            /** DeviceInfo aoNum */
             aoNum?: (number|null);
         }
 
-        /** Represents a ComboardInfo. */
-        class ComboardInfo implements IComboardInfo {
+        /** Represents a DeviceInfo. */
+        class DeviceInfo implements IDeviceInfo {
 
             /**
-             * Constructs a new ComboardInfo.
+             * Constructs a new DeviceInfo.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.system.IComboardInfo);
+            constructor(properties?: lebai.system.IDeviceInfo);
 
-            /** ComboardInfo sn. */
+            /** DeviceInfo invalid. */
+            public invalid: boolean;
+
+            /** DeviceInfo sn. */
             public sn: string;
 
-            /** ComboardInfo version. */
+            /** DeviceInfo version. */
             public version: string;
 
-            /** ComboardInfo partition. */
+            /** DeviceInfo partition. */
             public partition: lebai.hardware.FirmwarePartition;
 
-            /** ComboardInfo diNum. */
+            /** DeviceInfo diNum. */
             public diNum: number;
 
-            /** ComboardInfo doNum. */
+            /** DeviceInfo doNum. */
             public doNum: number;
 
-            /** ComboardInfo dioNum. */
+            /** DeviceInfo dioNum. */
             public dioNum: number;
 
-            /** ComboardInfo aiNum. */
+            /** DeviceInfo aiNum. */
             public aiNum: number;
 
-            /** ComboardInfo aoNum. */
+            /** DeviceInfo aoNum. */
             public aoNum: number;
 
             /**
-             * Creates a new ComboardInfo instance using the specified properties.
+             * Creates a new DeviceInfo instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns ComboardInfo instance
+             * @returns DeviceInfo instance
              */
-            public static create(properties?: lebai.system.IComboardInfo): lebai.system.ComboardInfo;
+            public static create(properties?: lebai.system.IDeviceInfo): lebai.system.DeviceInfo;
 
             /**
-             * Encodes the specified ComboardInfo message. Does not implicitly {@link lebai.system.ComboardInfo.verify|verify} messages.
-             * @param message ComboardInfo message or plain object to encode
+             * Encodes the specified DeviceInfo message. Does not implicitly {@link lebai.system.DeviceInfo.verify|verify} messages.
+             * @param message DeviceInfo message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.system.IComboardInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.system.IDeviceInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified ComboardInfo message, length delimited. Does not implicitly {@link lebai.system.ComboardInfo.verify|verify} messages.
-             * @param message ComboardInfo message or plain object to encode
+             * Encodes the specified DeviceInfo message, length delimited. Does not implicitly {@link lebai.system.DeviceInfo.verify|verify} messages.
+             * @param message DeviceInfo message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.system.IComboardInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.system.IDeviceInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ComboardInfo message from the specified reader or buffer.
+             * Decodes a DeviceInfo message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns ComboardInfo
+             * @returns DeviceInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.ComboardInfo;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.DeviceInfo;
 
             /**
-             * Decodes a ComboardInfo message from the specified reader or buffer, length delimited.
+             * Decodes a DeviceInfo message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns ComboardInfo
+             * @returns DeviceInfo
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.ComboardInfo;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.DeviceInfo;
 
             /**
-             * Verifies a ComboardInfo message.
+             * Verifies a DeviceInfo message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ComboardInfo message from a plain object. Also converts values to their respective internal types.
+             * Creates a DeviceInfo message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns ComboardInfo
+             * @returns DeviceInfo
              */
-            public static fromObject(object: { [k: string]: any }): lebai.system.ComboardInfo;
+            public static fromObject(object: { [k: string]: any }): lebai.system.DeviceInfo;
 
             /**
-             * Creates a plain object from a ComboardInfo message. Also converts values to other types if specified.
-             * @param message ComboardInfo
+             * Creates a plain object from a DeviceInfo message. Also converts values to other types if specified.
+             * @param message DeviceInfo
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.system.ComboardInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.system.DeviceInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this ComboardInfo to JSON.
+             * Converts this DeviceInfo to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for ComboardInfo
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a JointInfo. */
-        interface IJointInfo {
-
-            /** JointInfo sn */
-            sn?: (string|null);
-
-            /** JointInfo version */
-            version?: (string|null);
-
-            /** JointInfo partition */
-            partition?: (lebai.hardware.FirmwarePartition|null);
-        }
-
-        /** Represents a JointInfo. */
-        class JointInfo implements IJointInfo {
-
-            /**
-             * Constructs a new JointInfo.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.system.IJointInfo);
-
-            /** JointInfo sn. */
-            public sn: string;
-
-            /** JointInfo version. */
-            public version: string;
-
-            /** JointInfo partition. */
-            public partition: lebai.hardware.FirmwarePartition;
-
-            /**
-             * Creates a new JointInfo instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns JointInfo instance
-             */
-            public static create(properties?: lebai.system.IJointInfo): lebai.system.JointInfo;
-
-            /**
-             * Encodes the specified JointInfo message. Does not implicitly {@link lebai.system.JointInfo.verify|verify} messages.
-             * @param message JointInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.system.IJointInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified JointInfo message, length delimited. Does not implicitly {@link lebai.system.JointInfo.verify|verify} messages.
-             * @param message JointInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.system.IJointInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a JointInfo message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns JointInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.JointInfo;
-
-            /**
-             * Decodes a JointInfo message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns JointInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.JointInfo;
-
-            /**
-             * Verifies a JointInfo message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a JointInfo message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns JointInfo
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.system.JointInfo;
-
-            /**
-             * Creates a plain object from a JointInfo message. Also converts values to other types if specified.
-             * @param message JointInfo
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.system.JointInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this JointInfo to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for JointInfo
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a FlangeInfo. */
-        interface IFlangeInfo {
-
-            /** FlangeInfo sn */
-            sn?: (string|null);
-
-            /** FlangeInfo version */
-            version?: (string|null);
-
-            /** FlangeInfo partition */
-            partition?: (lebai.hardware.FirmwarePartition|null);
-
-            /** FlangeInfo diNum */
-            diNum?: (number|null);
-
-            /** FlangeInfo doNum */
-            doNum?: (number|null);
-
-            /** FlangeInfo dioNum */
-            dioNum?: (number|null);
-
-            /** FlangeInfo aiNum */
-            aiNum?: (number|null);
-
-            /** FlangeInfo aoNum */
-            aoNum?: (number|null);
-        }
-
-        /** Represents a FlangeInfo. */
-        class FlangeInfo implements IFlangeInfo {
-
-            /**
-             * Constructs a new FlangeInfo.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.system.IFlangeInfo);
-
-            /** FlangeInfo sn. */
-            public sn: string;
-
-            /** FlangeInfo version. */
-            public version: string;
-
-            /** FlangeInfo partition. */
-            public partition: lebai.hardware.FirmwarePartition;
-
-            /** FlangeInfo diNum. */
-            public diNum: number;
-
-            /** FlangeInfo doNum. */
-            public doNum: number;
-
-            /** FlangeInfo dioNum. */
-            public dioNum: number;
-
-            /** FlangeInfo aiNum. */
-            public aiNum: number;
-
-            /** FlangeInfo aoNum. */
-            public aoNum: number;
-
-            /**
-             * Creates a new FlangeInfo instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns FlangeInfo instance
-             */
-            public static create(properties?: lebai.system.IFlangeInfo): lebai.system.FlangeInfo;
-
-            /**
-             * Encodes the specified FlangeInfo message. Does not implicitly {@link lebai.system.FlangeInfo.verify|verify} messages.
-             * @param message FlangeInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.system.IFlangeInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified FlangeInfo message, length delimited. Does not implicitly {@link lebai.system.FlangeInfo.verify|verify} messages.
-             * @param message FlangeInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.system.IFlangeInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a FlangeInfo message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns FlangeInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.FlangeInfo;
-
-            /**
-             * Decodes a FlangeInfo message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns FlangeInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.FlangeInfo;
-
-            /**
-             * Verifies a FlangeInfo message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a FlangeInfo message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns FlangeInfo
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.system.FlangeInfo;
-
-            /**
-             * Creates a plain object from a FlangeInfo message. Also converts values to other types if specified.
-             * @param message FlangeInfo
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.system.FlangeInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this FlangeInfo to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for FlangeInfo
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a LedInfo. */
-        interface ILedInfo {
-
-            /** LedInfo sn */
-            sn?: (string|null);
-
-            /** LedInfo version */
-            version?: (string|null);
-
-            /** LedInfo partition */
-            partition?: (lebai.hardware.FirmwarePartition|null);
-        }
-
-        /** Represents a LedInfo. */
-        class LedInfo implements ILedInfo {
-
-            /**
-             * Constructs a new LedInfo.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.system.ILedInfo);
-
-            /** LedInfo sn. */
-            public sn: string;
-
-            /** LedInfo version. */
-            public version: string;
-
-            /** LedInfo partition. */
-            public partition: lebai.hardware.FirmwarePartition;
-
-            /**
-             * Creates a new LedInfo instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns LedInfo instance
-             */
-            public static create(properties?: lebai.system.ILedInfo): lebai.system.LedInfo;
-
-            /**
-             * Encodes the specified LedInfo message. Does not implicitly {@link lebai.system.LedInfo.verify|verify} messages.
-             * @param message LedInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.system.ILedInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified LedInfo message, length delimited. Does not implicitly {@link lebai.system.LedInfo.verify|verify} messages.
-             * @param message LedInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.system.ILedInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a LedInfo message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns LedInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.LedInfo;
-
-            /**
-             * Decodes a LedInfo message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns LedInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.LedInfo;
-
-            /**
-             * Verifies a LedInfo message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a LedInfo message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns LedInfo
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.system.LedInfo;
-
-            /**
-             * Creates a plain object from a LedInfo message. Also converts values to other types if specified.
-             * @param message LedInfo
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.system.LedInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this LedInfo to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for LedInfo
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of an ExtraIoInfo. */
-        interface IExtraIoInfo {
-
-            /** ExtraIoInfo valid */
-            valid?: (boolean|null);
-
-            /** ExtraIoInfo diNum */
-            diNum?: (number|null);
-
-            /** ExtraIoInfo doNum */
-            doNum?: (number|null);
-
-            /** ExtraIoInfo dioNum */
-            dioNum?: (number|null);
-
-            /** ExtraIoInfo aiNum */
-            aiNum?: (number|null);
-
-            /** ExtraIoInfo aoNum */
-            aoNum?: (number|null);
-        }
-
-        /** Represents an ExtraIoInfo. */
-        class ExtraIoInfo implements IExtraIoInfo {
-
-            /**
-             * Constructs a new ExtraIoInfo.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.system.IExtraIoInfo);
-
-            /** ExtraIoInfo valid. */
-            public valid: boolean;
-
-            /** ExtraIoInfo diNum. */
-            public diNum: number;
-
-            /** ExtraIoInfo doNum. */
-            public doNum: number;
-
-            /** ExtraIoInfo dioNum. */
-            public dioNum: number;
-
-            /** ExtraIoInfo aiNum. */
-            public aiNum: number;
-
-            /** ExtraIoInfo aoNum. */
-            public aoNum: number;
-
-            /**
-             * Creates a new ExtraIoInfo instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ExtraIoInfo instance
-             */
-            public static create(properties?: lebai.system.IExtraIoInfo): lebai.system.ExtraIoInfo;
-
-            /**
-             * Encodes the specified ExtraIoInfo message. Does not implicitly {@link lebai.system.ExtraIoInfo.verify|verify} messages.
-             * @param message ExtraIoInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.system.IExtraIoInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ExtraIoInfo message, length delimited. Does not implicitly {@link lebai.system.ExtraIoInfo.verify|verify} messages.
-             * @param message ExtraIoInfo message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.system.IExtraIoInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an ExtraIoInfo message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ExtraIoInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.ExtraIoInfo;
-
-            /**
-             * Decodes an ExtraIoInfo message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ExtraIoInfo
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.ExtraIoInfo;
-
-            /**
-             * Verifies an ExtraIoInfo message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an ExtraIoInfo message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ExtraIoInfo
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.system.ExtraIoInfo;
-
-            /**
-             * Creates a plain object from an ExtraIoInfo message. Also converts values to other types if specified.
-             * @param message ExtraIoInfo
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.system.ExtraIoInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ExtraIoInfo to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for ExtraIoInfo
+             * Gets the default type url for DeviceInfo
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -2249,19 +1771,19 @@ export namespace lebai {
         interface IHardwareInfo {
 
             /** HardwareInfo comboard */
-            comboard?: (lebai.system.IComboardInfo|null);
+            comboard?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo joints */
-            joints?: (lebai.system.IJointInfo[]|null);
+            joints?: (lebai.system.IDeviceInfo[]|null);
 
             /** HardwareInfo flange */
-            flange?: (lebai.system.IFlangeInfo|null);
+            flange?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo led */
-            led?: (lebai.system.ILedInfo|null);
+            led?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo extraIo */
-            extraIo?: (lebai.system.IExtraIoInfo|null);
+            extraIo?: (lebai.system.IDeviceInfo|null);
         }
 
         /** Represents a HardwareInfo. */
@@ -2274,19 +1796,19 @@ export namespace lebai {
             constructor(properties?: lebai.system.IHardwareInfo);
 
             /** HardwareInfo comboard. */
-            public comboard?: (lebai.system.IComboardInfo|null);
+            public comboard?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo joints. */
-            public joints: lebai.system.IJointInfo[];
+            public joints: lebai.system.IDeviceInfo[];
 
             /** HardwareInfo flange. */
-            public flange?: (lebai.system.IFlangeInfo|null);
+            public flange?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo led. */
-            public led?: (lebai.system.ILedInfo|null);
+            public led?: (lebai.system.IDeviceInfo|null);
 
             /** HardwareInfo extraIo. */
-            public extraIo?: (lebai.system.IExtraIoInfo|null);
+            public extraIo?: (lebai.system.IDeviceInfo|null);
 
             /**
              * Creates a new HardwareInfo instance using the specified properties.
