@@ -29,6 +29,8 @@ enum Address {
   FLAG = 9;
   // 手爪错误标识符
   ERROR = 10;
+  // 禁用自动初始化
+  DISABLE_INIT = 11;
 }
 
 message Claw {
