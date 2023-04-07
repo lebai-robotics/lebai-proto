@@ -742,7 +742,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               INIT: 8,
               FLAG: 9,
               ERROR: 10,
-              DISABLE_INIT: 11
+              DISABLE_INIT: 90
             }
           },
           Claw: {

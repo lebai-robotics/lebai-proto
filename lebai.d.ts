@@ -3374,7 +3374,7 @@ export namespace lebai {
             INIT = 8,
             FLAG = 9,
             ERROR = 10,
-            DISABLE_INIT = 11
+            DISABLE_INIT = 90
         }
 
         /** Properties of a Claw. */
