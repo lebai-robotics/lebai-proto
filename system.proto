@@ -122,8 +122,9 @@ message ComboardInfo {
   hardware.FirmwarePartition partition = 3;
   uint32 di_num = 11 [json_name = "di_num"];
   uint32 do_num = 12 [json_name = "do_num"];
-  uint32 ai_num = 13 [json_name = "ai_num"];
-  uint32 ao_num = 14 [json_name = "ao_num"];
+  uint32 dio_num = 13 [json_name = "dio_num"];
+  uint32 ai_num = 21 [json_name = "ai_num"];
+  uint32 ao_num = 22 [json_name = "ao_num"];
 }
 message JointInfo {
   string sn = 1;
@@ -136,8 +137,9 @@ message FlangeInfo {
   hardware.FirmwarePartition partition = 3;
   uint32 di_num = 11 [json_name = "di_num"];
   uint32 do_num = 12 [json_name = "do_num"];
-  uint32 ai_num = 13 [json_name = "ai_num"];
-  uint32 ao_num = 14 [json_name = "ao_num"];
+  uint32 dio_num = 13 [json_name = "dio_num"];
+  uint32 ai_num = 21 [json_name = "ai_num"];
+  uint32 ao_num = 22 [json_name = "ao_num"];
 }
 message LedInfo {
   string sn = 1;
@@ -148,8 +150,9 @@ message ExtraIoInfo {
   bool valid = 1;
   uint32 di_num = 11 [json_name = "di_num"];
   uint32 do_num = 12 [json_name = "do_num"];
-  uint32 ai_num = 13 [json_name = "ai_num"];
-  uint32 ao_num = 14 [json_name = "ao_num"];
+  uint32 dio_num = 13 [json_name = "dio_num"];
+  uint32 ai_num = 21 [json_name = "ai_num"];
+  uint32 ao_num = 22 [json_name = "ao_num"];
 }
 message HardwareInfo {
   ComboardInfo comboard = 1;

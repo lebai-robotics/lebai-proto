@@ -118,20 +118,20 @@ message SetDioModeRequest {
   uint32 pin = 2;
   DigitalMode mode = 11;
 }
-message GetDioModeRequest{
+message GetDioModeRequest {
   IoDevice device = 1;
   uint32 pin = 2;
   uint32 count = 11;
 }
-message GetDioModeResponse{
+message GetDioModeResponse {
   DigitalMode mode = 11;
 }
-message GetDiosModeRequest{
+message GetDiosModeRequest {
   IoDevice device = 1;
   uint32 pin = 2;
   uint32 count = 11;
 }
-message GetDiosModeResponse{
+message GetDiosModeResponse {
   repeated DigitalMode modes = 11;
 }
 
