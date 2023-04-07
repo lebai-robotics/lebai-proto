@@ -1640,6 +1640,9 @@ export namespace lebai {
             /** ComboardInfo doNum */
             doNum?: (number|null);
 
+            /** ComboardInfo dioNum */
+            dioNum?: (number|null);
+
             /** ComboardInfo aiNum */
             aiNum?: (number|null);
 
@@ -1670,6 +1673,9 @@ export namespace lebai {
 
             /** ComboardInfo doNum. */
             public doNum: number;
+
+            /** ComboardInfo dioNum. */
+            public dioNum: number;
 
             /** ComboardInfo aiNum. */
             public aiNum: number;
@@ -1882,6 +1888,9 @@ export namespace lebai {
             /** FlangeInfo doNum */
             doNum?: (number|null);
 
+            /** FlangeInfo dioNum */
+            dioNum?: (number|null);
+
             /** FlangeInfo aiNum */
             aiNum?: (number|null);
 
@@ -1912,6 +1921,9 @@ export namespace lebai {
 
             /** FlangeInfo doNum. */
             public doNum: number;
+
+            /** FlangeInfo dioNum. */
+            public dioNum: number;
 
             /** FlangeInfo aiNum. */
             public aiNum: number;
@@ -2118,6 +2130,9 @@ export namespace lebai {
             /** ExtraIoInfo doNum */
             doNum?: (number|null);
 
+            /** ExtraIoInfo dioNum */
+            dioNum?: (number|null);
+
             /** ExtraIoInfo aiNum */
             aiNum?: (number|null);
 
@@ -2142,6 +2157,9 @@ export namespace lebai {
 
             /** ExtraIoInfo doNum. */
             public doNum: number;
+
+            /** ExtraIoInfo dioNum. */
+            public dioNum: number;
 
             /** ExtraIoInfo aiNum. */
             public aiNum: number;
@@ -4136,7 +4154,8 @@ export namespace lebai {
             WEIGHT = 7,
             INIT = 8,
             FLAG = 9,
-            ERROR = 10
+            ERROR = 10,
+            DISABLE_INIT = 11
         }
 
         /** Properties of a Claw. */

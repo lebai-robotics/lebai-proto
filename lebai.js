@@ -378,16 +378,23 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                   json_name: "do_num"
                 }
               },
-              aiNum: {
+              dioNum: {
                 type: "uint32",
                 id: 13,
+                options: {
+                  json_name: "dio_num"
+                }
+              },
+              aiNum: {
+                type: "uint32",
+                id: 21,
                 options: {
                   json_name: "ai_num"
                 }
               },
               aoNum: {
                 type: "uint32",
-                id: 14,
+                id: 22,
                 options: {
                   json_name: "ao_num"
                 }
@@ -438,16 +445,23 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                   json_name: "do_num"
                 }
               },
-              aiNum: {
+              dioNum: {
                 type: "uint32",
                 id: 13,
+                options: {
+                  json_name: "dio_num"
+                }
+              },
+              aiNum: {
+                type: "uint32",
+                id: 21,
                 options: {
                   json_name: "ai_num"
                 }
               },
               aoNum: {
                 type: "uint32",
-                id: 14,
+                id: 22,
                 options: {
                   json_name: "ao_num"
                 }
@@ -490,16 +504,23 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                   json_name: "do_num"
                 }
               },
-              aiNum: {
+              dioNum: {
                 type: "uint32",
                 id: 13,
+                options: {
+                  json_name: "dio_num"
+                }
+              },
+              aiNum: {
+                type: "uint32",
+                id: 21,
                 options: {
                   json_name: "ai_num"
                 }
               },
               aoNum: {
                 type: "uint32",
-                id: 14,
+                id: 22,
                 options: {
                   json_name: "ao_num"
                 }
@@ -875,7 +896,8 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               WEIGHT: 7,
               INIT: 8,
               FLAG: 9,
-              ERROR: 10
+              ERROR: 10,
+              DISABLE_INIT: 11
             }
           },
           Claw: {
