@@ -4,7 +4,6 @@ package lebai.task;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "lebai.proto";
 
 // 任务类型
 enum TaskKind {
@@ -132,11 +131,4 @@ service TaskService {
   rpc ResumeTask(TaskIndex) returns (google.protobuf.Empty);
   // 取消任务与运动
   rpc CancelTask(TaskIndex) returns (google.protobuf.Empty);
-
-  //设置快捷任务
-  rpc SetShortTask(Shortcut) returns (google.protobuf.Empty);
-  //获取单个快捷任务
-  rpc GetShortTask(ShortcutIndex) returns (Shortcut);
-  //获取所有快捷任务
-  rpc GetShortTasks(google.protobuf.Empty) returns (ShortcutList);
 }

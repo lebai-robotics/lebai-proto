@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package lebai.shortcut;
+
+import "google/protobuf/empty.proto";
+
+message ShortcutIndex {
+  uint32 id = 1;
+}
+
+message Shortcut{
+  uint32 id = 1;
+  string dir = 2;
+  string name = 3;
+}
+
+message ShortcutList{
+  repeated Shortcut list = 1;
+}
+
+// 快捷方式相关服务
+service ShortcutService {
+  //设置快捷路点
+  rpc SetShortPose(Shortcut) returns (google.protobuf.Empty);
+  //获取单个快捷路点
+  rpc GetShortPose(ShortcutIndex) returns (Shortcut);
+  //获取所有快捷路点
+  rpc GetShortPoses(google.protobuf.Empty) returns (ShortcutList);
+
+  //设置快捷任务
+  rpc SetShortTask(Shortcut) returns (google.protobuf.Empty);
+  //获取单个快捷任务
+  rpc GetShortTask(ShortcutIndex) returns (Shortcut);
+  //获取所有快捷任务
+  rpc GetShortTasks(google.protobuf.Empty) returns (ShortcutList);
+}

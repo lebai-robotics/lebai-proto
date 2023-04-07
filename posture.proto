@@ -3,7 +3,6 @@ syntax = "proto3";
 package lebai.posture;
 
 import "google/protobuf/empty.proto";
-import "lebai.proto";
 import "db.proto";
 
 // 关节空间 关节角
@@ -190,12 +189,4 @@ service PostureService {
   rpc GetPoseAdd(GetPoseAddRequest) returns (CartesianPose);
   // 位姿逆
   rpc GetPoseInverse(PoseRequest) returns (CartesianPose);
-
-
-  //设置快捷路点
-  rpc SetShortPose(Shortcut) returns (google.protobuf.Empty);
-  //获取单个快捷路点
-  rpc GetShortPose(ShortcutIndex) returns (Shortcut);
-  //获取所有快捷路点
-  rpc GetShortPoses(google.protobuf.Empty) returns (ShortcutList);
 }
