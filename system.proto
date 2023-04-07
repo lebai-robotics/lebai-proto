@@ -116,50 +116,23 @@ message RobotInfo {
   string arm_sn = 32 [json_name = "arm_sn"];
 }
 
-message ComboardInfo {
-  string sn = 1;
-  string version = 2;
-  hardware.FirmwarePartition partition = 3;
-  uint32 di_num = 11 [json_name = "di_num"];
-  uint32 do_num = 12 [json_name = "do_num"];
-  uint32 dio_num = 13 [json_name = "dio_num"];
-  uint32 ai_num = 21 [json_name = "ai_num"];
-  uint32 ao_num = 22 [json_name = "ao_num"];
-}
-message JointInfo {
-  string sn = 1;
-  string version = 2;
-  hardware.FirmwarePartition partition = 3;
-}
-message FlangeInfo {
-  string sn = 1;
-  string version = 2;
-  hardware.FirmwarePartition partition = 3;
-  uint32 di_num = 11 [json_name = "di_num"];
-  uint32 do_num = 12 [json_name = "do_num"];
-  uint32 dio_num = 13 [json_name = "dio_num"];
-  uint32 ai_num = 21 [json_name = "ai_num"];
-  uint32 ao_num = 22 [json_name = "ao_num"];
-}
-message LedInfo {
-  string sn = 1;
-  string version = 2;
-  hardware.FirmwarePartition partition = 3;
-}
-message ExtraIoInfo {
-  bool valid = 1;
-  uint32 di_num = 11 [json_name = "di_num"];
-  uint32 do_num = 12 [json_name = "do_num"];
-  uint32 dio_num = 13 [json_name = "dio_num"];
-  uint32 ai_num = 21 [json_name = "ai_num"];
-  uint32 ao_num = 22 [json_name = "ao_num"];
+message DeviceInfo {
+  bool invalid = 1;
+  string sn = 11;
+  string version = 12;
+  hardware.FirmwarePartition partition = 13;
+  uint32 di_num = 21 [json_name = "di_num"];
+  uint32 do_num = 22 [json_name = "do_num"];
+  uint32 dio_num = 23 [json_name = "dio_num"];
+  uint32 ai_num = 26 [json_name = "ai_num"];
+  uint32 ao_num = 27 [json_name = "ao_num"];
 }
 message HardwareInfo {
-  ComboardInfo comboard = 1;
-  repeated JointInfo joints = 2;
-  FlangeInfo flange = 3;
-  LedInfo led = 4;
-  ExtraIoInfo extra_io = 11 [json_name = "extra_io"];
+  DeviceInfo comboard = 1;
+  repeated DeviceInfo joints = 2;
+  DeviceInfo flange = 3;
+  DeviceInfo led = 4;
+  DeviceInfo extra_io = 11 [json_name = "extra_io"];
 }
 
 message SoftwareInfo {
