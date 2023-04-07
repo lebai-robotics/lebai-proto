@@ -2703,309 +2703,6 @@ export namespace lebai {
         }
     }
 
-    /** Properties of a ShortcutIndex. */
-    interface IShortcutIndex {
-
-        /** ShortcutIndex id */
-        id?: (number|null);
-    }
-
-    /** Represents a ShortcutIndex. */
-    class ShortcutIndex implements IShortcutIndex {
-
-        /**
-         * Constructs a new ShortcutIndex.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: lebai.IShortcutIndex);
-
-        /** ShortcutIndex id. */
-        public id: number;
-
-        /**
-         * Creates a new ShortcutIndex instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ShortcutIndex instance
-         */
-        public static create(properties?: lebai.IShortcutIndex): lebai.ShortcutIndex;
-
-        /**
-         * Encodes the specified ShortcutIndex message. Does not implicitly {@link lebai.ShortcutIndex.verify|verify} messages.
-         * @param message ShortcutIndex message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: lebai.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified ShortcutIndex message, length delimited. Does not implicitly {@link lebai.ShortcutIndex.verify|verify} messages.
-         * @param message ShortcutIndex message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: lebai.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a ShortcutIndex message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ShortcutIndex
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.ShortcutIndex;
-
-        /**
-         * Decodes a ShortcutIndex message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ShortcutIndex
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.ShortcutIndex;
-
-        /**
-         * Verifies a ShortcutIndex message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a ShortcutIndex message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns ShortcutIndex
-         */
-        public static fromObject(object: { [k: string]: any }): lebai.ShortcutIndex;
-
-        /**
-         * Creates a plain object from a ShortcutIndex message. Also converts values to other types if specified.
-         * @param message ShortcutIndex
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: lebai.ShortcutIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this ShortcutIndex to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for ShortcutIndex
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
-    /** Properties of a Shortcut. */
-    interface IShortcut {
-
-        /** Shortcut id */
-        id?: (number|null);
-
-        /** Shortcut dir */
-        dir?: (string|null);
-
-        /** Shortcut name */
-        name?: (string|null);
-    }
-
-    /** Represents a Shortcut. */
-    class Shortcut implements IShortcut {
-
-        /**
-         * Constructs a new Shortcut.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: lebai.IShortcut);
-
-        /** Shortcut id. */
-        public id: number;
-
-        /** Shortcut dir. */
-        public dir: string;
-
-        /** Shortcut name. */
-        public name: string;
-
-        /**
-         * Creates a new Shortcut instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Shortcut instance
-         */
-        public static create(properties?: lebai.IShortcut): lebai.Shortcut;
-
-        /**
-         * Encodes the specified Shortcut message. Does not implicitly {@link lebai.Shortcut.verify|verify} messages.
-         * @param message Shortcut message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: lebai.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified Shortcut message, length delimited. Does not implicitly {@link lebai.Shortcut.verify|verify} messages.
-         * @param message Shortcut message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: lebai.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a Shortcut message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Shortcut
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.Shortcut;
-
-        /**
-         * Decodes a Shortcut message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Shortcut
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.Shortcut;
-
-        /**
-         * Verifies a Shortcut message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a Shortcut message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns Shortcut
-         */
-        public static fromObject(object: { [k: string]: any }): lebai.Shortcut;
-
-        /**
-         * Creates a plain object from a Shortcut message. Also converts values to other types if specified.
-         * @param message Shortcut
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: lebai.Shortcut, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this Shortcut to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for Shortcut
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
-    /** Properties of a ShortcutList. */
-    interface IShortcutList {
-
-        /** ShortcutList list */
-        list?: (lebai.IShortcut[]|null);
-    }
-
-    /** Represents a ShortcutList. */
-    class ShortcutList implements IShortcutList {
-
-        /**
-         * Constructs a new ShortcutList.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: lebai.IShortcutList);
-
-        /** ShortcutList list. */
-        public list: lebai.IShortcut[];
-
-        /**
-         * Creates a new ShortcutList instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ShortcutList instance
-         */
-        public static create(properties?: lebai.IShortcutList): lebai.ShortcutList;
-
-        /**
-         * Encodes the specified ShortcutList message. Does not implicitly {@link lebai.ShortcutList.verify|verify} messages.
-         * @param message ShortcutList message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: lebai.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified ShortcutList message, length delimited. Does not implicitly {@link lebai.ShortcutList.verify|verify} messages.
-         * @param message ShortcutList message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: lebai.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a ShortcutList message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ShortcutList
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.ShortcutList;
-
-        /**
-         * Decodes a ShortcutList message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ShortcutList
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.ShortcutList;
-
-        /**
-         * Verifies a ShortcutList message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a ShortcutList message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns ShortcutList
-         */
-        public static fromObject(object: { [k: string]: any }): lebai.ShortcutList;
-
-        /**
-         * Creates a plain object from a ShortcutList message. Also converts values to other types if specified.
-         * @param message ShortcutList
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: lebai.ShortcutList, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this ShortcutList to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for ShortcutList
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
     /** Properties of a SubscribeRequest. */
     interface ISubscribeRequest {
 
@@ -8209,48 +7906,6 @@ export namespace lebai {
              * @returns Promise
              */
             public getPoseInverse(request: lebai.posture.IPoseRequest): Promise<lebai.posture.CartesianPose>;
-
-            /**
-             * Calls SetShortPose.
-             * @param request Shortcut message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public setShortPose(request: lebai.IShortcut, callback: lebai.posture.PostureService.SetShortPoseCallback): void;
-
-            /**
-             * Calls SetShortPose.
-             * @param request Shortcut message or plain object
-             * @returns Promise
-             */
-            public setShortPose(request: lebai.IShortcut): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls GetShortPose.
-             * @param request ShortcutIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Shortcut
-             */
-            public getShortPose(request: lebai.IShortcutIndex, callback: lebai.posture.PostureService.GetShortPoseCallback): void;
-
-            /**
-             * Calls GetShortPose.
-             * @param request ShortcutIndex message or plain object
-             * @returns Promise
-             */
-            public getShortPose(request: lebai.IShortcutIndex): Promise<lebai.Shortcut>;
-
-            /**
-             * Calls GetShortPoses.
-             * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and ShortcutList
-             */
-            public getShortPoses(request: google.protobuf.IEmpty, callback: lebai.posture.PostureService.GetShortPosesCallback): void;
-
-            /**
-             * Calls GetShortPoses.
-             * @param request Empty message or plain object
-             * @returns Promise
-             */
-            public getShortPoses(request: google.protobuf.IEmpty): Promise<lebai.ShortcutList>;
         }
 
         namespace PostureService {
@@ -8331,27 +7986,6 @@ export namespace lebai {
              * @param [response] CartesianPose
              */
             type GetPoseInverseCallback = (error: (Error|null), response?: lebai.posture.CartesianPose) => void;
-
-            /**
-             * Callback as used by {@link lebai.posture.PostureService#setShortPose}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type SetShortPoseCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.posture.PostureService#getShortPose}.
-             * @param error Error, if any
-             * @param [response] Shortcut
-             */
-            type GetShortPoseCallback = (error: (Error|null), response?: lebai.Shortcut) => void;
-
-            /**
-             * Callback as used by {@link lebai.posture.PostureService#getShortPoses}.
-             * @param error Error, if any
-             * @param [response] ShortcutList
-             */
-            type GetShortPosesCallback = (error: (Error|null), response?: lebai.ShortcutList) => void;
         }
     }
 
@@ -22414,6 +22048,463 @@ export namespace lebai {
         }
     }
 
+    /** Namespace shortcut. */
+    namespace shortcut {
+
+        /** Properties of a ShortcutIndex. */
+        interface IShortcutIndex {
+
+            /** ShortcutIndex id */
+            id?: (number|null);
+        }
+
+        /** Represents a ShortcutIndex. */
+        class ShortcutIndex implements IShortcutIndex {
+
+            /**
+             * Constructs a new ShortcutIndex.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.shortcut.IShortcutIndex);
+
+            /** ShortcutIndex id. */
+            public id: number;
+
+            /**
+             * Creates a new ShortcutIndex instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ShortcutIndex instance
+             */
+            public static create(properties?: lebai.shortcut.IShortcutIndex): lebai.shortcut.ShortcutIndex;
+
+            /**
+             * Encodes the specified ShortcutIndex message. Does not implicitly {@link lebai.shortcut.ShortcutIndex.verify|verify} messages.
+             * @param message ShortcutIndex message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.shortcut.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ShortcutIndex message, length delimited. Does not implicitly {@link lebai.shortcut.ShortcutIndex.verify|verify} messages.
+             * @param message ShortcutIndex message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.shortcut.IShortcutIndex, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ShortcutIndex message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ShortcutIndex
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.shortcut.ShortcutIndex;
+
+            /**
+             * Decodes a ShortcutIndex message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ShortcutIndex
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.shortcut.ShortcutIndex;
+
+            /**
+             * Verifies a ShortcutIndex message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ShortcutIndex message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ShortcutIndex
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.shortcut.ShortcutIndex;
+
+            /**
+             * Creates a plain object from a ShortcutIndex message. Also converts values to other types if specified.
+             * @param message ShortcutIndex
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.shortcut.ShortcutIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ShortcutIndex to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ShortcutIndex
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a Shortcut. */
+        interface IShortcut {
+
+            /** Shortcut id */
+            id?: (number|null);
+
+            /** Shortcut dir */
+            dir?: (string|null);
+
+            /** Shortcut name */
+            name?: (string|null);
+        }
+
+        /** Represents a Shortcut. */
+        class Shortcut implements IShortcut {
+
+            /**
+             * Constructs a new Shortcut.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.shortcut.IShortcut);
+
+            /** Shortcut id. */
+            public id: number;
+
+            /** Shortcut dir. */
+            public dir: string;
+
+            /** Shortcut name. */
+            public name: string;
+
+            /**
+             * Creates a new Shortcut instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Shortcut instance
+             */
+            public static create(properties?: lebai.shortcut.IShortcut): lebai.shortcut.Shortcut;
+
+            /**
+             * Encodes the specified Shortcut message. Does not implicitly {@link lebai.shortcut.Shortcut.verify|verify} messages.
+             * @param message Shortcut message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.shortcut.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Shortcut message, length delimited. Does not implicitly {@link lebai.shortcut.Shortcut.verify|verify} messages.
+             * @param message Shortcut message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.shortcut.IShortcut, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Shortcut message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Shortcut
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.shortcut.Shortcut;
+
+            /**
+             * Decodes a Shortcut message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Shortcut
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.shortcut.Shortcut;
+
+            /**
+             * Verifies a Shortcut message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Shortcut message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Shortcut
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.shortcut.Shortcut;
+
+            /**
+             * Creates a plain object from a Shortcut message. Also converts values to other types if specified.
+             * @param message Shortcut
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.shortcut.Shortcut, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Shortcut to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Shortcut
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a ShortcutList. */
+        interface IShortcutList {
+
+            /** ShortcutList list */
+            list?: (lebai.shortcut.IShortcut[]|null);
+        }
+
+        /** Represents a ShortcutList. */
+        class ShortcutList implements IShortcutList {
+
+            /**
+             * Constructs a new ShortcutList.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.shortcut.IShortcutList);
+
+            /** ShortcutList list. */
+            public list: lebai.shortcut.IShortcut[];
+
+            /**
+             * Creates a new ShortcutList instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ShortcutList instance
+             */
+            public static create(properties?: lebai.shortcut.IShortcutList): lebai.shortcut.ShortcutList;
+
+            /**
+             * Encodes the specified ShortcutList message. Does not implicitly {@link lebai.shortcut.ShortcutList.verify|verify} messages.
+             * @param message ShortcutList message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.shortcut.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ShortcutList message, length delimited. Does not implicitly {@link lebai.shortcut.ShortcutList.verify|verify} messages.
+             * @param message ShortcutList message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.shortcut.IShortcutList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ShortcutList message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ShortcutList
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.shortcut.ShortcutList;
+
+            /**
+             * Decodes a ShortcutList message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ShortcutList
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.shortcut.ShortcutList;
+
+            /**
+             * Verifies a ShortcutList message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ShortcutList message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ShortcutList
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.shortcut.ShortcutList;
+
+            /**
+             * Creates a plain object from a ShortcutList message. Also converts values to other types if specified.
+             * @param message ShortcutList
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.shortcut.ShortcutList, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ShortcutList to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ShortcutList
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a ShortcutService */
+        class ShortcutService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new ShortcutService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new ShortcutService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ShortcutService;
+
+            /**
+             * Calls SetShortPose.
+             * @param request Shortcut message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setShortPose(request: lebai.shortcut.IShortcut, callback: lebai.shortcut.ShortcutService.SetShortPoseCallback): void;
+
+            /**
+             * Calls SetShortPose.
+             * @param request Shortcut message or plain object
+             * @returns Promise
+             */
+            public setShortPose(request: lebai.shortcut.IShortcut): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls GetShortPose.
+             * @param request ShortcutIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Shortcut
+             */
+            public getShortPose(request: lebai.shortcut.IShortcutIndex, callback: lebai.shortcut.ShortcutService.GetShortPoseCallback): void;
+
+            /**
+             * Calls GetShortPose.
+             * @param request ShortcutIndex message or plain object
+             * @returns Promise
+             */
+            public getShortPose(request: lebai.shortcut.IShortcutIndex): Promise<lebai.shortcut.Shortcut>;
+
+            /**
+             * Calls GetShortPoses.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and ShortcutList
+             */
+            public getShortPoses(request: google.protobuf.IEmpty, callback: lebai.shortcut.ShortcutService.GetShortPosesCallback): void;
+
+            /**
+             * Calls GetShortPoses.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public getShortPoses(request: google.protobuf.IEmpty): Promise<lebai.shortcut.ShortcutList>;
+
+            /**
+             * Calls SetShortTask.
+             * @param request Shortcut message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setShortTask(request: lebai.shortcut.IShortcut, callback: lebai.shortcut.ShortcutService.SetShortTaskCallback): void;
+
+            /**
+             * Calls SetShortTask.
+             * @param request Shortcut message or plain object
+             * @returns Promise
+             */
+            public setShortTask(request: lebai.shortcut.IShortcut): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls GetShortTask.
+             * @param request ShortcutIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Shortcut
+             */
+            public getShortTask(request: lebai.shortcut.IShortcutIndex, callback: lebai.shortcut.ShortcutService.GetShortTaskCallback): void;
+
+            /**
+             * Calls GetShortTask.
+             * @param request ShortcutIndex message or plain object
+             * @returns Promise
+             */
+            public getShortTask(request: lebai.shortcut.IShortcutIndex): Promise<lebai.shortcut.Shortcut>;
+
+            /**
+             * Calls GetShortTasks.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and ShortcutList
+             */
+            public getShortTasks(request: google.protobuf.IEmpty, callback: lebai.shortcut.ShortcutService.GetShortTasksCallback): void;
+
+            /**
+             * Calls GetShortTasks.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public getShortTasks(request: google.protobuf.IEmpty): Promise<lebai.shortcut.ShortcutList>;
+        }
+
+        namespace ShortcutService {
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#setShortPose}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetShortPoseCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#getShortPose}.
+             * @param error Error, if any
+             * @param [response] Shortcut
+             */
+            type GetShortPoseCallback = (error: (Error|null), response?: lebai.shortcut.Shortcut) => void;
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#getShortPoses}.
+             * @param error Error, if any
+             * @param [response] ShortcutList
+             */
+            type GetShortPosesCallback = (error: (Error|null), response?: lebai.shortcut.ShortcutList) => void;
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#setShortTask}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetShortTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#getShortTask}.
+             * @param error Error, if any
+             * @param [response] Shortcut
+             */
+            type GetShortTaskCallback = (error: (Error|null), response?: lebai.shortcut.Shortcut) => void;
+
+            /**
+             * Callback as used by {@link lebai.shortcut.ShortcutService#getShortTasks}.
+             * @param error Error, if any
+             * @param [response] ShortcutList
+             */
+            type GetShortTasksCallback = (error: (Error|null), response?: lebai.shortcut.ShortcutList) => void;
+        }
+    }
+
     /** Namespace signal. */
     namespace signal {
 
@@ -24759,48 +24850,6 @@ export namespace lebai {
              * @returns Promise
              */
             public cancelTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls SetShortTask.
-             * @param request Shortcut message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public setShortTask(request: lebai.IShortcut, callback: lebai.task.TaskService.SetShortTaskCallback): void;
-
-            /**
-             * Calls SetShortTask.
-             * @param request Shortcut message or plain object
-             * @returns Promise
-             */
-            public setShortTask(request: lebai.IShortcut): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls GetShortTask.
-             * @param request ShortcutIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Shortcut
-             */
-            public getShortTask(request: lebai.IShortcutIndex, callback: lebai.task.TaskService.GetShortTaskCallback): void;
-
-            /**
-             * Calls GetShortTask.
-             * @param request ShortcutIndex message or plain object
-             * @returns Promise
-             */
-            public getShortTask(request: lebai.IShortcutIndex): Promise<lebai.Shortcut>;
-
-            /**
-             * Calls GetShortTasks.
-             * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and ShortcutList
-             */
-            public getShortTasks(request: google.protobuf.IEmpty, callback: lebai.task.TaskService.GetShortTasksCallback): void;
-
-            /**
-             * Calls GetShortTasks.
-             * @param request Empty message or plain object
-             * @returns Promise
-             */
-            public getShortTasks(request: google.protobuf.IEmpty): Promise<lebai.ShortcutList>;
         }
 
         namespace TaskService {
@@ -24874,27 +24923,6 @@ export namespace lebai {
              * @param [response] Empty
              */
             type CancelTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#setShortTask}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type SetShortTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#getShortTask}.
-             * @param error Error, if any
-             * @param [response] Shortcut
-             */
-            type GetShortTaskCallback = (error: (Error|null), response?: lebai.Shortcut) => void;
-
-            /**
-             * Callback as used by {@link lebai.task.TaskService#getShortTasks}.
-             * @param error Error, if any
-             * @param [response] ShortcutList
-             */
-            type GetShortTasksCallback = (error: (Error|null), response?: lebai.ShortcutList) => void;
         }
     }
 

@@ -596,39 +596,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
-      ShortcutIndex: {
-        fields: {
-          id: {
-            type: "uint32",
-            id: 1
-          }
-        }
-      },
-      Shortcut: {
-        fields: {
-          id: {
-            type: "uint32",
-            id: 1
-          },
-          dir: {
-            type: "string",
-            id: 2
-          },
-          name: {
-            type: "string",
-            id: 3
-          }
-        }
-      },
-      ShortcutList: {
-        fields: {
-          list: {
-            rule: "repeated",
-            type: "Shortcut",
-            id: 1
-          }
-        }
-      },
       SubscribeRequest: {
         fields: {
           intervalMin: {
@@ -1534,18 +1501,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               GetPoseInverse: {
                 requestType: "PoseRequest",
                 responseType: "CartesianPose"
-              },
-              SetShortPose: {
-                requestType: "Shortcut",
-                responseType: "google.protobuf.Empty"
-              },
-              GetShortPose: {
-                requestType: "ShortcutIndex",
-                responseType: "Shortcut"
-              },
-              GetShortPoses: {
-                requestType: "google.protobuf.Empty",
-                responseType: "ShortcutList"
               }
             }
           }
@@ -3861,6 +3816,71 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      shortcut: {
+        nested: {
+          ShortcutIndex: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              }
+            }
+          },
+          Shortcut: {
+            fields: {
+              id: {
+                type: "uint32",
+                id: 1
+              },
+              dir: {
+                type: "string",
+                id: 2
+              },
+              name: {
+                type: "string",
+                id: 3
+              }
+            }
+          },
+          ShortcutList: {
+            fields: {
+              list: {
+                rule: "repeated",
+                type: "Shortcut",
+                id: 1
+              }
+            }
+          },
+          ShortcutService: {
+            methods: {
+              SetShortPose: {
+                requestType: "Shortcut",
+                responseType: "google.protobuf.Empty"
+              },
+              GetShortPose: {
+                requestType: "ShortcutIndex",
+                responseType: "Shortcut"
+              },
+              GetShortPoses: {
+                requestType: "google.protobuf.Empty",
+                responseType: "ShortcutList"
+              },
+              SetShortTask: {
+                requestType: "Shortcut",
+                responseType: "google.protobuf.Empty"
+              },
+              GetShortTask: {
+                requestType: "ShortcutIndex",
+                responseType: "Shortcut"
+              },
+              GetShortTasks: {
+                requestType: "google.protobuf.Empty",
+                responseType: "ShortcutList"
+              }
+            }
+          }
+        }
+      },
       signal: {
         nested: {
           SetSignalRequest: {
@@ -4312,18 +4332,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               CancelTask: {
                 requestType: "TaskIndex",
                 responseType: "google.protobuf.Empty"
-              },
-              SetShortTask: {
-                requestType: "Shortcut",
-                responseType: "google.protobuf.Empty"
-              },
-              GetShortTask: {
-                requestType: "ShortcutIndex",
-                responseType: "Shortcut"
-              },
-              GetShortTasks: {
-                requestType: "google.protobuf.Empty",
-                responseType: "ShortcutList"
               }
             }
           }
