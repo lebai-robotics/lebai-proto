@@ -1292,23 +1292,15 @@
             <ul>
               
                 <li>
-                  <a href="#lebai.system.ComboardInfo"><span class="badge">M</span>ComboardInfo</a>
-                </li>
-              
-                <li>
                   <a href="#lebai.system.CpuInfo"><span class="badge">M</span>CpuInfo</a>
                 </li>
               
                 <li>
+                  <a href="#lebai.system.DeviceInfo"><span class="badge">M</span>DeviceInfo</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.system.DiskInfo"><span class="badge">M</span>DiskInfo</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.system.ExtraIoInfo"><span class="badge">M</span>ExtraIoInfo</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.system.FlangeInfo"><span class="badge">M</span>FlangeInfo</a>
                 </li>
               
                 <li>
@@ -1325,14 +1317,6 @@
               
                 <li>
                   <a href="#lebai.system.HelloData"><span class="badge">M</span>HelloData</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.system.JointInfo"><span class="badge">M</span>JointInfo</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.system.LedInfo"><span class="badge">M</span>LedInfo</a>
                 </li>
               
                 <li>
@@ -10128,79 +10112,6 @@
       <p></p>
 
       
-        <h3 id="lebai.system.ComboardInfo">ComboardInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sn</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>partition</td>
-                  <td><a href="#lebai.hardware.FirmwarePartition">lebai.hardware.FirmwarePartition</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>di_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>do_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>dio_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ai_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ao_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="lebai.system.CpuInfo">CpuInfo</h3>
         <p></p>
 
@@ -10253,7 +10164,7 @@
 
         
       
-        <h3 id="lebai.system.DiskInfo">DiskInfo</h3>
+        <h3 id="lebai.system.DeviceInfo">DeviceInfo</h3>
         <p></p>
 
         
@@ -10264,101 +10175,11 @@
             <tbody>
               
                 <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>硬盘节点 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>used</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>已用字节 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>total</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>总共字节 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.system.ExtraIoInfo">ExtraIoInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>valid</td>
+                  <td>invalid</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
-              
-                <tr>
-                  <td>di_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>do_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>dio_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ai_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>ao_num</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.system.FlangeInfo">FlangeInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
               
                 <tr>
                   <td>sn</td>
@@ -10414,6 +10235,44 @@
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.DiskInfo">DiskInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>硬盘节点 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>used</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>已用字节 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>total</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>总共字节 </p></td>
                 </tr>
               
             </tbody>
@@ -10483,35 +10342,35 @@
               
                 <tr>
                   <td>comboard</td>
-                  <td><a href="#lebai.system.ComboardInfo">ComboardInfo</a></td>
+                  <td><a href="#lebai.system.DeviceInfo">DeviceInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>joints</td>
-                  <td><a href="#lebai.system.JointInfo">JointInfo</a></td>
+                  <td><a href="#lebai.system.DeviceInfo">DeviceInfo</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>flange</td>
-                  <td><a href="#lebai.system.FlangeInfo">FlangeInfo</a></td>
+                  <td><a href="#lebai.system.DeviceInfo">DeviceInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>led</td>
-                  <td><a href="#lebai.system.LedInfo">LedInfo</a></td>
+                  <td><a href="#lebai.system.DeviceInfo">DeviceInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>extra_io</td>
-                  <td><a href="#lebai.system.ExtraIoInfo">ExtraIoInfo</a></td>
+                  <td><a href="#lebai.system.DeviceInfo">DeviceInfo</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -10536,82 +10395,6 @@
                 <tr>
                   <td>data</td>
                   <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.system.JointInfo">JointInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sn</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>partition</td>
-                  <td><a href="#lebai.hardware.FirmwarePartition">lebai.hardware.FirmwarePartition</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.system.LedInfo">LedInfo</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sn</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>version</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>partition</td>
-                  <td><a href="#lebai.hardware.FirmwarePartition">lebai.hardware.FirmwarePartition</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
