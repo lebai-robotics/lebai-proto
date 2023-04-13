@@ -692,9 +692,9 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               WAIT: 1,
               DOWNLOADING: 2,
               FLASHING: 3,
-              RESTART: 4,
-              DONE: 5,
-              FAIL: 6
+              DONE: 4,
+              FAIL: 5,
+              RESTART: 11
             }
           },
           OtaState: {
