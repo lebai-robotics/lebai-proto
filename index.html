@@ -874,6 +874,10 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.motion.SaveTrajectoryRequest"><span class="badge">M</span>SaveTrajectoryRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.motion.SetForceModeParamRequest"><span class="badge">M</span>SetForceModeParamRequest</a>
                 </li>
               
@@ -6973,6 +6977,44 @@
 
         
       
+        <h3 id="lebai.motion.SaveTrajectoryRequest">SaveTrajectoryRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#lebai.motion.Trajectory">Trajectory</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dir</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.motion.SetForceModeParamRequest">SetForceModeParamRequest</h3>
         <p></p>
 
@@ -7391,6 +7433,27 @@
               </tr>
             
               <tr>
+                <td>SaveTrajectory</td>
+                <td><a href="#lebai.motion.SaveTrajectoryRequest">SaveTrajectoryRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>保存/修改/删除负载</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadTrajectory</td>
+                <td><a href="#lebai.db.LoadRequest">.lebai.db.LoadRequest</a></td>
+                <td><a href="#lebai.motion.Trajectory">Trajectory</a></td>
+                <td><p>查询负载</p></td>
+              </tr>
+            
+              <tr>
+                <td>LoadTrajectoryList</td>
+                <td><a href="#lebai.db.LoadListRequest">.lebai.db.LoadListRequest</a></td>
+                <td><a href="#lebai.db.LoadListResponse">.lebai.db.LoadListResponse</a></td>
+                <td><p>查询负载列表</p></td>
+              </tr>
+            
+              <tr>
                 <td>StartRecordTrajectory</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
@@ -7406,7 +7469,7 @@
             
               <tr>
                 <td>MoveTrajectory</td>
-                <td><a href="#lebai.motion.MoveTrajectoryRequest">MoveTrajectoryRequest</a></td>
+                <td><a href="#lebai.motion.Trajectory">Trajectory</a></td>
                 <td><a href="#lebai.motion.MotionIndex">MotionIndex</a></td>
                 <td><p>运行轨迹</p></td>
               </tr>
