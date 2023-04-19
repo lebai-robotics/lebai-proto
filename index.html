@@ -834,6 +834,10 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.motion.EndRecordTrajectoryRequest"><span class="badge">M</span>EndRecordTrajectoryRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.motion.ForceModeParam"><span class="badge">M</span>ForceModeParam</a>
                 </li>
               
@@ -862,6 +866,10 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.motion.MoveTrajectoryRequest"><span class="badge">M</span>MoveTrajectoryRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.motion.MovecRequest"><span class="badge">M</span>MovecRequest</a>
                 </li>
               
@@ -887,6 +895,10 @@
               
                 <li>
                   <a href="#lebai.motion.StartForceModeRequest"><span class="badge">M</span>StartForceModeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.motion.Trajectory"><span class="badge">M</span>Trajectory</a>
                 </li>
               
                 <li>
@@ -6623,6 +6635,37 @@
       <p></p>
 
       
+        <h3 id="lebai.motion.EndRecordTrajectoryRequest">EndRecordTrajectoryRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dir</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.motion.ForceModeParam">ForceModeParam</h3>
         <p></p>
 
@@ -6806,7 +6849,7 @@
                   <td>duration</td>
                   <td><a href="#double">double</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>执行时间(0.01秒的倍数) </p></td>
                 </tr>
               
                 <tr>
@@ -6843,6 +6886,37 @@
                 <tr>
                   <td>param</td>
                   <td><a href="#lebai.motion.MoveParam">MoveParam</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.motion.MoveTrajectoryRequest">MoveTrajectoryRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>dir</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -7099,6 +7173,30 @@
 
         
       
+        <h3 id="lebai.motion.Trajectory">Trajectory</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#lebai.motion.MovePvatRequest">MovePvatRequest</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.motion.Wrench">Wrench</h3>
         <p></p>
 
@@ -7290,6 +7388,27 @@
                 <td><a href="#lebai.motion.SpeedLRequest">SpeedLRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>沿直线匀速运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>StartRecordTrajectory</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>开始记录轨迹</p></td>
+              </tr>
+            
+              <tr>
+                <td>EndRecordTrajectory</td>
+                <td><a href="#lebai.motion.EndRecordTrajectoryRequest">EndRecordTrajectoryRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>结束记录轨迹</p></td>
+              </tr>
+            
+              <tr>
+                <td>MoveTrajectory</td>
+                <td><a href="#lebai.motion.MoveTrajectoryRequest">MoveTrajectoryRequest</a></td>
+                <td><a href="#lebai.motion.MotionIndex">MotionIndex</a></td>
+                <td><p>运行轨迹</p></td>
               </tr>
             
               <tr>
