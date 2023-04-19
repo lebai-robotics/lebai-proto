@@ -17758,6 +17758,115 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a SaveTrajectoryRequest. */
+        interface ISaveTrajectoryRequest {
+
+            /** SaveTrajectoryRequest name */
+            name?: (string|null);
+
+            /** SaveTrajectoryRequest data */
+            data?: (lebai.motion.ITrajectory|null);
+
+            /** SaveTrajectoryRequest dir */
+            dir?: (string|null);
+        }
+
+        /** Represents a SaveTrajectoryRequest. */
+        class SaveTrajectoryRequest implements ISaveTrajectoryRequest {
+
+            /**
+             * Constructs a new SaveTrajectoryRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.motion.ISaveTrajectoryRequest);
+
+            /** SaveTrajectoryRequest name. */
+            public name: string;
+
+            /** SaveTrajectoryRequest data. */
+            public data?: (lebai.motion.ITrajectory|null);
+
+            /** SaveTrajectoryRequest dir. */
+            public dir: string;
+
+            /**
+             * Creates a new SaveTrajectoryRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SaveTrajectoryRequest instance
+             */
+            public static create(properties?: lebai.motion.ISaveTrajectoryRequest): lebai.motion.SaveTrajectoryRequest;
+
+            /**
+             * Encodes the specified SaveTrajectoryRequest message. Does not implicitly {@link lebai.motion.SaveTrajectoryRequest.verify|verify} messages.
+             * @param message SaveTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.motion.ISaveTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SaveTrajectoryRequest message, length delimited. Does not implicitly {@link lebai.motion.SaveTrajectoryRequest.verify|verify} messages.
+             * @param message SaveTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.motion.ISaveTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SaveTrajectoryRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SaveTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.motion.SaveTrajectoryRequest;
+
+            /**
+             * Decodes a SaveTrajectoryRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SaveTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.motion.SaveTrajectoryRequest;
+
+            /**
+             * Verifies a SaveTrajectoryRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SaveTrajectoryRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SaveTrajectoryRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.motion.SaveTrajectoryRequest;
+
+            /**
+             * Creates a plain object from a SaveTrajectoryRequest message. Also converts values to other types if specified.
+             * @param message SaveTrajectoryRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.motion.SaveTrajectoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SaveTrajectoryRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SaveTrajectoryRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of an EndRecordTrajectoryRequest. */
         interface IEndRecordTrajectoryRequest {
 
@@ -18682,6 +18791,48 @@ export namespace lebai {
             public speedLinear(request: lebai.motion.ISpeedLRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls SaveTrajectory.
+             * @param request SaveTrajectoryRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public saveTrajectory(request: lebai.motion.ISaveTrajectoryRequest, callback: lebai.motion.MotionService.SaveTrajectoryCallback): void;
+
+            /**
+             * Calls SaveTrajectory.
+             * @param request SaveTrajectoryRequest message or plain object
+             * @returns Promise
+             */
+            public saveTrajectory(request: lebai.motion.ISaveTrajectoryRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls LoadTrajectory.
+             * @param request LoadRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Trajectory
+             */
+            public loadTrajectory(request: lebai.db.ILoadRequest, callback: lebai.motion.MotionService.LoadTrajectoryCallback): void;
+
+            /**
+             * Calls LoadTrajectory.
+             * @param request LoadRequest message or plain object
+             * @returns Promise
+             */
+            public loadTrajectory(request: lebai.db.ILoadRequest): Promise<lebai.motion.Trajectory>;
+
+            /**
+             * Calls LoadTrajectoryList.
+             * @param request LoadListRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadListResponse
+             */
+            public loadTrajectoryList(request: lebai.db.ILoadListRequest, callback: lebai.motion.MotionService.LoadTrajectoryListCallback): void;
+
+            /**
+             * Calls LoadTrajectoryList.
+             * @param request LoadListRequest message or plain object
+             * @returns Promise
+             */
+            public loadTrajectoryList(request: lebai.db.ILoadListRequest): Promise<lebai.db.LoadListResponse>;
+
+            /**
              * Calls StartRecordTrajectory.
              * @param request Empty message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -18711,17 +18862,17 @@ export namespace lebai {
 
             /**
              * Calls MoveTrajectory.
-             * @param request MoveTrajectoryRequest message or plain object
+             * @param request Trajectory message or plain object
              * @param callback Node-style callback called with the error, if any, and MotionIndex
              */
-            public moveTrajectory(request: lebai.motion.IMoveTrajectoryRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
+            public moveTrajectory(request: lebai.motion.ITrajectory, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
 
             /**
              * Calls MoveTrajectory.
-             * @param request MoveTrajectoryRequest message or plain object
+             * @param request Trajectory message or plain object
              * @returns Promise
              */
-            public moveTrajectory(request: lebai.motion.IMoveTrajectoryRequest): Promise<lebai.motion.MotionIndex>;
+            public moveTrajectory(request: lebai.motion.ITrajectory): Promise<lebai.motion.MotionIndex>;
 
             /**
              * Calls StartTeachMode.
@@ -18921,6 +19072,27 @@ export namespace lebai {
              * @param [response] Empty
              */
             type SpeedLinearCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#saveTrajectory}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SaveTrajectoryCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#loadTrajectory}.
+             * @param error Error, if any
+             * @param [response] Trajectory
+             */
+            type LoadTrajectoryCallback = (error: (Error|null), response?: lebai.motion.Trajectory) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#loadTrajectoryList}.
+             * @param error Error, if any
+             * @param [response] LoadListResponse
+             */
+            type LoadTrajectoryListCallback = (error: (Error|null), response?: lebai.db.LoadListResponse) => void;
 
             /**
              * Callback as used by {@link lebai.motion.MotionService#startRecordTrajectory}.

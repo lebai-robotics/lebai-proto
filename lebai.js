@@ -3082,6 +3082,22 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SaveTrajectoryRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              data: {
+                type: "Trajectory",
+                id: 2
+              },
+              dir: {
+                type: "string",
+                id: 11
+              }
+            }
+          },
           EndRecordTrajectoryRequest: {
             fields: {
               name: {
@@ -3228,6 +3244,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 requestType: "SpeedLRequest",
                 responseType: "google.protobuf.Empty"
               },
+              SaveTrajectory: {
+                requestType: "SaveTrajectoryRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              LoadTrajectory: {
+                requestType: "db.LoadRequest",
+                responseType: "Trajectory"
+              },
+              LoadTrajectoryList: {
+                requestType: "db.LoadListRequest",
+                responseType: "db.LoadListResponse"
+              },
               StartRecordTrajectory: {
                 requestType: "google.protobuf.Empty",
                 responseType: "google.protobuf.Empty"
@@ -3237,7 +3265,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "google.protobuf.Empty"
               },
               MoveTrajectory: {
-                requestType: "MoveTrajectoryRequest",
+                requestType: "Trajectory",
                 responseType: "MotionIndex"
               },
               StartTeachMode: {
