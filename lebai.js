@@ -3073,6 +3073,39 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          Trajectory: {
+            fields: {
+              data: {
+                rule: "repeated",
+                type: "MovePvatRequest",
+                id: 11
+              }
+            }
+          },
+          EndRecordTrajectoryRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              dir: {
+                type: "string",
+                id: 11
+              }
+            }
+          },
+          MoveTrajectoryRequest: {
+            fields: {
+              name: {
+                type: "string",
+                id: 1
+              },
+              dir: {
+                type: "string",
+                id: 11
+              }
+            }
+          },
           Wrench: {
             fields: {
               force: {
@@ -3194,6 +3227,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               SpeedLinear: {
                 requestType: "SpeedLRequest",
                 responseType: "google.protobuf.Empty"
+              },
+              StartRecordTrajectory: {
+                requestType: "google.protobuf.Empty",
+                responseType: "google.protobuf.Empty"
+              },
+              EndRecordTrajectory: {
+                requestType: "EndRecordTrajectoryRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              MoveTrajectory: {
+                requestType: "MoveTrajectoryRequest",
+                responseType: "MotionIndex"
               },
               StartTeachMode: {
                 requestType: "google.protobuf.Empty",

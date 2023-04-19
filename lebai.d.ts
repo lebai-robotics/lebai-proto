@@ -17661,6 +17661,309 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a Trajectory. */
+        interface ITrajectory {
+
+            /** Trajectory data */
+            data?: (lebai.motion.IMovePvatRequest[]|null);
+        }
+
+        /** Represents a Trajectory. */
+        class Trajectory implements ITrajectory {
+
+            /**
+             * Constructs a new Trajectory.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.motion.ITrajectory);
+
+            /** Trajectory data. */
+            public data: lebai.motion.IMovePvatRequest[];
+
+            /**
+             * Creates a new Trajectory instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Trajectory instance
+             */
+            public static create(properties?: lebai.motion.ITrajectory): lebai.motion.Trajectory;
+
+            /**
+             * Encodes the specified Trajectory message. Does not implicitly {@link lebai.motion.Trajectory.verify|verify} messages.
+             * @param message Trajectory message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.motion.ITrajectory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Trajectory message, length delimited. Does not implicitly {@link lebai.motion.Trajectory.verify|verify} messages.
+             * @param message Trajectory message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.motion.ITrajectory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Trajectory message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Trajectory
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.motion.Trajectory;
+
+            /**
+             * Decodes a Trajectory message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Trajectory
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.motion.Trajectory;
+
+            /**
+             * Verifies a Trajectory message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Trajectory message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Trajectory
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.motion.Trajectory;
+
+            /**
+             * Creates a plain object from a Trajectory message. Also converts values to other types if specified.
+             * @param message Trajectory
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.motion.Trajectory, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Trajectory to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Trajectory
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an EndRecordTrajectoryRequest. */
+        interface IEndRecordTrajectoryRequest {
+
+            /** EndRecordTrajectoryRequest name */
+            name?: (string|null);
+
+            /** EndRecordTrajectoryRequest dir */
+            dir?: (string|null);
+        }
+
+        /** Represents an EndRecordTrajectoryRequest. */
+        class EndRecordTrajectoryRequest implements IEndRecordTrajectoryRequest {
+
+            /**
+             * Constructs a new EndRecordTrajectoryRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.motion.IEndRecordTrajectoryRequest);
+
+            /** EndRecordTrajectoryRequest name. */
+            public name: string;
+
+            /** EndRecordTrajectoryRequest dir. */
+            public dir: string;
+
+            /**
+             * Creates a new EndRecordTrajectoryRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns EndRecordTrajectoryRequest instance
+             */
+            public static create(properties?: lebai.motion.IEndRecordTrajectoryRequest): lebai.motion.EndRecordTrajectoryRequest;
+
+            /**
+             * Encodes the specified EndRecordTrajectoryRequest message. Does not implicitly {@link lebai.motion.EndRecordTrajectoryRequest.verify|verify} messages.
+             * @param message EndRecordTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.motion.IEndRecordTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified EndRecordTrajectoryRequest message, length delimited. Does not implicitly {@link lebai.motion.EndRecordTrajectoryRequest.verify|verify} messages.
+             * @param message EndRecordTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.motion.IEndRecordTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an EndRecordTrajectoryRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns EndRecordTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.motion.EndRecordTrajectoryRequest;
+
+            /**
+             * Decodes an EndRecordTrajectoryRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns EndRecordTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.motion.EndRecordTrajectoryRequest;
+
+            /**
+             * Verifies an EndRecordTrajectoryRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an EndRecordTrajectoryRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns EndRecordTrajectoryRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.motion.EndRecordTrajectoryRequest;
+
+            /**
+             * Creates a plain object from an EndRecordTrajectoryRequest message. Also converts values to other types if specified.
+             * @param message EndRecordTrajectoryRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.motion.EndRecordTrajectoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this EndRecordTrajectoryRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for EndRecordTrajectoryRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a MoveTrajectoryRequest. */
+        interface IMoveTrajectoryRequest {
+
+            /** MoveTrajectoryRequest name */
+            name?: (string|null);
+
+            /** MoveTrajectoryRequest dir */
+            dir?: (string|null);
+        }
+
+        /** Represents a MoveTrajectoryRequest. */
+        class MoveTrajectoryRequest implements IMoveTrajectoryRequest {
+
+            /**
+             * Constructs a new MoveTrajectoryRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.motion.IMoveTrajectoryRequest);
+
+            /** MoveTrajectoryRequest name. */
+            public name: string;
+
+            /** MoveTrajectoryRequest dir. */
+            public dir: string;
+
+            /**
+             * Creates a new MoveTrajectoryRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MoveTrajectoryRequest instance
+             */
+            public static create(properties?: lebai.motion.IMoveTrajectoryRequest): lebai.motion.MoveTrajectoryRequest;
+
+            /**
+             * Encodes the specified MoveTrajectoryRequest message. Does not implicitly {@link lebai.motion.MoveTrajectoryRequest.verify|verify} messages.
+             * @param message MoveTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.motion.IMoveTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MoveTrajectoryRequest message, length delimited. Does not implicitly {@link lebai.motion.MoveTrajectoryRequest.verify|verify} messages.
+             * @param message MoveTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.motion.IMoveTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MoveTrajectoryRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MoveTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.motion.MoveTrajectoryRequest;
+
+            /**
+             * Decodes a MoveTrajectoryRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MoveTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.motion.MoveTrajectoryRequest;
+
+            /**
+             * Verifies a MoveTrajectoryRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MoveTrajectoryRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MoveTrajectoryRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.motion.MoveTrajectoryRequest;
+
+            /**
+             * Creates a plain object from a MoveTrajectoryRequest message. Also converts values to other types if specified.
+             * @param message MoveTrajectoryRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.motion.MoveTrajectoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MoveTrajectoryRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for MoveTrajectoryRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a Wrench. */
         interface IWrench {
 
@@ -18379,6 +18682,48 @@ export namespace lebai {
             public speedLinear(request: lebai.motion.ISpeedLRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls StartRecordTrajectory.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public startRecordTrajectory(request: google.protobuf.IEmpty, callback: lebai.motion.MotionService.StartRecordTrajectoryCallback): void;
+
+            /**
+             * Calls StartRecordTrajectory.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public startRecordTrajectory(request: google.protobuf.IEmpty): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls EndRecordTrajectory.
+             * @param request EndRecordTrajectoryRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public endRecordTrajectory(request: lebai.motion.IEndRecordTrajectoryRequest, callback: lebai.motion.MotionService.EndRecordTrajectoryCallback): void;
+
+            /**
+             * Calls EndRecordTrajectory.
+             * @param request EndRecordTrajectoryRequest message or plain object
+             * @returns Promise
+             */
+            public endRecordTrajectory(request: lebai.motion.IEndRecordTrajectoryRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls MoveTrajectory.
+             * @param request MoveTrajectoryRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and MotionIndex
+             */
+            public moveTrajectory(request: lebai.motion.IMoveTrajectoryRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
+
+            /**
+             * Calls MoveTrajectory.
+             * @param request MoveTrajectoryRequest message or plain object
+             * @returns Promise
+             */
+            public moveTrajectory(request: lebai.motion.IMoveTrajectoryRequest): Promise<lebai.motion.MotionIndex>;
+
+            /**
              * Calls StartTeachMode.
              * @param request Empty message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -18576,6 +18921,27 @@ export namespace lebai {
              * @param [response] Empty
              */
             type SpeedLinearCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#startRecordTrajectory}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type StartRecordTrajectoryCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#endRecordTrajectory}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type EndRecordTrajectoryCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#moveTrajectory}.
+             * @param error Error, if any
+             * @param [response] MotionIndex
+             */
+            type MoveTrajectoryCallback = (error: (Error|null), response?: lebai.motion.MotionIndex) => void;
 
             /**
              * Callback as used by {@link lebai.motion.MotionService#startTeachMode}.
