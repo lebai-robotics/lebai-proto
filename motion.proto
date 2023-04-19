@@ -58,8 +58,21 @@ message JointMove {
   double acc = 3;
 }
 message MovePvatRequest {
+  // 执行时间(0.01秒的倍数)
   double duration = 11;
   repeated JointMove joints = 1;
+}
+
+message Trajectory {
+  repeated MovePvatRequest data = 11;
+}
+message EndRecordTrajectoryRequest {
+  string name = 1;
+  string dir = 11;
+}
+message MoveTrajectoryRequest {
+  string name = 1;
+  string dir = 11;
 }
 
 message Wrench {
@@ -132,6 +145,15 @@ service MotionService {
   rpc SpeedJoint(SpeedJRequest) returns (google.protobuf.Empty);
   // 沿直线匀速运动
   rpc SpeedLinear(SpeedLRequest) returns (google.protobuf.Empty);
+
+  // 开始记录轨迹
+  rpc StartRecordTrajectory(google.protobuf.Empty)
+      returns (google.protobuf.Empty);
+  // 结束记录轨迹
+  rpc EndRecordTrajectory(EndRecordTrajectoryRequest)
+      returns (google.protobuf.Empty);
+  // 运行轨迹
+  rpc MoveTrajectory(MoveTrajectoryRequest) returns (MotionIndex);
 
   // 进入示教模式
   rpc StartTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
