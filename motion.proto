@@ -4,6 +4,7 @@ package lebai.motion;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "db.proto";
 import "posture.proto";
 
 message MotionIndex {
@@ -65,6 +66,11 @@ message MovePvatRequest {
 
 message Trajectory {
   repeated MovePvatRequest data = 11;
+}
+message SaveTrajectoryRequest {
+  string name = 1;
+  Trajectory data = 2;
+  string dir = 11;
 }
 message EndRecordTrajectoryRequest {
   string name = 1;
@@ -146,6 +152,12 @@ service MotionService {
   // 沿直线匀速运动
   rpc SpeedLinear(SpeedLRequest) returns (google.protobuf.Empty);
 
+  // 保存/修改/删除负载
+  rpc SaveTrajectory(SaveTrajectoryRequest) returns (google.protobuf.Empty);
+  // 查询负载
+  rpc LoadTrajectory(db.LoadRequest) returns (Trajectory);
+  // 查询负载列表
+  rpc LoadTrajectoryList(db.LoadListRequest) returns (db.LoadListResponse);
   // 开始记录轨迹
   rpc StartRecordTrajectory(google.protobuf.Empty)
       returns (google.protobuf.Empty);
@@ -153,7 +165,7 @@ service MotionService {
   rpc EndRecordTrajectory(EndRecordTrajectoryRequest)
       returns (google.protobuf.Empty);
   // 运行轨迹
-  rpc MoveTrajectory(MoveTrajectoryRequest) returns (MotionIndex);
+  rpc MoveTrajectory(Trajectory) returns (MotionIndex);
 
   // 进入示教模式
   rpc StartTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
