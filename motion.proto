@@ -72,6 +72,10 @@ message SaveTrajectoryRequest {
   Trajectory data = 2;
   string dir = 11;
 }
+message StartRecordTrajectoryRequest {
+  // 采样周期(0.01秒的倍数)
+  double duration = 11;
+}
 message EndRecordTrajectoryRequest {
   string name = 1;
   string dir = 11;
@@ -159,7 +163,7 @@ service MotionService {
   // 查询负载列表
   rpc LoadTrajectoryList(db.LoadListRequest) returns (db.LoadListResponse);
   // 开始记录轨迹
-  rpc StartRecordTrajectory(google.protobuf.Empty)
+  rpc StartRecordTrajectory(StartRecordTrajectoryRequest)
       returns (google.protobuf.Empty);
   // 结束记录轨迹
   rpc EndRecordTrajectory(EndRecordTrajectoryRequest)
