@@ -458,8 +458,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               STARTING: 9,
               STOPPING: 10,
               TEACHING: 11,
-              STOP: 12,
-              FINETUNING: 13
+              STOP: 12
             }
           },
           GetRobotStateResponse: {
@@ -4426,10 +4425,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               status: {
                 type: "io.ButtonStatus",
                 id: 12
-              },
-              startup: {
-                type: "bool",
-                id: 21
               }
             }
           },

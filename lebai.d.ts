@@ -1999,8 +1999,7 @@ export namespace lebai {
             STARTING = 9,
             STOPPING = 10,
             TEACHING = 11,
-            STOP = 12,
-            FINETUNING = 13
+            STOP = 12
         }
 
         /** Properties of a GetRobotStateResponse. */
@@ -25478,9 +25477,6 @@ export namespace lebai {
 
             /** Condition status */
             status?: (lebai.io.IButtonStatus|null);
-
-            /** Condition startup */
-            startup?: (boolean|null);
         }
 
         /** Represents a Condition. */
@@ -25500,9 +25496,6 @@ export namespace lebai {
 
             /** Condition status. */
             public status?: (lebai.io.IButtonStatus|null);
-
-            /** Condition startup. */
-            public startup: boolean;
 
             /**
              * Creates a new Condition instance using the specified properties.
