@@ -3097,6 +3097,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          StartRecordTrajectoryRequest: {
+            fields: {
+              duration: {
+                type: "double",
+                id: 11
+              }
+            }
+          },
           EndRecordTrajectoryRequest: {
             fields: {
               name: {
@@ -3256,7 +3264,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "db.LoadListResponse"
               },
               StartRecordTrajectory: {
-                requestType: "google.protobuf.Empty",
+                requestType: "StartRecordTrajectoryRequest",
                 responseType: "google.protobuf.Empty"
               },
               EndRecordTrajectory: {

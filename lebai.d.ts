@@ -17866,6 +17866,103 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a StartRecordTrajectoryRequest. */
+        interface IStartRecordTrajectoryRequest {
+
+            /** StartRecordTrajectoryRequest duration */
+            duration?: (number|null);
+        }
+
+        /** Represents a StartRecordTrajectoryRequest. */
+        class StartRecordTrajectoryRequest implements IStartRecordTrajectoryRequest {
+
+            /**
+             * Constructs a new StartRecordTrajectoryRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.motion.IStartRecordTrajectoryRequest);
+
+            /** StartRecordTrajectoryRequest duration. */
+            public duration: number;
+
+            /**
+             * Creates a new StartRecordTrajectoryRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns StartRecordTrajectoryRequest instance
+             */
+            public static create(properties?: lebai.motion.IStartRecordTrajectoryRequest): lebai.motion.StartRecordTrajectoryRequest;
+
+            /**
+             * Encodes the specified StartRecordTrajectoryRequest message. Does not implicitly {@link lebai.motion.StartRecordTrajectoryRequest.verify|verify} messages.
+             * @param message StartRecordTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.motion.IStartRecordTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified StartRecordTrajectoryRequest message, length delimited. Does not implicitly {@link lebai.motion.StartRecordTrajectoryRequest.verify|verify} messages.
+             * @param message StartRecordTrajectoryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.motion.IStartRecordTrajectoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a StartRecordTrajectoryRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns StartRecordTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.motion.StartRecordTrajectoryRequest;
+
+            /**
+             * Decodes a StartRecordTrajectoryRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns StartRecordTrajectoryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.motion.StartRecordTrajectoryRequest;
+
+            /**
+             * Verifies a StartRecordTrajectoryRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a StartRecordTrajectoryRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns StartRecordTrajectoryRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.motion.StartRecordTrajectoryRequest;
+
+            /**
+             * Creates a plain object from a StartRecordTrajectoryRequest message. Also converts values to other types if specified.
+             * @param message StartRecordTrajectoryRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.motion.StartRecordTrajectoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this StartRecordTrajectoryRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for StartRecordTrajectoryRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of an EndRecordTrajectoryRequest. */
         interface IEndRecordTrajectoryRequest {
 
@@ -18833,17 +18930,17 @@ export namespace lebai {
 
             /**
              * Calls StartRecordTrajectory.
-             * @param request Empty message or plain object
+             * @param request StartRecordTrajectoryRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
              */
-            public startRecordTrajectory(request: google.protobuf.IEmpty, callback: lebai.motion.MotionService.StartRecordTrajectoryCallback): void;
+            public startRecordTrajectory(request: lebai.motion.IStartRecordTrajectoryRequest, callback: lebai.motion.MotionService.StartRecordTrajectoryCallback): void;
 
             /**
              * Calls StartRecordTrajectory.
-             * @param request Empty message or plain object
+             * @param request StartRecordTrajectoryRequest message or plain object
              * @returns Promise
              */
-            public startRecordTrajectory(request: google.protobuf.IEmpty): Promise<google.protobuf.Empty>;
+            public startRecordTrajectory(request: lebai.motion.IStartRecordTrajectoryRequest): Promise<google.protobuf.Empty>;
 
             /**
              * Calls EndRecordTrajectory.
