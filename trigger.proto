@@ -11,8 +11,6 @@ message Condition {
   // 当指定按键处于某状态时
   io.ButtonIndex button = 11;
   io.ButtonStatus status = 12;
-  // 仅启动时监测一次
-  bool startup = 21;
 }
 enum Function {
   // 无

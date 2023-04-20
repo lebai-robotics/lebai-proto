@@ -172,8 +172,6 @@ enum RobotState {
   TEACHING = 11;
   // 普通停止
   STOP = 12;
-  // 微调中
-  FINETUNING = 13;
 }
 message GetRobotStateResponse {
   RobotState state = 1;
