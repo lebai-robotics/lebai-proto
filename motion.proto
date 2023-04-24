@@ -55,16 +55,22 @@ message SpeedLRequest {
 
 message JointMove {
   double pose = 1;
-  double velocity = 2;
-  double acc = 3;
+  google.protobuf.DoubleValue velocity = 2;
+  google.protobuf.DoubleValue acc = 3;
+}
+enum PvatKind {
+  PT = 0;
+  PVT = 1;
+  PVAT = 2;
 }
 message MovePvatRequest {
+  repeated JointMove joints = 10;
   // 执行时间(0.01秒的倍数)
   double duration = 11;
-  repeated JointMove joints = 1;
 }
 
 message Trajectory {
+  PvatKind kind = 1;
   repeated MovePvatRequest data = 11;
 }
 message SaveTrajectoryRequest {
@@ -73,6 +79,7 @@ message SaveTrajectoryRequest {
   string dir = 11;
 }
 message StartRecordTrajectoryRequest {
+  PvatKind kind = 1;
   // 采样周期(0.01秒的倍数)
   double duration = 11;
 }
