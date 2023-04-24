@@ -922,6 +922,10 @@
                   <a href="#lebai.motion.MotionState"><span class="badge">E</span>MotionState</a>
                 </li>
               
+                <li>
+                  <a href="#lebai.motion.PvatKind"><span class="badge">E</span>PvatKind</a>
+                </li>
+              
               
               
                 <li>
@@ -6755,14 +6759,14 @@
               
                 <tr>
                   <td>velocity</td>
-                  <td><a href="#double">double</a></td>
+                  <td><a href="#google.protobuf.DoubleValue">google.protobuf.DoubleValue</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>acc</td>
-                  <td><a href="#double">double</a></td>
+                  <td><a href="#google.protobuf.DoubleValue">google.protobuf.DoubleValue</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -6854,17 +6858,17 @@
             <tbody>
               
                 <tr>
-                  <td>duration</td>
-                  <td><a href="#double">double</a></td>
-                  <td></td>
-                  <td><p>执行时间(0.01秒的倍数) </p></td>
-                </tr>
-              
-                <tr>
                   <td>joints</td>
                   <td><a href="#lebai.motion.JointMove">JointMove</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>duration</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>执行时间(0.01秒的倍数) </p></td>
                 </tr>
               
             </tbody>
@@ -7230,6 +7234,13 @@
             <tbody>
               
                 <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.motion.PvatKind">PvatKind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>duration</td>
                   <td><a href="#double">double</a></td>
                   <td></td>
@@ -7252,6 +7263,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>kind</td>
+                  <td><a href="#lebai.motion.PvatKind">PvatKind</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
               
                 <tr>
                   <td>data</td>
@@ -7357,6 +7375,35 @@
             
               <tr>
                 <td>FINISHED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="lebai.motion.PvatKind">PvatKind</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>PT</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PVT</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PVAT</td>
                 <td>2</td>
                 <td><p></p></td>
               </tr>
