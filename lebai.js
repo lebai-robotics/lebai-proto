@@ -3050,30 +3050,41 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 id: 1
               },
               velocity: {
-                type: "double",
+                type: "google.protobuf.DoubleValue",
                 id: 2
               },
               acc: {
-                type: "double",
+                type: "google.protobuf.DoubleValue",
                 id: 3
               }
             }
           },
+          PvatKind: {
+            values: {
+              PT: 0,
+              PVT: 1,
+              PVAT: 2
+            }
+          },
           MovePvatRequest: {
             fields: {
-              duration: {
-                type: "double",
-                id: 11
-              },
               joints: {
                 rule: "repeated",
                 type: "JointMove",
-                id: 1
+                id: 10
+              },
+              duration: {
+                type: "double",
+                id: 11
               }
             }
           },
           Trajectory: {
             fields: {
+              kind: {
+                type: "PvatKind",
+                id: 1
+              },
               data: {
                 rule: "repeated",
                 type: "MovePvatRequest",
@@ -3099,6 +3110,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           StartRecordTrajectoryRequest: {
             fields: {
+              kind: {
+                type: "PvatKind",
+                id: 1
+              },
               duration: {
                 type: "double",
                 id: 11

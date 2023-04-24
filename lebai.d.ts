@@ -17455,10 +17455,10 @@ export namespace lebai {
             pose?: (number|null);
 
             /** JointMove velocity */
-            velocity?: (number|null);
+            velocity?: (google.protobuf.IDoubleValue|null);
 
             /** JointMove acc */
-            acc?: (number|null);
+            acc?: (google.protobuf.IDoubleValue|null);
         }
 
         /** Represents a JointMove. */
@@ -17474,10 +17474,10 @@ export namespace lebai {
             public pose: number;
 
             /** JointMove velocity. */
-            public velocity: number;
+            public velocity?: (google.protobuf.IDoubleValue|null);
 
             /** JointMove acc. */
-            public acc: number;
+            public acc?: (google.protobuf.IDoubleValue|null);
 
             /**
              * Creates a new JointMove instance using the specified properties.
@@ -17557,14 +17557,21 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** PvatKind enum. */
+        enum PvatKind {
+            PT = 0,
+            PVT = 1,
+            PVAT = 2
+        }
+
         /** Properties of a MovePvatRequest. */
         interface IMovePvatRequest {
 
-            /** MovePvatRequest duration */
-            duration?: (number|null);
-
             /** MovePvatRequest joints */
             joints?: (lebai.motion.IJointMove[]|null);
+
+            /** MovePvatRequest duration */
+            duration?: (number|null);
         }
 
         /** Represents a MovePvatRequest. */
@@ -17576,11 +17583,11 @@ export namespace lebai {
              */
             constructor(properties?: lebai.motion.IMovePvatRequest);
 
-            /** MovePvatRequest duration. */
-            public duration: number;
-
             /** MovePvatRequest joints. */
             public joints: lebai.motion.IJointMove[];
+
+            /** MovePvatRequest duration. */
+            public duration: number;
 
             /**
              * Creates a new MovePvatRequest instance using the specified properties.
@@ -17663,6 +17670,9 @@ export namespace lebai {
         /** Properties of a Trajectory. */
         interface ITrajectory {
 
+            /** Trajectory kind */
+            kind?: (lebai.motion.PvatKind|null);
+
             /** Trajectory data */
             data?: (lebai.motion.IMovePvatRequest[]|null);
         }
@@ -17675,6 +17685,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.motion.ITrajectory);
+
+            /** Trajectory kind. */
+            public kind: lebai.motion.PvatKind;
 
             /** Trajectory data. */
             public data: lebai.motion.IMovePvatRequest[];
@@ -17869,6 +17882,9 @@ export namespace lebai {
         /** Properties of a StartRecordTrajectoryRequest. */
         interface IStartRecordTrajectoryRequest {
 
+            /** StartRecordTrajectoryRequest kind */
+            kind?: (lebai.motion.PvatKind|null);
+
             /** StartRecordTrajectoryRequest duration */
             duration?: (number|null);
         }
@@ -17881,6 +17897,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.motion.IStartRecordTrajectoryRequest);
+
+            /** StartRecordTrajectoryRequest kind. */
+            public kind: lebai.motion.PvatKind;
 
             /** StartRecordTrajectoryRequest duration. */
             public duration: number;
