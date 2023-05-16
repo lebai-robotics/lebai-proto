@@ -27,7 +27,7 @@ message Modbus {
   ModbusKind kind = 12;
   // IP地址 或 串口地址
   string address = 13;
-  // TCP端口号 或 串口波特率
+  // TCP端口号
   uint32 port = 14;
   // ModBus从机地址
   uint32 slave_id = 15 [json_name = "slave_id"];

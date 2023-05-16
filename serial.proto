@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package lebai.serial;
+
+import "google/protobuf/empty.proto";
+
+message SetSerialBaudRateRequest {
+  string path = 1;
+  // 波特率，默认115200
+  uint32 baud_rate = 11 [json_name = "baud_rate"];
+}
+message WriteSerialRequest {
+  string path = 1;
+  // u8数组
+  repeated uint32 data = 11;
+}
+message ReadSerialRequest {
+  string path = 1;
+  // 单次接收的最大缓冲长度
+  uint32 len = 11;
+}
+message ReadSerialResponse {
+  // u8数组
+  repeated uint32 data = 11;
+}
+
+// 串口相关服务
+service SerialService {
+  // 设置波特率
+  rpc SetSerialBaudRate(SetSerialBaudRateRequest)
+      returns (google.protobuf.Empty);
+  // 发送数据
+  rpc WriteSerial(WriteSerialRequest) returns (google.protobuf.Empty);
+  // 读取数据
+  rpc ReadSerial(ReadSerialRequest) returns (ReadSerialResponse);
+}
