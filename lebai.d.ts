@@ -22701,6 +22701,503 @@ export namespace lebai {
         }
     }
 
+    /** Namespace serial. */
+    namespace serial {
+
+        /** Properties of a SetSerialBaudRateRequest. */
+        interface ISetSerialBaudRateRequest {
+
+            /** SetSerialBaudRateRequest path */
+            path?: (string|null);
+
+            /** SetSerialBaudRateRequest baudRate */
+            baudRate?: (number|null);
+        }
+
+        /** Represents a SetSerialBaudRateRequest. */
+        class SetSerialBaudRateRequest implements ISetSerialBaudRateRequest {
+
+            /**
+             * Constructs a new SetSerialBaudRateRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.ISetSerialBaudRateRequest);
+
+            /** SetSerialBaudRateRequest path. */
+            public path: string;
+
+            /** SetSerialBaudRateRequest baudRate. */
+            public baudRate: number;
+
+            /**
+             * Creates a new SetSerialBaudRateRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetSerialBaudRateRequest instance
+             */
+            public static create(properties?: lebai.serial.ISetSerialBaudRateRequest): lebai.serial.SetSerialBaudRateRequest;
+
+            /**
+             * Encodes the specified SetSerialBaudRateRequest message. Does not implicitly {@link lebai.serial.SetSerialBaudRateRequest.verify|verify} messages.
+             * @param message SetSerialBaudRateRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.ISetSerialBaudRateRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetSerialBaudRateRequest message, length delimited. Does not implicitly {@link lebai.serial.SetSerialBaudRateRequest.verify|verify} messages.
+             * @param message SetSerialBaudRateRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.ISetSerialBaudRateRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetSerialBaudRateRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetSerialBaudRateRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.SetSerialBaudRateRequest;
+
+            /**
+             * Decodes a SetSerialBaudRateRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetSerialBaudRateRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.SetSerialBaudRateRequest;
+
+            /**
+             * Verifies a SetSerialBaudRateRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetSerialBaudRateRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetSerialBaudRateRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.SetSerialBaudRateRequest;
+
+            /**
+             * Creates a plain object from a SetSerialBaudRateRequest message. Also converts values to other types if specified.
+             * @param message SetSerialBaudRateRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.SetSerialBaudRateRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetSerialBaudRateRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetSerialBaudRateRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a WriteSerialRequest. */
+        interface IWriteSerialRequest {
+
+            /** WriteSerialRequest path */
+            path?: (string|null);
+
+            /** WriteSerialRequest data */
+            data?: (number[]|null);
+        }
+
+        /** Represents a WriteSerialRequest. */
+        class WriteSerialRequest implements IWriteSerialRequest {
+
+            /**
+             * Constructs a new WriteSerialRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.IWriteSerialRequest);
+
+            /** WriteSerialRequest path. */
+            public path: string;
+
+            /** WriteSerialRequest data. */
+            public data: number[];
+
+            /**
+             * Creates a new WriteSerialRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WriteSerialRequest instance
+             */
+            public static create(properties?: lebai.serial.IWriteSerialRequest): lebai.serial.WriteSerialRequest;
+
+            /**
+             * Encodes the specified WriteSerialRequest message. Does not implicitly {@link lebai.serial.WriteSerialRequest.verify|verify} messages.
+             * @param message WriteSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.IWriteSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WriteSerialRequest message, length delimited. Does not implicitly {@link lebai.serial.WriteSerialRequest.verify|verify} messages.
+             * @param message WriteSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.IWriteSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WriteSerialRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WriteSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.WriteSerialRequest;
+
+            /**
+             * Decodes a WriteSerialRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WriteSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.WriteSerialRequest;
+
+            /**
+             * Verifies a WriteSerialRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WriteSerialRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WriteSerialRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.WriteSerialRequest;
+
+            /**
+             * Creates a plain object from a WriteSerialRequest message. Also converts values to other types if specified.
+             * @param message WriteSerialRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.WriteSerialRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WriteSerialRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for WriteSerialRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a ReadSerialRequest. */
+        interface IReadSerialRequest {
+
+            /** ReadSerialRequest path */
+            path?: (string|null);
+
+            /** ReadSerialRequest len */
+            len?: (number|null);
+        }
+
+        /** Represents a ReadSerialRequest. */
+        class ReadSerialRequest implements IReadSerialRequest {
+
+            /**
+             * Constructs a new ReadSerialRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.IReadSerialRequest);
+
+            /** ReadSerialRequest path. */
+            public path: string;
+
+            /** ReadSerialRequest len. */
+            public len: number;
+
+            /**
+             * Creates a new ReadSerialRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadSerialRequest instance
+             */
+            public static create(properties?: lebai.serial.IReadSerialRequest): lebai.serial.ReadSerialRequest;
+
+            /**
+             * Encodes the specified ReadSerialRequest message. Does not implicitly {@link lebai.serial.ReadSerialRequest.verify|verify} messages.
+             * @param message ReadSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.IReadSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadSerialRequest message, length delimited. Does not implicitly {@link lebai.serial.ReadSerialRequest.verify|verify} messages.
+             * @param message ReadSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.IReadSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadSerialRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.ReadSerialRequest;
+
+            /**
+             * Decodes a ReadSerialRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.ReadSerialRequest;
+
+            /**
+             * Verifies a ReadSerialRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadSerialRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadSerialRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.ReadSerialRequest;
+
+            /**
+             * Creates a plain object from a ReadSerialRequest message. Also converts values to other types if specified.
+             * @param message ReadSerialRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.ReadSerialRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadSerialRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ReadSerialRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a ReadSerialResponse. */
+        interface IReadSerialResponse {
+
+            /** ReadSerialResponse data */
+            data?: (number[]|null);
+        }
+
+        /** Represents a ReadSerialResponse. */
+        class ReadSerialResponse implements IReadSerialResponse {
+
+            /**
+             * Constructs a new ReadSerialResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.IReadSerialResponse);
+
+            /** ReadSerialResponse data. */
+            public data: number[];
+
+            /**
+             * Creates a new ReadSerialResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadSerialResponse instance
+             */
+            public static create(properties?: lebai.serial.IReadSerialResponse): lebai.serial.ReadSerialResponse;
+
+            /**
+             * Encodes the specified ReadSerialResponse message. Does not implicitly {@link lebai.serial.ReadSerialResponse.verify|verify} messages.
+             * @param message ReadSerialResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.IReadSerialResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadSerialResponse message, length delimited. Does not implicitly {@link lebai.serial.ReadSerialResponse.verify|verify} messages.
+             * @param message ReadSerialResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.IReadSerialResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadSerialResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadSerialResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.ReadSerialResponse;
+
+            /**
+             * Decodes a ReadSerialResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadSerialResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.ReadSerialResponse;
+
+            /**
+             * Verifies a ReadSerialResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadSerialResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadSerialResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.ReadSerialResponse;
+
+            /**
+             * Creates a plain object from a ReadSerialResponse message. Also converts values to other types if specified.
+             * @param message ReadSerialResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.ReadSerialResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadSerialResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ReadSerialResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a SerialService */
+        class SerialService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new SerialService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new SerialService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): SerialService;
+
+            /**
+             * Calls SetSerialBaudRate.
+             * @param request SetSerialBaudRateRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setSerialBaudRate(request: lebai.serial.ISetSerialBaudRateRequest, callback: lebai.serial.SerialService.SetSerialBaudRateCallback): void;
+
+            /**
+             * Calls SetSerialBaudRate.
+             * @param request SetSerialBaudRateRequest message or plain object
+             * @returns Promise
+             */
+            public setSerialBaudRate(request: lebai.serial.ISetSerialBaudRateRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls WriteSerial.
+             * @param request WriteSerialRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public writeSerial(request: lebai.serial.IWriteSerialRequest, callback: lebai.serial.SerialService.WriteSerialCallback): void;
+
+            /**
+             * Calls WriteSerial.
+             * @param request WriteSerialRequest message or plain object
+             * @returns Promise
+             */
+            public writeSerial(request: lebai.serial.IWriteSerialRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls ReadSerial.
+             * @param request ReadSerialRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and ReadSerialResponse
+             */
+            public readSerial(request: lebai.serial.IReadSerialRequest, callback: lebai.serial.SerialService.ReadSerialCallback): void;
+
+            /**
+             * Calls ReadSerial.
+             * @param request ReadSerialRequest message or plain object
+             * @returns Promise
+             */
+            public readSerial(request: lebai.serial.IReadSerialRequest): Promise<lebai.serial.ReadSerialResponse>;
+        }
+
+        namespace SerialService {
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#setSerialBaudRate}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetSerialBaudRateCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#writeSerial}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type WriteSerialCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#readSerial}.
+             * @param error Error, if any
+             * @param [response] ReadSerialResponse
+             */
+            type ReadSerialCallback = (error: (Error|null), response?: lebai.serial.ReadSerialResponse) => void;
+        }
+    }
+
     /** Namespace shortcut. */
     namespace shortcut {
 

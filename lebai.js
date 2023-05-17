@@ -3911,6 +3911,75 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      serial: {
+        nested: {
+          SetSerialBaudRateRequest: {
+            fields: {
+              path: {
+                type: "string",
+                id: 1
+              },
+              baudRate: {
+                type: "uint32",
+                id: 11,
+                options: {
+                  json_name: "baud_rate"
+                }
+              }
+            }
+          },
+          WriteSerialRequest: {
+            fields: {
+              path: {
+                type: "string",
+                id: 1
+              },
+              data: {
+                rule: "repeated",
+                type: "uint32",
+                id: 11
+              }
+            }
+          },
+          ReadSerialRequest: {
+            fields: {
+              path: {
+                type: "string",
+                id: 1
+              },
+              len: {
+                type: "uint32",
+                id: 11
+              }
+            }
+          },
+          ReadSerialResponse: {
+            fields: {
+              data: {
+                rule: "repeated",
+                type: "uint32",
+                id: 11
+              }
+            }
+          },
+          SerialService: {
+            methods: {
+              SetSerialBaudRate: {
+                requestType: "SetSerialBaudRateRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              WriteSerial: {
+                requestType: "WriteSerialRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              ReadSerial: {
+                requestType: "ReadSerialRequest",
+                responseType: "ReadSerialResponse"
+              }
+            }
+          }
+        }
+      },
       shortcut: {
         nested: {
           ShortcutIndex: {
