@@ -1215,6 +1215,37 @@
         
           
           <li>
+            <a href="#serial.proto">serial.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.serial.ReadSerialRequest"><span class="badge">M</span>ReadSerialRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.serial.ReadSerialResponse"><span class="badge">M</span>ReadSerialResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.serial.SetSerialBaudRateRequest"><span class="badge">M</span>SetSerialBaudRateRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.serial.WriteSerialRequest"><span class="badge">M</span>WriteSerialRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.serial.SerialService"><span class="badge">S</span>SerialService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#shortcut.proto">shortcut.proto</a>
             <ul>
               
@@ -6172,7 +6203,7 @@
                   <td>port</td>
                   <td><a href="#uint32">uint32</a></td>
                   <td></td>
-                  <td><p>TCP端口号 或 串口波特率 </p></td>
+                  <td><p>TCP端口号 </p></td>
                 </tr>
               
                 <tr>
@@ -9791,6 +9822,170 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.safety.CartesianLimit">CartesianLimit</a></td>
                 <td><p>读取空间限位</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="serial.proto">serial.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.serial.ReadSerialRequest">ReadSerialRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>path</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>len</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>单次接收的最大缓冲长度 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.serial.ReadSerialResponse">ReadSerialResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p>u8数组 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.serial.SetSerialBaudRateRequest">SetSerialBaudRateRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>path</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>baud_rate</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>波特率，默认115200 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.serial.WriteSerialRequest">WriteSerialRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>path</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td>repeated</td>
+                  <td><p>u8数组 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.serial.SerialService">SerialService</h3>
+        <p>串口相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetSerialBaudRate</td>
+                <td><a href="#lebai.serial.SetSerialBaudRateRequest">SetSerialBaudRateRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置波特率</p></td>
+              </tr>
+            
+              <tr>
+                <td>WriteSerial</td>
+                <td><a href="#lebai.serial.WriteSerialRequest">WriteSerialRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>发送数据</p></td>
+              </tr>
+            
+              <tr>
+                <td>ReadSerial</td>
+                <td><a href="#lebai.serial.ReadSerialRequest">ReadSerialRequest</a></td>
+                <td><a href="#lebai.serial.ReadSerialResponse">ReadSerialResponse</a></td>
+                <td><p>读取数据</p></td>
               </tr>
             
           </tbody>
