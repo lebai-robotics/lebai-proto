@@ -5,17 +5,17 @@ package lebai.serial;
 import "google/protobuf/empty.proto";
 
 message SetSerialBaudRateRequest {
-  string path = 1;
+  string device = 1;
   // 波特率，默认115200
   uint32 baud_rate = 11 [json_name = "baud_rate"];
 }
 message WriteSerialRequest {
-  string path = 1;
+  string device = 1;
   // u8数组
   repeated uint32 data = 11;
 }
 message ReadSerialRequest {
-  string path = 1;
+  string device = 1;
   // 单次接收的最大缓冲长度
   uint32 len = 11;
 }
