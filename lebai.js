@@ -3915,7 +3915,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
         nested: {
           SetSerialBaudRateRequest: {
             fields: {
-              path: {
+              device: {
                 type: "string",
                 id: 1
               },
@@ -3930,7 +3930,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           WriteSerialRequest: {
             fields: {
-              path: {
+              device: {
                 type: "string",
                 id: 1
               },
@@ -3943,7 +3943,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           ReadSerialRequest: {
             fields: {
-              path: {
+              device: {
                 type: "string",
                 id: 1
               },

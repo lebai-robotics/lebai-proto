@@ -22707,8 +22707,8 @@ export namespace lebai {
         /** Properties of a SetSerialBaudRateRequest. */
         interface ISetSerialBaudRateRequest {
 
-            /** SetSerialBaudRateRequest path */
-            path?: (string|null);
+            /** SetSerialBaudRateRequest device */
+            device?: (string|null);
 
             /** SetSerialBaudRateRequest baudRate */
             baudRate?: (number|null);
@@ -22723,8 +22723,8 @@ export namespace lebai {
              */
             constructor(properties?: lebai.serial.ISetSerialBaudRateRequest);
 
-            /** SetSerialBaudRateRequest path. */
-            public path: string;
+            /** SetSerialBaudRateRequest device. */
+            public device: string;
 
             /** SetSerialBaudRateRequest baudRate. */
             public baudRate: number;
@@ -22810,8 +22810,8 @@ export namespace lebai {
         /** Properties of a WriteSerialRequest. */
         interface IWriteSerialRequest {
 
-            /** WriteSerialRequest path */
-            path?: (string|null);
+            /** WriteSerialRequest device */
+            device?: (string|null);
 
             /** WriteSerialRequest data */
             data?: (number[]|null);
@@ -22826,8 +22826,8 @@ export namespace lebai {
              */
             constructor(properties?: lebai.serial.IWriteSerialRequest);
 
-            /** WriteSerialRequest path. */
-            public path: string;
+            /** WriteSerialRequest device. */
+            public device: string;
 
             /** WriteSerialRequest data. */
             public data: number[];
@@ -22913,8 +22913,8 @@ export namespace lebai {
         /** Properties of a ReadSerialRequest. */
         interface IReadSerialRequest {
 
-            /** ReadSerialRequest path */
-            path?: (string|null);
+            /** ReadSerialRequest device */
+            device?: (string|null);
 
             /** ReadSerialRequest len */
             len?: (number|null);
@@ -22929,8 +22929,8 @@ export namespace lebai {
              */
             constructor(properties?: lebai.serial.IReadSerialRequest);
 
-            /** ReadSerialRequest path. */
-            public path: string;
+            /** ReadSerialRequest device. */
+            public device: string;
 
             /** ReadSerialRequest len. */
             public len: number;
