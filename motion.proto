@@ -159,9 +159,9 @@ service MotionService {
   rpc MovePvat(MovePvatRequest) returns (google.protobuf.Empty);
 
   // 关节匀速运动
-  rpc SpeedJoint(SpeedJRequest) returns (google.protobuf.Empty);
+  rpc SpeedJoint(SpeedJRequest) returns (MotionIndex);
   // 沿直线匀速运动
-  rpc SpeedLinear(SpeedLRequest) returns (google.protobuf.Empty);
+  rpc SpeedLinear(SpeedLRequest) returns (MotionIndex);
 
   // 保存/修改/删除负载
   rpc SaveTrajectory(SaveTrajectoryRequest) returns (google.protobuf.Empty);
