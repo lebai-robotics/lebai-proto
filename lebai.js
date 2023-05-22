@@ -3260,11 +3260,11 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               SpeedJoint: {
                 requestType: "SpeedJRequest",
-                responseType: "google.protobuf.Empty"
+                responseType: "MotionIndex"
               },
               SpeedLinear: {
                 requestType: "SpeedLRequest",
-                responseType: "google.protobuf.Empty"
+                responseType: "MotionIndex"
               },
               SaveTrajectory: {
                 requestType: "SaveTrajectoryRequest",

@@ -18880,7 +18880,7 @@ export namespace lebai {
             /**
              * Calls SpeedJoint.
              * @param request SpeedJRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
+             * @param callback Node-style callback called with the error, if any, and MotionIndex
              */
             public speedJoint(request: lebai.motion.ISpeedJRequest, callback: lebai.motion.MotionService.SpeedJointCallback): void;
 
@@ -18889,12 +18889,12 @@ export namespace lebai {
              * @param request SpeedJRequest message or plain object
              * @returns Promise
              */
-            public speedJoint(request: lebai.motion.ISpeedJRequest): Promise<google.protobuf.Empty>;
+            public speedJoint(request: lebai.motion.ISpeedJRequest): Promise<lebai.motion.MotionIndex>;
 
             /**
              * Calls SpeedLinear.
              * @param request SpeedLRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
+             * @param callback Node-style callback called with the error, if any, and MotionIndex
              */
             public speedLinear(request: lebai.motion.ISpeedLRequest, callback: lebai.motion.MotionService.SpeedLinearCallback): void;
 
@@ -18903,7 +18903,7 @@ export namespace lebai {
              * @param request SpeedLRequest message or plain object
              * @returns Promise
              */
-            public speedLinear(request: lebai.motion.ISpeedLRequest): Promise<google.protobuf.Empty>;
+            public speedLinear(request: lebai.motion.ISpeedLRequest): Promise<lebai.motion.MotionIndex>;
 
             /**
              * Calls SaveTrajectory.
@@ -19177,16 +19177,16 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.motion.MotionService#speedJoint}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] MotionIndex
              */
-            type SpeedJointCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type SpeedJointCallback = (error: (Error|null), response?: lebai.motion.MotionIndex) => void;
 
             /**
              * Callback as used by {@link lebai.motion.MotionService#speedLinear}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] MotionIndex
              */
-            type SpeedLinearCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type SpeedLinearCallback = (error: (Error|null), response?: lebai.motion.MotionIndex) => void;
 
             /**
              * Callback as used by {@link lebai.motion.MotionService#saveTrajectory}.
