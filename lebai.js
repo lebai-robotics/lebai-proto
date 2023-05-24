@@ -3928,6 +3928,25 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          Parity: {
+            values: {
+              None: 0,
+              Odd: 1,
+              Even: 2
+            }
+          },
+          SetSerialParityRequest: {
+            fields: {
+              device: {
+                type: "string",
+                id: 1
+              },
+              parity: {
+                type: "Parity",
+                id: 11
+              }
+            }
+          },
           WriteSerialRequest: {
             fields: {
               device: {
@@ -3966,6 +3985,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
             methods: {
               SetSerialBaudRate: {
                 requestType: "SetSerialBaudRateRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              SetSerialParity: {
+                requestType: "SetSerialParityRequest",
                 responseType: "google.protobuf.Empty"
               },
               WriteSerial: {

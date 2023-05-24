@@ -22807,6 +22807,116 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Parity enum. */
+        enum Parity {
+            None = 0,
+            Odd = 1,
+            Even = 2
+        }
+
+        /** Properties of a SetSerialParityRequest. */
+        interface ISetSerialParityRequest {
+
+            /** SetSerialParityRequest device */
+            device?: (string|null);
+
+            /** SetSerialParityRequest parity */
+            parity?: (lebai.serial.Parity|null);
+        }
+
+        /** Represents a SetSerialParityRequest. */
+        class SetSerialParityRequest implements ISetSerialParityRequest {
+
+            /**
+             * Constructs a new SetSerialParityRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.ISetSerialParityRequest);
+
+            /** SetSerialParityRequest device. */
+            public device: string;
+
+            /** SetSerialParityRequest parity. */
+            public parity: lebai.serial.Parity;
+
+            /**
+             * Creates a new SetSerialParityRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetSerialParityRequest instance
+             */
+            public static create(properties?: lebai.serial.ISetSerialParityRequest): lebai.serial.SetSerialParityRequest;
+
+            /**
+             * Encodes the specified SetSerialParityRequest message. Does not implicitly {@link lebai.serial.SetSerialParityRequest.verify|verify} messages.
+             * @param message SetSerialParityRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.ISetSerialParityRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetSerialParityRequest message, length delimited. Does not implicitly {@link lebai.serial.SetSerialParityRequest.verify|verify} messages.
+             * @param message SetSerialParityRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.ISetSerialParityRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetSerialParityRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetSerialParityRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.SetSerialParityRequest;
+
+            /**
+             * Decodes a SetSerialParityRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetSerialParityRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.SetSerialParityRequest;
+
+            /**
+             * Verifies a SetSerialParityRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetSerialParityRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetSerialParityRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.SetSerialParityRequest;
+
+            /**
+             * Creates a plain object from a SetSerialParityRequest message. Also converts values to other types if specified.
+             * @param message SetSerialParityRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.SetSerialParityRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetSerialParityRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetSerialParityRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a WriteSerialRequest. */
         interface IWriteSerialRequest {
 
@@ -23145,6 +23255,20 @@ export namespace lebai {
             public setSerialBaudRate(request: lebai.serial.ISetSerialBaudRateRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls SetSerialParity.
+             * @param request SetSerialParityRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setSerialParity(request: lebai.serial.ISetSerialParityRequest, callback: lebai.serial.SerialService.SetSerialParityCallback): void;
+
+            /**
+             * Calls SetSerialParity.
+             * @param request SetSerialParityRequest message or plain object
+             * @returns Promise
+             */
+            public setSerialParity(request: lebai.serial.ISetSerialParityRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls WriteSerial.
              * @param request WriteSerialRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -23181,6 +23305,13 @@ export namespace lebai {
              * @param [response] Empty
              */
             type SetSerialBaudRateCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#setSerialParity}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetSerialParityCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.serial.SerialService#writeSerial}.
