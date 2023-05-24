@@ -9,6 +9,21 @@ message SetSerialBaudRateRequest {
   // 波特率，默认115200
   uint32 baud_rate = 11 [json_name = "baud_rate"];
 }
+
+enum Parity {
+  // No parity bit.
+  None = 0;
+  // Parity bit sets odd number of 1 bits.
+  Odd = 1;
+  // Parity bit sets even number of 1 bits.
+  Even = 2;
+}
+message SetSerialParityRequest {
+  string device = 1;
+  // 校验位
+  Parity parity = 11;
+}
+
 message WriteSerialRequest {
   string device = 1;
   // u8数组
@@ -29,6 +44,8 @@ service SerialService {
   // 设置波特率
   rpc SetSerialBaudRate(SetSerialBaudRateRequest)
       returns (google.protobuf.Empty);
+  // 设置校验位
+  rpc SetSerialParity(SetSerialParityRequest) returns (google.protobuf.Empty);
   // 发送数据
   rpc WriteSerial(WriteSerialRequest) returns (google.protobuf.Empty);
   // 读取数据
