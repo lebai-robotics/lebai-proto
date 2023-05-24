@@ -1231,9 +1231,17 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.serial.SetSerialParityRequest"><span class="badge">M</span>SetSerialParityRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.serial.WriteSerialRequest"><span class="badge">M</span>WriteSerialRequest</a>
                 </li>
               
+              
+                <li>
+                  <a href="#lebai.serial.Parity"><span class="badge">E</span>Parity</a>
+                </li>
               
               
               
@@ -9922,6 +9930,37 @@
 
         
       
+        <h3 id="lebai.serial.SetSerialParityRequest">SetSerialParityRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>parity</td>
+                  <td><a href="#lebai.serial.Parity">Parity</a></td>
+                  <td></td>
+                  <td><p>校验位 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.serial.WriteSerialRequest">WriteSerialRequest</h3>
         <p></p>
 
@@ -9955,6 +9994,35 @@
       
 
       
+        <h3 id="lebai.serial.Parity">Parity</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>None</td>
+                <td>0</td>
+                <td><p>No parity bit.</p></td>
+              </tr>
+            
+              <tr>
+                <td>Odd</td>
+                <td>1</td>
+                <td><p>Parity bit sets odd number of 1 bits.</p></td>
+              </tr>
+            
+              <tr>
+                <td>Even</td>
+                <td>2</td>
+                <td><p>Parity bit sets even number of 1 bits.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
 
       
 
@@ -9972,6 +10040,13 @@
                 <td><a href="#lebai.serial.SetSerialBaudRateRequest">SetSerialBaudRateRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>设置波特率</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetSerialParity</td>
+                <td><a href="#lebai.serial.SetSerialParityRequest">SetSerialParityRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置校验位</p></td>
               </tr>
             
               <tr>
