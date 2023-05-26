@@ -803,6 +803,10 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.modbus.SetModbusTimeoutRequest"><span class="badge">M</span>SetModbusTimeoutRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.modbus.SetRegisterRequest"><span class="badge">M</span>SetRegisterRequest</a>
                 </li>
               
@@ -1232,6 +1236,10 @@
               
                 <li>
                   <a href="#lebai.serial.SetSerialParityRequest"><span class="badge">M</span>SetSerialParityRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.serial.SetSerialTimeoutRequest"><span class="badge">M</span>SetSerialTimeoutRequest</a>
                 </li>
               
                 <li>
@@ -6404,6 +6412,37 @@
 
         
       
+        <h3 id="lebai.modbus.SetModbusTimeoutRequest">SetModbusTimeoutRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timeout</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>超时时间，默认不超时 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.modbus.SetRegisterRequest">SetRegisterRequest</h3>
         <p></p>
 
@@ -6616,6 +6655,13 @@
                 <td><a href="#lebai.modbus.LoadModbusRegisterListRequest">LoadModbusRegisterListRequest</a></td>
                 <td><a href="#lebai.db.LoadListResponse">.lebai.db.LoadListResponse</a></td>
                 <td><p>查询Modbus寄存器列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetModbusTimeout</td>
+                <td><a href="#lebai.modbus.SetModbusTimeoutRequest">SetModbusTimeoutRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置超时时间</p></td>
               </tr>
             
               <tr>
@@ -9961,6 +10007,37 @@
 
         
       
+        <h3 id="lebai.serial.SetSerialTimeoutRequest">SetSerialTimeoutRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timeout</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>超时时间，默认不超时 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.serial.WriteSerialRequest">WriteSerialRequest</h3>
         <p></p>
 
@@ -10034,6 +10111,13 @@
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
+            
+              <tr>
+                <td>SetSerialTimeout</td>
+                <td><a href="#lebai.serial.SetSerialTimeoutRequest">SetSerialTimeoutRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置超时时间</p></td>
+              </tr>
             
               <tr>
                 <td>SetSerialBaudRate</td>
