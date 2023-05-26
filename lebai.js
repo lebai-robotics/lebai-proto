@@ -2701,6 +2701,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SetModbusTimeoutRequest: {
+            fields: {
+              device: {
+                type: "string",
+                id: 1
+              },
+              timeout: {
+                type: "uint32",
+                id: 11
+              }
+            }
+          },
           SetCoilRequest: {
             fields: {
               device: {
@@ -2882,6 +2894,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               LoadModbusRegisterList: {
                 requestType: "LoadModbusRegisterListRequest",
                 responseType: "db.LoadListResponse"
+              },
+              SetModbusTimeout: {
+                requestType: "SetModbusTimeoutRequest",
+                responseType: "google.protobuf.Empty"
               },
               ReadDiscreteInputs: {
                 requestType: "GetCoilsRequest",
@@ -3913,6 +3929,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
       },
       serial: {
         nested: {
+          SetSerialTimeoutRequest: {
+            fields: {
+              device: {
+                type: "string",
+                id: 1
+              },
+              timeout: {
+                type: "uint32",
+                id: 11
+              }
+            }
+          },
           SetSerialBaudRateRequest: {
             fields: {
               device: {
@@ -3983,6 +4011,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           SerialService: {
             methods: {
+              SetSerialTimeout: {
+                requestType: "SetSerialTimeoutRequest",
+                responseType: "google.protobuf.Empty"
+              },
               SetSerialBaudRate: {
                 requestType: "SetSerialBaudRateRequest",
                 responseType: "google.protobuf.Empty"

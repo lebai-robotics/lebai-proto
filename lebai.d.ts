@@ -15023,6 +15023,109 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a SetModbusTimeoutRequest. */
+        interface ISetModbusTimeoutRequest {
+
+            /** SetModbusTimeoutRequest device */
+            device?: (string|null);
+
+            /** SetModbusTimeoutRequest timeout */
+            timeout?: (number|null);
+        }
+
+        /** Represents a SetModbusTimeoutRequest. */
+        class SetModbusTimeoutRequest implements ISetModbusTimeoutRequest {
+
+            /**
+             * Constructs a new SetModbusTimeoutRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.modbus.ISetModbusTimeoutRequest);
+
+            /** SetModbusTimeoutRequest device. */
+            public device: string;
+
+            /** SetModbusTimeoutRequest timeout. */
+            public timeout: number;
+
+            /**
+             * Creates a new SetModbusTimeoutRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetModbusTimeoutRequest instance
+             */
+            public static create(properties?: lebai.modbus.ISetModbusTimeoutRequest): lebai.modbus.SetModbusTimeoutRequest;
+
+            /**
+             * Encodes the specified SetModbusTimeoutRequest message. Does not implicitly {@link lebai.modbus.SetModbusTimeoutRequest.verify|verify} messages.
+             * @param message SetModbusTimeoutRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.modbus.ISetModbusTimeoutRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetModbusTimeoutRequest message, length delimited. Does not implicitly {@link lebai.modbus.SetModbusTimeoutRequest.verify|verify} messages.
+             * @param message SetModbusTimeoutRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.modbus.ISetModbusTimeoutRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetModbusTimeoutRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetModbusTimeoutRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.modbus.SetModbusTimeoutRequest;
+
+            /**
+             * Decodes a SetModbusTimeoutRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetModbusTimeoutRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.modbus.SetModbusTimeoutRequest;
+
+            /**
+             * Verifies a SetModbusTimeoutRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetModbusTimeoutRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetModbusTimeoutRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.modbus.SetModbusTimeoutRequest;
+
+            /**
+             * Creates a plain object from a SetModbusTimeoutRequest message. Also converts values to other types if specified.
+             * @param message SetModbusTimeoutRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.modbus.SetModbusTimeoutRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetModbusTimeoutRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetModbusTimeoutRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SetCoilRequest. */
         interface ISetCoilRequest {
 
@@ -16376,6 +16479,20 @@ export namespace lebai {
             public loadModbusRegisterList(request: lebai.modbus.ILoadModbusRegisterListRequest): Promise<lebai.db.LoadListResponse>;
 
             /**
+             * Calls SetModbusTimeout.
+             * @param request SetModbusTimeoutRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setModbusTimeout(request: lebai.modbus.ISetModbusTimeoutRequest, callback: lebai.modbus.ModbusService.SetModbusTimeoutCallback): void;
+
+            /**
+             * Calls SetModbusTimeout.
+             * @param request SetModbusTimeoutRequest message or plain object
+             * @returns Promise
+             */
+            public setModbusTimeout(request: lebai.modbus.ISetModbusTimeoutRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls ReadDiscreteInputs.
              * @param request GetCoilsRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and GetCoilsResponse
@@ -16531,6 +16648,13 @@ export namespace lebai {
              * @param [response] LoadListResponse
              */
             type LoadModbusRegisterListCallback = (error: (Error|null), response?: lebai.db.LoadListResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.modbus.ModbusService#setModbusTimeout}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetModbusTimeoutCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.modbus.ModbusService#readDiscreteInputs}.
@@ -22704,6 +22828,109 @@ export namespace lebai {
     /** Namespace serial. */
     namespace serial {
 
+        /** Properties of a SetSerialTimeoutRequest. */
+        interface ISetSerialTimeoutRequest {
+
+            /** SetSerialTimeoutRequest device */
+            device?: (string|null);
+
+            /** SetSerialTimeoutRequest timeout */
+            timeout?: (number|null);
+        }
+
+        /** Represents a SetSerialTimeoutRequest. */
+        class SetSerialTimeoutRequest implements ISetSerialTimeoutRequest {
+
+            /**
+             * Constructs a new SetSerialTimeoutRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.ISetSerialTimeoutRequest);
+
+            /** SetSerialTimeoutRequest device. */
+            public device: string;
+
+            /** SetSerialTimeoutRequest timeout. */
+            public timeout: number;
+
+            /**
+             * Creates a new SetSerialTimeoutRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetSerialTimeoutRequest instance
+             */
+            public static create(properties?: lebai.serial.ISetSerialTimeoutRequest): lebai.serial.SetSerialTimeoutRequest;
+
+            /**
+             * Encodes the specified SetSerialTimeoutRequest message. Does not implicitly {@link lebai.serial.SetSerialTimeoutRequest.verify|verify} messages.
+             * @param message SetSerialTimeoutRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.ISetSerialTimeoutRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetSerialTimeoutRequest message, length delimited. Does not implicitly {@link lebai.serial.SetSerialTimeoutRequest.verify|verify} messages.
+             * @param message SetSerialTimeoutRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.ISetSerialTimeoutRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetSerialTimeoutRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetSerialTimeoutRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.SetSerialTimeoutRequest;
+
+            /**
+             * Decodes a SetSerialTimeoutRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetSerialTimeoutRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.SetSerialTimeoutRequest;
+
+            /**
+             * Verifies a SetSerialTimeoutRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetSerialTimeoutRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetSerialTimeoutRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.SetSerialTimeoutRequest;
+
+            /**
+             * Creates a plain object from a SetSerialTimeoutRequest message. Also converts values to other types if specified.
+             * @param message SetSerialTimeoutRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.SetSerialTimeoutRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetSerialTimeoutRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetSerialTimeoutRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SetSerialBaudRateRequest. */
         interface ISetSerialBaudRateRequest {
 
@@ -23241,6 +23468,20 @@ export namespace lebai {
             public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): SerialService;
 
             /**
+             * Calls SetSerialTimeout.
+             * @param request SetSerialTimeoutRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setSerialTimeout(request: lebai.serial.ISetSerialTimeoutRequest, callback: lebai.serial.SerialService.SetSerialTimeoutCallback): void;
+
+            /**
+             * Calls SetSerialTimeout.
+             * @param request SetSerialTimeoutRequest message or plain object
+             * @returns Promise
+             */
+            public setSerialTimeout(request: lebai.serial.ISetSerialTimeoutRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls SetSerialBaudRate.
              * @param request SetSerialBaudRateRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -23298,6 +23539,13 @@ export namespace lebai {
         }
 
         namespace SerialService {
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#setSerialTimeout}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetSerialTimeoutCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.serial.SerialService#setSerialBaudRate}.
