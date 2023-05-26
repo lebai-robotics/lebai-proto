@@ -4,6 +4,12 @@ package lebai.serial;
 
 import "google/protobuf/empty.proto";
 
+message SetSerialTimeoutRequest {
+  string device = 1;
+  // 超时时间，默认不超时
+  uint32 timeout = 11;
+}
+
 message SetSerialBaudRateRequest {
   string device = 1;
   // 波特率，默认115200
@@ -41,6 +47,8 @@ message ReadSerialResponse {
 
 // 串口相关服务
 service SerialService {
+  // 设置超时时间
+  rpc SetSerialTimeout(SetSerialTimeoutRequest) returns (google.protobuf.Empty);
   // 设置波特率
   rpc SetSerialBaudRate(SetSerialBaudRateRequest)
       returns (google.protobuf.Empty);
