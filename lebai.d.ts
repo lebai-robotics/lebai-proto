@@ -26327,7 +26327,7 @@ export namespace lebai {
             /**
              * Calls WaitTask.
              * @param request TaskIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
+             * @param callback Node-style callback called with the error, if any, and TaskStdout
              */
             public waitTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.WaitTaskCallback): void;
 
@@ -26336,7 +26336,7 @@ export namespace lebai {
              * @param request TaskIndex message or plain object
              * @returns Promise
              */
-            public waitTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
+            public waitTask(request: lebai.task.ITaskIndex): Promise<lebai.task.TaskStdout>;
 
             /**
              * Calls PauseTask.
@@ -26428,9 +26428,9 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.task.TaskService#waitTask}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] TaskStdout
              */
-            type WaitTaskCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type WaitTaskCallback = (error: (Error|null), response?: lebai.task.TaskStdout) => void;
 
             /**
              * Callback as used by {@link lebai.task.TaskService#pauseTask}.

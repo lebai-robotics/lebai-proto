@@ -4538,7 +4538,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               WaitTask: {
                 requestType: "TaskIndex",
-                responseType: "google.protobuf.Empty"
+                responseType: "TaskStdout"
               },
               PauseTask: {
                 requestType: "PauseRequest",
