@@ -10,6 +10,11 @@ message SetSignalRequest {
   uint32 key = 1;
   int32 value  = 2;
 }
+message SetSignalsRequest {
+  // 取值范围0~255
+  uint32 key = 1;
+  repeated int32 values  = 2;
+}
 message WaitSignalRequest {
   // 取值范围0~255
   uint32 key = 1;
@@ -23,11 +28,21 @@ message GetSignalRequest {
 message GetSignalResponse {
   int32 value = 1;
 }
+message GetSignalsRequest {
+  // 取值范围0~255
+  uint32 key = 1;
+  uint32 len = 2;
+}
+message GetSignalsResponse {
+  repeated int32 values = 1;
+}
 
 // 信号量相关服务
 service SignalService {
   rpc SetSignal(SetSignalRequest) returns (google.protobuf.Empty);
+  rpc SetSignals(SetSignalsRequest) returns (google.protobuf.Empty);
   rpc GetSignal(GetSignalRequest) returns (GetSignalResponse);
+  rpc GetSignals(GetSignalsRequest) returns (GetSignalsResponse);
   rpc WaitSignal(WaitSignalRequest) returns (google.protobuf.Empty);
   rpc AddSignal(SetSignalRequest) returns (google.protobuf.Empty);
 }
