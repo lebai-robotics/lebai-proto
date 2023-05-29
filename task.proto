@@ -124,7 +124,7 @@ service TaskService {
   // 订阅任务输出流
   rpc SubTaskStdout(TaskIndex) returns (stream TaskStdout);
   // 等待运动完成
-  rpc WaitTask(TaskIndex) returns (google.protobuf.Empty);
+  rpc WaitTask(TaskIndex) returns (TaskStdout);
   // 暂停任务与运动
   rpc PauseTask(PauseRequest) returns (google.protobuf.Empty);
   // 恢复任务与运动
