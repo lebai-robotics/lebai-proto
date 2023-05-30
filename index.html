@@ -1301,7 +1301,19 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.signal.GetSignalsRequest"><span class="badge">M</span>GetSignalsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.signal.GetSignalsResponse"><span class="badge">M</span>GetSignalsResponse</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.signal.SetSignalRequest"><span class="badge">M</span>SetSignalRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.signal.SetSignalsRequest"><span class="badge">M</span>SetSignalsRequest</a>
                 </li>
               
                 <li>
@@ -10361,6 +10373,61 @@
 
         
       
+        <h3 id="lebai.signal.GetSignalsRequest">GetSignalsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>取值范围0~255 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>len</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.signal.GetSignalsResponse">GetSignalsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.signal.SetSignalRequest">SetSignalRequest</h3>
         <p></p>
 
@@ -10382,6 +10449,37 @@
                   <td>value</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.signal.SetSignalsRequest">SetSignalsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>取值范围0~255 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -10452,9 +10550,23 @@
               </tr>
             
               <tr>
+                <td>SetSignals</td>
+                <td><a href="#lebai.signal.SetSignalsRequest">SetSignalsRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>GetSignal</td>
                 <td><a href="#lebai.signal.GetSignalRequest">GetSignalRequest</a></td>
                 <td><a href="#lebai.signal.GetSignalResponse">GetSignalResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSignals</td>
+                <td><a href="#lebai.signal.GetSignalsRequest">GetSignalsRequest</a></td>
+                <td><a href="#lebai.signal.GetSignalsResponse">GetSignalsResponse</a></td>
                 <td><p></p></td>
               </tr>
             
