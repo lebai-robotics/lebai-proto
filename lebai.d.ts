@@ -24140,6 +24140,109 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a SetSignalsRequest. */
+        interface ISetSignalsRequest {
+
+            /** SetSignalsRequest key */
+            key?: (number|null);
+
+            /** SetSignalsRequest values */
+            values?: (number[]|null);
+        }
+
+        /** Represents a SetSignalsRequest. */
+        class SetSignalsRequest implements ISetSignalsRequest {
+
+            /**
+             * Constructs a new SetSignalsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.signal.ISetSignalsRequest);
+
+            /** SetSignalsRequest key. */
+            public key: number;
+
+            /** SetSignalsRequest values. */
+            public values: number[];
+
+            /**
+             * Creates a new SetSignalsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetSignalsRequest instance
+             */
+            public static create(properties?: lebai.signal.ISetSignalsRequest): lebai.signal.SetSignalsRequest;
+
+            /**
+             * Encodes the specified SetSignalsRequest message. Does not implicitly {@link lebai.signal.SetSignalsRequest.verify|verify} messages.
+             * @param message SetSignalsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.signal.ISetSignalsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetSignalsRequest message, length delimited. Does not implicitly {@link lebai.signal.SetSignalsRequest.verify|verify} messages.
+             * @param message SetSignalsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.signal.ISetSignalsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetSignalsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetSignalsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.signal.SetSignalsRequest;
+
+            /**
+             * Decodes a SetSignalsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetSignalsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.signal.SetSignalsRequest;
+
+            /**
+             * Verifies a SetSignalsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetSignalsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetSignalsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.signal.SetSignalsRequest;
+
+            /**
+             * Creates a plain object from a SetSignalsRequest message. Also converts values to other types if specified.
+             * @param message SetSignalsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.signal.SetSignalsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetSignalsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetSignalsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a WaitSignalRequest. */
         interface IWaitSignalRequest {
 
@@ -24443,6 +24546,206 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GetSignalsRequest. */
+        interface IGetSignalsRequest {
+
+            /** GetSignalsRequest key */
+            key?: (number|null);
+
+            /** GetSignalsRequest len */
+            len?: (number|null);
+        }
+
+        /** Represents a GetSignalsRequest. */
+        class GetSignalsRequest implements IGetSignalsRequest {
+
+            /**
+             * Constructs a new GetSignalsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.signal.IGetSignalsRequest);
+
+            /** GetSignalsRequest key. */
+            public key: number;
+
+            /** GetSignalsRequest len. */
+            public len: number;
+
+            /**
+             * Creates a new GetSignalsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetSignalsRequest instance
+             */
+            public static create(properties?: lebai.signal.IGetSignalsRequest): lebai.signal.GetSignalsRequest;
+
+            /**
+             * Encodes the specified GetSignalsRequest message. Does not implicitly {@link lebai.signal.GetSignalsRequest.verify|verify} messages.
+             * @param message GetSignalsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.signal.IGetSignalsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetSignalsRequest message, length delimited. Does not implicitly {@link lebai.signal.GetSignalsRequest.verify|verify} messages.
+             * @param message GetSignalsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.signal.IGetSignalsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetSignalsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetSignalsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.signal.GetSignalsRequest;
+
+            /**
+             * Decodes a GetSignalsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetSignalsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.signal.GetSignalsRequest;
+
+            /**
+             * Verifies a GetSignalsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetSignalsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetSignalsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.signal.GetSignalsRequest;
+
+            /**
+             * Creates a plain object from a GetSignalsRequest message. Also converts values to other types if specified.
+             * @param message GetSignalsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.signal.GetSignalsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetSignalsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetSignalsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GetSignalsResponse. */
+        interface IGetSignalsResponse {
+
+            /** GetSignalsResponse values */
+            values?: (number[]|null);
+        }
+
+        /** Represents a GetSignalsResponse. */
+        class GetSignalsResponse implements IGetSignalsResponse {
+
+            /**
+             * Constructs a new GetSignalsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.signal.IGetSignalsResponse);
+
+            /** GetSignalsResponse values. */
+            public values: number[];
+
+            /**
+             * Creates a new GetSignalsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetSignalsResponse instance
+             */
+            public static create(properties?: lebai.signal.IGetSignalsResponse): lebai.signal.GetSignalsResponse;
+
+            /**
+             * Encodes the specified GetSignalsResponse message. Does not implicitly {@link lebai.signal.GetSignalsResponse.verify|verify} messages.
+             * @param message GetSignalsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.signal.IGetSignalsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetSignalsResponse message, length delimited. Does not implicitly {@link lebai.signal.GetSignalsResponse.verify|verify} messages.
+             * @param message GetSignalsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.signal.IGetSignalsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetSignalsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetSignalsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.signal.GetSignalsResponse;
+
+            /**
+             * Decodes a GetSignalsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetSignalsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.signal.GetSignalsResponse;
+
+            /**
+             * Verifies a GetSignalsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetSignalsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetSignalsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.signal.GetSignalsResponse;
+
+            /**
+             * Creates a plain object from a GetSignalsResponse message. Also converts values to other types if specified.
+             * @param message GetSignalsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.signal.GetSignalsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetSignalsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetSignalsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Represents a SignalService */
         class SignalService extends $protobuf.rpc.Service {
 
@@ -24478,6 +24781,20 @@ export namespace lebai {
             public setSignal(request: lebai.signal.ISetSignalRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls SetSignals.
+             * @param request SetSignalsRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setSignals(request: lebai.signal.ISetSignalsRequest, callback: lebai.signal.SignalService.SetSignalsCallback): void;
+
+            /**
+             * Calls SetSignals.
+             * @param request SetSignalsRequest message or plain object
+             * @returns Promise
+             */
+            public setSignals(request: lebai.signal.ISetSignalsRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls GetSignal.
              * @param request GetSignalRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and GetSignalResponse
@@ -24490,6 +24807,20 @@ export namespace lebai {
              * @returns Promise
              */
             public getSignal(request: lebai.signal.IGetSignalRequest): Promise<lebai.signal.GetSignalResponse>;
+
+            /**
+             * Calls GetSignals.
+             * @param request GetSignalsRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and GetSignalsResponse
+             */
+            public getSignals(request: lebai.signal.IGetSignalsRequest, callback: lebai.signal.SignalService.GetSignalsCallback): void;
+
+            /**
+             * Calls GetSignals.
+             * @param request GetSignalsRequest message or plain object
+             * @returns Promise
+             */
+            public getSignals(request: lebai.signal.IGetSignalsRequest): Promise<lebai.signal.GetSignalsResponse>;
 
             /**
              * Calls WaitSignal.
@@ -24530,11 +24861,25 @@ export namespace lebai {
             type SetSignalCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
+             * Callback as used by {@link lebai.signal.SignalService#setSignals}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetSignalsCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
              * Callback as used by {@link lebai.signal.SignalService#getSignal}.
              * @param error Error, if any
              * @param [response] GetSignalResponse
              */
             type GetSignalCallback = (error: (Error|null), response?: lebai.signal.GetSignalResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.signal.SignalService#getSignals}.
+             * @param error Error, if any
+             * @param [response] GetSignalsResponse
+             */
+            type GetSignalsCallback = (error: (Error|null), response?: lebai.signal.GetSignalsResponse) => void;
 
             /**
              * Callback as used by {@link lebai.signal.SignalService#waitSignal}.

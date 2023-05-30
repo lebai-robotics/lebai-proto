@@ -4114,6 +4114,19 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SetSignalsRequest: {
+            fields: {
+              key: {
+                type: "uint32",
+                id: 1
+              },
+              values: {
+                rule: "repeated",
+                type: "int32",
+                id: 2
+              }
+            }
+          },
           WaitSignalRequest: {
             fields: {
               key: {
@@ -4146,15 +4159,44 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          GetSignalsRequest: {
+            fields: {
+              key: {
+                type: "uint32",
+                id: 1
+              },
+              len: {
+                type: "uint32",
+                id: 2
+              }
+            }
+          },
+          GetSignalsResponse: {
+            fields: {
+              values: {
+                rule: "repeated",
+                type: "int32",
+                id: 1
+              }
+            }
+          },
           SignalService: {
             methods: {
               SetSignal: {
                 requestType: "SetSignalRequest",
                 responseType: "google.protobuf.Empty"
               },
+              SetSignals: {
+                requestType: "SetSignalsRequest",
+                responseType: "google.protobuf.Empty"
+              },
               GetSignal: {
                 requestType: "GetSignalRequest",
                 responseType: "GetSignalResponse"
+              },
+              GetSignals: {
+                requestType: "GetSignalsRequest",
+                responseType: "GetSignalsResponse"
               },
               WaitSignal: {
                 requestType: "WaitSignalRequest",
