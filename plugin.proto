@@ -8,13 +8,20 @@ import "google/protobuf/wrappers.proto";
 message PluginInfo {
   // 插件名称
   string name = 1;
-  // 版本
-  string version = 2;
   // 详细介绍
-  string detail = 6;
+  string description = 6;
+  // 项目主页网址
+  string homepage = 7;
+
+  // 具备Web功能
+  bool web = 12;
+  // 具备Daemon功能
+  bool daemon = 13;
+  // 具备Cmd功能
+  bool cmd = 14;
 
   // 启用插件
-  bool enable = 11;
+  bool enable = 91;
 }
 message PluginIndex {
   string name = 1;
@@ -23,24 +30,16 @@ message Plugins {
   repeated PluginInfo plugins = 1;
 }
 
-message SetPluginRequest {
+message RunPluginCmdRequest {
   string name = 1;
-  google.protobuf.BoolValue enable = 11;
+  repeated string params = 22;
 }
 
-message RunPluginRequest {
-  string name = 1;
-  uint32 id = 9;
-  string method = 11;
-  repeated string params = 12;
-}
-message RunPluginIndex {
-  uint32 id = 9;
-}
-message RunPluginStdout {
-  string name = 1;
-  uint32 id = 9;
-  string stdout = 11;
+message PluginStdout {
+  bool done = 11;
+  string stdout = 12;
+  string stderr = 13;
+  int32 code = 14;
 }
 
 // 插件相关服务
@@ -50,22 +49,10 @@ service PluginService {
   // 查询已安装的插件列表
   rpc LoadPlugins(google.protobuf.Empty) returns (Plugins);
 
-  // 从文件系统中安装插件
-  rpc InstallPlugin(PluginIndex) returns (google.protobuf.Empty);
-  // 从文件系统中删除插件
-  rpc UninstallPlugin(PluginIndex) returns (google.protobuf.Empty);
-  // 设置插件
-  rpc SetPlugin(SetPluginRequest) returns (google.protobuf.Empty);
-
-  // 调用守护程序
-  rpc CallPlugin(RunPluginRequest) returns (RunPluginIndex);
+  // 启用插件
+  rpc EnablePlugin(PluginIndex) returns (PluginStdout);
+  // 禁用插件
+  rpc DisablePlugin(PluginIndex) returns (PluginStdout);
   // 执行命令行程序
-  rpc ExecPlugin(RunPluginRequest) returns (RunPluginIndex);
-  // 等待程序运行结果
-  rpc WaitPluginStdout(RunPluginIndex) returns (RunPluginStdout);
-
-  // 订阅插件通信IPC请求
-  rpc SubPluginIpc(PluginIndex) returns (stream RunPluginRequest);
-  // 响应插件通信IPC请求
-  rpc ResponsePluginIpc(RunPluginStdout) returns (google.protobuf.Empty);
+  rpc RunPluginCmd(RunPluginCmdRequest) returns (PluginStdout);
 }
