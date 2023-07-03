@@ -1019,23 +1019,15 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.plugin.PluginStdout"><span class="badge">M</span>PluginStdout</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.plugin.Plugins"><span class="badge">M</span>Plugins</a>
                 </li>
               
                 <li>
-                  <a href="#lebai.plugin.RunPluginIndex"><span class="badge">M</span>RunPluginIndex</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.plugin.RunPluginRequest"><span class="badge">M</span>RunPluginRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.plugin.RunPluginStdout"><span class="badge">M</span>RunPluginStdout</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.plugin.SetPluginRequest"><span class="badge">M</span>SetPluginRequest</a>
+                  <a href="#lebai.plugin.RunPluginCmdRequest"><span class="badge">M</span>RunPluginCmdRequest</a>
                 </li>
               
               
@@ -8183,17 +8175,38 @@
                 </tr>
               
                 <tr>
-                  <td>version</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>版本 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>detail</td>
+                  <td>description</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>详细介绍 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>homepage</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>项目主页网址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>web</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>具备Web功能 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>daemon</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>具备Daemon功能 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cmd</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>具备Cmd功能 </p></td>
                 </tr>
               
                 <tr>
@@ -8201,6 +8214,51 @@
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p>启用插件 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.plugin.PluginStdout">PluginStdout</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>done</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stderr</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -8234,31 +8292,7 @@
 
         
       
-        <h3 id="lebai.plugin.RunPluginIndex">RunPluginIndex</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.plugin.RunPluginRequest">RunPluginRequest</h3>
+        <h3 id="lebai.plugin.RunPluginCmdRequest">RunPluginCmdRequest</h3>
         <p></p>
 
         
@@ -8270,20 +8304,6 @@
               
                 <tr>
                   <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>method</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -8293,75 +8313,6 @@
                   <td>params</td>
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.plugin.RunPluginStdout">RunPluginStdout</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stdout</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.plugin.SetPluginRequest">SetPluginRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>name</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>enable</td>
-                  <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
-                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -8401,59 +8352,24 @@
               </tr>
             
               <tr>
-                <td>InstallPlugin</td>
+                <td>EnablePlugin</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>从文件系统中安装插件</p></td>
+                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
+                <td><p>启用插件</p></td>
               </tr>
             
               <tr>
-                <td>UninstallPlugin</td>
+                <td>DisablePlugin</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>从文件系统中删除插件</p></td>
+                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
+                <td><p>禁用插件</p></td>
               </tr>
             
               <tr>
-                <td>SetPlugin</td>
-                <td><a href="#lebai.plugin.SetPluginRequest">SetPluginRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>设置插件</p></td>
-              </tr>
-            
-              <tr>
-                <td>CallPlugin</td>
-                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a></td>
-                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
-                <td><p>调用守护程序</p></td>
-              </tr>
-            
-              <tr>
-                <td>ExecPlugin</td>
-                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a></td>
-                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
+                <td>RunPluginCmd</td>
+                <td><a href="#lebai.plugin.RunPluginCmdRequest">RunPluginCmdRequest</a></td>
+                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
                 <td><p>执行命令行程序</p></td>
-              </tr>
-            
-              <tr>
-                <td>WaitPluginStdout</td>
-                <td><a href="#lebai.plugin.RunPluginIndex">RunPluginIndex</a></td>
-                <td><a href="#lebai.plugin.RunPluginStdout">RunPluginStdout</a></td>
-                <td><p>等待程序运行结果</p></td>
-              </tr>
-            
-              <tr>
-                <td>SubPluginIpc</td>
-                <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
-                <td><a href="#lebai.plugin.RunPluginRequest">RunPluginRequest</a> stream</td>
-                <td><p>订阅插件通信IPC请求</p></td>
-              </tr>
-            
-              <tr>
-                <td>ResponsePluginIpc</td>
-                <td><a href="#lebai.plugin.RunPluginStdout">RunPluginStdout</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><p>响应插件通信IPC请求</p></td>
               </tr>
             
           </tbody>
@@ -11261,13 +11177,6 @@
                 </tr>
               
                 <tr>
-                  <td>is_virtual</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>是否虚拟IP </p></td>
-                </tr>
-              
-                <tr>
                   <td>mac</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -11279,6 +11188,13 @@
                   <td><a href="#string">string</a></td>
                   <td>repeated</td>
                   <td><p>IP地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>virtual_ips</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>虚拟IP地址 </p></td>
                 </tr>
               
                 <tr>
@@ -11421,13 +11337,6 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>IP地址 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>netmask</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>子网掩码 </p></td>
                 </tr>
               
             </tbody>
