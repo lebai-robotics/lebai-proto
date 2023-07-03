@@ -49,12 +49,12 @@ message NetworkInfo {
   string ifname = 1;
   // 网卡接口类型
   NetworkKind kind = 2;
-  // 是否虚拟IP
-  bool is_virtual = 3 [json_name = "is_virtual"];
   // MAC地址
   string mac = 9;
   // IP地址
   repeated string ips = 11;
+  // 虚拟IP地址
+  repeated string virtual_ips = 12 [json_name = "virtual_ips"];
   // 网关地址
   string gateway = 21;
   // 子网掩码
@@ -87,8 +87,6 @@ message SetVirtualIpRequest {
   string ifname = 1;
   // IP地址
   string ip = 11;
-  // 子网掩码
-  string netmask = 22;
 }
 
 enum BoxModel {
