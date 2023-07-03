@@ -184,13 +184,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 type: "NetworkKind",
                 id: 2
               },
-              isVirtual: {
-                type: "bool",
-                id: 3,
-                options: {
-                  json_name: "is_virtual"
-                }
-              },
               mac: {
                 type: "string",
                 id: 9
@@ -199,6 +192,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 rule: "repeated",
                 type: "string",
                 id: 11
+              },
+              virtualIps: {
+                rule: "repeated",
+                type: "string",
+                id: 12,
+                options: {
+                  json_name: "virtual_ips"
+                }
               },
               gateway: {
                 type: "string",
@@ -290,10 +291,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               ip: {
                 type: "string",
                 id: 11
-              },
-              netmask: {
-                type: "string",
-                id: 22
               }
             }
           },
@@ -3571,17 +3568,29 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 type: "string",
                 id: 1
               },
-              version: {
-                type: "string",
-                id: 2
-              },
-              detail: {
+              description: {
                 type: "string",
                 id: 6
               },
+              homepage: {
+                type: "string",
+                id: 7
+              },
+              web: {
+                type: "bool",
+                id: 12
+              },
+              daemon: {
+                type: "bool",
+                id: 13
+              },
+              cmd: {
+                type: "bool",
+                id: 14
+              },
               enable: {
                 type: "bool",
-                id: 11
+                id: 91
               }
             }
           },
@@ -3602,60 +3611,36 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          SetPluginRequest: {
+          RunPluginCmdRequest: {
             fields: {
               name: {
                 type: "string",
                 id: 1
-              },
-              enable: {
-                type: "google.protobuf.BoolValue",
-                id: 11
-              }
-            }
-          },
-          RunPluginRequest: {
-            fields: {
-              name: {
-                type: "string",
-                id: 1
-              },
-              id: {
-                type: "uint32",
-                id: 9
-              },
-              method: {
-                type: "string",
-                id: 11
               },
               params: {
                 rule: "repeated",
                 type: "string",
-                id: 12
+                id: 22
               }
             }
           },
-          RunPluginIndex: {
+          PluginStdout: {
             fields: {
-              id: {
-                type: "uint32",
-                id: 9
-              }
-            }
-          },
-          RunPluginStdout: {
-            fields: {
-              name: {
-                type: "string",
-                id: 1
-              },
-              id: {
-                type: "uint32",
-                id: 9
+              done: {
+                type: "bool",
+                id: 11
               },
               stdout: {
                 type: "string",
-                id: 11
+                id: 12
+              },
+              stderr: {
+                type: "string",
+                id: 13
+              },
+              code: {
+                type: "int32",
+                id: 14
               }
             }
           },
@@ -3669,38 +3654,17 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 requestType: "google.protobuf.Empty",
                 responseType: "Plugins"
               },
-              InstallPlugin: {
+              EnablePlugin: {
                 requestType: "PluginIndex",
-                responseType: "google.protobuf.Empty"
+                responseType: "PluginStdout"
               },
-              UninstallPlugin: {
+              DisablePlugin: {
                 requestType: "PluginIndex",
-                responseType: "google.protobuf.Empty"
+                responseType: "PluginStdout"
               },
-              SetPlugin: {
-                requestType: "SetPluginRequest",
-                responseType: "google.protobuf.Empty"
-              },
-              CallPlugin: {
-                requestType: "RunPluginRequest",
-                responseType: "RunPluginIndex"
-              },
-              ExecPlugin: {
-                requestType: "RunPluginRequest",
-                responseType: "RunPluginIndex"
-              },
-              WaitPluginStdout: {
-                requestType: "RunPluginIndex",
-                responseType: "RunPluginStdout"
-              },
-              SubPluginIpc: {
-                requestType: "PluginIndex",
-                responseType: "RunPluginRequest",
-                responseStream: true
-              },
-              ResponsePluginIpc: {
-                requestType: "RunPluginStdout",
-                responseType: "google.protobuf.Empty"
+              RunPluginCmd: {
+                requestType: "RunPluginCmdRequest",
+                responseType: "PluginStdout"
               }
             }
           }

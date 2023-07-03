@@ -989,14 +989,14 @@ export namespace lebai {
             /** NetworkInfo kind */
             kind?: (lebai.system.NetworkKind|null);
 
-            /** NetworkInfo isVirtual */
-            isVirtual?: (boolean|null);
-
             /** NetworkInfo mac */
             mac?: (string|null);
 
             /** NetworkInfo ips */
             ips?: (string[]|null);
+
+            /** NetworkInfo virtualIps */
+            virtualIps?: (string[]|null);
 
             /** NetworkInfo gateway */
             gateway?: (string|null);
@@ -1020,14 +1020,14 @@ export namespace lebai {
             /** NetworkInfo kind. */
             public kind: lebai.system.NetworkKind;
 
-            /** NetworkInfo isVirtual. */
-            public isVirtual: boolean;
-
             /** NetworkInfo mac. */
             public mac: string;
 
             /** NetworkInfo ips. */
             public ips: string[];
+
+            /** NetworkInfo virtualIps. */
+            public virtualIps: string[];
 
             /** NetworkInfo gateway. */
             public gateway: string;
@@ -1381,9 +1381,6 @@ export namespace lebai {
 
             /** SetVirtualIpRequest ip */
             ip?: (string|null);
-
-            /** SetVirtualIpRequest netmask */
-            netmask?: (string|null);
         }
 
         /** Represents a SetVirtualIpRequest. */
@@ -1400,9 +1397,6 @@ export namespace lebai {
 
             /** SetVirtualIpRequest ip. */
             public ip: string;
-
-            /** SetVirtualIpRequest netmask. */
-            public netmask: string;
 
             /**
              * Creates a new SetVirtualIpRequest instance using the specified properties.
@@ -20482,11 +20476,20 @@ export namespace lebai {
             /** PluginInfo name */
             name?: (string|null);
 
-            /** PluginInfo version */
-            version?: (string|null);
+            /** PluginInfo description */
+            description?: (string|null);
 
-            /** PluginInfo detail */
-            detail?: (string|null);
+            /** PluginInfo homepage */
+            homepage?: (string|null);
+
+            /** PluginInfo web */
+            web?: (boolean|null);
+
+            /** PluginInfo daemon */
+            daemon?: (boolean|null);
+
+            /** PluginInfo cmd */
+            cmd?: (boolean|null);
 
             /** PluginInfo enable */
             enable?: (boolean|null);
@@ -20504,11 +20507,20 @@ export namespace lebai {
             /** PluginInfo name. */
             public name: string;
 
-            /** PluginInfo version. */
-            public version: string;
+            /** PluginInfo description. */
+            public description: string;
 
-            /** PluginInfo detail. */
-            public detail: string;
+            /** PluginInfo homepage. */
+            public homepage: string;
+
+            /** PluginInfo web. */
+            public web: boolean;
+
+            /** PluginInfo daemon. */
+            public daemon: boolean;
+
+            /** PluginInfo cmd. */
+            public cmd: boolean;
 
             /** PluginInfo enable. */
             public enable: boolean;
@@ -20785,424 +20797,218 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a SetPluginRequest. */
-        interface ISetPluginRequest {
+        /** Properties of a RunPluginCmdRequest. */
+        interface IRunPluginCmdRequest {
 
-            /** SetPluginRequest name */
+            /** RunPluginCmdRequest name */
             name?: (string|null);
 
-            /** SetPluginRequest enable */
-            enable?: (google.protobuf.IBoolValue|null);
-        }
-
-        /** Represents a SetPluginRequest. */
-        class SetPluginRequest implements ISetPluginRequest {
-
-            /**
-             * Constructs a new SetPluginRequest.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.plugin.ISetPluginRequest);
-
-            /** SetPluginRequest name. */
-            public name: string;
-
-            /** SetPluginRequest enable. */
-            public enable?: (google.protobuf.IBoolValue|null);
-
-            /**
-             * Creates a new SetPluginRequest instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns SetPluginRequest instance
-             */
-            public static create(properties?: lebai.plugin.ISetPluginRequest): lebai.plugin.SetPluginRequest;
-
-            /**
-             * Encodes the specified SetPluginRequest message. Does not implicitly {@link lebai.plugin.SetPluginRequest.verify|verify} messages.
-             * @param message SetPluginRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.plugin.ISetPluginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified SetPluginRequest message, length delimited. Does not implicitly {@link lebai.plugin.SetPluginRequest.verify|verify} messages.
-             * @param message SetPluginRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.plugin.ISetPluginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a SetPluginRequest message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns SetPluginRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.SetPluginRequest;
-
-            /**
-             * Decodes a SetPluginRequest message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns SetPluginRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.SetPluginRequest;
-
-            /**
-             * Verifies a SetPluginRequest message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a SetPluginRequest message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns SetPluginRequest
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.plugin.SetPluginRequest;
-
-            /**
-             * Creates a plain object from a SetPluginRequest message. Also converts values to other types if specified.
-             * @param message SetPluginRequest
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.plugin.SetPluginRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this SetPluginRequest to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for SetPluginRequest
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a RunPluginRequest. */
-        interface IRunPluginRequest {
-
-            /** RunPluginRequest name */
-            name?: (string|null);
-
-            /** RunPluginRequest id */
-            id?: (number|null);
-
-            /** RunPluginRequest method */
-            method?: (string|null);
-
-            /** RunPluginRequest params */
+            /** RunPluginCmdRequest params */
             params?: (string[]|null);
         }
 
-        /** Represents a RunPluginRequest. */
-        class RunPluginRequest implements IRunPluginRequest {
+        /** Represents a RunPluginCmdRequest. */
+        class RunPluginCmdRequest implements IRunPluginCmdRequest {
 
             /**
-             * Constructs a new RunPluginRequest.
+             * Constructs a new RunPluginCmdRequest.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.plugin.IRunPluginRequest);
+            constructor(properties?: lebai.plugin.IRunPluginCmdRequest);
 
-            /** RunPluginRequest name. */
+            /** RunPluginCmdRequest name. */
             public name: string;
 
-            /** RunPluginRequest id. */
-            public id: number;
-
-            /** RunPluginRequest method. */
-            public method: string;
-
-            /** RunPluginRequest params. */
+            /** RunPluginCmdRequest params. */
             public params: string[];
 
             /**
-             * Creates a new RunPluginRequest instance using the specified properties.
+             * Creates a new RunPluginCmdRequest instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns RunPluginRequest instance
+             * @returns RunPluginCmdRequest instance
              */
-            public static create(properties?: lebai.plugin.IRunPluginRequest): lebai.plugin.RunPluginRequest;
+            public static create(properties?: lebai.plugin.IRunPluginCmdRequest): lebai.plugin.RunPluginCmdRequest;
 
             /**
-             * Encodes the specified RunPluginRequest message. Does not implicitly {@link lebai.plugin.RunPluginRequest.verify|verify} messages.
-             * @param message RunPluginRequest message or plain object to encode
+             * Encodes the specified RunPluginCmdRequest message. Does not implicitly {@link lebai.plugin.RunPluginCmdRequest.verify|verify} messages.
+             * @param message RunPluginCmdRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.plugin.IRunPluginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.plugin.IRunPluginCmdRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified RunPluginRequest message, length delimited. Does not implicitly {@link lebai.plugin.RunPluginRequest.verify|verify} messages.
-             * @param message RunPluginRequest message or plain object to encode
+             * Encodes the specified RunPluginCmdRequest message, length delimited. Does not implicitly {@link lebai.plugin.RunPluginCmdRequest.verify|verify} messages.
+             * @param message RunPluginCmdRequest message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.plugin.IRunPluginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.plugin.IRunPluginCmdRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RunPluginRequest message from the specified reader or buffer.
+             * Decodes a RunPluginCmdRequest message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns RunPluginRequest
+             * @returns RunPluginCmdRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.RunPluginRequest;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.RunPluginCmdRequest;
 
             /**
-             * Decodes a RunPluginRequest message from the specified reader or buffer, length delimited.
+             * Decodes a RunPluginCmdRequest message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns RunPluginRequest
+             * @returns RunPluginCmdRequest
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.RunPluginRequest;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.RunPluginCmdRequest;
 
             /**
-             * Verifies a RunPluginRequest message.
+             * Verifies a RunPluginCmdRequest message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RunPluginRequest message from a plain object. Also converts values to their respective internal types.
+             * Creates a RunPluginCmdRequest message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns RunPluginRequest
+             * @returns RunPluginCmdRequest
              */
-            public static fromObject(object: { [k: string]: any }): lebai.plugin.RunPluginRequest;
+            public static fromObject(object: { [k: string]: any }): lebai.plugin.RunPluginCmdRequest;
 
             /**
-             * Creates a plain object from a RunPluginRequest message. Also converts values to other types if specified.
-             * @param message RunPluginRequest
+             * Creates a plain object from a RunPluginCmdRequest message. Also converts values to other types if specified.
+             * @param message RunPluginCmdRequest
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.plugin.RunPluginRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.plugin.RunPluginCmdRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this RunPluginRequest to JSON.
+             * Converts this RunPluginCmdRequest to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for RunPluginRequest
+             * Gets the default type url for RunPluginCmdRequest
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a RunPluginIndex. */
-        interface IRunPluginIndex {
+        /** Properties of a PluginStdout. */
+        interface IPluginStdout {
 
-            /** RunPluginIndex id */
-            id?: (number|null);
-        }
+            /** PluginStdout done */
+            done?: (boolean|null);
 
-        /** Represents a RunPluginIndex. */
-        class RunPluginIndex implements IRunPluginIndex {
-
-            /**
-             * Constructs a new RunPluginIndex.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.plugin.IRunPluginIndex);
-
-            /** RunPluginIndex id. */
-            public id: number;
-
-            /**
-             * Creates a new RunPluginIndex instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns RunPluginIndex instance
-             */
-            public static create(properties?: lebai.plugin.IRunPluginIndex): lebai.plugin.RunPluginIndex;
-
-            /**
-             * Encodes the specified RunPluginIndex message. Does not implicitly {@link lebai.plugin.RunPluginIndex.verify|verify} messages.
-             * @param message RunPluginIndex message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.plugin.IRunPluginIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified RunPluginIndex message, length delimited. Does not implicitly {@link lebai.plugin.RunPluginIndex.verify|verify} messages.
-             * @param message RunPluginIndex message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.plugin.IRunPluginIndex, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a RunPluginIndex message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns RunPluginIndex
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.RunPluginIndex;
-
-            /**
-             * Decodes a RunPluginIndex message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns RunPluginIndex
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.RunPluginIndex;
-
-            /**
-             * Verifies a RunPluginIndex message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a RunPluginIndex message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns RunPluginIndex
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.plugin.RunPluginIndex;
-
-            /**
-             * Creates a plain object from a RunPluginIndex message. Also converts values to other types if specified.
-             * @param message RunPluginIndex
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.plugin.RunPluginIndex, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this RunPluginIndex to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for RunPluginIndex
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        /** Properties of a RunPluginStdout. */
-        interface IRunPluginStdout {
-
-            /** RunPluginStdout name */
-            name?: (string|null);
-
-            /** RunPluginStdout id */
-            id?: (number|null);
-
-            /** RunPluginStdout stdout */
+            /** PluginStdout stdout */
             stdout?: (string|null);
+
+            /** PluginStdout stderr */
+            stderr?: (string|null);
+
+            /** PluginStdout code */
+            code?: (number|null);
         }
 
-        /** Represents a RunPluginStdout. */
-        class RunPluginStdout implements IRunPluginStdout {
+        /** Represents a PluginStdout. */
+        class PluginStdout implements IPluginStdout {
 
             /**
-             * Constructs a new RunPluginStdout.
+             * Constructs a new PluginStdout.
              * @param [properties] Properties to set
              */
-            constructor(properties?: lebai.plugin.IRunPluginStdout);
+            constructor(properties?: lebai.plugin.IPluginStdout);
 
-            /** RunPluginStdout name. */
-            public name: string;
+            /** PluginStdout done. */
+            public done: boolean;
 
-            /** RunPluginStdout id. */
-            public id: number;
-
-            /** RunPluginStdout stdout. */
+            /** PluginStdout stdout. */
             public stdout: string;
 
+            /** PluginStdout stderr. */
+            public stderr: string;
+
+            /** PluginStdout code. */
+            public code: number;
+
             /**
-             * Creates a new RunPluginStdout instance using the specified properties.
+             * Creates a new PluginStdout instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns RunPluginStdout instance
+             * @returns PluginStdout instance
              */
-            public static create(properties?: lebai.plugin.IRunPluginStdout): lebai.plugin.RunPluginStdout;
+            public static create(properties?: lebai.plugin.IPluginStdout): lebai.plugin.PluginStdout;
 
             /**
-             * Encodes the specified RunPluginStdout message. Does not implicitly {@link lebai.plugin.RunPluginStdout.verify|verify} messages.
-             * @param message RunPluginStdout message or plain object to encode
+             * Encodes the specified PluginStdout message. Does not implicitly {@link lebai.plugin.PluginStdout.verify|verify} messages.
+             * @param message PluginStdout message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: lebai.plugin.IRunPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: lebai.plugin.IPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified RunPluginStdout message, length delimited. Does not implicitly {@link lebai.plugin.RunPluginStdout.verify|verify} messages.
-             * @param message RunPluginStdout message or plain object to encode
+             * Encodes the specified PluginStdout message, length delimited. Does not implicitly {@link lebai.plugin.PluginStdout.verify|verify} messages.
+             * @param message PluginStdout message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: lebai.plugin.IRunPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: lebai.plugin.IPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RunPluginStdout message from the specified reader or buffer.
+             * Decodes a PluginStdout message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns RunPluginStdout
+             * @returns PluginStdout
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.RunPluginStdout;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.PluginStdout;
 
             /**
-             * Decodes a RunPluginStdout message from the specified reader or buffer, length delimited.
+             * Decodes a PluginStdout message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns RunPluginStdout
+             * @returns PluginStdout
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.RunPluginStdout;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.PluginStdout;
 
             /**
-             * Verifies a RunPluginStdout message.
+             * Verifies a PluginStdout message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RunPluginStdout message from a plain object. Also converts values to their respective internal types.
+             * Creates a PluginStdout message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns RunPluginStdout
+             * @returns PluginStdout
              */
-            public static fromObject(object: { [k: string]: any }): lebai.plugin.RunPluginStdout;
+            public static fromObject(object: { [k: string]: any }): lebai.plugin.PluginStdout;
 
             /**
-             * Creates a plain object from a RunPluginStdout message. Also converts values to other types if specified.
-             * @param message RunPluginStdout
+             * Creates a plain object from a PluginStdout message. Also converts values to other types if specified.
+             * @param message PluginStdout
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: lebai.plugin.RunPluginStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: lebai.plugin.PluginStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this RunPluginStdout to JSON.
+             * Converts this PluginStdout to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
 
             /**
-             * Gets the default type url for RunPluginStdout
+             * Gets the default type url for PluginStdout
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -21258,116 +21064,46 @@ export namespace lebai {
             public loadPlugins(request: google.protobuf.IEmpty): Promise<lebai.plugin.Plugins>;
 
             /**
-             * Calls InstallPlugin.
+             * Calls EnablePlugin.
              * @param request PluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
+             * @param callback Node-style callback called with the error, if any, and PluginStdout
              */
-            public installPlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.InstallPluginCallback): void;
+            public enablePlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.EnablePluginCallback): void;
 
             /**
-             * Calls InstallPlugin.
-             * @param request PluginIndex message or plain object
-             * @returns Promise
-             */
-            public installPlugin(request: lebai.plugin.IPluginIndex): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls UninstallPlugin.
-             * @param request PluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public uninstallPlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.UninstallPluginCallback): void;
-
-            /**
-             * Calls UninstallPlugin.
+             * Calls EnablePlugin.
              * @param request PluginIndex message or plain object
              * @returns Promise
              */
-            public uninstallPlugin(request: lebai.plugin.IPluginIndex): Promise<google.protobuf.Empty>;
+            public enablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.plugin.PluginStdout>;
 
             /**
-             * Calls SetPlugin.
-             * @param request SetPluginRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
-             */
-            public setPlugin(request: lebai.plugin.ISetPluginRequest, callback: lebai.plugin.PluginService.SetPluginCallback): void;
-
-            /**
-             * Calls SetPlugin.
-             * @param request SetPluginRequest message or plain object
-             * @returns Promise
-             */
-            public setPlugin(request: lebai.plugin.ISetPluginRequest): Promise<google.protobuf.Empty>;
-
-            /**
-             * Calls CallPlugin.
-             * @param request RunPluginRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and RunPluginIndex
-             */
-            public callPlugin(request: lebai.plugin.IRunPluginRequest, callback: lebai.plugin.PluginService.CallPluginCallback): void;
-
-            /**
-             * Calls CallPlugin.
-             * @param request RunPluginRequest message or plain object
-             * @returns Promise
-             */
-            public callPlugin(request: lebai.plugin.IRunPluginRequest): Promise<lebai.plugin.RunPluginIndex>;
-
-            /**
-             * Calls ExecPlugin.
-             * @param request RunPluginRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and RunPluginIndex
-             */
-            public execPlugin(request: lebai.plugin.IRunPluginRequest, callback: lebai.plugin.PluginService.ExecPluginCallback): void;
-
-            /**
-             * Calls ExecPlugin.
-             * @param request RunPluginRequest message or plain object
-             * @returns Promise
-             */
-            public execPlugin(request: lebai.plugin.IRunPluginRequest): Promise<lebai.plugin.RunPluginIndex>;
-
-            /**
-             * Calls WaitPluginStdout.
-             * @param request RunPluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and RunPluginStdout
-             */
-            public waitPluginStdout(request: lebai.plugin.IRunPluginIndex, callback: lebai.plugin.PluginService.WaitPluginStdoutCallback): void;
-
-            /**
-             * Calls WaitPluginStdout.
-             * @param request RunPluginIndex message or plain object
-             * @returns Promise
-             */
-            public waitPluginStdout(request: lebai.plugin.IRunPluginIndex): Promise<lebai.plugin.RunPluginStdout>;
-
-            /**
-             * Calls SubPluginIpc.
+             * Calls DisablePlugin.
              * @param request PluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and RunPluginRequest
+             * @param callback Node-style callback called with the error, if any, and PluginStdout
              */
-            public subPluginIpc(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.SubPluginIpcCallback): void;
+            public disablePlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.DisablePluginCallback): void;
 
             /**
-             * Calls SubPluginIpc.
+             * Calls DisablePlugin.
              * @param request PluginIndex message or plain object
              * @returns Promise
              */
-            public subPluginIpc(request: lebai.plugin.IPluginIndex): Promise<lebai.plugin.RunPluginRequest>;
+            public disablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.plugin.PluginStdout>;
 
             /**
-             * Calls ResponsePluginIpc.
-             * @param request RunPluginStdout message or plain object
-             * @param callback Node-style callback called with the error, if any, and Empty
+             * Calls RunPluginCmd.
+             * @param request RunPluginCmdRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and PluginStdout
              */
-            public responsePluginIpc(request: lebai.plugin.IRunPluginStdout, callback: lebai.plugin.PluginService.ResponsePluginIpcCallback): void;
+            public runPluginCmd(request: lebai.plugin.IRunPluginCmdRequest, callback: lebai.plugin.PluginService.RunPluginCmdCallback): void;
 
             /**
-             * Calls ResponsePluginIpc.
-             * @param request RunPluginStdout message or plain object
+             * Calls RunPluginCmd.
+             * @param request RunPluginCmdRequest message or plain object
              * @returns Promise
              */
-            public responsePluginIpc(request: lebai.plugin.IRunPluginStdout): Promise<google.protobuf.Empty>;
+            public runPluginCmd(request: lebai.plugin.IRunPluginCmdRequest): Promise<lebai.plugin.PluginStdout>;
         }
 
         namespace PluginService {
@@ -21387,60 +21123,25 @@ export namespace lebai {
             type LoadPluginsCallback = (error: (Error|null), response?: lebai.plugin.Plugins) => void;
 
             /**
-             * Callback as used by {@link lebai.plugin.PluginService#installPlugin}.
+             * Callback as used by {@link lebai.plugin.PluginService#enablePlugin}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] PluginStdout
              */
-            type InstallPluginCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type EnablePluginCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
 
             /**
-             * Callback as used by {@link lebai.plugin.PluginService#uninstallPlugin}.
+             * Callback as used by {@link lebai.plugin.PluginService#disablePlugin}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] PluginStdout
              */
-            type UninstallPluginCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type DisablePluginCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
 
             /**
-             * Callback as used by {@link lebai.plugin.PluginService#setPlugin}.
+             * Callback as used by {@link lebai.plugin.PluginService#runPluginCmd}.
              * @param error Error, if any
-             * @param [response] Empty
+             * @param [response] PluginStdout
              */
-            type SetPluginCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
-
-            /**
-             * Callback as used by {@link lebai.plugin.PluginService#callPlugin}.
-             * @param error Error, if any
-             * @param [response] RunPluginIndex
-             */
-            type CallPluginCallback = (error: (Error|null), response?: lebai.plugin.RunPluginIndex) => void;
-
-            /**
-             * Callback as used by {@link lebai.plugin.PluginService#execPlugin}.
-             * @param error Error, if any
-             * @param [response] RunPluginIndex
-             */
-            type ExecPluginCallback = (error: (Error|null), response?: lebai.plugin.RunPluginIndex) => void;
-
-            /**
-             * Callback as used by {@link lebai.plugin.PluginService#waitPluginStdout}.
-             * @param error Error, if any
-             * @param [response] RunPluginStdout
-             */
-            type WaitPluginStdoutCallback = (error: (Error|null), response?: lebai.plugin.RunPluginStdout) => void;
-
-            /**
-             * Callback as used by {@link lebai.plugin.PluginService#subPluginIpc}.
-             * @param error Error, if any
-             * @param [response] RunPluginRequest
-             */
-            type SubPluginIpcCallback = (error: (Error|null), response?: lebai.plugin.RunPluginRequest) => void;
-
-            /**
-             * Callback as used by {@link lebai.plugin.PluginService#responsePluginIpc}.
-             * @param error Error, if any
-             * @param [response] Empty
-             */
-            type ResponsePluginIpcCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+            type RunPluginCmdCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
         }
     }
 
