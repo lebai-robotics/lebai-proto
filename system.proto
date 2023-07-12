@@ -138,8 +138,12 @@ message HardwareInfo {
   DeviceInfo extra_io = 11 [json_name = "extra_io"];
 }
 
+message SoftwareItemInfo {
+  string version = 1;
+  string branch = 2;
+}
 message SoftwareInfo {
-  string rc_version = 1 [json_name = "rc_version"];
+  map<string, SoftwareItemInfo> software = 1;
 }
 
 // 机器人状态
