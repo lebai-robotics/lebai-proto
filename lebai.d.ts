@@ -1882,11 +1882,114 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a SoftwareItemInfo. */
+        interface ISoftwareItemInfo {
+
+            /** SoftwareItemInfo version */
+            version?: (string|null);
+
+            /** SoftwareItemInfo branch */
+            branch?: (string|null);
+        }
+
+        /** Represents a SoftwareItemInfo. */
+        class SoftwareItemInfo implements ISoftwareItemInfo {
+
+            /**
+             * Constructs a new SoftwareItemInfo.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.system.ISoftwareItemInfo);
+
+            /** SoftwareItemInfo version. */
+            public version: string;
+
+            /** SoftwareItemInfo branch. */
+            public branch: string;
+
+            /**
+             * Creates a new SoftwareItemInfo instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SoftwareItemInfo instance
+             */
+            public static create(properties?: lebai.system.ISoftwareItemInfo): lebai.system.SoftwareItemInfo;
+
+            /**
+             * Encodes the specified SoftwareItemInfo message. Does not implicitly {@link lebai.system.SoftwareItemInfo.verify|verify} messages.
+             * @param message SoftwareItemInfo message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.system.ISoftwareItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SoftwareItemInfo message, length delimited. Does not implicitly {@link lebai.system.SoftwareItemInfo.verify|verify} messages.
+             * @param message SoftwareItemInfo message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.system.ISoftwareItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SoftwareItemInfo message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SoftwareItemInfo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.SoftwareItemInfo;
+
+            /**
+             * Decodes a SoftwareItemInfo message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SoftwareItemInfo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.SoftwareItemInfo;
+
+            /**
+             * Verifies a SoftwareItemInfo message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SoftwareItemInfo message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SoftwareItemInfo
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.system.SoftwareItemInfo;
+
+            /**
+             * Creates a plain object from a SoftwareItemInfo message. Also converts values to other types if specified.
+             * @param message SoftwareItemInfo
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.system.SoftwareItemInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SoftwareItemInfo to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SoftwareItemInfo
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SoftwareInfo. */
         interface ISoftwareInfo {
 
-            /** SoftwareInfo rcVersion */
-            rcVersion?: (string|null);
+            /** SoftwareInfo software */
+            software?: ({ [k: string]: lebai.system.ISoftwareItemInfo }|null);
         }
 
         /** Represents a SoftwareInfo. */
@@ -1898,8 +2001,8 @@ export namespace lebai {
              */
             constructor(properties?: lebai.system.ISoftwareInfo);
 
-            /** SoftwareInfo rcVersion. */
-            public rcVersion: string;
+            /** SoftwareInfo software. */
+            public software: { [k: string]: lebai.system.ISoftwareItemInfo };
 
             /**
              * Creates a new SoftwareInfo instance using the specified properties.

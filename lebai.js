@@ -430,14 +430,24 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
+          SoftwareItemInfo: {
+            fields: {
+              version: {
+                type: "string",
+                id: 1
+              },
+              branch: {
+                type: "string",
+                id: 2
+              }
+            }
+          },
           SoftwareInfo: {
             fields: {
-              rcVersion: {
-                type: "string",
-                id: 1,
-                options: {
-                  json_name: "rc_version"
-                }
+              software: {
+                keyType: "string",
+                type: "SoftwareItemInfo",
+                id: 1
               }
             }
           },
