@@ -17,6 +17,9 @@ message BackupInfo {
 }
 
 message Options {
+  // 临时数据（任务运行历史、日志）
+  bool tmp = 1;
+
   // 手臂配置（精标、关节圈数、伺服参数）
   bool arm = 11;
 
@@ -28,6 +31,9 @@ message Options {
   bool file = 23;
   // Docker数据
   bool docker = 24;
+
+  // DS数据
+  bool ds = 81;
 }
 
 message BackupRequest {
@@ -47,6 +53,8 @@ message RestoreRequest {
 
 // 备份恢复相关服务
 service BackupService {
+  // 清理数据
+  rpc Clean(Options) returns (google.protobuf.Empty);
   // 备份
   rpc Backup(BackupRequest) returns (google.protobuf.Empty);
   // 获取备份包的设备信息
