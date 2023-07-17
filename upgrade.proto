@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package lebai.upgrade;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+message CheckUpgradeResponse {
+  bool need_upgrade = 1 [json_name = "need_upgrade"];
+}
+
+message StartUpgradeResponse {
+  bool done = 11;
+  string stdout = 12;
+  string stderr = 13;
+  int32 code = 14;
+}
+
+// 系统升级相关服务
+service UpgradeService {
+  // 查询是否需要升级
+  rpc CheckUpgrade(google.protobuf.Empty) returns (CheckUpgradeResponse);
+  // 开始系统升级
+  rpc StartUpgrade(google.protobuf.Empty) returns (StartUpgradeResponse);
+}
