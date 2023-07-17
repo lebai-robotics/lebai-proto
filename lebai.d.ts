@@ -136,6 +136,9 @@ export namespace lebai {
         /** Properties of an Options. */
         interface IOptions {
 
+            /** Options tmp */
+            tmp?: (boolean|null);
+
             /** Options arm */
             arm?: (boolean|null);
 
@@ -150,6 +153,9 @@ export namespace lebai {
 
             /** Options docker */
             docker?: (boolean|null);
+
+            /** Options ds */
+            ds?: (boolean|null);
         }
 
         /** Represents an Options. */
@@ -160,6 +166,9 @@ export namespace lebai {
              * @param [properties] Properties to set
              */
             constructor(properties?: lebai.backup.IOptions);
+
+            /** Options tmp. */
+            public tmp: boolean;
 
             /** Options arm. */
             public arm: boolean;
@@ -175,6 +184,9 @@ export namespace lebai {
 
             /** Options docker. */
             public docker: boolean;
+
+            /** Options ds. */
+            public ds: boolean;
 
             /**
              * Creates a new Options instance using the specified properties.
@@ -578,6 +590,20 @@ export namespace lebai {
             public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): BackupService;
 
             /**
+             * Calls Clean.
+             * @param request Options message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public clean(request: lebai.backup.IOptions, callback: lebai.backup.BackupService.CleanCallback): void;
+
+            /**
+             * Calls Clean.
+             * @param request Options message or plain object
+             * @returns Promise
+             */
+            public clean(request: lebai.backup.IOptions): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls Backup.
              * @param request BackupRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -621,6 +647,13 @@ export namespace lebai {
         }
 
         namespace BackupService {
+
+            /**
+             * Callback as used by {@link lebai.backup.BackupService#clean}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type CleanCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.backup.BackupService#backup}.
@@ -26998,6 +27031,288 @@ export namespace lebai {
              * @param [response] Triggers
              */
             type GetTriggersCallback = (error: (Error|null), response?: lebai.trigger.Triggers) => void;
+        }
+    }
+
+    /** Namespace upgrade. */
+    namespace upgrade {
+
+        /** Properties of a CheckUpgradeResponse. */
+        interface ICheckUpgradeResponse {
+
+            /** CheckUpgradeResponse needUpgrade */
+            needUpgrade?: (boolean|null);
+        }
+
+        /** Represents a CheckUpgradeResponse. */
+        class CheckUpgradeResponse implements ICheckUpgradeResponse {
+
+            /**
+             * Constructs a new CheckUpgradeResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.upgrade.ICheckUpgradeResponse);
+
+            /** CheckUpgradeResponse needUpgrade. */
+            public needUpgrade: boolean;
+
+            /**
+             * Creates a new CheckUpgradeResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CheckUpgradeResponse instance
+             */
+            public static create(properties?: lebai.upgrade.ICheckUpgradeResponse): lebai.upgrade.CheckUpgradeResponse;
+
+            /**
+             * Encodes the specified CheckUpgradeResponse message. Does not implicitly {@link lebai.upgrade.CheckUpgradeResponse.verify|verify} messages.
+             * @param message CheckUpgradeResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.upgrade.ICheckUpgradeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CheckUpgradeResponse message, length delimited. Does not implicitly {@link lebai.upgrade.CheckUpgradeResponse.verify|verify} messages.
+             * @param message CheckUpgradeResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.upgrade.ICheckUpgradeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CheckUpgradeResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CheckUpgradeResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.upgrade.CheckUpgradeResponse;
+
+            /**
+             * Decodes a CheckUpgradeResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CheckUpgradeResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.upgrade.CheckUpgradeResponse;
+
+            /**
+             * Verifies a CheckUpgradeResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CheckUpgradeResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CheckUpgradeResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.upgrade.CheckUpgradeResponse;
+
+            /**
+             * Creates a plain object from a CheckUpgradeResponse message. Also converts values to other types if specified.
+             * @param message CheckUpgradeResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.upgrade.CheckUpgradeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CheckUpgradeResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for CheckUpgradeResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a StartUpgradeResponse. */
+        interface IStartUpgradeResponse {
+
+            /** StartUpgradeResponse done */
+            done?: (boolean|null);
+
+            /** StartUpgradeResponse stdout */
+            stdout?: (string|null);
+
+            /** StartUpgradeResponse stderr */
+            stderr?: (string|null);
+
+            /** StartUpgradeResponse code */
+            code?: (number|null);
+        }
+
+        /** Represents a StartUpgradeResponse. */
+        class StartUpgradeResponse implements IStartUpgradeResponse {
+
+            /**
+             * Constructs a new StartUpgradeResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.upgrade.IStartUpgradeResponse);
+
+            /** StartUpgradeResponse done. */
+            public done: boolean;
+
+            /** StartUpgradeResponse stdout. */
+            public stdout: string;
+
+            /** StartUpgradeResponse stderr. */
+            public stderr: string;
+
+            /** StartUpgradeResponse code. */
+            public code: number;
+
+            /**
+             * Creates a new StartUpgradeResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns StartUpgradeResponse instance
+             */
+            public static create(properties?: lebai.upgrade.IStartUpgradeResponse): lebai.upgrade.StartUpgradeResponse;
+
+            /**
+             * Encodes the specified StartUpgradeResponse message. Does not implicitly {@link lebai.upgrade.StartUpgradeResponse.verify|verify} messages.
+             * @param message StartUpgradeResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.upgrade.IStartUpgradeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified StartUpgradeResponse message, length delimited. Does not implicitly {@link lebai.upgrade.StartUpgradeResponse.verify|verify} messages.
+             * @param message StartUpgradeResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.upgrade.IStartUpgradeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a StartUpgradeResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns StartUpgradeResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.upgrade.StartUpgradeResponse;
+
+            /**
+             * Decodes a StartUpgradeResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns StartUpgradeResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.upgrade.StartUpgradeResponse;
+
+            /**
+             * Verifies a StartUpgradeResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a StartUpgradeResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns StartUpgradeResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.upgrade.StartUpgradeResponse;
+
+            /**
+             * Creates a plain object from a StartUpgradeResponse message. Also converts values to other types if specified.
+             * @param message StartUpgradeResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.upgrade.StartUpgradeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this StartUpgradeResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for StartUpgradeResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents an UpgradeService */
+        class UpgradeService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new UpgradeService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new UpgradeService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): UpgradeService;
+
+            /**
+             * Calls CheckUpgrade.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and CheckUpgradeResponse
+             */
+            public checkUpgrade(request: google.protobuf.IEmpty, callback: lebai.upgrade.UpgradeService.CheckUpgradeCallback): void;
+
+            /**
+             * Calls CheckUpgrade.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public checkUpgrade(request: google.protobuf.IEmpty): Promise<lebai.upgrade.CheckUpgradeResponse>;
+
+            /**
+             * Calls StartUpgrade.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and StartUpgradeResponse
+             */
+            public startUpgrade(request: google.protobuf.IEmpty, callback: lebai.upgrade.UpgradeService.StartUpgradeCallback): void;
+
+            /**
+             * Calls StartUpgrade.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public startUpgrade(request: google.protobuf.IEmpty): Promise<lebai.upgrade.StartUpgradeResponse>;
+        }
+
+        namespace UpgradeService {
+
+            /**
+             * Callback as used by {@link lebai.upgrade.UpgradeService#checkUpgrade}.
+             * @param error Error, if any
+             * @param [response] CheckUpgradeResponse
+             */
+            type CheckUpgradeCallback = (error: (Error|null), response?: lebai.upgrade.CheckUpgradeResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.upgrade.UpgradeService#startUpgrade}.
+             * @param error Error, if any
+             * @param [response] StartUpgradeResponse
+             */
+            type StartUpgradeCallback = (error: (Error|null), response?: lebai.upgrade.StartUpgradeResponse) => void;
         }
     }
 }

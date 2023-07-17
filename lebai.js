@@ -39,6 +39,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           Options: {
             fields: {
+              tmp: {
+                type: "bool",
+                id: 1
+              },
               arm: {
                 type: "bool",
                 id: 11
@@ -58,6 +62,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               docker: {
                 type: "bool",
                 id: 24
+              },
+              ds: {
+                type: "bool",
+                id: 81
               }
             }
           },
@@ -95,6 +103,10 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           BackupService: {
             methods: {
+              Clean: {
+                requestType: "Options",
+                responseType: "google.protobuf.Empty"
+              },
               Backup: {
                 requestType: "BackupRequest",
                 responseType: "google.protobuf.Empty"
@@ -4639,6 +4651,53 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               GetTriggers: {
                 requestType: "google.protobuf.Empty",
                 responseType: "Triggers"
+              }
+            }
+          }
+        }
+      },
+      upgrade: {
+        nested: {
+          CheckUpgradeResponse: {
+            fields: {
+              needUpgrade: {
+                type: "bool",
+                id: 1,
+                options: {
+                  json_name: "need_upgrade"
+                }
+              }
+            }
+          },
+          StartUpgradeResponse: {
+            fields: {
+              done: {
+                type: "bool",
+                id: 11
+              },
+              stdout: {
+                type: "string",
+                id: 12
+              },
+              stderr: {
+                type: "string",
+                id: 13
+              },
+              code: {
+                type: "int32",
+                id: 14
+              }
+            }
+          },
+          UpgradeService: {
+            methods: {
+              CheckUpgrade: {
+                requestType: "google.protobuf.Empty",
+                responseType: "CheckUpgradeResponse"
+              },
+              StartUpgrade: {
+                requestType: "google.protobuf.Empty",
+                responseType: "StartUpgradeResponse"
               }
             }
           }
