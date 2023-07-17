@@ -1557,6 +1557,29 @@
             </ul>
           </li>
         
+          
+          <li>
+            <a href="#upgrade.proto">upgrade.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.upgrade.CheckUpgradeResponse"><span class="badge">M</span>CheckUpgradeResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.upgrade.StartUpgradeResponse"><span class="badge">M</span>StartUpgradeResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.upgrade.UpgradeService"><span class="badge">S</span>UpgradeService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
         <li><a href="#scalar-value-types">Scalar Value Types</a></li>
       </ul>
     </div>
@@ -1694,6 +1717,13 @@
             <tbody>
               
                 <tr>
+                  <td>tmp</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>临时数据（任务运行历史、日志） </p></td>
+                </tr>
+              
+                <tr>
                   <td>arm</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
@@ -1726,6 +1756,13 @@
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p>Docker数据 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ds</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>DS数据 </p></td>
                 </tr>
               
             </tbody>
@@ -1779,6 +1816,13 @@
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
+            
+              <tr>
+                <td>Clean</td>
+                <td><a href="#lebai.backup.Options">Options</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>清理数据</p></td>
+              </tr>
             
               <tr>
                 <td>Backup</td>
@@ -12664,6 +12708,115 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.trigger.Triggers">Triggers</a></td>
                 <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="upgrade.proto">upgrade.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.upgrade.CheckUpgradeResponse">CheckUpgradeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>need_upgrade</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.upgrade.StartUpgradeResponse">StartUpgradeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>done</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stderr</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.upgrade.UpgradeService">UpgradeService</h3>
+        <p>系统升级相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CheckUpgrade</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.upgrade.CheckUpgradeResponse">CheckUpgradeResponse</a></td>
+                <td><p>查询是否需要升级</p></td>
+              </tr>
+            
+              <tr>
+                <td>StartUpgrade</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.upgrade.StartUpgradeResponse">StartUpgradeResponse</a></td>
+                <td><p>开始系统升级</p></td>
               </tr>
             
           </tbody>
