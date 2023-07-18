@@ -7,8 +7,12 @@ import "google/protobuf/wrappers.proto";
 
 message CheckUpgradeResponse {
   bool need_upgrade = 1 [json_name = "need_upgrade"];
+  string introduction = 2;
 }
 
+message StartUpgradeRequest {
+  bool reboot = 1;
+}
 message StartUpgradeResponse {
   bool done = 11;
   string stdout = 12;
@@ -21,5 +25,5 @@ service UpgradeService {
   // 查询是否需要升级
   rpc CheckUpgrade(google.protobuf.Empty) returns (CheckUpgradeResponse);
   // 开始系统升级
-  rpc StartUpgrade(google.protobuf.Empty) returns (StartUpgradeResponse);
+  rpc StartUpgrade(StartUpgradeRequest) returns (StartUpgradeResponse);
 }
