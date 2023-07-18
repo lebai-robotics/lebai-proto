@@ -4666,6 +4666,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 options: {
                   json_name: "need_upgrade"
                 }
+              },
+              introduction: {
+                type: "string",
+                id: 2
+              }
+            }
+          },
+          StartUpgradeRequest: {
+            fields: {
+              reboot: {
+                type: "bool",
+                id: 1
               }
             }
           },
@@ -4696,7 +4708,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "CheckUpgradeResponse"
               },
               StartUpgrade: {
-                requestType: "google.protobuf.Empty",
+                requestType: "StartUpgradeRequest",
                 responseType: "StartUpgradeResponse"
               }
             }
