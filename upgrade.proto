@@ -10,13 +10,14 @@ message CheckUpgradeResponse {
   string introduction = 2;
 }
 
-message StartUpgradeRequest {
-  bool reboot = 1;
-}
-message StartUpgradeResponse {
+message UpgradeStdout {
+  // 未开始 或 已完成
   bool done = 11;
+  // 调试信息
   string stdout = 12;
+  // 警告信息
   string stderr = 13;
+  // 返回码，非0为失败
   int32 code = 14;
 }
 
@@ -24,6 +25,8 @@ message StartUpgradeResponse {
 service UpgradeService {
   // 查询是否需要升级
   rpc CheckUpgrade(google.protobuf.Empty) returns (CheckUpgradeResponse);
-  // 开始系统升级
-  rpc StartUpgrade(StartUpgradeRequest) returns (StartUpgradeResponse);
+  // 开始系统升级，升级完成后需重启才生效
+  rpc StartUpgrade(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 获取更新信息
+  rpc GetUpgradeStdout(google.protobuf.Empty) returns (UpgradeStdout);
 }
