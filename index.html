@@ -1567,11 +1567,7 @@
                 </li>
               
                 <li>
-                  <a href="#lebai.upgrade.StartUpgradeRequest"><span class="badge">M</span>StartUpgradeRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.upgrade.StartUpgradeResponse"><span class="badge">M</span>StartUpgradeResponse</a>
+                  <a href="#lebai.upgrade.UpgradeStdout"><span class="badge">M</span>UpgradeStdout</a>
                 </li>
               
               
@@ -12757,31 +12753,7 @@
 
         
       
-        <h3 id="lebai.upgrade.StartUpgradeRequest">StartUpgradeRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>reboot</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="lebai.upgrade.StartUpgradeResponse">StartUpgradeResponse</h3>
+        <h3 id="lebai.upgrade.UpgradeStdout">UpgradeStdout</h3>
         <p></p>
 
         
@@ -12795,28 +12767,28 @@
                   <td>done</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>未开始 或 已完成 </p></td>
                 </tr>
               
                 <tr>
                   <td>stdout</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>调试信息 </p></td>
                 </tr>
               
                 <tr>
                   <td>stderr</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>警告信息 </p></td>
                 </tr>
               
                 <tr>
                   <td>code</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>返回码，非0为失败 </p></td>
                 </tr>
               
             </tbody>
@@ -12849,9 +12821,16 @@
             
               <tr>
                 <td>StartUpgrade</td>
-                <td><a href="#lebai.upgrade.StartUpgradeRequest">StartUpgradeRequest</a></td>
-                <td><a href="#lebai.upgrade.StartUpgradeResponse">StartUpgradeResponse</a></td>
-                <td><p>开始系统升级</p></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>开始系统升级，升级完成后需重启才生效</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetUpgradeStdout</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#lebai.upgrade.UpgradeStdout">UpgradeStdout</a></td>
+                <td><p>获取更新信息</p></td>
               </tr>
             
           </tbody>
