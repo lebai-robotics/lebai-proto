@@ -4673,15 +4673,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          StartUpgradeRequest: {
-            fields: {
-              reboot: {
-                type: "bool",
-                id: 1
-              }
-            }
-          },
-          StartUpgradeResponse: {
+          UpgradeStdout: {
             fields: {
               done: {
                 type: "bool",
@@ -4708,8 +4700,12 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "CheckUpgradeResponse"
               },
               StartUpgrade: {
-                requestType: "StartUpgradeRequest",
-                responseType: "StartUpgradeResponse"
+                requestType: "google.protobuf.Empty",
+                responseType: "google.protobuf.Empty"
+              },
+              GetUpgradeStdout: {
+                requestType: "google.protobuf.Empty",
+                responseType: "UpgradeStdout"
               }
             }
           }
