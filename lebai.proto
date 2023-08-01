@@ -8,3 +8,14 @@ message SubscribeRequest {
   // 保证interval时间(ms)内至少推送1次
   uint64 interval_max = 12 [json_name = "interval_max"];
 }
+
+message CommandStdout {
+  // 未开始 或 已完成
+  bool done = 11;
+  // 调试信息
+  string stdout = 12;
+  // 警告信息
+  string stderr = 13;
+  // 返回码，非0为失败
+  int32 code = 14;
+}

@@ -4,6 +4,7 @@ package lebai.plugin;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "lebai.proto";
 
 message PluginInfo {
   // 插件名称
@@ -35,13 +36,6 @@ message RunPluginCmdRequest {
   repeated string params = 22;
 }
 
-message PluginStdout {
-  bool done = 11;
-  string stdout = 12;
-  string stderr = 13;
-  int32 code = 14;
-}
-
 // 插件相关服务
 service PluginService {
   // 查询插件信息
@@ -50,9 +44,11 @@ service PluginService {
   rpc LoadPlugins(google.protobuf.Empty) returns (Plugins);
 
   // 启用插件
-  rpc EnablePlugin(PluginIndex) returns (PluginStdout);
+  rpc EnablePlugin(PluginIndex) returns (CommandStdout);
   // 禁用插件
-  rpc DisablePlugin(PluginIndex) returns (PluginStdout);
+  rpc DisablePlugin(PluginIndex) returns (CommandStdout);
+  // 获取更新信息
+  rpc GetPluginDaemonStdout(PluginIndex) returns (CommandStdout);
   // 执行命令行程序
-  rpc RunPluginCmd(RunPluginCmdRequest) returns (PluginStdout);
+  rpc RunPluginCmd(RunPluginCmdRequest) returns (CommandStdout);
 }

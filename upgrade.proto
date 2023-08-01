@@ -4,21 +4,11 @@ package lebai.upgrade;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "lebai.proto";
 
 message CheckUpgradeResponse {
   bool need_upgrade = 1 [json_name = "need_upgrade"];
   string introduction = 2;
-}
-
-message UpgradeStdout {
-  // 未开始 或 已完成
-  bool done = 11;
-  // 调试信息
-  string stdout = 12;
-  // 警告信息
-  string stderr = 13;
-  // 返回码，非0为失败
-  int32 code = 14;
 }
 
 // 系统升级相关服务
@@ -28,5 +18,5 @@ service UpgradeService {
   // 开始系统升级，升级完成后需重启才生效
   rpc StartUpgrade(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 获取更新信息
-  rpc GetUpgradeStdout(google.protobuf.Empty) returns (UpgradeStdout);
+  rpc GetUpgradeStdout(google.protobuf.Empty) returns (CommandStdout);
 }
