@@ -2935,6 +2935,121 @@ export namespace lebai {
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
+    /** Properties of a CommandStdout. */
+    interface ICommandStdout {
+
+        /** CommandStdout done */
+        done?: (boolean|null);
+
+        /** CommandStdout stdout */
+        stdout?: (string|null);
+
+        /** CommandStdout stderr */
+        stderr?: (string|null);
+
+        /** CommandStdout code */
+        code?: (number|null);
+    }
+
+    /** Represents a CommandStdout. */
+    class CommandStdout implements ICommandStdout {
+
+        /**
+         * Constructs a new CommandStdout.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: lebai.ICommandStdout);
+
+        /** CommandStdout done. */
+        public done: boolean;
+
+        /** CommandStdout stdout. */
+        public stdout: string;
+
+        /** CommandStdout stderr. */
+        public stderr: string;
+
+        /** CommandStdout code. */
+        public code: number;
+
+        /**
+         * Creates a new CommandStdout instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CommandStdout instance
+         */
+        public static create(properties?: lebai.ICommandStdout): lebai.CommandStdout;
+
+        /**
+         * Encodes the specified CommandStdout message. Does not implicitly {@link lebai.CommandStdout.verify|verify} messages.
+         * @param message CommandStdout message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: lebai.ICommandStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CommandStdout message, length delimited. Does not implicitly {@link lebai.CommandStdout.verify|verify} messages.
+         * @param message CommandStdout message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: lebai.ICommandStdout, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CommandStdout message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CommandStdout
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.CommandStdout;
+
+        /**
+         * Decodes a CommandStdout message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CommandStdout
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.CommandStdout;
+
+        /**
+         * Verifies a CommandStdout message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CommandStdout message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CommandStdout
+         */
+        public static fromObject(object: { [k: string]: any }): lebai.CommandStdout;
+
+        /**
+         * Creates a plain object from a CommandStdout message. Also converts values to other types if specified.
+         * @param message CommandStdout
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: lebai.CommandStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CommandStdout to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for CommandStdout
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Namespace hardware. */
     namespace hardware {
 
@@ -21036,121 +21151,6 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a PluginStdout. */
-        interface IPluginStdout {
-
-            /** PluginStdout done */
-            done?: (boolean|null);
-
-            /** PluginStdout stdout */
-            stdout?: (string|null);
-
-            /** PluginStdout stderr */
-            stderr?: (string|null);
-
-            /** PluginStdout code */
-            code?: (number|null);
-        }
-
-        /** Represents a PluginStdout. */
-        class PluginStdout implements IPluginStdout {
-
-            /**
-             * Constructs a new PluginStdout.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.plugin.IPluginStdout);
-
-            /** PluginStdout done. */
-            public done: boolean;
-
-            /** PluginStdout stdout. */
-            public stdout: string;
-
-            /** PluginStdout stderr. */
-            public stderr: string;
-
-            /** PluginStdout code. */
-            public code: number;
-
-            /**
-             * Creates a new PluginStdout instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns PluginStdout instance
-             */
-            public static create(properties?: lebai.plugin.IPluginStdout): lebai.plugin.PluginStdout;
-
-            /**
-             * Encodes the specified PluginStdout message. Does not implicitly {@link lebai.plugin.PluginStdout.verify|verify} messages.
-             * @param message PluginStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.plugin.IPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified PluginStdout message, length delimited. Does not implicitly {@link lebai.plugin.PluginStdout.verify|verify} messages.
-             * @param message PluginStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.plugin.IPluginStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a PluginStdout message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns PluginStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.PluginStdout;
-
-            /**
-             * Decodes a PluginStdout message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns PluginStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.PluginStdout;
-
-            /**
-             * Verifies a PluginStdout message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a PluginStdout message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns PluginStdout
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.plugin.PluginStdout;
-
-            /**
-             * Creates a plain object from a PluginStdout message. Also converts values to other types if specified.
-             * @param message PluginStdout
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.plugin.PluginStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this PluginStdout to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for PluginStdout
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Represents a PluginService */
         class PluginService extends $protobuf.rpc.Service {
 
@@ -21202,7 +21202,7 @@ export namespace lebai {
             /**
              * Calls EnablePlugin.
              * @param request PluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and PluginStdout
+             * @param callback Node-style callback called with the error, if any, and CommandStdout
              */
             public enablePlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.EnablePluginCallback): void;
 
@@ -21211,12 +21211,12 @@ export namespace lebai {
              * @param request PluginIndex message or plain object
              * @returns Promise
              */
-            public enablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.plugin.PluginStdout>;
+            public enablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.CommandStdout>;
 
             /**
              * Calls DisablePlugin.
              * @param request PluginIndex message or plain object
-             * @param callback Node-style callback called with the error, if any, and PluginStdout
+             * @param callback Node-style callback called with the error, if any, and CommandStdout
              */
             public disablePlugin(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.DisablePluginCallback): void;
 
@@ -21225,12 +21225,26 @@ export namespace lebai {
              * @param request PluginIndex message or plain object
              * @returns Promise
              */
-            public disablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.plugin.PluginStdout>;
+            public disablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.CommandStdout>;
+
+            /**
+             * Calls GetPluginDaemonStdout.
+             * @param request PluginIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and CommandStdout
+             */
+            public getPluginDaemonStdout(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.GetPluginDaemonStdoutCallback): void;
+
+            /**
+             * Calls GetPluginDaemonStdout.
+             * @param request PluginIndex message or plain object
+             * @returns Promise
+             */
+            public getPluginDaemonStdout(request: lebai.plugin.IPluginIndex): Promise<lebai.CommandStdout>;
 
             /**
              * Calls RunPluginCmd.
              * @param request RunPluginCmdRequest message or plain object
-             * @param callback Node-style callback called with the error, if any, and PluginStdout
+             * @param callback Node-style callback called with the error, if any, and CommandStdout
              */
             public runPluginCmd(request: lebai.plugin.IRunPluginCmdRequest, callback: lebai.plugin.PluginService.RunPluginCmdCallback): void;
 
@@ -21239,7 +21253,7 @@ export namespace lebai {
              * @param request RunPluginCmdRequest message or plain object
              * @returns Promise
              */
-            public runPluginCmd(request: lebai.plugin.IRunPluginCmdRequest): Promise<lebai.plugin.PluginStdout>;
+            public runPluginCmd(request: lebai.plugin.IRunPluginCmdRequest): Promise<lebai.CommandStdout>;
         }
 
         namespace PluginService {
@@ -21261,23 +21275,30 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.plugin.PluginService#enablePlugin}.
              * @param error Error, if any
-             * @param [response] PluginStdout
+             * @param [response] CommandStdout
              */
-            type EnablePluginCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
+            type EnablePluginCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
 
             /**
              * Callback as used by {@link lebai.plugin.PluginService#disablePlugin}.
              * @param error Error, if any
-             * @param [response] PluginStdout
+             * @param [response] CommandStdout
              */
-            type DisablePluginCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
+            type DisablePluginCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
+
+            /**
+             * Callback as used by {@link lebai.plugin.PluginService#getPluginDaemonStdout}.
+             * @param error Error, if any
+             * @param [response] CommandStdout
+             */
+            type GetPluginDaemonStdoutCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
 
             /**
              * Callback as used by {@link lebai.plugin.PluginService#runPluginCmd}.
              * @param error Error, if any
-             * @param [response] PluginStdout
+             * @param [response] CommandStdout
              */
-            type RunPluginCmdCallback = (error: (Error|null), response?: lebai.plugin.PluginStdout) => void;
+            type RunPluginCmdCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
         }
     }
 
@@ -27140,121 +27161,6 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of an UpgradeStdout. */
-        interface IUpgradeStdout {
-
-            /** UpgradeStdout done */
-            done?: (boolean|null);
-
-            /** UpgradeStdout stdout */
-            stdout?: (string|null);
-
-            /** UpgradeStdout stderr */
-            stderr?: (string|null);
-
-            /** UpgradeStdout code */
-            code?: (number|null);
-        }
-
-        /** Represents an UpgradeStdout. */
-        class UpgradeStdout implements IUpgradeStdout {
-
-            /**
-             * Constructs a new UpgradeStdout.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.upgrade.IUpgradeStdout);
-
-            /** UpgradeStdout done. */
-            public done: boolean;
-
-            /** UpgradeStdout stdout. */
-            public stdout: string;
-
-            /** UpgradeStdout stderr. */
-            public stderr: string;
-
-            /** UpgradeStdout code. */
-            public code: number;
-
-            /**
-             * Creates a new UpgradeStdout instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns UpgradeStdout instance
-             */
-            public static create(properties?: lebai.upgrade.IUpgradeStdout): lebai.upgrade.UpgradeStdout;
-
-            /**
-             * Encodes the specified UpgradeStdout message. Does not implicitly {@link lebai.upgrade.UpgradeStdout.verify|verify} messages.
-             * @param message UpgradeStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.upgrade.IUpgradeStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified UpgradeStdout message, length delimited. Does not implicitly {@link lebai.upgrade.UpgradeStdout.verify|verify} messages.
-             * @param message UpgradeStdout message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.upgrade.IUpgradeStdout, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an UpgradeStdout message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns UpgradeStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.upgrade.UpgradeStdout;
-
-            /**
-             * Decodes an UpgradeStdout message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns UpgradeStdout
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.upgrade.UpgradeStdout;
-
-            /**
-             * Verifies an UpgradeStdout message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an UpgradeStdout message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns UpgradeStdout
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.upgrade.UpgradeStdout;
-
-            /**
-             * Creates a plain object from an UpgradeStdout message. Also converts values to other types if specified.
-             * @param message UpgradeStdout
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.upgrade.UpgradeStdout, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this UpgradeStdout to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for UpgradeStdout
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Represents an UpgradeService */
         class UpgradeService extends $protobuf.rpc.Service {
 
@@ -27306,7 +27212,7 @@ export namespace lebai {
             /**
              * Calls GetUpgradeStdout.
              * @param request Empty message or plain object
-             * @param callback Node-style callback called with the error, if any, and UpgradeStdout
+             * @param callback Node-style callback called with the error, if any, and CommandStdout
              */
             public getUpgradeStdout(request: google.protobuf.IEmpty, callback: lebai.upgrade.UpgradeService.GetUpgradeStdoutCallback): void;
 
@@ -27315,7 +27221,7 @@ export namespace lebai {
              * @param request Empty message or plain object
              * @returns Promise
              */
-            public getUpgradeStdout(request: google.protobuf.IEmpty): Promise<lebai.upgrade.UpgradeStdout>;
+            public getUpgradeStdout(request: google.protobuf.IEmpty): Promise<lebai.CommandStdout>;
         }
 
         namespace UpgradeService {
@@ -27337,9 +27243,9 @@ export namespace lebai {
             /**
              * Callback as used by {@link lebai.upgrade.UpgradeService#getUpgradeStdout}.
              * @param error Error, if any
-             * @param [response] UpgradeStdout
+             * @param [response] CommandStdout
              */
-            type GetUpgradeStdoutCallback = (error: (Error|null), response?: lebai.upgrade.UpgradeStdout) => void;
+            type GetUpgradeStdoutCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
         }
     }
 }

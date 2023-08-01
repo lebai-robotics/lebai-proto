@@ -632,6 +632,26 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           }
         }
       },
+      CommandStdout: {
+        fields: {
+          done: {
+            type: "bool",
+            id: 11
+          },
+          stdout: {
+            type: "string",
+            id: 12
+          },
+          stderr: {
+            type: "string",
+            id: 13
+          },
+          code: {
+            type: "int32",
+            id: 14
+          }
+        }
+      },
       hardware: {
         nested: {
           Address: {
@@ -3646,26 +3666,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          PluginStdout: {
-            fields: {
-              done: {
-                type: "bool",
-                id: 11
-              },
-              stdout: {
-                type: "string",
-                id: 12
-              },
-              stderr: {
-                type: "string",
-                id: 13
-              },
-              code: {
-                type: "int32",
-                id: 14
-              }
-            }
-          },
           PluginService: {
             methods: {
               LoadPlugin: {
@@ -3678,15 +3678,19 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               EnablePlugin: {
                 requestType: "PluginIndex",
-                responseType: "PluginStdout"
+                responseType: "CommandStdout"
               },
               DisablePlugin: {
                 requestType: "PluginIndex",
-                responseType: "PluginStdout"
+                responseType: "CommandStdout"
+              },
+              GetPluginDaemonStdout: {
+                requestType: "PluginIndex",
+                responseType: "CommandStdout"
               },
               RunPluginCmd: {
                 requestType: "RunPluginCmdRequest",
-                responseType: "PluginStdout"
+                responseType: "CommandStdout"
               }
             }
           }
@@ -4673,26 +4677,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          UpgradeStdout: {
-            fields: {
-              done: {
-                type: "bool",
-                id: 11
-              },
-              stdout: {
-                type: "string",
-                id: 12
-              },
-              stderr: {
-                type: "string",
-                id: 13
-              },
-              code: {
-                type: "int32",
-                id: 14
-              }
-            }
-          },
           UpgradeService: {
             methods: {
               CheckUpgrade: {
@@ -4705,7 +4689,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               },
               GetUpgradeStdout: {
                 requestType: "google.protobuf.Empty",
-                responseType: "UpgradeStdout"
+                responseType: "CommandStdout"
               }
             }
           }
