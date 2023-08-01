@@ -622,6 +622,10 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.CommandStdout"><span class="badge">M</span>CommandStdout</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.SubscribeRequest"><span class="badge">M</span>SubscribeRequest</a>
                 </li>
               
@@ -1016,10 +1020,6 @@
               
                 <li>
                   <a href="#lebai.plugin.PluginInfo"><span class="badge">M</span>PluginInfo</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.plugin.PluginStdout"><span class="badge">M</span>PluginStdout</a>
                 </li>
               
                 <li>
@@ -1564,10 +1564,6 @@
               
                 <li>
                   <a href="#lebai.upgrade.CheckUpgradeResponse"><span class="badge">M</span>CheckUpgradeResponse</a>
-                </li>
-              
-                <li>
-                  <a href="#lebai.upgrade.UpgradeStdout"><span class="badge">M</span>UpgradeStdout</a>
                 </li>
               
               
@@ -5006,6 +5002,51 @@
       <p></p>
 
       
+        <h3 id="lebai.CommandStdout">CommandStdout</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>done</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>未开始 或 已完成 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stdout</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>调试信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stderr</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>警告信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>返回码，非0为失败 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.SubscribeRequest">SubscribeRequest</h3>
         <p></p>
 
@@ -8275,51 +8316,6 @@
 
         
       
-        <h3 id="lebai.plugin.PluginStdout">PluginStdout</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>done</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stdout</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stderr</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>code</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="lebai.plugin.Plugins">Plugins</h3>
         <p></p>
 
@@ -8406,21 +8402,28 @@
               <tr>
                 <td>EnablePlugin</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
-                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
+                <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
                 <td><p>启用插件</p></td>
               </tr>
             
               <tr>
                 <td>DisablePlugin</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
-                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
+                <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
                 <td><p>禁用插件</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPluginDaemonStdout</td>
+                <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
+                <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
+                <td><p>获取更新信息</p></td>
               </tr>
             
               <tr>
                 <td>RunPluginCmd</td>
                 <td><a href="#lebai.plugin.RunPluginCmdRequest">RunPluginCmdRequest</a></td>
-                <td><a href="#lebai.plugin.PluginStdout">PluginStdout</a></td>
+                <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
                 <td><p>执行命令行程序</p></td>
               </tr>
             
@@ -12753,51 +12756,6 @@
 
         
       
-        <h3 id="lebai.upgrade.UpgradeStdout">UpgradeStdout</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>done</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>未开始 或 已完成 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stdout</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>调试信息 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>stderr</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>警告信息 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>code</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
-                  <td><p>返回码，非0为失败 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
 
       
 
@@ -12829,7 +12787,7 @@
               <tr>
                 <td>GetUpgradeStdout</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
-                <td><a href="#lebai.upgrade.UpgradeStdout">UpgradeStdout</a></td>
+                <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
                 <td><p>获取更新信息</p></td>
               </tr>
             
