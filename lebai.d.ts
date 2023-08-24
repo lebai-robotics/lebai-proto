@@ -3,6 +3,380 @@ import Long = require("long");
 /** Namespace lebai. */
 export namespace lebai {
 
+    /** Namespace auto. */
+    namespace auto {
+
+        /** AutoCfg enum. */
+        enum AutoCfg {
+            ARM_POWER = 0,
+            ENABLE_JOINT = 1,
+            INIT_CLAW = 2
+        }
+
+        /** Properties of a SetAutoRequest. */
+        interface ISetAutoRequest {
+
+            /** SetAutoRequest name */
+            name?: (lebai.auto.AutoCfg|null);
+
+            /** SetAutoRequest value */
+            value?: (boolean|null);
+        }
+
+        /** Represents a SetAutoRequest. */
+        class SetAutoRequest implements ISetAutoRequest {
+
+            /**
+             * Constructs a new SetAutoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.auto.ISetAutoRequest);
+
+            /** SetAutoRequest name. */
+            public name: lebai.auto.AutoCfg;
+
+            /** SetAutoRequest value. */
+            public value: boolean;
+
+            /**
+             * Creates a new SetAutoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetAutoRequest instance
+             */
+            public static create(properties?: lebai.auto.ISetAutoRequest): lebai.auto.SetAutoRequest;
+
+            /**
+             * Encodes the specified SetAutoRequest message. Does not implicitly {@link lebai.auto.SetAutoRequest.verify|verify} messages.
+             * @param message SetAutoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.auto.ISetAutoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetAutoRequest message, length delimited. Does not implicitly {@link lebai.auto.SetAutoRequest.verify|verify} messages.
+             * @param message SetAutoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.auto.ISetAutoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetAutoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetAutoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.auto.SetAutoRequest;
+
+            /**
+             * Decodes a SetAutoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetAutoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.auto.SetAutoRequest;
+
+            /**
+             * Verifies a SetAutoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetAutoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetAutoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.auto.SetAutoRequest;
+
+            /**
+             * Creates a plain object from a SetAutoRequest message. Also converts values to other types if specified.
+             * @param message SetAutoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.auto.SetAutoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetAutoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetAutoRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GetAutoRequest. */
+        interface IGetAutoRequest {
+
+            /** GetAutoRequest name */
+            name?: (lebai.auto.AutoCfg|null);
+        }
+
+        /** Represents a GetAutoRequest. */
+        class GetAutoRequest implements IGetAutoRequest {
+
+            /**
+             * Constructs a new GetAutoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.auto.IGetAutoRequest);
+
+            /** GetAutoRequest name. */
+            public name: lebai.auto.AutoCfg;
+
+            /**
+             * Creates a new GetAutoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetAutoRequest instance
+             */
+            public static create(properties?: lebai.auto.IGetAutoRequest): lebai.auto.GetAutoRequest;
+
+            /**
+             * Encodes the specified GetAutoRequest message. Does not implicitly {@link lebai.auto.GetAutoRequest.verify|verify} messages.
+             * @param message GetAutoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.auto.IGetAutoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetAutoRequest message, length delimited. Does not implicitly {@link lebai.auto.GetAutoRequest.verify|verify} messages.
+             * @param message GetAutoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.auto.IGetAutoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetAutoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetAutoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.auto.GetAutoRequest;
+
+            /**
+             * Decodes a GetAutoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetAutoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.auto.GetAutoRequest;
+
+            /**
+             * Verifies a GetAutoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetAutoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetAutoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.auto.GetAutoRequest;
+
+            /**
+             * Creates a plain object from a GetAutoRequest message. Also converts values to other types if specified.
+             * @param message GetAutoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.auto.GetAutoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetAutoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetAutoRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GetAutoResponse. */
+        interface IGetAutoResponse {
+
+            /** GetAutoResponse value */
+            value?: (boolean|null);
+        }
+
+        /** Represents a GetAutoResponse. */
+        class GetAutoResponse implements IGetAutoResponse {
+
+            /**
+             * Constructs a new GetAutoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.auto.IGetAutoResponse);
+
+            /** GetAutoResponse value. */
+            public value: boolean;
+
+            /**
+             * Creates a new GetAutoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetAutoResponse instance
+             */
+            public static create(properties?: lebai.auto.IGetAutoResponse): lebai.auto.GetAutoResponse;
+
+            /**
+             * Encodes the specified GetAutoResponse message. Does not implicitly {@link lebai.auto.GetAutoResponse.verify|verify} messages.
+             * @param message GetAutoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.auto.IGetAutoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetAutoResponse message, length delimited. Does not implicitly {@link lebai.auto.GetAutoResponse.verify|verify} messages.
+             * @param message GetAutoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.auto.IGetAutoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetAutoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetAutoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.auto.GetAutoResponse;
+
+            /**
+             * Decodes a GetAutoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetAutoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.auto.GetAutoResponse;
+
+            /**
+             * Verifies a GetAutoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetAutoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetAutoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.auto.GetAutoResponse;
+
+            /**
+             * Creates a plain object from a GetAutoResponse message. Also converts values to other types if specified.
+             * @param message GetAutoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.auto.GetAutoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetAutoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetAutoResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents an AutoService */
+        class AutoService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new AutoService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new AutoService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): AutoService;
+
+            /**
+             * Calls SetAuto.
+             * @param request SetAutoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setAuto(request: lebai.auto.ISetAutoRequest, callback: lebai.auto.AutoService.SetAutoCallback): void;
+
+            /**
+             * Calls SetAuto.
+             * @param request SetAutoRequest message or plain object
+             * @returns Promise
+             */
+            public setAuto(request: lebai.auto.ISetAutoRequest): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls GetAuto.
+             * @param request GetAutoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and GetAutoResponse
+             */
+            public getAuto(request: lebai.auto.IGetAutoRequest, callback: lebai.auto.AutoService.GetAutoCallback): void;
+
+            /**
+             * Calls GetAuto.
+             * @param request GetAutoRequest message or plain object
+             * @returns Promise
+             */
+            public getAuto(request: lebai.auto.IGetAutoRequest): Promise<lebai.auto.GetAutoResponse>;
+        }
+
+        namespace AutoService {
+
+            /**
+             * Callback as used by {@link lebai.auto.AutoService#setAuto}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetAutoCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.auto.AutoService#getAuto}.
+             * @param error Error, if any
+             * @param [response] GetAutoResponse
+             */
+            type GetAutoCallback = (error: (Error|null), response?: lebai.auto.GetAutoResponse) => void;
+        }
+    }
+
     /** Namespace backup. */
     namespace backup {
 

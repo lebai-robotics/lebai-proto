@@ -7,6 +7,57 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
 .addJSON({
   lebai: {
     nested: {
+      auto: {
+        nested: {
+          AutoCfg: {
+            values: {
+              ARM_POWER: 0,
+              ENABLE_JOINT: 1,
+              INIT_CLAW: 2
+            }
+          },
+          SetAutoRequest: {
+            fields: {
+              name: {
+                type: "AutoCfg",
+                id: 1
+              },
+              value: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
+          GetAutoRequest: {
+            fields: {
+              name: {
+                type: "AutoCfg",
+                id: 1
+              }
+            }
+          },
+          GetAutoResponse: {
+            fields: {
+              value: {
+                type: "bool",
+                id: 2
+              }
+            }
+          },
+          AutoService: {
+            methods: {
+              SetAuto: {
+                requestType: "SetAutoRequest",
+                responseType: "google.protobuf.Empty"
+              },
+              GetAuto: {
+                requestType: "GetAutoRequest",
+                responseType: "GetAutoResponse"
+              }
+            }
+          }
+        }
+      },
       backup: {
         nested: {
           BackupInfo: {
