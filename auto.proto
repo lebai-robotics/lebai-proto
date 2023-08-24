@@ -3,6 +3,7 @@ syntax = "proto3";
 package lebai.auto;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 
 enum AutoCfg {
   // 开机后自动上电
@@ -25,7 +26,7 @@ message GetAutoRequest {
   AutoCfg name = 1;
 }
 message GetAutoResponse {
-  bool value = 2;
+  google.protobuf.BoolValue value = 2;
 }
 
 // 自动配置项相关服务
