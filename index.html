@@ -175,6 +175,37 @@
         
           
           <li>
+            <a href="#auto.proto">auto.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.auto.GetAutoRequest"><span class="badge">M</span>GetAutoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.auto.GetAutoResponse"><span class="badge">M</span>GetAutoResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.auto.SetAutoRequest"><span class="badge">M</span>SetAutoRequest</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#lebai.auto.AutoCfg"><span class="badge">E</span>AutoCfg</a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="#lebai.auto.AutoService"><span class="badge">S</span>AutoService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#backup.proto">backup.proto</a>
             <ul>
               
@@ -1580,6 +1611,154 @@
       </ul>
     </div>
 
+    
+      
+      <div class="file-heading">
+        <h2 id="auto.proto">auto.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.auto.GetAutoRequest">GetAutoRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#lebai.auto.AutoCfg">AutoCfg</a></td>
+                  <td></td>
+                  <td><p>配置项 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.auto.GetAutoResponse">GetAutoResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.auto.SetAutoRequest">SetAutoRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#lebai.auto.AutoCfg">AutoCfg</a></td>
+                  <td></td>
+                  <td><p>配置项 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>使能 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="lebai.auto.AutoCfg">AutoCfg</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ARM_POWER</td>
+                <td>0</td>
+                <td><p>开机后自动上电</p></td>
+              </tr>
+            
+              <tr>
+                <td>ENABLE_JOINT</td>
+                <td>1</td>
+                <td><p>开机后自动使能手臂</p></td>
+              </tr>
+            
+              <tr>
+                <td>INIT_CLAW</td>
+                <td>2</td>
+                <td><p>上电后自动初始化夹爪</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+        <h3 id="lebai.auto.AutoService">AutoService</h3>
+        <p>自动配置项相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetAuto</td>
+                <td><a href="#lebai.auto.SetAutoRequest">SetAutoRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>设置自动配置项</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAuto</td>
+                <td><a href="#lebai.auto.GetAutoRequest">GetAutoRequest</a></td>
+                <td><a href="#lebai.auto.GetAutoResponse">GetAutoResponse</a></td>
+                <td><p>获取自动配置项</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
     
       
       <div class="file-heading">
