@@ -39,7 +39,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           GetAutoResponse: {
             fields: {
               value: {
-                type: "bool",
+                type: "google.protobuf.BoolValue",
                 id: 2
               }
             }
@@ -4755,18 +4755,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           Empty: {
             fields: {}
           },
-          Timestamp: {
-            fields: {
-              seconds: {
-                type: "int64",
-                id: 1
-              },
-              nanos: {
-                type: "int32",
-                id: 2
-              }
-            }
-          },
           DoubleValue: {
             fields: {
               value: {
@@ -4836,6 +4824,18 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               value: {
                 type: "bytes",
                 id: 1
+              }
+            }
+          },
+          Timestamp: {
+            fields: {
+              seconds: {
+                type: "int64",
+                id: 1
+              },
+              nanos: {
+                type: "int32",
+                id: 2
               }
             }
           }
