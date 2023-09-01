@@ -12,6 +12,8 @@ enum IoDevice {
   FLANGE = 1;
   // 拓展IO
   EXTRA = 2;
+  // 机箱按钮DI
+  ROBOT_BTN = 10;
   // 肩部按钮DI
   SHOULDER = 11;
   // 法兰按钮DI

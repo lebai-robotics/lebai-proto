@@ -8,13 +8,13 @@ message ShortcutIndex {
   uint32 id = 1;
 }
 
-message Shortcut{
+message Shortcut {
   uint32 id = 1;
   string dir = 2;
   string name = 3;
 }
 
-message ShortcutList{
+message ShortcutList {
   repeated Shortcut list = 1;
 }
 
