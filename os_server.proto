@@ -11,6 +11,8 @@ syntax = "proto3";
 
 package osserver;
 
+option go_package = "lebai.ltd/ds/api/osserver";
+
 service OsServer {
     rpc getRingData(Req) returns (stream RingData);
 }

@@ -28,6 +28,8 @@ import "messages.proto";
 
 package robotc;
 
+option go_package = "lebai.ltd/ds/api/robotc";
+
 // Robot controller gRPC & protobuf idl language definition
 service RobotController {
   // 1. Basic control commands

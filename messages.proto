@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package robotc;
 
+option go_package = "lebai.ltd/ds/api/robotc";
+
 message Response {
   int32 ret = 1;
 }

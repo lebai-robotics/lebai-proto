@@ -1,6 +1,10 @@
 syntax = "proto3";
+
 import "messages.proto";
+
 package robotc;
+
+option go_package = "lebai.ltd/ds/api/robotc";
 
 service RobotTest {
     rpc InitReducerTest(Empty) returns (Result);

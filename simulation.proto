@@ -5,6 +5,8 @@ import "messages.proto";
 
 package robotc;
 
+option go_package = "lebai.ltd/ds/api/robotc";
+
 // 仿真-离线编程模拟服务
 service SimulationController {
   // 设置仿真机器人关节角
