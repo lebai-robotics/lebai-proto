@@ -286,6 +286,26 @@ service RobotController {
   rpc GetSignal(SignalValue) returns (SignalResult);
   rpc AddSignal(SignalValue) returns (SignalResult);
   rpc RegisterSignals(stream SignalList) returns (stream SignalValue);
+
+  // KV存储
+  rpc SetStorageItem(StorageItem) returns (CmdId);
+  rpc GetStorageItem(StorageItemIndex) returns (StorageItem);
+  rpc GetStorageItems(GetStorageItemsRequest) returns (StorageItems);
+}
+
+message StorageItemIndex {
+  string key = 1;
+}
+message StorageItem {
+  string key = 1;
+  string value = 2;
+}
+
+message GetStorageItemsRequest {
+  string prefix = 1;
+}
+message StorageItems {
+  repeated StorageItem items = 1;
 }
 
 message SignalValue {
