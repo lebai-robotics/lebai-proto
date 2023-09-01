@@ -1816,6 +1816,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               ROBOT: 0,
               FLANGE: 1,
               EXTRA: 2,
+              ROBOT_BTN: 10,
               SHOULDER: 11,
               FLANGE_BTN: 12
             }
