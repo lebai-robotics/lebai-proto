@@ -16,7 +16,7 @@ enum TaskKind {
 // 任务运行状态
 enum TaskState {
   // 等待启动运行
-  WAIT = 0;
+  NONE = 0;
   // 运行中
   RUNNING = 1;
   // 已暂停
@@ -27,6 +27,8 @@ enum TaskState {
   INTERRUPT = 4;
   // 运行失败
   FAIL = 5;
+  // 等待启动运行
+  WAIT = 10;
   // 开始运行，已弃用
   BEGIN = 11;
   // 任务停止中
