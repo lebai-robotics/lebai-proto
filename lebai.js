@@ -4387,12 +4387,13 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           TaskState: {
             values: {
-              WAIT: 0,
+              NONE: 0,
               RUNNING: 1,
               PAUSE: 2,
               SUCCESS: 3,
               INTERRUPT: 4,
               FAIL: 5,
+              WAIT: 10,
               BEGIN: 11,
               INTERRUPTING: 14
             }

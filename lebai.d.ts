@@ -25959,12 +25959,13 @@ export namespace lebai {
 
         /** TaskState enum. */
         enum TaskState {
-            WAIT = 0,
+            NONE = 0,
             RUNNING = 1,
             PAUSE = 2,
             SUCCESS = 3,
             INTERRUPT = 4,
             FAIL = 5,
+            WAIT = 10,
             BEGIN = 11,
             INTERRUPTING = 14
         }
