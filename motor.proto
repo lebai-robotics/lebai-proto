@@ -7,11 +7,11 @@ import "google/protobuf/empty.proto";
 // 电机运行模式
 enum MotorMode {
   // 位置环
-  Position = 0;
+  POSITION = 0;
   //  扭矩环
-  Torque = 1;
+  TORQUE = 1;
   //  速度环
-  Speed = 2;
+  SPEED = 2;
 }
 
 // 伺服参数
