@@ -20037,9 +20037,9 @@ export namespace lebai {
 
         /** MotorMode enum. */
         enum MotorMode {
-            Position = 0,
-            Torque = 1,
-            Speed = 2
+            POSITION = 0,
+            TORQUE = 1,
+            SPEED = 2
         }
 
         /** Properties of a ServoParam. */

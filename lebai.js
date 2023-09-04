@@ -3437,9 +3437,9 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
         nested: {
           MotorMode: {
             values: {
-              Position: 0,
-              Torque: 1,
-              Speed: 2
+              POSITION: 0,
+              TORQUE: 1,
+              SPEED: 2
             }
           },
           ServoParam: {
