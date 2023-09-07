@@ -3827,7 +3827,8 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
             values: {
               ESTOP: 0,
               PAUSE: 1,
-              NONE: 2
+              STOP_MOVE: 2,
+              NONE: 99
             }
           },
           CollisionDetector: {
