@@ -14,8 +14,10 @@ enum CollisionDetectorAction {
   ESTOP = 0;
   // 碰撞后暂停
   PAUSE = 1;
+  // 碰撞后停止运动
+  STOP_MOVE = 2;
   // 关闭碰撞监测
-  NONE = 2;
+  NONE = 99;
 }
 message CollisionDetector {
   // 碰撞后执行操作
