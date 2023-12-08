@@ -3325,6 +3325,14 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
           },
           MotionService: {
             methods: {
+              PauseMove: {
+                requestType: "google.protobuf.Empty",
+                responseType: "google.protobuf.Empty"
+              },
+              ResumeMove: {
+                requestType: "google.protobuf.Empty",
+                responseType: "google.protobuf.Empty"
+              },
               StopMove: {
                 requestType: "google.protobuf.Empty",
                 responseType: "google.protobuf.Empty"
@@ -4579,22 +4587,6 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
               }
             }
           },
-          PauseRequest: {
-            fields: {
-              id: {
-                type: "uint32",
-                id: 1
-              },
-              time: {
-                type: "uint64",
-                id: 11
-              },
-              wait: {
-                type: "bool",
-                id: 12
-              }
-            }
-          },
           TaskService: {
             methods: {
               LoadTask: {
@@ -4627,7 +4619,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "TaskStdout"
               },
               PauseTask: {
-                requestType: "PauseRequest",
+                requestType: "TaskIndex",
                 responseType: "google.protobuf.Empty"
               },
               ResumeTask: {

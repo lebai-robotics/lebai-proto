@@ -19482,6 +19482,34 @@ export namespace lebai {
             public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): MotionService;
 
             /**
+             * Calls PauseMove.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public pauseMove(request: google.protobuf.IEmpty, callback: lebai.motion.MotionService.PauseMoveCallback): void;
+
+            /**
+             * Calls PauseMove.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public pauseMove(request: google.protobuf.IEmpty): Promise<google.protobuf.Empty>;
+
+            /**
+             * Calls ResumeMove.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public resumeMove(request: google.protobuf.IEmpty, callback: lebai.motion.MotionService.ResumeMoveCallback): void;
+
+            /**
+             * Calls ResumeMove.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public resumeMove(request: google.protobuf.IEmpty): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls StopMove.
              * @param request Empty message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -19847,6 +19875,20 @@ export namespace lebai {
         }
 
         namespace MotionService {
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#pauseMove}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type PauseMoveCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.motion.MotionService#resumeMove}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type ResumeMoveCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.motion.MotionService#stopMove}.
@@ -26691,115 +26733,6 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
-        /** Properties of a PauseRequest. */
-        interface IPauseRequest {
-
-            /** PauseRequest id */
-            id?: (number|null);
-
-            /** PauseRequest time */
-            time?: (number|Long|null);
-
-            /** PauseRequest wait */
-            wait?: (boolean|null);
-        }
-
-        /** Represents a PauseRequest. */
-        class PauseRequest implements IPauseRequest {
-
-            /**
-             * Constructs a new PauseRequest.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: lebai.task.IPauseRequest);
-
-            /** PauseRequest id. */
-            public id: number;
-
-            /** PauseRequest time. */
-            public time: (number|Long);
-
-            /** PauseRequest wait. */
-            public wait: boolean;
-
-            /**
-             * Creates a new PauseRequest instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns PauseRequest instance
-             */
-            public static create(properties?: lebai.task.IPauseRequest): lebai.task.PauseRequest;
-
-            /**
-             * Encodes the specified PauseRequest message. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
-             * @param message PauseRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified PauseRequest message, length delimited. Does not implicitly {@link lebai.task.PauseRequest.verify|verify} messages.
-             * @param message PauseRequest message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: lebai.task.IPauseRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a PauseRequest message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns PauseRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.task.PauseRequest;
-
-            /**
-             * Decodes a PauseRequest message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns PauseRequest
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.task.PauseRequest;
-
-            /**
-             * Verifies a PauseRequest message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a PauseRequest message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns PauseRequest
-             */
-            public static fromObject(object: { [k: string]: any }): lebai.task.PauseRequest;
-
-            /**
-             * Creates a plain object from a PauseRequest message. Also converts values to other types if specified.
-             * @param message PauseRequest
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: lebai.task.PauseRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this PauseRequest to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for PauseRequest
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
         /** Represents a TaskService */
         class TaskService extends $protobuf.rpc.Service {
 
@@ -26920,17 +26853,17 @@ export namespace lebai {
 
             /**
              * Calls PauseTask.
-             * @param request PauseRequest message or plain object
+             * @param request TaskIndex message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
              */
-            public pauseTask(request: lebai.task.IPauseRequest, callback: lebai.task.TaskService.PauseTaskCallback): void;
+            public pauseTask(request: lebai.task.ITaskIndex, callback: lebai.task.TaskService.PauseTaskCallback): void;
 
             /**
              * Calls PauseTask.
-             * @param request PauseRequest message or plain object
+             * @param request TaskIndex message or plain object
              * @returns Promise
              */
-            public pauseTask(request: lebai.task.IPauseRequest): Promise<google.protobuf.Empty>;
+            public pauseTask(request: lebai.task.ITaskIndex): Promise<google.protobuf.Empty>;
 
             /**
              * Calls ResumeTask.
