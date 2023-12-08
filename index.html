@@ -1512,10 +1512,6 @@
             <ul>
               
                 <li>
-                  <a href="#lebai.task.PauseRequest"><span class="badge">M</span>PauseRequest</a>
-                </li>
-              
-                <li>
                   <a href="#lebai.task.StartTaskRequest"><span class="badge">M</span>StartTaskRequest</a>
                 </li>
               
@@ -7791,6 +7787,20 @@
           <tbody>
             
               <tr>
+                <td>PauseMove</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>暂停所有运动</p></td>
+              </tr>
+            
+              <tr>
+                <td>ResumeMove</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>恢复所有运动</p></td>
+              </tr>
+            
+              <tr>
                 <td>StopMove</td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
@@ -12167,44 +12177,6 @@
       <p></p>
 
       
-        <h3 id="lebai.task.PauseRequest">PauseRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p>任务ID </p></td>
-                </tr>
-              
-                <tr>
-                  <td>time</td>
-                  <td><a href="#uint64">uint64</a></td>
-                  <td></td>
-                  <td><p>暂停时间 </p></td>
-                </tr>
-              
-                <tr>
-                  <td>wait</td>
-                  <td><a href="#bool">bool</a></td>
-                  <td></td>
-                  <td><p>等待 </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="lebai.task.StartTaskRequest">StartTaskRequest</h3>
         <p></p>
 
@@ -12663,7 +12635,7 @@
             
               <tr>
                 <td>PauseTask</td>
-                <td><a href="#lebai.task.PauseRequest">PauseRequest</a></td>
+                <td><a href="#lebai.task.TaskIndex">TaskIndex</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p>暂停任务与运动</p></td>
               </tr>
