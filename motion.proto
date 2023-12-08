@@ -136,6 +136,10 @@ message SetForceModeParamRequest {
 
 // 机器人运动相关服务
 service MotionService {
+  // 暂停所有运动
+  rpc PauseMove(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 恢复所有运动
+  rpc ResumeMove(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 停止所有运动
   rpc StopMove(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 跳过当前运动(已弃用)

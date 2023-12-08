@@ -101,15 +101,6 @@ message StartTaskRequest {
   repeated string params = 22;
 }
 
-message PauseRequest {
-  // 任务ID
-  uint32 id = 1;
-  // 暂停时间
-  uint64 time = 11;
-  // 等待
-  bool wait = 12;
-}
-
 // 任务相关服务
 service TaskService {
   // 查询任务
@@ -128,7 +119,7 @@ service TaskService {
   // 等待运动完成
   rpc WaitTask(TaskIndex) returns (TaskStdout);
   // 暂停任务与运动
-  rpc PauseTask(PauseRequest) returns (google.protobuf.Empty);
+  rpc PauseTask(TaskIndex) returns (google.protobuf.Empty);
   // 恢复任务与运动
   rpc ResumeTask(TaskIndex) returns (google.protobuf.Empty);
   // 取消任务与运动
