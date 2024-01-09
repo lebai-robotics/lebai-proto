@@ -3402,7 +3402,7 @@ var $root = ($protobuf.roots["default"] || ($protobuf.roots["default"] = new $pr
                 responseType: "google.protobuf.Empty"
               },
               MoveTrajectory: {
-                requestType: "Trajectory",
+                requestType: "db.LoadRequest",
                 responseType: "MotionIndex"
               },
               StartTeachMode: {

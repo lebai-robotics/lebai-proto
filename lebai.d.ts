@@ -19749,17 +19749,17 @@ export namespace lebai {
 
             /**
              * Calls MoveTrajectory.
-             * @param request Trajectory message or plain object
+             * @param request LoadRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and MotionIndex
              */
-            public moveTrajectory(request: lebai.motion.ITrajectory, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
+            public moveTrajectory(request: lebai.db.ILoadRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
 
             /**
              * Calls MoveTrajectory.
-             * @param request Trajectory message or plain object
+             * @param request LoadRequest message or plain object
              * @returns Promise
              */
-            public moveTrajectory(request: lebai.motion.ITrajectory): Promise<lebai.motion.MotionIndex>;
+            public moveTrajectory(request: lebai.db.ILoadRequest): Promise<lebai.motion.MotionIndex>;
 
             /**
              * Calls StartTeachMode.
