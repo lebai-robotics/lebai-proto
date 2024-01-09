@@ -167,11 +167,11 @@ service MotionService {
   // 沿直线匀速运动
   rpc SpeedLinear(SpeedLRequest) returns (MotionIndex);
 
-  // 保存/修改/删除负载
+  // 保存/修改/删除轨迹
   rpc SaveTrajectory(SaveTrajectoryRequest) returns (google.protobuf.Empty);
-  // 查询负载
+  // 查询轨迹
   rpc LoadTrajectory(db.LoadRequest) returns (Trajectory);
-  // 查询负载列表
+  // 查询轨迹列表
   rpc LoadTrajectoryList(db.LoadListRequest) returns (db.LoadListResponse);
   // 开始记录轨迹
   rpc StartRecordTrajectory(StartRecordTrajectoryRequest)
@@ -179,8 +179,8 @@ service MotionService {
   // 结束记录轨迹
   rpc EndRecordTrajectory(EndRecordTrajectoryRequest)
       returns (google.protobuf.Empty);
-  // 运行轨迹
-  rpc MoveTrajectory(Trajectory) returns (MotionIndex);
+  // 执行轨迹运行
+  rpc MoveTrajectory(db.LoadRequest) returns (MotionIndex);
 
   // 进入示教模式
   rpc StartTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
