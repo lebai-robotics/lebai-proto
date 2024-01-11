@@ -29,8 +29,8 @@ jobs:
           path: out_protobufjs
       - name: Build protobufjs
         run: |
-          pbjs -t json-module -w commonjs -o ../out_protobufjs/lebai.js ./*.proto
-          pbjs -t static-module ./*.proto | pbts -o ../out_protobufjs/lebai.d.ts -
+          pbjs -t static-module -w commonjs -o ../out_protobufjs/lebai.js ./*.proto
+          pbts -o ../out_protobufjs/lebai.d.ts ../out_protobufjs/lebai.js
         working-directory: proto
       - name: Publish protobufjs
         run: |
