@@ -3,7 +3,6 @@ syntax = "proto3";
 package lebai.claw;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "cmp.proto";
 
 enum Address {
@@ -50,9 +49,9 @@ message InitClawRequest {
 }
 message SetClawRequest {
   // 力度
-  google.protobuf.DoubleValue force = 1;
+  optional double force = 1;
   // 开度
-  google.protobuf.DoubleValue amplitude = 2;
+  optional double amplitude = 2;
 }
 message SetClawAoRequest {
   Address address = 1;

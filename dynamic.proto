@@ -3,7 +3,6 @@ syntax = "proto3";
 package lebai.dynamic;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "db.proto";
 import "posture.proto";
 
@@ -15,7 +14,7 @@ message Payload {
 }
 message SetPayloadRequest {
   // 负载质量
-  google.protobuf.DoubleValue mass = 1;
+  optional double mass = 1;
   // 负载重心偏移位置
   posture.Position cog = 2;
 }

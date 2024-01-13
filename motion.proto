@@ -3,7 +3,6 @@ syntax = "proto3";
 package lebai.motion;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "db.proto";
 import "posture.proto";
 
@@ -55,8 +54,8 @@ message SpeedLRequest {
 
 message JointMove {
   double pose = 1;
-  google.protobuf.DoubleValue velocity = 2;
-  google.protobuf.DoubleValue acc = 3;
+  optional double velocity = 2;
+  optional double acc = 3;
 }
 enum PvatKind {
   PT = 0;
@@ -127,11 +126,11 @@ message ForceModeParam {
 }
 message SetForceModeParamRequest {
   // 启动力阈值
-  google.protobuf.DoubleValue threshold = 1;
+  optional double threshold = 1;
   // 阻尼系数
-  google.protobuf.DoubleValue damping = 2;
+  optional double damping = 2;
   // 物体重量
-  google.protobuf.DoubleValue mass = 3;
+  optional double mass = 3;
 }
 
 // 机器人运动相关服务

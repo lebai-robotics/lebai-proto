@@ -3,7 +3,6 @@ syntax = "proto3";
 package lebai.upgrade;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "lebai.proto";
 
 message CheckUpgradeResponse {
