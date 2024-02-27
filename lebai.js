@@ -18396,6 +18396,7 @@ $root.lebai = (function() {
                         return "kind: enum value expected";
                     case 0:
                     case 1:
+                    case 2:
                         break;
                     }
                 if (message.cart != null && message.hasOwnProperty("cart")) {
@@ -18440,13 +18441,17 @@ $root.lebai = (function() {
                         break;
                     }
                     break;
-                case "CARTESIAN":
+                case "UNKNOWN":
                 case 0:
                     message.kind = 0;
                     break;
                 case "JOINT":
                 case 1:
                     message.kind = 1;
+                    break;
+                case "CARTESIAN":
+                case 2:
+                    message.kind = 2;
                     break;
                 }
                 if (object.cart != null) {
@@ -18486,7 +18491,7 @@ $root.lebai = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.kind = options.enums === String ? "CARTESIAN" : 0;
+                    object.kind = options.enums === String ? "UNKNOWN" : 0;
                     object.cart = null;
                     object.cartFrameIndex = null;
                     object.cartFrame = null;
@@ -18535,13 +18540,15 @@ $root.lebai = (function() {
              * Kind enum.
              * @name lebai.posture.Pose.Kind
              * @enum {number}
-             * @property {number} CARTESIAN=0 CARTESIAN value
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} JOINT=1 JOINT value
+             * @property {number} CARTESIAN=2 CARTESIAN value
              */
             Pose.Kind = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "CARTESIAN"] = 0;
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "JOINT"] = 1;
+                values[valuesById[2] = "CARTESIAN"] = 2;
                 return values;
             })();
 

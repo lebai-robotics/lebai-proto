@@ -7734,8 +7734,9 @@ export namespace lebai {
 
             /** Kind enum. */
             enum Kind {
-                CARTESIAN = 0,
-                JOINT = 1
+                UNKNOWN = 0,
+                JOINT = 1,
+                CARTESIAN = 2
             }
         }
 
