@@ -120,10 +120,11 @@ message CartesianFrame {
 
 // 枚举 机器人空间
 message Pose {
-  // 位姿类型，默认笛卡尔空间
+  // 位姿类型，默认无效
   enum Kind {
-    CARTESIAN = 0;
+    UNKNOWN = 0;
     JOINT = 1;
+    CARTESIAN = 2;
   }
   Kind kind = 1;
   // 笛卡尔空间位姿，仅kind=CARTESIAN时生效
