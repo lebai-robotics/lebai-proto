@@ -13,12 +13,15 @@ message PluginInfo {
   // 项目主页网址
   string homepage = 7;
 
+  // daemon异常退出后，是否自动启动
+  bool auto_restart = 11;
+
   // 具备Web功能
-  bool web = 12;
+  bool web = 82;
   // 具备Daemon功能
-  bool daemon = 13;
+  bool daemon = 83;
   // 具备Cmd功能
-  bool cmd = 14;
+  bool cmd = 84;
 
   // 启用插件
   bool enable = 91;
