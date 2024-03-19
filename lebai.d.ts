@@ -21178,6 +21178,9 @@ export namespace lebai {
             /** PluginInfo homepage */
             homepage?: (string|null);
 
+            /** PluginInfo autoRestart */
+            autoRestart?: (boolean|null);
+
             /** PluginInfo web */
             web?: (boolean|null);
 
@@ -21208,6 +21211,9 @@ export namespace lebai {
 
             /** PluginInfo homepage. */
             public homepage: string;
+
+            /** PluginInfo autoRestart. */
+            public autoRestart: boolean;
 
             /** PluginInfo web. */
             public web: boolean;

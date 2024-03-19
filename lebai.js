@@ -49310,6 +49310,7 @@ $root.lebai = (function() {
              * @property {string|null} [name] PluginInfo name
              * @property {string|null} [description] PluginInfo description
              * @property {string|null} [homepage] PluginInfo homepage
+             * @property {boolean|null} [autoRestart] PluginInfo autoRestart
              * @property {boolean|null} [web] PluginInfo web
              * @property {boolean|null} [daemon] PluginInfo daemon
              * @property {boolean|null} [cmd] PluginInfo cmd
@@ -49354,6 +49355,14 @@ $root.lebai = (function() {
              * @instance
              */
             PluginInfo.prototype.homepage = "";
+
+            /**
+             * PluginInfo autoRestart.
+             * @member {boolean} autoRestart
+             * @memberof lebai.plugin.PluginInfo
+             * @instance
+             */
+            PluginInfo.prototype.autoRestart = false;
 
             /**
              * PluginInfo web.
@@ -49417,12 +49426,14 @@ $root.lebai = (function() {
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.description);
                 if (message.homepage != null && Object.hasOwnProperty.call(message, "homepage"))
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.homepage);
+                if (message.autoRestart != null && Object.hasOwnProperty.call(message, "autoRestart"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).bool(message.autoRestart);
                 if (message.web != null && Object.hasOwnProperty.call(message, "web"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).bool(message.web);
+                    writer.uint32(/* id 82, wireType 0 =*/656).bool(message.web);
                 if (message.daemon != null && Object.hasOwnProperty.call(message, "daemon"))
-                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.daemon);
+                    writer.uint32(/* id 83, wireType 0 =*/664).bool(message.daemon);
                 if (message.cmd != null && Object.hasOwnProperty.call(message, "cmd"))
-                    writer.uint32(/* id 14, wireType 0 =*/112).bool(message.cmd);
+                    writer.uint32(/* id 84, wireType 0 =*/672).bool(message.cmd);
                 if (message.enable != null && Object.hasOwnProperty.call(message, "enable"))
                     writer.uint32(/* id 91, wireType 0 =*/728).bool(message.enable);
                 return writer;
@@ -49471,15 +49482,19 @@ $root.lebai = (function() {
                             message.homepage = reader.string();
                             break;
                         }
-                    case 12: {
+                    case 11: {
+                            message.autoRestart = reader.bool();
+                            break;
+                        }
+                    case 82: {
                             message.web = reader.bool();
                             break;
                         }
-                    case 13: {
+                    case 83: {
                             message.daemon = reader.bool();
                             break;
                         }
-                    case 14: {
+                    case 84: {
                             message.cmd = reader.bool();
                             break;
                         }
@@ -49531,6 +49546,9 @@ $root.lebai = (function() {
                 if (message.homepage != null && message.hasOwnProperty("homepage"))
                     if (!$util.isString(message.homepage))
                         return "homepage: string expected";
+                if (message.autoRestart != null && message.hasOwnProperty("autoRestart"))
+                    if (typeof message.autoRestart !== "boolean")
+                        return "autoRestart: boolean expected";
                 if (message.web != null && message.hasOwnProperty("web"))
                     if (typeof message.web !== "boolean")
                         return "web: boolean expected";
@@ -49564,6 +49582,8 @@ $root.lebai = (function() {
                     message.description = String(object.description);
                 if (object.homepage != null)
                     message.homepage = String(object.homepage);
+                if (object.autoRestart != null)
+                    message.autoRestart = Boolean(object.autoRestart);
                 if (object.web != null)
                     message.web = Boolean(object.web);
                 if (object.daemon != null)
@@ -49592,6 +49612,7 @@ $root.lebai = (function() {
                     object.name = "";
                     object.description = "";
                     object.homepage = "";
+                    object.autoRestart = false;
                     object.web = false;
                     object.daemon = false;
                     object.cmd = false;
@@ -49603,6 +49624,8 @@ $root.lebai = (function() {
                     object.description = message.description;
                 if (message.homepage != null && message.hasOwnProperty("homepage"))
                     object.homepage = message.homepage;
+                if (message.autoRestart != null && message.hasOwnProperty("autoRestart"))
+                    object.autoRestart = message.autoRestart;
                 if (message.web != null && message.hasOwnProperty("web"))
                     object.web = message.web;
                 if (message.daemon != null && message.hasOwnProperty("daemon"))
