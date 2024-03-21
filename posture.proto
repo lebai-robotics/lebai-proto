@@ -133,7 +133,7 @@ message Pose {
   db.LoadRequest cart_frame_index = 12 [json_name = "cart_frame_index"];
   // 笛卡尔空间参考系，仅内部使用，仅kind=CARTESIAN时生效
   CartesianFrame cart_frame = 13 [json_name = "cart_frame"];
-  // 关节空间位姿，仅kind=JOINT时生效
+  // 关节空间位姿，仅kind=CARTESIAN时表示反解的参考位置
   JointPose joint = 21;
 }
 message SavePoseRequest {
