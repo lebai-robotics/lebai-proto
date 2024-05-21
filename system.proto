@@ -102,6 +102,8 @@ enum ArmModel {
   J6L1 = 1;
   // 5轴加长臂
   J5L1 = 11;
+  // 5轴轨道臂
+  J5T1 = 51;
 }
 
 message RobotInfo {
