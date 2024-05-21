@@ -8477,6 +8477,13 @@
                 </tr>
               
                 <tr>
+                  <td>auto_restart</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>daemon异常退出后，是否自动启动 </p></td>
+                </tr>
+              
+                <tr>
                   <td>web</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
@@ -9067,7 +9074,7 @@
                   <td>joint</td>
                   <td><a href="#lebai.posture.JointPose">JointPose</a></td>
                   <td></td>
-                  <td><p>关节空间位姿，仅kind=JOINT时生效 </p></td>
+                  <td><p>关节空间位姿，仅kind=CARTESIAN时表示反解的参考位置 </p></td>
                 </tr>
               
             </tbody>
@@ -11793,6 +11800,12 @@
                 <td>J5L1</td>
                 <td>11</td>
                 <td><p>5轴加长臂</p></td>
+              </tr>
+            
+              <tr>
+                <td>J5T1</td>
+                <td>51</td>
+                <td><p>5轴轨道臂</p></td>
               </tr>
             
           </tbody>
