@@ -4623,12 +4623,14 @@ $root.lebai = (function() {
          * @property {number} J6M1=0 J6M1 value
          * @property {number} J6L1=1 J6L1 value
          * @property {number} J5L1=11 J5L1 value
+         * @property {number} J5T1=51 J5T1 value
          */
         system.ArmModel = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "J6M1"] = 0;
             values[valuesById[1] = "J6L1"] = 1;
             values[valuesById[11] = "J5L1"] = 11;
+            values[valuesById[51] = "J5T1"] = 51;
             return values;
         })();
 
@@ -4862,6 +4864,7 @@ $root.lebai = (function() {
                     case 0:
                     case 1:
                     case 11:
+                    case 51:
                         break;
                     }
                 if (message.armSn != null && message.hasOwnProperty("armSn"))
@@ -4922,6 +4925,10 @@ $root.lebai = (function() {
                 case "J5L1":
                 case 11:
                     message.armModel = 11;
+                    break;
+                case "J5T1":
+                case 51:
+                    message.armModel = 51;
                     break;
                 }
                 if (object.armSn != null)
@@ -59155,6 +59162,7 @@ $root.lebai = (function() {
                     case 0:
                     case 1:
                     case 11:
+                    case 51:
                         break;
                     }
                 if (message.dof != null && message.hasOwnProperty("dof"))
@@ -59206,6 +59214,10 @@ $root.lebai = (function() {
                 case "J5L1":
                 case 11:
                     message.kind = 11;
+                    break;
+                case "J5T1":
+                case 51:
+                    message.kind = 51;
                     break;
                 }
                 if (object.dof != null)

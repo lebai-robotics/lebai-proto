@@ -1896,7 +1896,8 @@ export namespace lebai {
         enum ArmModel {
             J6M1 = 0,
             J6L1 = 1,
-            J5L1 = 11
+            J5L1 = 11,
+            J5T1 = 51
         }
 
         /** Properties of a RobotInfo. */
