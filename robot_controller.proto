@@ -181,6 +181,10 @@ service RobotController {
   rpc SetTcpDIO(DIO) returns (CmdId);
   // 获得TCP数字输入端口的值
   rpc GetTcpDIO(IOPin) returns (DIO);
+  // 获得数字输入输出端口工作模式：0:输入，1:输出
+  rpc GetDioMode(IOPin) returns (DIO);
+  // 设置数字输入输出端口工作模式：0:输入，1:输出
+  rpc SetDioMode(DIO) returns (CmdId);
   // 设置模拟输出端口的值
   rpc SetAIO(AIO) returns (CmdId);
   // 获得模拟输入端口的值

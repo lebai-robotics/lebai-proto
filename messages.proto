@@ -47,6 +47,8 @@ message IOPin { int32 pin = 1; }
 message DIO {
   int32 pin = 1;
   int32 value = 2;
+  //输入/输出
+  int32 mode = 3;
 }
 
 message AIO {
