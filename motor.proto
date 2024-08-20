@@ -56,6 +56,8 @@ service MotorService {
   rpc SetServoParams(ServoParams) returns (google.protobuf.Empty);
   // 获取伺服参数
   rpc GetServoParams(google.protobuf.Empty) returns (ServoParams);
+  // 导轨找零
+  rpc FindZero(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 设置关节零位
   rpc SetZero(SetZeroRequest) returns (google.protobuf.Empty);
   // 设置所有extra伺服参数
