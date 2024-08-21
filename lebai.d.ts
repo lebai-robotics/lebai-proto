@@ -20822,6 +20822,20 @@ export namespace lebai {
             public getServoParams(request: google.protobuf.IEmpty): Promise<lebai.motor.ServoParams>;
 
             /**
+             * Calls FindZero.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public findZero(request: google.protobuf.IEmpty, callback: lebai.motor.MotorService.FindZeroCallback): void;
+
+            /**
+             * Calls FindZero.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public findZero(request: google.protobuf.IEmpty): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls SetZero.
              * @param request SetZeroRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -20879,6 +20893,13 @@ export namespace lebai {
              * @param [response] ServoParams
              */
             type GetServoParamsCallback = (error: (Error|null), response?: lebai.motor.ServoParams) => void;
+
+            /**
+             * Callback as used by {@link lebai.motor.MotorService#findZero}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type FindZeroCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.motor.MotorService#setZero}.

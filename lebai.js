@@ -48618,6 +48618,39 @@ $root.lebai = (function() {
              */
 
             /**
+             * Callback as used by {@link lebai.motor.MotorService#findZero}.
+             * @memberof lebai.motor.MotorService
+             * @typedef FindZeroCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {google.protobuf.Empty} [response] Empty
+             */
+
+            /**
+             * Calls FindZero.
+             * @function findZero
+             * @memberof lebai.motor.MotorService
+             * @instance
+             * @param {google.protobuf.IEmpty} request Empty message or plain object
+             * @param {lebai.motor.MotorService.FindZeroCallback} callback Node-style callback called with the error, if any, and Empty
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(MotorService.prototype.findZero = function findZero(request, callback) {
+                return this.rpcCall(findZero, $root.google.protobuf.Empty, $root.google.protobuf.Empty, request, callback);
+            }, "name", { value: "FindZero" });
+
+            /**
+             * Calls FindZero.
+             * @function findZero
+             * @memberof lebai.motor.MotorService
+             * @instance
+             * @param {google.protobuf.IEmpty} request Empty message or plain object
+             * @returns {Promise<google.protobuf.Empty>} Promise
+             * @variation 2
+             */
+
+            /**
              * Callback as used by {@link lebai.motor.MotorService#setZero}.
              * @memberof lebai.motor.MotorService
              * @typedef SetZeroCallback
