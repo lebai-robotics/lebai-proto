@@ -30,6 +30,8 @@ enum Address {
   ERROR = 10;
   // 禁用自动初始化
   DISABLE_INIT = 90;
+  // 保存理论行程
+  SAVE_TRAVEL = 91;
 }
 
 message Claw {
