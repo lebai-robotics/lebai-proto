@@ -49,7 +49,9 @@ service PluginService {
   rpc EnablePlugin(PluginIndex) returns (CommandStdout);
   // 禁用插件
   rpc DisablePlugin(PluginIndex) returns (CommandStdout);
-  // 获取更新信息
+  // 重启守护程序
+  rpc RestartPluginDaemon(PluginIndex) returns (google.protobuf.Empty);
+  // 获取守护程序输出
   rpc GetPluginDaemonStdout(PluginIndex) returns (CommandStdout);
   // 执行命令行程序
   rpc RunPluginCmd(RunPluginCmdRequest) returns (CommandStdout);

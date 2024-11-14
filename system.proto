@@ -82,6 +82,13 @@ message SystemInfo {
   CpuInfo cpu = 41;
 }
 
+message GetBoxDevicesRequest {
+  string prefix = 2;
+}
+message GetBoxDevicesResponse {
+  repeated string devices = 1;
+}
+
 message SetVirtualIpRequest {
   // 网卡接口名
   string ifname = 1;
@@ -232,6 +239,8 @@ service SystemService {
   rpc GetHardwareInfo(google.protobuf.Empty) returns (HardwareInfo);
   // 软件信息
   rpc GetSoftwareInfo(google.protobuf.Empty) returns (SoftwareInfo);
+  // 获取控制箱dev设备列表
+  rpc GetBoxDevices(GetBoxDevicesRequest) returns (GetBoxDevicesResponse);
   // 设置虚拟IP
   rpc SetVirtualIp(SetVirtualIpRequest) returns (google.protobuf.Empty);
   // 获取机器人状态
