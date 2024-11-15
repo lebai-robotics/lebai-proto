@@ -28453,7 +28453,6 @@ $root.lebai = (function() {
              * @interface IGetDioModeRequest
              * @property {lebai.io.IoDevice|null} [device] GetDioModeRequest device
              * @property {number|null} [pin] GetDioModeRequest pin
-             * @property {number|null} [count] GetDioModeRequest count
              */
 
             /**
@@ -28488,14 +28487,6 @@ $root.lebai = (function() {
             GetDioModeRequest.prototype.pin = 0;
 
             /**
-             * GetDioModeRequest count.
-             * @member {number} count
-             * @memberof lebai.io.GetDioModeRequest
-             * @instance
-             */
-            GetDioModeRequest.prototype.count = 0;
-
-            /**
              * Creates a new GetDioModeRequest instance using the specified properties.
              * @function create
              * @memberof lebai.io.GetDioModeRequest
@@ -28523,8 +28514,6 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.device);
                 if (message.pin != null && Object.hasOwnProperty.call(message, "pin"))
                     writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.pin);
-                if (message.count != null && Object.hasOwnProperty.call(message, "count"))
-                    writer.uint32(/* id 11, wireType 0 =*/88).uint32(message.count);
                 return writer;
             };
 
@@ -28565,10 +28554,6 @@ $root.lebai = (function() {
                         }
                     case 2: {
                             message.pin = reader.uint32();
-                            break;
-                        }
-                    case 11: {
-                            message.count = reader.uint32();
                             break;
                         }
                     default:
@@ -28621,9 +28606,6 @@ $root.lebai = (function() {
                 if (message.pin != null && message.hasOwnProperty("pin"))
                     if (!$util.isInteger(message.pin))
                         return "pin: integer expected";
-                if (message.count != null && message.hasOwnProperty("count"))
-                    if (!$util.isInteger(message.count))
-                        return "count: integer expected";
                 return null;
             };
 
@@ -28673,8 +28655,6 @@ $root.lebai = (function() {
                 }
                 if (object.pin != null)
                     message.pin = object.pin >>> 0;
-                if (object.count != null)
-                    message.count = object.count >>> 0;
                 return message;
             };
 
@@ -28694,14 +28674,11 @@ $root.lebai = (function() {
                 if (options.defaults) {
                     object.device = options.enums === String ? "ROBOT" : 0;
                     object.pin = 0;
-                    object.count = 0;
                 }
                 if (message.device != null && message.hasOwnProperty("device"))
                     object.device = options.enums === String ? $root.lebai.io.IoDevice[message.device] === undefined ? message.device : $root.lebai.io.IoDevice[message.device] : message.device;
                 if (message.pin != null && message.hasOwnProperty("pin"))
                     object.pin = message.pin;
-                if (message.count != null && message.hasOwnProperty("count"))
-                    object.count = message.count;
                 return object;
             };
 

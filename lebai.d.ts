@@ -12002,9 +12002,6 @@ export namespace lebai {
 
             /** GetDioModeRequest pin */
             pin?: (number|null);
-
-            /** GetDioModeRequest count */
-            count?: (number|null);
         }
 
         /** Represents a GetDioModeRequest. */
@@ -12021,9 +12018,6 @@ export namespace lebai {
 
             /** GetDioModeRequest pin. */
             public pin: number;
-
-            /** GetDioModeRequest count. */
-            public count: number;
 
             /**
              * Creates a new GetDioModeRequest instance using the specified properties.
