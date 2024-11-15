@@ -123,7 +123,6 @@ message SetDioModeRequest {
 message GetDioModeRequest {
   IoDevice device = 1;
   uint32 pin = 2;
-  uint32 count = 11;
 }
 message GetDioModeResponse {
   DigitalMode mode = 11;
