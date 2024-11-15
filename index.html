@@ -1425,6 +1425,14 @@
                 </li>
               
                 <li>
+                  <a href="#lebai.system.GetBoxDevicesRequest"><span class="badge">M</span>GetBoxDevicesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.system.GetBoxDevicesResponse"><span class="badge">M</span>GetBoxDevicesResponse</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.system.GetEstopReasonResponse"><span class="badge">M</span>GetEstopReasonResponse</a>
                 </li>
               
@@ -8629,10 +8637,17 @@
               </tr>
             
               <tr>
+                <td>RestartPluginDaemon</td>
+                <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>重启守护程序</p></td>
+              </tr>
+            
+              <tr>
                 <td>GetPluginDaemonStdout</td>
                 <td><a href="#lebai.plugin.PluginIndex">PluginIndex</a></td>
                 <td><a href="#lebai.CommandStdout">.lebai.CommandStdout</a></td>
-                <td><p>获取更新信息</p></td>
+                <td><p>获取守护程序输出</p></td>
               </tr>
             
               <tr>
@@ -11265,6 +11280,54 @@
 
         
       
+        <h3 id="lebai.system.GetBoxDevicesRequest">GetBoxDevicesRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>prefix</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.system.GetBoxDevicesResponse">GetBoxDevicesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>devices</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.system.GetEstopReasonResponse">GetEstopReasonResponse</h3>
         <p></p>
 
@@ -12111,6 +12174,13 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.system.SoftwareInfo">SoftwareInfo</a></td>
                 <td><p>软件信息</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetBoxDevices</td>
+                <td><a href="#lebai.system.GetBoxDevicesRequest">GetBoxDevicesRequest</a></td>
+                <td><a href="#lebai.system.GetBoxDevicesResponse">GetBoxDevicesResponse</a></td>
+                <td><p>获取控制箱dev设备列表</p></td>
               </tr>
             
               <tr>
