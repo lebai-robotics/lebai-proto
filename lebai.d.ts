@@ -1780,6 +1780,200 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GetBoxDevicesRequest. */
+        interface IGetBoxDevicesRequest {
+
+            /** GetBoxDevicesRequest prefix */
+            prefix?: (string|null);
+        }
+
+        /** Represents a GetBoxDevicesRequest. */
+        class GetBoxDevicesRequest implements IGetBoxDevicesRequest {
+
+            /**
+             * Constructs a new GetBoxDevicesRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.system.IGetBoxDevicesRequest);
+
+            /** GetBoxDevicesRequest prefix. */
+            public prefix: string;
+
+            /**
+             * Creates a new GetBoxDevicesRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetBoxDevicesRequest instance
+             */
+            public static create(properties?: lebai.system.IGetBoxDevicesRequest): lebai.system.GetBoxDevicesRequest;
+
+            /**
+             * Encodes the specified GetBoxDevicesRequest message. Does not implicitly {@link lebai.system.GetBoxDevicesRequest.verify|verify} messages.
+             * @param message GetBoxDevicesRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.system.IGetBoxDevicesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetBoxDevicesRequest message, length delimited. Does not implicitly {@link lebai.system.GetBoxDevicesRequest.verify|verify} messages.
+             * @param message GetBoxDevicesRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.system.IGetBoxDevicesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetBoxDevicesRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetBoxDevicesRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.GetBoxDevicesRequest;
+
+            /**
+             * Decodes a GetBoxDevicesRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetBoxDevicesRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.GetBoxDevicesRequest;
+
+            /**
+             * Verifies a GetBoxDevicesRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetBoxDevicesRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetBoxDevicesRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.system.GetBoxDevicesRequest;
+
+            /**
+             * Creates a plain object from a GetBoxDevicesRequest message. Also converts values to other types if specified.
+             * @param message GetBoxDevicesRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.system.GetBoxDevicesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetBoxDevicesRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetBoxDevicesRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GetBoxDevicesResponse. */
+        interface IGetBoxDevicesResponse {
+
+            /** GetBoxDevicesResponse devices */
+            devices?: (string[]|null);
+        }
+
+        /** Represents a GetBoxDevicesResponse. */
+        class GetBoxDevicesResponse implements IGetBoxDevicesResponse {
+
+            /**
+             * Constructs a new GetBoxDevicesResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.system.IGetBoxDevicesResponse);
+
+            /** GetBoxDevicesResponse devices. */
+            public devices: string[];
+
+            /**
+             * Creates a new GetBoxDevicesResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetBoxDevicesResponse instance
+             */
+            public static create(properties?: lebai.system.IGetBoxDevicesResponse): lebai.system.GetBoxDevicesResponse;
+
+            /**
+             * Encodes the specified GetBoxDevicesResponse message. Does not implicitly {@link lebai.system.GetBoxDevicesResponse.verify|verify} messages.
+             * @param message GetBoxDevicesResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.system.IGetBoxDevicesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetBoxDevicesResponse message, length delimited. Does not implicitly {@link lebai.system.GetBoxDevicesResponse.verify|verify} messages.
+             * @param message GetBoxDevicesResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.system.IGetBoxDevicesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetBoxDevicesResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetBoxDevicesResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.system.GetBoxDevicesResponse;
+
+            /**
+             * Decodes a GetBoxDevicesResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetBoxDevicesResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.system.GetBoxDevicesResponse;
+
+            /**
+             * Verifies a GetBoxDevicesResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetBoxDevicesResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetBoxDevicesResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.system.GetBoxDevicesResponse;
+
+            /**
+             * Creates a plain object from a GetBoxDevicesResponse message. Also converts values to other types if specified.
+             * @param message GetBoxDevicesResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.system.GetBoxDevicesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetBoxDevicesResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GetBoxDevicesResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SetVirtualIpRequest. */
         interface ISetVirtualIpRequest {
 
@@ -2916,6 +3110,20 @@ export namespace lebai {
             public getSoftwareInfo(request: google.protobuf.IEmpty): Promise<lebai.system.SoftwareInfo>;
 
             /**
+             * Calls GetBoxDevices.
+             * @param request GetBoxDevicesRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and GetBoxDevicesResponse
+             */
+            public getBoxDevices(request: lebai.system.IGetBoxDevicesRequest, callback: lebai.system.SystemService.GetBoxDevicesCallback): void;
+
+            /**
+             * Calls GetBoxDevices.
+             * @param request GetBoxDevicesRequest message or plain object
+             * @returns Promise
+             */
+            public getBoxDevices(request: lebai.system.IGetBoxDevicesRequest): Promise<lebai.system.GetBoxDevicesResponse>;
+
+            /**
              * Calls SetVirtualIp.
              * @param request SetVirtualIpRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -3120,6 +3328,13 @@ export namespace lebai {
              * @param [response] SoftwareInfo
              */
             type GetSoftwareInfoCallback = (error: (Error|null), response?: lebai.system.SoftwareInfo) => void;
+
+            /**
+             * Callback as used by {@link lebai.system.SystemService#getBoxDevices}.
+             * @param error Error, if any
+             * @param [response] GetBoxDevicesResponse
+             */
+            type GetBoxDevicesCallback = (error: (Error|null), response?: lebai.system.GetBoxDevicesResponse) => void;
 
             /**
              * Callback as used by {@link lebai.system.SystemService#setVirtualIp}.
@@ -21675,6 +21890,20 @@ export namespace lebai {
             public disablePlugin(request: lebai.plugin.IPluginIndex): Promise<lebai.CommandStdout>;
 
             /**
+             * Calls RestartPluginDaemon.
+             * @param request PluginIndex message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public restartPluginDaemon(request: lebai.plugin.IPluginIndex, callback: lebai.plugin.PluginService.RestartPluginDaemonCallback): void;
+
+            /**
+             * Calls RestartPluginDaemon.
+             * @param request PluginIndex message or plain object
+             * @returns Promise
+             */
+            public restartPluginDaemon(request: lebai.plugin.IPluginIndex): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls GetPluginDaemonStdout.
              * @param request PluginIndex message or plain object
              * @param callback Node-style callback called with the error, if any, and CommandStdout
@@ -21732,6 +21961,13 @@ export namespace lebai {
              * @param [response] CommandStdout
              */
             type DisablePluginCallback = (error: (Error|null), response?: lebai.CommandStdout) => void;
+
+            /**
+             * Callback as used by {@link lebai.plugin.PluginService#restartPluginDaemon}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type RestartPluginDaemonCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.plugin.PluginService#getPluginDaemonStdout}.

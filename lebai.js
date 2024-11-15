@@ -4370,6 +4370,428 @@ $root.lebai = (function() {
             return SystemInfo;
         })();
 
+        system.GetBoxDevicesRequest = (function() {
+
+            /**
+             * Properties of a GetBoxDevicesRequest.
+             * @memberof lebai.system
+             * @interface IGetBoxDevicesRequest
+             * @property {string|null} [prefix] GetBoxDevicesRequest prefix
+             */
+
+            /**
+             * Constructs a new GetBoxDevicesRequest.
+             * @memberof lebai.system
+             * @classdesc Represents a GetBoxDevicesRequest.
+             * @implements IGetBoxDevicesRequest
+             * @constructor
+             * @param {lebai.system.IGetBoxDevicesRequest=} [properties] Properties to set
+             */
+            function GetBoxDevicesRequest(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GetBoxDevicesRequest prefix.
+             * @member {string} prefix
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @instance
+             */
+            GetBoxDevicesRequest.prototype.prefix = "";
+
+            /**
+             * Creates a new GetBoxDevicesRequest instance using the specified properties.
+             * @function create
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {lebai.system.IGetBoxDevicesRequest=} [properties] Properties to set
+             * @returns {lebai.system.GetBoxDevicesRequest} GetBoxDevicesRequest instance
+             */
+            GetBoxDevicesRequest.create = function create(properties) {
+                return new GetBoxDevicesRequest(properties);
+            };
+
+            /**
+             * Encodes the specified GetBoxDevicesRequest message. Does not implicitly {@link lebai.system.GetBoxDevicesRequest.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {lebai.system.IGetBoxDevicesRequest} message GetBoxDevicesRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetBoxDevicesRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.prefix != null && Object.hasOwnProperty.call(message, "prefix"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.prefix);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GetBoxDevicesRequest message, length delimited. Does not implicitly {@link lebai.system.GetBoxDevicesRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {lebai.system.IGetBoxDevicesRequest} message GetBoxDevicesRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetBoxDevicesRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GetBoxDevicesRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.system.GetBoxDevicesRequest} GetBoxDevicesRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetBoxDevicesRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetBoxDevicesRequest();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 2: {
+                            message.prefix = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a GetBoxDevicesRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.system.GetBoxDevicesRequest} GetBoxDevicesRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetBoxDevicesRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GetBoxDevicesRequest message.
+             * @function verify
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GetBoxDevicesRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.prefix != null && message.hasOwnProperty("prefix"))
+                    if (!$util.isString(message.prefix))
+                        return "prefix: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a GetBoxDevicesRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.system.GetBoxDevicesRequest} GetBoxDevicesRequest
+             */
+            GetBoxDevicesRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.system.GetBoxDevicesRequest)
+                    return object;
+                var message = new $root.lebai.system.GetBoxDevicesRequest();
+                if (object.prefix != null)
+                    message.prefix = String(object.prefix);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GetBoxDevicesRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {lebai.system.GetBoxDevicesRequest} message GetBoxDevicesRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GetBoxDevicesRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.prefix = "";
+                if (message.prefix != null && message.hasOwnProperty("prefix"))
+                    object.prefix = message.prefix;
+                return object;
+            };
+
+            /**
+             * Converts this GetBoxDevicesRequest to JSON.
+             * @function toJSON
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GetBoxDevicesRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GetBoxDevicesRequest
+             * @function getTypeUrl
+             * @memberof lebai.system.GetBoxDevicesRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GetBoxDevicesRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.system.GetBoxDevicesRequest";
+            };
+
+            return GetBoxDevicesRequest;
+        })();
+
+        system.GetBoxDevicesResponse = (function() {
+
+            /**
+             * Properties of a GetBoxDevicesResponse.
+             * @memberof lebai.system
+             * @interface IGetBoxDevicesResponse
+             * @property {Array.<string>|null} [devices] GetBoxDevicesResponse devices
+             */
+
+            /**
+             * Constructs a new GetBoxDevicesResponse.
+             * @memberof lebai.system
+             * @classdesc Represents a GetBoxDevicesResponse.
+             * @implements IGetBoxDevicesResponse
+             * @constructor
+             * @param {lebai.system.IGetBoxDevicesResponse=} [properties] Properties to set
+             */
+            function GetBoxDevicesResponse(properties) {
+                this.devices = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GetBoxDevicesResponse devices.
+             * @member {Array.<string>} devices
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @instance
+             */
+            GetBoxDevicesResponse.prototype.devices = $util.emptyArray;
+
+            /**
+             * Creates a new GetBoxDevicesResponse instance using the specified properties.
+             * @function create
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {lebai.system.IGetBoxDevicesResponse=} [properties] Properties to set
+             * @returns {lebai.system.GetBoxDevicesResponse} GetBoxDevicesResponse instance
+             */
+            GetBoxDevicesResponse.create = function create(properties) {
+                return new GetBoxDevicesResponse(properties);
+            };
+
+            /**
+             * Encodes the specified GetBoxDevicesResponse message. Does not implicitly {@link lebai.system.GetBoxDevicesResponse.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {lebai.system.IGetBoxDevicesResponse} message GetBoxDevicesResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetBoxDevicesResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.devices != null && message.devices.length)
+                    for (var i = 0; i < message.devices.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.devices[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GetBoxDevicesResponse message, length delimited. Does not implicitly {@link lebai.system.GetBoxDevicesResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {lebai.system.IGetBoxDevicesResponse} message GetBoxDevicesResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetBoxDevicesResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GetBoxDevicesResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.system.GetBoxDevicesResponse} GetBoxDevicesResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetBoxDevicesResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetBoxDevicesResponse();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            if (!(message.devices && message.devices.length))
+                                message.devices = [];
+                            message.devices.push(reader.string());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a GetBoxDevicesResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.system.GetBoxDevicesResponse} GetBoxDevicesResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetBoxDevicesResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GetBoxDevicesResponse message.
+             * @function verify
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GetBoxDevicesResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.devices != null && message.hasOwnProperty("devices")) {
+                    if (!Array.isArray(message.devices))
+                        return "devices: array expected";
+                    for (var i = 0; i < message.devices.length; ++i)
+                        if (!$util.isString(message.devices[i]))
+                            return "devices: string[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GetBoxDevicesResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.system.GetBoxDevicesResponse} GetBoxDevicesResponse
+             */
+            GetBoxDevicesResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.system.GetBoxDevicesResponse)
+                    return object;
+                var message = new $root.lebai.system.GetBoxDevicesResponse();
+                if (object.devices) {
+                    if (!Array.isArray(object.devices))
+                        throw TypeError(".lebai.system.GetBoxDevicesResponse.devices: array expected");
+                    message.devices = [];
+                    for (var i = 0; i < object.devices.length; ++i)
+                        message.devices[i] = String(object.devices[i]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GetBoxDevicesResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {lebai.system.GetBoxDevicesResponse} message GetBoxDevicesResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GetBoxDevicesResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.devices = [];
+                if (message.devices && message.devices.length) {
+                    object.devices = [];
+                    for (var j = 0; j < message.devices.length; ++j)
+                        object.devices[j] = message.devices[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this GetBoxDevicesResponse to JSON.
+             * @function toJSON
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GetBoxDevicesResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GetBoxDevicesResponse
+             * @function getTypeUrl
+             * @memberof lebai.system.GetBoxDevicesResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GetBoxDevicesResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.system.GetBoxDevicesResponse";
+            };
+
+            return GetBoxDevicesResponse;
+        })();
+
         system.SetVirtualIpRequest = (function() {
 
             /**
@@ -7328,6 +7750,39 @@ $root.lebai = (function() {
              * @instance
              * @param {google.protobuf.IEmpty} request Empty message or plain object
              * @returns {Promise<lebai.system.SoftwareInfo>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.system.SystemService#getBoxDevices}.
+             * @memberof lebai.system.SystemService
+             * @typedef GetBoxDevicesCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {lebai.system.GetBoxDevicesResponse} [response] GetBoxDevicesResponse
+             */
+
+            /**
+             * Calls GetBoxDevices.
+             * @function getBoxDevices
+             * @memberof lebai.system.SystemService
+             * @instance
+             * @param {lebai.system.IGetBoxDevicesRequest} request GetBoxDevicesRequest message or plain object
+             * @param {lebai.system.SystemService.GetBoxDevicesCallback} callback Node-style callback called with the error, if any, and GetBoxDevicesResponse
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(SystemService.prototype.getBoxDevices = function getBoxDevices(request, callback) {
+                return this.rpcCall(getBoxDevices, $root.lebai.system.GetBoxDevicesRequest, $root.lebai.system.GetBoxDevicesResponse, request, callback);
+            }, "name", { value: "GetBoxDevices" });
+
+            /**
+             * Calls GetBoxDevices.
+             * @function getBoxDevices
+             * @memberof lebai.system.SystemService
+             * @instance
+             * @param {lebai.system.IGetBoxDevicesRequest} request GetBoxDevicesRequest message or plain object
+             * @returns {Promise<lebai.system.GetBoxDevicesResponse>} Promise
              * @variation 2
              */
 
@@ -50509,6 +50964,39 @@ $root.lebai = (function() {
              * @instance
              * @param {lebai.plugin.IPluginIndex} request PluginIndex message or plain object
              * @returns {Promise<lebai.CommandStdout>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.plugin.PluginService#restartPluginDaemon}.
+             * @memberof lebai.plugin.PluginService
+             * @typedef RestartPluginDaemonCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {google.protobuf.Empty} [response] Empty
+             */
+
+            /**
+             * Calls RestartPluginDaemon.
+             * @function restartPluginDaemon
+             * @memberof lebai.plugin.PluginService
+             * @instance
+             * @param {lebai.plugin.IPluginIndex} request PluginIndex message or plain object
+             * @param {lebai.plugin.PluginService.RestartPluginDaemonCallback} callback Node-style callback called with the error, if any, and Empty
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(PluginService.prototype.restartPluginDaemon = function restartPluginDaemon(request, callback) {
+                return this.rpcCall(restartPluginDaemon, $root.lebai.plugin.PluginIndex, $root.google.protobuf.Empty, request, callback);
+            }, "name", { value: "RestartPluginDaemon" });
+
+            /**
+             * Calls RestartPluginDaemon.
+             * @function restartPluginDaemon
+             * @memberof lebai.plugin.PluginService
+             * @instance
+             * @param {lebai.plugin.IPluginIndex} request PluginIndex message or plain object
+             * @returns {Promise<google.protobuf.Empty>} Promise
              * @variation 2
              */
 
