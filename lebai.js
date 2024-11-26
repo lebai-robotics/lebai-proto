@@ -37850,6 +37850,233 @@ $root.lebai = (function() {
             return SetModbusTimeoutRequest;
         })();
 
+        modbus.SetModbusRetryRequest = (function() {
+
+            /**
+             * Properties of a SetModbusRetryRequest.
+             * @memberof lebai.modbus
+             * @interface ISetModbusRetryRequest
+             * @property {string|null} [device] SetModbusRetryRequest device
+             * @property {number|null} [timeout] SetModbusRetryRequest timeout
+             */
+
+            /**
+             * Constructs a new SetModbusRetryRequest.
+             * @memberof lebai.modbus
+             * @classdesc Represents a SetModbusRetryRequest.
+             * @implements ISetModbusRetryRequest
+             * @constructor
+             * @param {lebai.modbus.ISetModbusRetryRequest=} [properties] Properties to set
+             */
+            function SetModbusRetryRequest(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * SetModbusRetryRequest device.
+             * @member {string} device
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @instance
+             */
+            SetModbusRetryRequest.prototype.device = "";
+
+            /**
+             * SetModbusRetryRequest timeout.
+             * @member {number} timeout
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @instance
+             */
+            SetModbusRetryRequest.prototype.timeout = 0;
+
+            /**
+             * Creates a new SetModbusRetryRequest instance using the specified properties.
+             * @function create
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {lebai.modbus.ISetModbusRetryRequest=} [properties] Properties to set
+             * @returns {lebai.modbus.SetModbusRetryRequest} SetModbusRetryRequest instance
+             */
+            SetModbusRetryRequest.create = function create(properties) {
+                return new SetModbusRetryRequest(properties);
+            };
+
+            /**
+             * Encodes the specified SetModbusRetryRequest message. Does not implicitly {@link lebai.modbus.SetModbusRetryRequest.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {lebai.modbus.ISetModbusRetryRequest} message SetModbusRetryRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetModbusRetryRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.device != null && Object.hasOwnProperty.call(message, "device"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
+                if (message.timeout != null && Object.hasOwnProperty.call(message, "timeout"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).uint32(message.timeout);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified SetModbusRetryRequest message, length delimited. Does not implicitly {@link lebai.modbus.SetModbusRetryRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {lebai.modbus.ISetModbusRetryRequest} message SetModbusRetryRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetModbusRetryRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a SetModbusRetryRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.modbus.SetModbusRetryRequest} SetModbusRetryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetModbusRetryRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetModbusRetryRequest();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.device = reader.string();
+                            break;
+                        }
+                    case 11: {
+                            message.timeout = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a SetModbusRetryRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.modbus.SetModbusRetryRequest} SetModbusRetryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetModbusRetryRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a SetModbusRetryRequest message.
+             * @function verify
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SetModbusRetryRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.device != null && message.hasOwnProperty("device"))
+                    if (!$util.isString(message.device))
+                        return "device: string expected";
+                if (message.timeout != null && message.hasOwnProperty("timeout"))
+                    if (!$util.isInteger(message.timeout))
+                        return "timeout: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a SetModbusRetryRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.modbus.SetModbusRetryRequest} SetModbusRetryRequest
+             */
+            SetModbusRetryRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.modbus.SetModbusRetryRequest)
+                    return object;
+                var message = new $root.lebai.modbus.SetModbusRetryRequest();
+                if (object.device != null)
+                    message.device = String(object.device);
+                if (object.timeout != null)
+                    message.timeout = object.timeout >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a SetModbusRetryRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {lebai.modbus.SetModbusRetryRequest} message SetModbusRetryRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SetModbusRetryRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.device = "";
+                    object.timeout = 0;
+                }
+                if (message.device != null && message.hasOwnProperty("device"))
+                    object.device = message.device;
+                if (message.timeout != null && message.hasOwnProperty("timeout"))
+                    object.timeout = message.timeout;
+                return object;
+            };
+
+            /**
+             * Converts this SetModbusRetryRequest to JSON.
+             * @function toJSON
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SetModbusRetryRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for SetModbusRetryRequest
+             * @function getTypeUrl
+             * @memberof lebai.modbus.SetModbusRetryRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            SetModbusRetryRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.modbus.SetModbusRetryRequest";
+            };
+
+            return SetModbusRetryRequest;
+        })();
+
         modbus.SetCoilRequest = (function() {
 
             /**
@@ -40973,6 +41200,39 @@ $root.lebai = (function() {
              * @memberof lebai.modbus.ModbusService
              * @instance
              * @param {lebai.modbus.ISetModbusTimeoutRequest} request SetModbusTimeoutRequest message or plain object
+             * @returns {Promise<google.protobuf.Empty>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.modbus.ModbusService#setModbusRetry}.
+             * @memberof lebai.modbus.ModbusService
+             * @typedef SetModbusRetryCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {google.protobuf.Empty} [response] Empty
+             */
+
+            /**
+             * Calls SetModbusRetry.
+             * @function setModbusRetry
+             * @memberof lebai.modbus.ModbusService
+             * @instance
+             * @param {lebai.modbus.ISetModbusRetryRequest} request SetModbusRetryRequest message or plain object
+             * @param {lebai.modbus.ModbusService.SetModbusRetryCallback} callback Node-style callback called with the error, if any, and Empty
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(ModbusService.prototype.setModbusRetry = function setModbusRetry(request, callback) {
+                return this.rpcCall(setModbusRetry, $root.lebai.modbus.SetModbusRetryRequest, $root.google.protobuf.Empty, request, callback);
+            }, "name", { value: "SetModbusRetry" });
+
+            /**
+             * Calls SetModbusRetry.
+             * @function setModbusRetry
+             * @memberof lebai.modbus.ModbusService
+             * @instance
+             * @param {lebai.modbus.ISetModbusRetryRequest} request SetModbusRetryRequest message or plain object
              * @returns {Promise<google.protobuf.Empty>} Promise
              * @variation 2
              */

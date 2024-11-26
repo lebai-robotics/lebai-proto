@@ -15958,6 +15958,109 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a SetModbusRetryRequest. */
+        interface ISetModbusRetryRequest {
+
+            /** SetModbusRetryRequest device */
+            device?: (string|null);
+
+            /** SetModbusRetryRequest timeout */
+            timeout?: (number|null);
+        }
+
+        /** Represents a SetModbusRetryRequest. */
+        class SetModbusRetryRequest implements ISetModbusRetryRequest {
+
+            /**
+             * Constructs a new SetModbusRetryRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.modbus.ISetModbusRetryRequest);
+
+            /** SetModbusRetryRequest device. */
+            public device: string;
+
+            /** SetModbusRetryRequest timeout. */
+            public timeout: number;
+
+            /**
+             * Creates a new SetModbusRetryRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetModbusRetryRequest instance
+             */
+            public static create(properties?: lebai.modbus.ISetModbusRetryRequest): lebai.modbus.SetModbusRetryRequest;
+
+            /**
+             * Encodes the specified SetModbusRetryRequest message. Does not implicitly {@link lebai.modbus.SetModbusRetryRequest.verify|verify} messages.
+             * @param message SetModbusRetryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.modbus.ISetModbusRetryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetModbusRetryRequest message, length delimited. Does not implicitly {@link lebai.modbus.SetModbusRetryRequest.verify|verify} messages.
+             * @param message SetModbusRetryRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.modbus.ISetModbusRetryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetModbusRetryRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetModbusRetryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.modbus.SetModbusRetryRequest;
+
+            /**
+             * Decodes a SetModbusRetryRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetModbusRetryRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.modbus.SetModbusRetryRequest;
+
+            /**
+             * Verifies a SetModbusRetryRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetModbusRetryRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetModbusRetryRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.modbus.SetModbusRetryRequest;
+
+            /**
+             * Creates a plain object from a SetModbusRetryRequest message. Also converts values to other types if specified.
+             * @param message SetModbusRetryRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.modbus.SetModbusRetryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetModbusRetryRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetModbusRetryRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SetCoilRequest. */
         interface ISetCoilRequest {
 
@@ -17325,6 +17428,20 @@ export namespace lebai {
             public setModbusTimeout(request: lebai.modbus.ISetModbusTimeoutRequest): Promise<google.protobuf.Empty>;
 
             /**
+             * Calls SetModbusRetry.
+             * @param request SetModbusRetryRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setModbusRetry(request: lebai.modbus.ISetModbusRetryRequest, callback: lebai.modbus.ModbusService.SetModbusRetryCallback): void;
+
+            /**
+             * Calls SetModbusRetry.
+             * @param request SetModbusRetryRequest message or plain object
+             * @returns Promise
+             */
+            public setModbusRetry(request: lebai.modbus.ISetModbusRetryRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls ReadDiscreteInputs.
              * @param request GetCoilsRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and GetCoilsResponse
@@ -17487,6 +17604,13 @@ export namespace lebai {
              * @param [response] Empty
              */
             type SetModbusTimeoutCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
+
+            /**
+             * Callback as used by {@link lebai.modbus.ModbusService#setModbusRetry}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetModbusRetryCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.modbus.ModbusService#readDiscreteInputs}.
