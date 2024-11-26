@@ -70,7 +70,12 @@ message LoadModbusRegisterListRequest {
 
 message SetModbusTimeoutRequest {
   string device = 1;
-  // 超时时间，默认不超时
+  // 单次接收超时时间，默认600ms，特殊地0为不超时
+  uint32 timeout = 11;
+}
+message SetModbusRetryRequest {
+  string device = 1;
+  // 接收超时重试次数，默认0
   uint32 timeout = 11;
 }
 
@@ -143,8 +148,10 @@ service ModbusService {
   rpc LoadModbusRegisterList(LoadModbusRegisterListRequest)
       returns (db.LoadListResponse);
 
-  // 设置超时时间
+  // 设置单次接收超时时间
   rpc SetModbusTimeout(SetModbusTimeoutRequest) returns (google.protobuf.Empty);
+  // 设置接收超时重发次数
+  rpc SetModbusRetry(SetModbusRetryRequest) returns (google.protobuf.Empty);
 
   // Get DIs
   rpc ReadDiscreteInputs(GetCoilsRequest) returns (GetCoilsResponse);

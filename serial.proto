@@ -6,7 +6,7 @@ import "google/protobuf/empty.proto";
 
 message SetSerialTimeoutRequest {
   string device = 1;
-  // 超时时间，默认不超时
+  // 超时时间，默认800ms，特殊地0为不超时
   uint32 timeout = 11;
 }
 
