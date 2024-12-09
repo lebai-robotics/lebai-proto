@@ -19376,7 +19376,8 @@ export namespace lebai {
             DISABLE = 0,
             INSTANTANEOUS = 1,
             CONTINUOUS = 2,
-            WEIGHT1 = 11
+            WEIGHT1 = 11,
+            TORQUE6 = 21
         }
 
         /** Properties of a SetForceSensorRequest. */
@@ -19384,6 +19385,9 @@ export namespace lebai {
 
             /** SetForceSensorRequest sensor */
             sensor?: (lebai.motion.ForceSensor|null);
+
+            /** SetForceSensorRequest address */
+            address?: (number|null);
         }
 
         /** Represents a SetForceSensorRequest. */
@@ -19397,6 +19401,9 @@ export namespace lebai {
 
             /** SetForceSensorRequest sensor. */
             public sensor: lebai.motion.ForceSensor;
+
+            /** SetForceSensorRequest address. */
+            public address: number;
 
             /**
              * Creates a new SetForceSensorRequest instance using the specified properties.

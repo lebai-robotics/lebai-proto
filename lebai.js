@@ -45526,6 +45526,7 @@ $root.lebai = (function() {
          * @property {number} INSTANTANEOUS=1 INSTANTANEOUS value
          * @property {number} CONTINUOUS=2 CONTINUOUS value
          * @property {number} WEIGHT1=11 WEIGHT1 value
+         * @property {number} TORQUE6=21 TORQUE6 value
          */
         motion.ForceSensor = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -45533,6 +45534,7 @@ $root.lebai = (function() {
             values[valuesById[1] = "INSTANTANEOUS"] = 1;
             values[valuesById[2] = "CONTINUOUS"] = 2;
             values[valuesById[11] = "WEIGHT1"] = 11;
+            values[valuesById[21] = "TORQUE6"] = 21;
             return values;
         })();
 
@@ -45543,6 +45545,7 @@ $root.lebai = (function() {
              * @memberof lebai.motion
              * @interface ISetForceSensorRequest
              * @property {lebai.motion.ForceSensor|null} [sensor] SetForceSensorRequest sensor
+             * @property {number|null} [address] SetForceSensorRequest address
              */
 
             /**
@@ -45567,6 +45570,14 @@ $root.lebai = (function() {
              * @instance
              */
             SetForceSensorRequest.prototype.sensor = 0;
+
+            /**
+             * SetForceSensorRequest address.
+             * @member {number} address
+             * @memberof lebai.motion.SetForceSensorRequest
+             * @instance
+             */
+            SetForceSensorRequest.prototype.address = 0;
 
             /**
              * Creates a new SetForceSensorRequest instance using the specified properties.
@@ -45594,6 +45605,8 @@ $root.lebai = (function() {
                     writer = $Writer.create();
                 if (message.sensor != null && Object.hasOwnProperty.call(message, "sensor"))
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.sensor);
+                if (message.address != null && Object.hasOwnProperty.call(message, "address"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.address);
                 return writer;
             };
 
@@ -45630,6 +45643,10 @@ $root.lebai = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.sensor = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.address = reader.uint32();
                             break;
                         }
                     default:
@@ -45675,8 +45692,12 @@ $root.lebai = (function() {
                     case 1:
                     case 2:
                     case 11:
+                    case 21:
                         break;
                     }
+                if (message.address != null && message.hasOwnProperty("address"))
+                    if (!$util.isInteger(message.address))
+                        return "address: integer expected";
                 return null;
             };
 
@@ -45715,7 +45736,13 @@ $root.lebai = (function() {
                 case 11:
                     message.sensor = 11;
                     break;
+                case "TORQUE6":
+                case 21:
+                    message.sensor = 21;
+                    break;
                 }
+                if (object.address != null)
+                    message.address = object.address >>> 0;
                 return message;
             };
 
@@ -45732,10 +45759,14 @@ $root.lebai = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.sensor = options.enums === String ? "DISABLE" : 0;
+                    object.address = 0;
+                }
                 if (message.sensor != null && message.hasOwnProperty("sensor"))
                     object.sensor = options.enums === String ? $root.lebai.motion.ForceSensor[message.sensor] === undefined ? message.sensor : $root.lebai.motion.ForceSensor[message.sensor] : message.sensor;
+                if (message.address != null && message.hasOwnProperty("address"))
+                    object.address = message.address;
                 return object;
             };
 
