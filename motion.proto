@@ -106,9 +106,12 @@ enum ForceSensor {
   CONTINUOUS = 2;
   // 一维重力传感器
   WEIGHT1 = 11;
+  // 六维力矩传感器
+  TORQUE6 = 21;
 }
 message SetForceSensorRequest {
   ForceSensor sensor = 1;
+  uint32 address = 2;
 }
 message StartForceModeRequest {
   // 限速
