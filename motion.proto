@@ -128,12 +128,14 @@ message ForceModeParam {
   double mass = 3;
 }
 message SetForceModeParamRequest {
-  // 启动力阈值
-  optional double threshold = 1;
   // 阻尼系数
   optional double damping = 2;
   // 物体重量
   optional double mass = 3;
+  // 启动力阈值
+  optional double force_threshold = 10;
+  // 启动力矩阈值
+  optional double torque_threshold = 11;
 }
 
 // 机器人运动相关服务
