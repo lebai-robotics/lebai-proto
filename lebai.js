@@ -46292,9 +46292,10 @@ $root.lebai = (function() {
              * Properties of a SetForceModeParamRequest.
              * @memberof lebai.motion
              * @interface ISetForceModeParamRequest
-             * @property {number|null} [threshold] SetForceModeParamRequest threshold
              * @property {number|null} [damping] SetForceModeParamRequest damping
              * @property {number|null} [mass] SetForceModeParamRequest mass
+             * @property {number|null} [forceThreshold] SetForceModeParamRequest forceThreshold
+             * @property {number|null} [torqueThreshold] SetForceModeParamRequest torqueThreshold
              */
 
             /**
@@ -46313,14 +46314,6 @@ $root.lebai = (function() {
             }
 
             /**
-             * SetForceModeParamRequest threshold.
-             * @member {number|null|undefined} threshold
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
-            SetForceModeParamRequest.prototype.threshold = null;
-
-            /**
              * SetForceModeParamRequest damping.
              * @member {number|null|undefined} damping
              * @memberof lebai.motion.SetForceModeParamRequest
@@ -46336,14 +46329,24 @@ $root.lebai = (function() {
              */
             SetForceModeParamRequest.prototype.mass = null;
 
+            /**
+             * SetForceModeParamRequest forceThreshold.
+             * @member {number|null|undefined} forceThreshold
+             * @memberof lebai.motion.SetForceModeParamRequest
+             * @instance
+             */
+            SetForceModeParamRequest.prototype.forceThreshold = null;
+
+            /**
+             * SetForceModeParamRequest torqueThreshold.
+             * @member {number|null|undefined} torqueThreshold
+             * @memberof lebai.motion.SetForceModeParamRequest
+             * @instance
+             */
+            SetForceModeParamRequest.prototype.torqueThreshold = null;
+
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
-
-            // Virtual OneOf for proto3 optional field
-            Object.defineProperty(SetForceModeParamRequest.prototype, "_threshold", {
-                get: $util.oneOfGetter($oneOfFields = ["threshold"]),
-                set: $util.oneOfSetter($oneOfFields)
-            });
 
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_damping", {
@@ -46354,6 +46357,18 @@ $root.lebai = (function() {
             // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_mass", {
                 get: $util.oneOfGetter($oneOfFields = ["mass"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SetForceModeParamRequest.prototype, "_forceThreshold", {
+                get: $util.oneOfGetter($oneOfFields = ["forceThreshold"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
+            Object.defineProperty(SetForceModeParamRequest.prototype, "_torqueThreshold", {
+                get: $util.oneOfGetter($oneOfFields = ["torqueThreshold"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -46381,12 +46396,14 @@ $root.lebai = (function() {
             SetForceModeParamRequest.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.threshold != null && Object.hasOwnProperty.call(message, "threshold"))
-                    writer.uint32(/* id 1, wireType 1 =*/9).double(message.threshold);
                 if (message.damping != null && Object.hasOwnProperty.call(message, "damping"))
                     writer.uint32(/* id 2, wireType 1 =*/17).double(message.damping);
                 if (message.mass != null && Object.hasOwnProperty.call(message, "mass"))
                     writer.uint32(/* id 3, wireType 1 =*/25).double(message.mass);
+                if (message.forceThreshold != null && Object.hasOwnProperty.call(message, "forceThreshold"))
+                    writer.uint32(/* id 10, wireType 1 =*/81).double(message.forceThreshold);
+                if (message.torqueThreshold != null && Object.hasOwnProperty.call(message, "torqueThreshold"))
+                    writer.uint32(/* id 11, wireType 1 =*/89).double(message.torqueThreshold);
                 return writer;
             };
 
@@ -46421,16 +46438,20 @@ $root.lebai = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1: {
-                            message.threshold = reader.double();
-                            break;
-                        }
                     case 2: {
                             message.damping = reader.double();
                             break;
                         }
                     case 3: {
                             message.mass = reader.double();
+                            break;
+                        }
+                    case 10: {
+                            message.forceThreshold = reader.double();
+                            break;
+                        }
+                    case 11: {
+                            message.torqueThreshold = reader.double();
                             break;
                         }
                     default:
@@ -46469,11 +46490,6 @@ $root.lebai = (function() {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 var properties = {};
-                if (message.threshold != null && message.hasOwnProperty("threshold")) {
-                    properties._threshold = 1;
-                    if (typeof message.threshold !== "number")
-                        return "threshold: number expected";
-                }
                 if (message.damping != null && message.hasOwnProperty("damping")) {
                     properties._damping = 1;
                     if (typeof message.damping !== "number")
@@ -46483,6 +46499,16 @@ $root.lebai = (function() {
                     properties._mass = 1;
                     if (typeof message.mass !== "number")
                         return "mass: number expected";
+                }
+                if (message.forceThreshold != null && message.hasOwnProperty("forceThreshold")) {
+                    properties._forceThreshold = 1;
+                    if (typeof message.forceThreshold !== "number")
+                        return "forceThreshold: number expected";
+                }
+                if (message.torqueThreshold != null && message.hasOwnProperty("torqueThreshold")) {
+                    properties._torqueThreshold = 1;
+                    if (typeof message.torqueThreshold !== "number")
+                        return "torqueThreshold: number expected";
                 }
                 return null;
             };
@@ -46499,12 +46525,14 @@ $root.lebai = (function() {
                 if (object instanceof $root.lebai.motion.SetForceModeParamRequest)
                     return object;
                 var message = new $root.lebai.motion.SetForceModeParamRequest();
-                if (object.threshold != null)
-                    message.threshold = Number(object.threshold);
                 if (object.damping != null)
                     message.damping = Number(object.damping);
                 if (object.mass != null)
                     message.mass = Number(object.mass);
+                if (object.forceThreshold != null)
+                    message.forceThreshold = Number(object.forceThreshold);
+                if (object.torqueThreshold != null)
+                    message.torqueThreshold = Number(object.torqueThreshold);
                 return message;
             };
 
@@ -46521,11 +46549,6 @@ $root.lebai = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (message.threshold != null && message.hasOwnProperty("threshold")) {
-                    object.threshold = options.json && !isFinite(message.threshold) ? String(message.threshold) : message.threshold;
-                    if (options.oneofs)
-                        object._threshold = "threshold";
-                }
                 if (message.damping != null && message.hasOwnProperty("damping")) {
                     object.damping = options.json && !isFinite(message.damping) ? String(message.damping) : message.damping;
                     if (options.oneofs)
@@ -46535,6 +46558,16 @@ $root.lebai = (function() {
                     object.mass = options.json && !isFinite(message.mass) ? String(message.mass) : message.mass;
                     if (options.oneofs)
                         object._mass = "mass";
+                }
+                if (message.forceThreshold != null && message.hasOwnProperty("forceThreshold")) {
+                    object.forceThreshold = options.json && !isFinite(message.forceThreshold) ? String(message.forceThreshold) : message.forceThreshold;
+                    if (options.oneofs)
+                        object._forceThreshold = "forceThreshold";
+                }
+                if (message.torqueThreshold != null && message.hasOwnProperty("torqueThreshold")) {
+                    object.torqueThreshold = options.json && !isFinite(message.torqueThreshold) ? String(message.torqueThreshold) : message.torqueThreshold;
+                    if (options.oneofs)
+                        object._torqueThreshold = "torqueThreshold";
                 }
                 return object;
             };

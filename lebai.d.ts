@@ -19698,14 +19698,17 @@ export namespace lebai {
         /** Properties of a SetForceModeParamRequest. */
         interface ISetForceModeParamRequest {
 
-            /** SetForceModeParamRequest threshold */
-            threshold?: (number|null);
-
             /** SetForceModeParamRequest damping */
             damping?: (number|null);
 
             /** SetForceModeParamRequest mass */
             mass?: (number|null);
+
+            /** SetForceModeParamRequest forceThreshold */
+            forceThreshold?: (number|null);
+
+            /** SetForceModeParamRequest torqueThreshold */
+            torqueThreshold?: (number|null);
         }
 
         /** Represents a SetForceModeParamRequest. */
@@ -19717,14 +19720,17 @@ export namespace lebai {
              */
             constructor(properties?: lebai.motion.ISetForceModeParamRequest);
 
-            /** SetForceModeParamRequest threshold. */
-            public threshold?: (number|null);
-
             /** SetForceModeParamRequest damping. */
             public damping?: (number|null);
 
             /** SetForceModeParamRequest mass. */
             public mass?: (number|null);
+
+            /** SetForceModeParamRequest forceThreshold. */
+            public forceThreshold?: (number|null);
+
+            /** SetForceModeParamRequest torqueThreshold. */
+            public torqueThreshold?: (number|null);
 
             /**
              * Creates a new SetForceModeParamRequest instance using the specified properties.
