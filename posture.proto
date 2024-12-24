@@ -164,6 +164,9 @@ message GetPoseAddRequest {
   // 在frame姿态方向的增量
   Pose delta = 2;
 }
+message Manipulation{
+  double manipulation = 1;
+}
 
 // 位姿算法相关服务
 service PostureService {
@@ -180,6 +183,8 @@ service PostureService {
   // 查询特征列表
   rpc LoadFrameList(db.LoadListRequest) returns (db.LoadListResponse);
 
+  // 估算关节位置的灵活性
+  rpc MeasureManipulation(JointPose) returns (Manipulation);
   // 正解
   rpc GetForwardKin(PoseRequest) returns (CartesianPose);
   // 反解
