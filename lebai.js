@@ -20443,6 +20443,209 @@ $root.lebai = (function() {
             return GetPoseAddRequest;
         })();
 
+        posture.Manipulation = (function() {
+
+            /**
+             * Properties of a Manipulation.
+             * @memberof lebai.posture
+             * @interface IManipulation
+             * @property {number|null} [manipulation] Manipulation manipulation
+             */
+
+            /**
+             * Constructs a new Manipulation.
+             * @memberof lebai.posture
+             * @classdesc Represents a Manipulation.
+             * @implements IManipulation
+             * @constructor
+             * @param {lebai.posture.IManipulation=} [properties] Properties to set
+             */
+            function Manipulation(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Manipulation manipulation.
+             * @member {number} manipulation
+             * @memberof lebai.posture.Manipulation
+             * @instance
+             */
+            Manipulation.prototype.manipulation = 0;
+
+            /**
+             * Creates a new Manipulation instance using the specified properties.
+             * @function create
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {lebai.posture.IManipulation=} [properties] Properties to set
+             * @returns {lebai.posture.Manipulation} Manipulation instance
+             */
+            Manipulation.create = function create(properties) {
+                return new Manipulation(properties);
+            };
+
+            /**
+             * Encodes the specified Manipulation message. Does not implicitly {@link lebai.posture.Manipulation.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {lebai.posture.IManipulation} message Manipulation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Manipulation.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.manipulation != null && Object.hasOwnProperty.call(message, "manipulation"))
+                    writer.uint32(/* id 1, wireType 1 =*/9).double(message.manipulation);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Manipulation message, length delimited. Does not implicitly {@link lebai.posture.Manipulation.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {lebai.posture.IManipulation} message Manipulation message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Manipulation.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Manipulation message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.posture.Manipulation} Manipulation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Manipulation.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Manipulation();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.manipulation = reader.double();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Manipulation message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.posture.Manipulation} Manipulation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Manipulation.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Manipulation message.
+             * @function verify
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Manipulation.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.manipulation != null && message.hasOwnProperty("manipulation"))
+                    if (typeof message.manipulation !== "number")
+                        return "manipulation: number expected";
+                return null;
+            };
+
+            /**
+             * Creates a Manipulation message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.posture.Manipulation} Manipulation
+             */
+            Manipulation.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.posture.Manipulation)
+                    return object;
+                var message = new $root.lebai.posture.Manipulation();
+                if (object.manipulation != null)
+                    message.manipulation = Number(object.manipulation);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Manipulation message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {lebai.posture.Manipulation} message Manipulation
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Manipulation.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.manipulation = 0;
+                if (message.manipulation != null && message.hasOwnProperty("manipulation"))
+                    object.manipulation = options.json && !isFinite(message.manipulation) ? String(message.manipulation) : message.manipulation;
+                return object;
+            };
+
+            /**
+             * Converts this Manipulation to JSON.
+             * @function toJSON
+             * @memberof lebai.posture.Manipulation
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Manipulation.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for Manipulation
+             * @function getTypeUrl
+             * @memberof lebai.posture.Manipulation
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            Manipulation.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.posture.Manipulation";
+            };
+
+            return Manipulation;
+        })();
+
         posture.PostureService = (function() {
 
             /**
@@ -20670,6 +20873,39 @@ $root.lebai = (function() {
              * @instance
              * @param {lebai.db.ILoadListRequest} request LoadListRequest message or plain object
              * @returns {Promise<lebai.db.LoadListResponse>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.posture.PostureService#measureManipulation}.
+             * @memberof lebai.posture.PostureService
+             * @typedef MeasureManipulationCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {lebai.posture.Manipulation} [response] Manipulation
+             */
+
+            /**
+             * Calls MeasureManipulation.
+             * @function measureManipulation
+             * @memberof lebai.posture.PostureService
+             * @instance
+             * @param {lebai.posture.IJointPose} request JointPose message or plain object
+             * @param {lebai.posture.PostureService.MeasureManipulationCallback} callback Node-style callback called with the error, if any, and Manipulation
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(PostureService.prototype.measureManipulation = function measureManipulation(request, callback) {
+                return this.rpcCall(measureManipulation, $root.lebai.posture.JointPose, $root.lebai.posture.Manipulation, request, callback);
+            }, "name", { value: "MeasureManipulation" });
+
+            /**
+             * Calls MeasureManipulation.
+             * @function measureManipulation
+             * @memberof lebai.posture.PostureService
+             * @instance
+             * @param {lebai.posture.IJointPose} request JointPose message or plain object
+             * @returns {Promise<lebai.posture.Manipulation>} Promise
              * @variation 2
              */
 

@@ -8569,6 +8569,103 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a Manipulation. */
+        interface IManipulation {
+
+            /** Manipulation manipulation */
+            manipulation?: (number|null);
+        }
+
+        /** Represents a Manipulation. */
+        class Manipulation implements IManipulation {
+
+            /**
+             * Constructs a new Manipulation.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.posture.IManipulation);
+
+            /** Manipulation manipulation. */
+            public manipulation: number;
+
+            /**
+             * Creates a new Manipulation instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Manipulation instance
+             */
+            public static create(properties?: lebai.posture.IManipulation): lebai.posture.Manipulation;
+
+            /**
+             * Encodes the specified Manipulation message. Does not implicitly {@link lebai.posture.Manipulation.verify|verify} messages.
+             * @param message Manipulation message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.posture.IManipulation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Manipulation message, length delimited. Does not implicitly {@link lebai.posture.Manipulation.verify|verify} messages.
+             * @param message Manipulation message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.posture.IManipulation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Manipulation message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Manipulation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.posture.Manipulation;
+
+            /**
+             * Decodes a Manipulation message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Manipulation
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.posture.Manipulation;
+
+            /**
+             * Verifies a Manipulation message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Manipulation message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Manipulation
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.posture.Manipulation;
+
+            /**
+             * Creates a plain object from a Manipulation message. Also converts values to other types if specified.
+             * @param message Manipulation
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.posture.Manipulation, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Manipulation to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for Manipulation
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Represents a PostureService */
         class PostureService extends $protobuf.rpc.Service {
 
@@ -8672,6 +8769,20 @@ export namespace lebai {
              * @returns Promise
              */
             public loadFrameList(request: lebai.db.ILoadListRequest): Promise<lebai.db.LoadListResponse>;
+
+            /**
+             * Calls MeasureManipulation.
+             * @param request JointPose message or plain object
+             * @param callback Node-style callback called with the error, if any, and Manipulation
+             */
+            public measureManipulation(request: lebai.posture.IJointPose, callback: lebai.posture.PostureService.MeasureManipulationCallback): void;
+
+            /**
+             * Calls MeasureManipulation.
+             * @param request JointPose message or plain object
+             * @returns Promise
+             */
+            public measureManipulation(request: lebai.posture.IJointPose): Promise<lebai.posture.Manipulation>;
 
             /**
              * Calls GetForwardKin.
@@ -8787,6 +8898,13 @@ export namespace lebai {
              * @param [response] LoadListResponse
              */
             type LoadFrameListCallback = (error: (Error|null), response?: lebai.db.LoadListResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.posture.PostureService#measureManipulation}.
+             * @param error Error, if any
+             * @param [response] Manipulation
+             */
+            type MeasureManipulationCallback = (error: (Error|null), response?: lebai.posture.Manipulation) => void;
 
             /**
              * Callback as used by {@link lebai.posture.PostureService#getForwardKin}.
