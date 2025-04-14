@@ -37859,6 +37859,209 @@ $root.lebai = (function() {
             return LoadModbusRegisterListRequest;
         })();
 
+        modbus.DisconnectModbusRequest = (function() {
+
+            /**
+             * Properties of a DisconnectModbusRequest.
+             * @memberof lebai.modbus
+             * @interface IDisconnectModbusRequest
+             * @property {string|null} [device] DisconnectModbusRequest device
+             */
+
+            /**
+             * Constructs a new DisconnectModbusRequest.
+             * @memberof lebai.modbus
+             * @classdesc Represents a DisconnectModbusRequest.
+             * @implements IDisconnectModbusRequest
+             * @constructor
+             * @param {lebai.modbus.IDisconnectModbusRequest=} [properties] Properties to set
+             */
+            function DisconnectModbusRequest(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * DisconnectModbusRequest device.
+             * @member {string} device
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @instance
+             */
+            DisconnectModbusRequest.prototype.device = "";
+
+            /**
+             * Creates a new DisconnectModbusRequest instance using the specified properties.
+             * @function create
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {lebai.modbus.IDisconnectModbusRequest=} [properties] Properties to set
+             * @returns {lebai.modbus.DisconnectModbusRequest} DisconnectModbusRequest instance
+             */
+            DisconnectModbusRequest.create = function create(properties) {
+                return new DisconnectModbusRequest(properties);
+            };
+
+            /**
+             * Encodes the specified DisconnectModbusRequest message. Does not implicitly {@link lebai.modbus.DisconnectModbusRequest.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {lebai.modbus.IDisconnectModbusRequest} message DisconnectModbusRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DisconnectModbusRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.device != null && Object.hasOwnProperty.call(message, "device"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified DisconnectModbusRequest message, length delimited. Does not implicitly {@link lebai.modbus.DisconnectModbusRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {lebai.modbus.IDisconnectModbusRequest} message DisconnectModbusRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DisconnectModbusRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a DisconnectModbusRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.modbus.DisconnectModbusRequest} DisconnectModbusRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DisconnectModbusRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.DisconnectModbusRequest();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.device = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a DisconnectModbusRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.modbus.DisconnectModbusRequest} DisconnectModbusRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DisconnectModbusRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a DisconnectModbusRequest message.
+             * @function verify
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            DisconnectModbusRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.device != null && message.hasOwnProperty("device"))
+                    if (!$util.isString(message.device))
+                        return "device: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a DisconnectModbusRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.modbus.DisconnectModbusRequest} DisconnectModbusRequest
+             */
+            DisconnectModbusRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.modbus.DisconnectModbusRequest)
+                    return object;
+                var message = new $root.lebai.modbus.DisconnectModbusRequest();
+                if (object.device != null)
+                    message.device = String(object.device);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a DisconnectModbusRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {lebai.modbus.DisconnectModbusRequest} message DisconnectModbusRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            DisconnectModbusRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.device = "";
+                if (message.device != null && message.hasOwnProperty("device"))
+                    object.device = message.device;
+                return object;
+            };
+
+            /**
+             * Converts this DisconnectModbusRequest to JSON.
+             * @function toJSON
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            DisconnectModbusRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for DisconnectModbusRequest
+             * @function getTypeUrl
+             * @memberof lebai.modbus.DisconnectModbusRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            DisconnectModbusRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.modbus.DisconnectModbusRequest";
+            };
+
+            return DisconnectModbusRequest;
+        })();
+
         modbus.SetModbusTimeoutRequest = (function() {
 
             /**
@@ -41404,6 +41607,39 @@ $root.lebai = (function() {
              * @instance
              * @param {lebai.modbus.ILoadModbusRegisterListRequest} request LoadModbusRegisterListRequest message or plain object
              * @returns {Promise<lebai.db.LoadListResponse>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.modbus.ModbusService#disconnectModbus}.
+             * @memberof lebai.modbus.ModbusService
+             * @typedef DisconnectModbusCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {google.protobuf.Empty} [response] Empty
+             */
+
+            /**
+             * Calls DisconnectModbus.
+             * @function disconnectModbus
+             * @memberof lebai.modbus.ModbusService
+             * @instance
+             * @param {lebai.modbus.IDisconnectModbusRequest} request DisconnectModbusRequest message or plain object
+             * @param {lebai.modbus.ModbusService.DisconnectModbusCallback} callback Node-style callback called with the error, if any, and Empty
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(ModbusService.prototype.disconnectModbus = function disconnectModbus(request, callback) {
+                return this.rpcCall(disconnectModbus, $root.lebai.modbus.DisconnectModbusRequest, $root.google.protobuf.Empty, request, callback);
+            }, "name", { value: "DisconnectModbus" });
+
+            /**
+             * Calls DisconnectModbus.
+             * @function disconnectModbus
+             * @memberof lebai.modbus.ModbusService
+             * @instance
+             * @param {lebai.modbus.IDisconnectModbusRequest} request DisconnectModbusRequest message or plain object
+             * @returns {Promise<google.protobuf.Empty>} Promise
              * @variation 2
              */
 

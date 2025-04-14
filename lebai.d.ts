@@ -15973,6 +15973,103 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a DisconnectModbusRequest. */
+        interface IDisconnectModbusRequest {
+
+            /** DisconnectModbusRequest device */
+            device?: (string|null);
+        }
+
+        /** Represents a DisconnectModbusRequest. */
+        class DisconnectModbusRequest implements IDisconnectModbusRequest {
+
+            /**
+             * Constructs a new DisconnectModbusRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.modbus.IDisconnectModbusRequest);
+
+            /** DisconnectModbusRequest device. */
+            public device: string;
+
+            /**
+             * Creates a new DisconnectModbusRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DisconnectModbusRequest instance
+             */
+            public static create(properties?: lebai.modbus.IDisconnectModbusRequest): lebai.modbus.DisconnectModbusRequest;
+
+            /**
+             * Encodes the specified DisconnectModbusRequest message. Does not implicitly {@link lebai.modbus.DisconnectModbusRequest.verify|verify} messages.
+             * @param message DisconnectModbusRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.modbus.IDisconnectModbusRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DisconnectModbusRequest message, length delimited. Does not implicitly {@link lebai.modbus.DisconnectModbusRequest.verify|verify} messages.
+             * @param message DisconnectModbusRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.modbus.IDisconnectModbusRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DisconnectModbusRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DisconnectModbusRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.modbus.DisconnectModbusRequest;
+
+            /**
+             * Decodes a DisconnectModbusRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DisconnectModbusRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.modbus.DisconnectModbusRequest;
+
+            /**
+             * Verifies a DisconnectModbusRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DisconnectModbusRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DisconnectModbusRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.modbus.DisconnectModbusRequest;
+
+            /**
+             * Creates a plain object from a DisconnectModbusRequest message. Also converts values to other types if specified.
+             * @param message DisconnectModbusRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.modbus.DisconnectModbusRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DisconnectModbusRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for DisconnectModbusRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a SetModbusTimeoutRequest. */
         interface ISetModbusTimeoutRequest {
 
@@ -17532,6 +17629,20 @@ export namespace lebai {
             public loadModbusRegisterList(request: lebai.modbus.ILoadModbusRegisterListRequest): Promise<lebai.db.LoadListResponse>;
 
             /**
+             * Calls DisconnectModbus.
+             * @param request DisconnectModbusRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public disconnectModbus(request: lebai.modbus.IDisconnectModbusRequest, callback: lebai.modbus.ModbusService.DisconnectModbusCallback): void;
+
+            /**
+             * Calls DisconnectModbus.
+             * @param request DisconnectModbusRequest message or plain object
+             * @returns Promise
+             */
+            public disconnectModbus(request: lebai.modbus.IDisconnectModbusRequest): Promise<google.protobuf.Empty>;
+
+            /**
              * Calls SetModbusTimeout.
              * @param request SetModbusTimeoutRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and Empty
@@ -17715,6 +17826,13 @@ export namespace lebai {
              * @param [response] LoadListResponse
              */
             type LoadModbusRegisterListCallback = (error: (Error|null), response?: lebai.db.LoadListResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.modbus.ModbusService#disconnectModbus}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type DisconnectModbusCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
              * Callback as used by {@link lebai.modbus.ModbusService#setModbusTimeout}.
