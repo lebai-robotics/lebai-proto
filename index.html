@@ -774,6 +774,10 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.modbus.DisconnectModbusRequest"><span class="badge">M</span>DisconnectModbusRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.modbus.GetCoilRequest"><span class="badge">M</span>GetCoilRequest</a>
                 </li>
               
@@ -6195,6 +6199,30 @@
       <p></p>
 
       
+        <h3 id="lebai.modbus.DisconnectModbusRequest">DisconnectModbusRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.modbus.GetCoilRequest">GetCoilRequest</h3>
         <p></p>
 
@@ -6979,6 +7007,13 @@
                 <td><a href="#lebai.modbus.LoadModbusRegisterListRequest">LoadModbusRegisterListRequest</a></td>
                 <td><a href="#lebai.db.LoadListResponse">.lebai.db.LoadListResponse</a></td>
                 <td><p>查询Modbus寄存器列表</p></td>
+              </tr>
+            
+              <tr>
+                <td>DisconnectModbus</td>
+                <td><a href="#lebai.modbus.DisconnectModbusRequest">DisconnectModbusRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>断开Modbus连接</p></td>
               </tr>
             
               <tr>
