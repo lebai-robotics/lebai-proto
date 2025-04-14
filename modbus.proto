@@ -68,6 +68,9 @@ message LoadModbusRegisterListRequest {
   string device = 1;
 }
 
+message DisconnectModbusRequest {
+  string device = 1;
+}
 message SetModbusTimeoutRequest {
   string device = 1;
   // 单次接收超时时间，默认600ms，特殊地0为不超时
@@ -148,6 +151,8 @@ service ModbusService {
   rpc LoadModbusRegisterList(LoadModbusRegisterListRequest)
       returns (db.LoadListResponse);
 
+  // 断开Modbus连接
+  rpc DisconnectModbus(DisconnectModbusRequest) returns (google.protobuf.Empty);
   // 设置单次接收超时时间
   rpc SetModbusTimeout(SetModbusTimeoutRequest) returns (google.protobuf.Empty);
   // 设置接收超时重发次数
