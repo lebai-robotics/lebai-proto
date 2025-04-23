@@ -232,6 +232,9 @@ export namespace lebai {
             /** GetAutoResponse value. */
             public value?: (boolean|null);
 
+            /** GetAutoResponse _value. */
+            public _value?: "value";
+
             /**
              * Creates a new GetAutoResponse instance using the specified properties.
              * @param [properties] Properties to set
@@ -4449,6 +4452,12 @@ export namespace lebai {
             /** SetClawRequest amplitude. */
             public amplitude?: (number|null);
 
+            /** SetClawRequest _force. */
+            public _force?: "force";
+
+            /** SetClawRequest _amplitude. */
+            public _amplitude?: "amplitude";
+
             /**
              * Creates a new SetClawRequest instance using the specified properties.
              * @param [properties] Properties to set
@@ -6235,6 +6244,9 @@ export namespace lebai {
 
             /** SetPayloadRequest cog. */
             public cog?: (lebai.posture.IPosition|null);
+
+            /** SetPayloadRequest _mass. */
+            public _mass?: "mass";
 
             /**
              * Creates a new SetPayloadRequest instance using the specified properties.
@@ -10402,6 +10414,152 @@ export namespace lebai {
              * @param [response] LoadZipListResponse
              */
             type LoadZipListCallback = (error: (Error|null), response?: lebai.file.LoadZipListResponse) => void;
+        }
+    }
+
+    /** Namespace flange. */
+    namespace flange {
+
+        /** Properties of a SetFlangeBaudRateRequest. */
+        interface ISetFlangeBaudRateRequest {
+
+            /** SetFlangeBaudRateRequest baudRate */
+            baudRate?: (number|null);
+        }
+
+        /** Represents a SetFlangeBaudRateRequest. */
+        class SetFlangeBaudRateRequest implements ISetFlangeBaudRateRequest {
+
+            /**
+             * Constructs a new SetFlangeBaudRateRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.flange.ISetFlangeBaudRateRequest);
+
+            /** SetFlangeBaudRateRequest baudRate. */
+            public baudRate: number;
+
+            /**
+             * Creates a new SetFlangeBaudRateRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetFlangeBaudRateRequest instance
+             */
+            public static create(properties?: lebai.flange.ISetFlangeBaudRateRequest): lebai.flange.SetFlangeBaudRateRequest;
+
+            /**
+             * Encodes the specified SetFlangeBaudRateRequest message. Does not implicitly {@link lebai.flange.SetFlangeBaudRateRequest.verify|verify} messages.
+             * @param message SetFlangeBaudRateRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.flange.ISetFlangeBaudRateRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetFlangeBaudRateRequest message, length delimited. Does not implicitly {@link lebai.flange.SetFlangeBaudRateRequest.verify|verify} messages.
+             * @param message SetFlangeBaudRateRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.flange.ISetFlangeBaudRateRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetFlangeBaudRateRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetFlangeBaudRateRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.flange.SetFlangeBaudRateRequest;
+
+            /**
+             * Decodes a SetFlangeBaudRateRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetFlangeBaudRateRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.flange.SetFlangeBaudRateRequest;
+
+            /**
+             * Verifies a SetFlangeBaudRateRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetFlangeBaudRateRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetFlangeBaudRateRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.flange.SetFlangeBaudRateRequest;
+
+            /**
+             * Creates a plain object from a SetFlangeBaudRateRequest message. Also converts values to other types if specified.
+             * @param message SetFlangeBaudRateRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.flange.SetFlangeBaudRateRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetFlangeBaudRateRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for SetFlangeBaudRateRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a FlangeService */
+        class FlangeService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new FlangeService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new FlangeService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): FlangeService;
+
+            /**
+             * Calls SetFlangeBaudRate.
+             * @param request SetFlangeBaudRateRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public setFlangeBaudRate(request: lebai.flange.ISetFlangeBaudRateRequest, callback: lebai.flange.FlangeService.SetFlangeBaudRateCallback): void;
+
+            /**
+             * Calls SetFlangeBaudRate.
+             * @param request SetFlangeBaudRateRequest message or plain object
+             * @returns Promise
+             */
+            public setFlangeBaudRate(request: lebai.flange.ISetFlangeBaudRateRequest): Promise<google.protobuf.Empty>;
+        }
+
+        namespace FlangeService {
+
+            /**
+             * Callback as used by {@link lebai.flange.FlangeService#setFlangeBaudRate}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type SetFlangeBaudRateCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
         }
     }
 
@@ -18795,6 +18953,12 @@ export namespace lebai {
             /** JointMove acc. */
             public acc?: (number|null);
 
+            /** JointMove _velocity. */
+            public _velocity?: "velocity";
+
+            /** JointMove _acc. */
+            public _acc?: "acc";
+
             /**
              * Creates a new JointMove instance using the specified properties.
              * @param [properties] Properties to set
@@ -19967,6 +20131,18 @@ export namespace lebai {
 
             /** SetForceModeParamRequest torqueThreshold. */
             public torqueThreshold?: (number|null);
+
+            /** SetForceModeParamRequest _damping. */
+            public _damping?: "damping";
+
+            /** SetForceModeParamRequest _mass. */
+            public _mass?: "mass";
+
+            /** SetForceModeParamRequest _forceThreshold. */
+            public _forceThreshold?: "forceThreshold";
+
+            /** SetForceModeParamRequest _torqueThreshold. */
+            public _torqueThreshold?: "torqueThreshold";
 
             /**
              * Creates a new SetForceModeParamRequest instance using the specified properties.
