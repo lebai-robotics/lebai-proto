@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package lebai.flange;
+
+import "google/protobuf/empty.proto";
+
+message SetFlangeBaudRateRequest {
+  uint32 baud_rate = 2;
+}
+
+// 法兰相关服务
+service FlangeService {
+  rpc SetFlangeBaudRate(SetFlangeBaudRateRequest) returns (google.protobuf.Empty);
+}
