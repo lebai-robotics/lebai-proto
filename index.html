@@ -448,6 +448,25 @@
         
           
           <li>
+            <a href="#flange.proto">flange.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.flange.SetFlangeBaudRateRequest"><span class="badge">M</span>SetFlangeBaudRateRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.flange.FlangeService"><span class="badge">S</span>FlangeService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#hardware.proto">hardware.proto</a>
             <ul>
               
@@ -3467,6 +3486,63 @@
                 <td><a href="#lebai.file.LoadZipListRequest">LoadZipListRequest</a></td>
                 <td><a href="#lebai.file.LoadZipListResponse">LoadZipListResponse</a></td>
                 <td><p>查询zip文件中的文件列表</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="flange.proto">flange.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.flange.SetFlangeBaudRateRequest">SetFlangeBaudRateRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>baud_rate</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.flange.FlangeService">FlangeService</h3>
+        <p>法兰相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SetFlangeBaudRate</td>
+                <td><a href="#lebai.flange.SetFlangeBaudRateRequest">SetFlangeBaudRateRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
