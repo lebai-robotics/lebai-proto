@@ -79,7 +79,7 @@ message SetModbusTimeoutRequest {
 message SetModbusRetryRequest {
   string device = 1;
   // 接收超时重试次数，默认0
-  uint32 timeout = 11;
+  uint32 retry = 11;
 }
 
 message SetCoilRequest {
