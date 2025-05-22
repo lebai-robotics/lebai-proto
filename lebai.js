@@ -139,14 +139,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetAutoRequest.decode = function decode(reader, length, error) {
+            SetAutoRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.auto.SetAutoRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.int32();
@@ -381,14 +379,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAutoRequest.decode = function decode(reader, length, error) {
+            GetAutoRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.auto.GetAutoRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.int32();
@@ -560,12 +556,7 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * GetAutoResponse _value.
-             * @member {"value"|undefined} _value
-             * @memberof lebai.auto.GetAutoResponse
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GetAutoResponse.prototype, "_value", {
                 get: $util.oneOfGetter($oneOfFields = ["value"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -624,14 +615,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAutoResponse.decode = function decode(reader, length, error) {
+            GetAutoResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.auto.GetAutoResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.value = reader.bool();
@@ -1001,14 +990,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BackupInfo.decode = function decode(reader, length, error) {
+            BackupInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.backup.BackupInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.system = $root.lebai.system.SystemInfo.decode(reader, reader.uint32());
@@ -1363,14 +1350,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Options.decode = function decode(reader, length, error) {
+            Options.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.backup.Options();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.tmp = reader.bool();
@@ -1652,14 +1637,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BackupRequest.decode = function decode(reader, length, error) {
+            BackupRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.backup.BackupRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.file = reader.string();
@@ -1875,14 +1858,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetBackupInfoRequest.decode = function decode(reader, length, error) {
+            GetBackupInfoRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.backup.GetBackupInfoRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.file = reader.string();
@@ -2091,14 +2072,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RestoreRequest.decode = function decode(reader, length, error) {
+            RestoreRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.backup.RestoreRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.file = reader.string();
@@ -2493,14 +2472,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            HelloData.decode = function decode(reader, length, error) {
+            HelloData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.HelloData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.data = reader.string();
@@ -2731,14 +2708,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MemoryInfo.decode = function decode(reader, length, error) {
+            MemoryInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.MemoryInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.used = reader.uint64();
@@ -3051,14 +3026,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DiskInfo.decode = function decode(reader, length, error) {
+            DiskInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.DiskInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -3403,14 +3376,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            NetworkInfo.decode = function decode(reader, length, error) {
+            NetworkInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.NetworkInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.ifname = reader.string();
@@ -3799,14 +3770,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CpuInfo.decode = function decode(reader, length, error) {
+            CpuInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.CpuInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.brand = reader.string();
@@ -4148,14 +4117,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SystemInfo.decode = function decode(reader, length, error) {
+            SystemInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.SystemInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -4488,14 +4455,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetBoxDevicesRequest.decode = function decode(reader, length, error) {
+            GetBoxDevicesRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetBoxDevicesRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.prefix = reader.string();
@@ -4695,14 +4660,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetBoxDevicesResponse.decode = function decode(reader, length, error) {
+            GetBoxDevicesResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetBoxDevicesResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.devices && message.devices.length))
@@ -4925,14 +4888,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetVirtualIpRequest.decode = function decode(reader, length, error) {
+            SetVirtualIpRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.SetVirtualIpRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.ifname = reader.string();
@@ -5230,14 +5191,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RobotInfo.decode = function decode(reader, length, error) {
+            RobotInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.RobotInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -5632,14 +5591,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DeviceInfo.decode = function decode(reader, length, error) {
+            DeviceInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.DeviceInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.invalid = reader.bool();
@@ -6009,14 +5966,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            HardwareInfo.decode = function decode(reader, length, error) {
+            HardwareInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.HardwareInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.comboard = $root.lebai.system.DeviceInfo.decode(reader, reader.uint32());
@@ -6314,14 +6269,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SoftwareItemInfo.decode = function decode(reader, length, error) {
+            SoftwareItemInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.SoftwareItemInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.version = reader.string();
@@ -6536,14 +6489,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SoftwareInfo.decode = function decode(reader, length, error) {
+            SoftwareInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.SoftwareInfo(), key, value;
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (message.software === $util.emptyObject)
@@ -6815,14 +6766,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetRobotStateResponse.decode = function decode(reader, length, error) {
+            GetRobotStateResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetRobotStateResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.state = reader.int32();
@@ -7126,14 +7075,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PhyData.decode = function decode(reader, length, error) {
+            PhyData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.PhyData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             if (!(message.jointTemp && message.jointTemp.length))
@@ -7427,14 +7374,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetEstopReasonResponse.decode = function decode(reader, length, error) {
+            GetEstopReasonResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.system.GetEstopReasonResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.reason = reader.int32();
@@ -8339,14 +8284,12 @@ $root.lebai = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        SubscribeRequest.decode = function decode(reader, length, error) {
+        SubscribeRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.SubscribeRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 11: {
                         message.intervalMin = reader.uint64();
@@ -8618,14 +8561,12 @@ $root.lebai = (function() {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CommandStdout.decode = function decode(reader, length, error) {
+        CommandStdout.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
             var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.CommandStdout();
             while (reader.pos < end) {
                 var tag = reader.uint32();
-                if (tag === error)
-                    break;
                 switch (tag >>> 3) {
                 case 11: {
                         message.done = reader.bool();
@@ -8947,14 +8888,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            FirmwareInfo.decode = function decode(reader, length, error) {
+            FirmwareInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.hardware.FirmwareInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.sn = reader.string();
@@ -9228,14 +9167,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StartOtaRequest.decode = function decode(reader, length, error) {
+            StartOtaRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.hardware.StartOtaRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.address = reader.int32();
@@ -9577,14 +9514,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SwitchPartitionRequest.decode = function decode(reader, length, error) {
+            SwitchPartitionRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.hardware.SwitchPartitionRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.address = reader.int32();
@@ -9938,14 +9873,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            OtaState.decode = function decode(reader, length, error) {
+            OtaState.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.hardware.OtaState();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.step = reader.int32();
@@ -10415,14 +10348,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Claw.decode = function decode(reader, length, error) {
+            Claw.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.Claw();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.force = reader.double();
@@ -10657,14 +10588,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InitClawRequest.decode = function decode(reader, length, error) {
+            InitClawRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.InitClawRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.force = reader.bool();
@@ -10821,23 +10750,13 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetClawRequest _force.
-             * @member {"force"|undefined} _force
-             * @memberof lebai.claw.SetClawRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetClawRequest.prototype, "_force", {
                 get: $util.oneOfGetter($oneOfFields = ["force"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetClawRequest _amplitude.
-             * @member {"amplitude"|undefined} _amplitude
-             * @memberof lebai.claw.SetClawRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetClawRequest.prototype, "_amplitude", {
                 get: $util.oneOfGetter($oneOfFields = ["amplitude"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -10898,14 +10817,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetClawRequest.decode = function decode(reader, length, error) {
+            SetClawRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.SetClawRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.force = reader.double();
@@ -11134,14 +11051,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetClawAoRequest.decode = function decode(reader, length, error) {
+            SetClawAoRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.SetClawAoRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.address = reader.int32();
@@ -11426,14 +11341,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetClawAiRequest.decode = function decode(reader, length, error) {
+            GetClawAiRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.GetClawAiRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.address = reader.int32();
@@ -11705,14 +11618,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetClawAiResponse.decode = function decode(reader, length, error) {
+            GetClawAiResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.GetClawAiResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.value = reader.double();
@@ -11932,14 +11843,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            WaitClawAiRequest.decode = function decode(reader, length, error) {
+            WaitClawAiRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.claw.WaitClawAiRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.address = reader.int32();
@@ -12592,14 +12501,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveRequest.decode = function decode(reader, length, error) {
+            SaveRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.SaveRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -12833,14 +12740,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadRequest.decode = function decode(reader, length, error) {
+            LoadRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.LoadRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -13051,14 +12956,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadResponse.decode = function decode(reader, length, error) {
+            LoadResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.LoadResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.data = reader.string();
@@ -13256,14 +13159,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadListRequest.decode = function decode(reader, length, error) {
+            LoadListRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.LoadListRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.dir = reader.string();
@@ -13463,14 +13364,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadListResponse.decode = function decode(reader, length, error) {
+            LoadListResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.LoadListResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             if (!(message.names && message.names.length))
@@ -13693,14 +13592,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DeleteRequest.decode = function decode(reader, length, error) {
+            DeleteRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.DeleteRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -13922,14 +13819,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Dir.decode = function decode(reader, length, error) {
+            Dir.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.Dir();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -14151,14 +14046,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            UpdateDirRequest.decode = function decode(reader, length, error) {
+            UpdateDirRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.UpdateDirRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.from = reader.string();
@@ -14371,14 +14264,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Dirs.decode = function decode(reader, length, error) {
+            Dirs.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.db.Dirs();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.dirs && message.dirs.length))
@@ -14752,14 +14643,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Payload.decode = function decode(reader, length, error) {
+            Payload.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.dynamic.Payload();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.mass = reader.double();
@@ -14934,12 +14823,7 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetPayloadRequest _mass.
-             * @member {"mass"|undefined} _mass
-             * @memberof lebai.dynamic.SetPayloadRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetPayloadRequest.prototype, "_mass", {
                 get: $util.oneOfGetter($oneOfFields = ["mass"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -15000,14 +14884,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetPayloadRequest.decode = function decode(reader, length, error) {
+            SetPayloadRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.dynamic.SetPayloadRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.mass = reader.double();
@@ -15249,14 +15131,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SavePayloadRequest.decode = function decode(reader, length, error) {
+            SavePayloadRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.dynamic.SavePayloadRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -15767,14 +15647,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            JointPose.decode = function decode(reader, length, error) {
+            JointPose.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.JointPose();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.joint && message.joint.length))
@@ -16002,14 +15880,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            JointFrame.decode = function decode(reader, length, error) {
+            JointFrame.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.JointFrame();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.kind = reader.int32();
@@ -16360,14 +16236,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RotationMatrix.decode = function decode(reader, length, error) {
+            RotationMatrix.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.RotationMatrix();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.m11 = reader.double();
@@ -16684,14 +16558,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            EulerZyx.decode = function decode(reader, length, error) {
+            EulerZyx.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.EulerZyx();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.x = reader.double();
@@ -16947,14 +16819,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Quaternion.decode = function decode(reader, length, error) {
+            Quaternion.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Quaternion();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.w = reader.double();
@@ -17211,14 +17081,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Rotation.decode = function decode(reader, length, error) {
+            Rotation.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Rotation();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.eulerZyx = $root.lebai.posture.EulerZyx.decode(reader, reader.uint32());
@@ -17478,14 +17346,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Position.decode = function decode(reader, length, error) {
+            Position.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Position();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.x = reader.double();
@@ -17719,14 +17585,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CartesianPose.decode = function decode(reader, length, error) {
+            CartesianPose.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.CartesianPose();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.position = $root.lebai.posture.Position.decode(reader, reader.uint32());
@@ -18112,14 +17976,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CartesianMatrix.decode = function decode(reader, length, error) {
+            CartesianMatrix.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.CartesianMatrix();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.m11 = reader.double();
@@ -18531,14 +18393,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CartesianFrame.decode = function decode(reader, length, error) {
+            CartesianFrame.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.CartesianFrame();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.positionKind = reader.int32();
@@ -18927,14 +18787,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Pose.decode = function decode(reader, length, error) {
+            Pose.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Pose();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.kind = reader.int32();
@@ -19263,14 +19121,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SavePoseRequest.decode = function decode(reader, length, error) {
+            SavePoseRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.SavePoseRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -19520,14 +19376,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveFrameRequest.decode = function decode(reader, length, error) {
+            SaveFrameRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.SaveFrameRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -19755,14 +19609,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PoseRequest.decode = function decode(reader, length, error) {
+            PoseRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.PoseRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.pose = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -19976,14 +19828,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetInverseKinRequest.decode = function decode(reader, length, error) {
+            GetInverseKinRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.GetInverseKinRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.pose = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -20215,14 +20065,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetPoseTransRequest.decode = function decode(reader, length, error) {
+            GetPoseTransRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.GetPoseTransRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.from = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -20454,14 +20302,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetPoseAddRequest.decode = function decode(reader, length, error) {
+            GetPoseAddRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.GetPoseAddRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.pose = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -20682,14 +20528,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Manipulation.decode = function decode(reader, length, error) {
+            Manipulation.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.posture.Manipulation();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.manipulation = reader.double();
@@ -21341,14 +21185,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            File.decode = function decode(reader, length, error) {
+            File.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.File();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 3: {
                             message.isDir = reader.bool();
@@ -21579,14 +21421,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            FileIndex.decode = function decode(reader, length, error) {
+            FileIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.FileIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.dir = reader.string();
@@ -21808,14 +21648,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            FileName.decode = function decode(reader, length, error) {
+            FileName.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.FileName();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.name = reader.string();
@@ -22048,14 +21886,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveFileRequest.decode = function decode(reader, length, error) {
+            SaveFileRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.SaveFileRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.dir = reader.string();
@@ -22305,14 +22141,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DownloadFileRequest.decode = function decode(reader, length, error) {
+            DownloadFileRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.DownloadFileRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.dir = reader.string();
@@ -22546,14 +22380,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RenameFileRequest.decode = function decode(reader, length, error) {
+            RenameFileRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.RenameFileRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.from = $root.lebai.file.FileIndex.decode(reader, reader.uint32());
@@ -22796,14 +22628,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadFileListRequest.decode = function decode(reader, length, error) {
+            LoadFileListRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.LoadFileListRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.dir = reader.string();
@@ -23028,14 +22858,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadFileListResponse.decode = function decode(reader, length, error) {
+            LoadFileListResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.LoadFileListResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.files && message.files.length))
@@ -23276,14 +23104,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ZipRequest.decode = function decode(reader, length, error) {
+            ZipRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.ZipRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.zip = $root.lebai.file.FileIndex.decode(reader, reader.uint32());
@@ -23550,14 +23376,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            UnzipRequest.decode = function decode(reader, length, error) {
+            UnzipRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.UnzipRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.zip = $root.lebai.file.FileIndex.decode(reader, reader.uint32());
@@ -23833,14 +23657,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadZipListRequest.decode = function decode(reader, length, error) {
+            LoadZipListRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.LoadZipListRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.zip = $root.lebai.file.FileIndex.decode(reader, reader.uint32());
@@ -24082,14 +23904,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadZipListResponse.decode = function decode(reader, length, error) {
+            LoadZipListResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.file.LoadZipListResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.files && message.files.length))
@@ -24617,14 +24437,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetFlangeBaudRateRequest.decode = function decode(reader, length, error) {
+            SetFlangeBaudRateRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.flange.SetFlangeBaudRateRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.baudRate = reader.uint32();
@@ -24992,14 +24810,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetDoPinRequest.decode = function decode(reader, length, error) {
+            SetDoPinRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.SetDoPinRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -25288,14 +25104,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetDoPinsRequest.decode = function decode(reader, length, error) {
+            SetDoPinsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.SetDoPinsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -25588,14 +25402,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioPinRequest.decode = function decode(reader, length, error) {
+            GetDioPinRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioPinRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -25845,14 +25657,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioPinResponse.decode = function decode(reader, length, error) {
+            GetDioPinResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioPinResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.value = reader.uint32();
@@ -26072,14 +25882,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioPinsRequest.decode = function decode(reader, length, error) {
+            GetDioPinsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioPinsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -26346,14 +26154,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioPinsResponse.decode = function decode(reader, length, error) {
+            GetDioPinsResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioPinsResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.values && message.values.length))
@@ -26592,14 +26398,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetAoPinRequest.decode = function decode(reader, length, error) {
+            SetAoPinRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.SetAoPinRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -26888,14 +26692,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetAoPinsRequest.decode = function decode(reader, length, error) {
+            SetAoPinsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.SetAoPinsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -27188,14 +26990,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAioPinRequest.decode = function decode(reader, length, error) {
+            GetAioPinRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetAioPinRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -27445,14 +27245,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAioPinResponse.decode = function decode(reader, length, error) {
+            GetAioPinResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetAioPinResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.value = reader.double();
@@ -27672,14 +27470,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAioPinsRequest.decode = function decode(reader, length, error) {
+            GetAioPinsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetAioPinsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -27946,14 +27742,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetAioPinsResponse.decode = function decode(reader, length, error) {
+            GetAioPinsResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetAioPinsResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.values && message.values.length))
@@ -28181,14 +27975,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ButtonIndex.decode = function decode(reader, length, error) {
+            ButtonIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.ButtonIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -28467,14 +28259,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ButtonStatus.decode = function decode(reader, length, error) {
+            ButtonStatus.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.ButtonStatus();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.state = reader.int32();
@@ -28725,14 +28515,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ButtonsStatus.decode = function decode(reader, length, error) {
+            ButtonsStatus.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.ButtonsStatus();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.button = $root.lebai.io.ButtonIndex.decode(reader, reader.uint32());
@@ -28975,14 +28763,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetDioModeRequest.decode = function decode(reader, length, error) {
+            SetDioModeRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.SetDioModeRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -29274,14 +29060,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioModeRequest.decode = function decode(reader, length, error) {
+            GetDioModeRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioModeRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -29531,14 +29315,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDioModeResponse.decode = function decode(reader, length, error) {
+            GetDioModeResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDioModeResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.mode = reader.int32();
@@ -29777,14 +29559,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDiosModeRequest.decode = function decode(reader, length, error) {
+            GetDiosModeRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDiosModeRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.int32();
@@ -30051,14 +29831,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetDiosModeResponse.decode = function decode(reader, length, error) {
+            GetDiosModeResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.io.GetDiosModeResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.modes && message.modes.length))
@@ -30968,14 +30746,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DhParam.decode = function decode(reader, length, error) {
+            DhParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.DhParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.a = reader.double();
@@ -31212,14 +30988,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DhParams.decode = function decode(reader, length, error) {
+            DhParams.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.DhParams();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.params && message.params.length))
@@ -31436,14 +31210,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            KinFactor.decode = function decode(reader, length, error) {
+            KinFactor.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.KinFactor();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.speedFactor = reader.int32();
@@ -31791,14 +31563,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            KinData.decode = function decode(reader, length, error) {
+            KinData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.KinData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.actualJointPose && message.actualJointPose.length))
@@ -32308,14 +32078,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveTcpRequest.decode = function decode(reader, length, error) {
+            SaveTcpRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.SaveTcpRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -32565,14 +32333,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CalcFrameRequest.decode = function decode(reader, length, error) {
+            CalcFrameRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.CalcFrameRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.o = $root.lebai.posture.CartesianPose.decode(reader, reader.uint32());
@@ -32812,14 +32578,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CalcTcpRequest.decode = function decode(reader, length, error) {
+            CalcTcpRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.kinematic.CalcTcpRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.poses && message.poses.length))
@@ -33623,14 +33387,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LedData.decode = function decode(reader, length, error) {
+            LedData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.LedData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.mode = reader.int32();
@@ -34051,14 +33813,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            FanData.decode = function decode(reader, length, error) {
+            FanData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.FanData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.mode = reader.int32();
@@ -34351,14 +34111,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            VoiceData.decode = function decode(reader, length, error) {
+            VoiceData.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.VoiceData();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.voice = reader.int32();
@@ -34709,14 +34467,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LedStyle.decode = function decode(reader, length, error) {
+            LedStyle.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.LedStyle();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.led = $root.lebai.led.LedData.decode(reader, reader.uint32());
@@ -35084,14 +34840,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveLedStyleRequest.decode = function decode(reader, length, error) {
+            SaveLedStyleRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.SaveLedStyleRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -35330,14 +35084,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LedStyleItem.decode = function decode(reader, length, error) {
+            LedStyleItem.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.LedStyleItem();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.state = reader.int32();
@@ -35631,14 +35383,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LedStyles.decode = function decode(reader, length, error) {
+            LedStyles.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.led.LedStyles(), key, value;
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (message.styles === $util.emptyObject)
@@ -36297,14 +36047,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Message.decode = function decode(reader, length, error) {
+            Message.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.message.Message();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.level = reader.int32();
@@ -36619,14 +36367,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Messages.decode = function decode(reader, length, error) {
+            Messages.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.message.Messages();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.messages && message.messages.length))
@@ -37011,14 +36757,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Modbus.decode = function decode(reader, length, error) {
+            Modbus.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.Modbus();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 12: {
                             message.kind = reader.int32();
@@ -37303,14 +37047,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveModbusRequest.decode = function decode(reader, length, error) {
+            SaveModbusRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SaveModbusRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -37555,14 +37297,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ModbusRegister.decode = function decode(reader, length, error) {
+            ModbusRegister.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.ModbusRegister();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 12: {
                             message.kind = reader.int32();
@@ -37824,14 +37564,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveModbusRegisterRequest.decode = function decode(reader, length, error) {
+            SaveModbusRegisterRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SaveModbusRegisterRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -38070,14 +37808,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadModbusRegisterRequest.decode = function decode(reader, length, error) {
+            LoadModbusRegisterRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.LoadModbusRegisterRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -38288,14 +38024,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            LoadModbusRegisterListRequest.decode = function decode(reader, length, error) {
+            LoadModbusRegisterListRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.LoadModbusRegisterListRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -38493,14 +38227,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DisconnectModbusRequest.decode = function decode(reader, length, error) {
+            DisconnectModbusRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.DisconnectModbusRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -38709,14 +38441,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetModbusTimeoutRequest.decode = function decode(reader, length, error) {
+            SetModbusTimeoutRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetModbusTimeoutRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -38849,7 +38579,7 @@ $root.lebai = (function() {
              * @memberof lebai.modbus
              * @interface ISetModbusRetryRequest
              * @property {string|null} [device] SetModbusRetryRequest device
-             * @property {number|null} [timeout] SetModbusRetryRequest timeout
+             * @property {number|null} [retry] SetModbusRetryRequest retry
              */
 
             /**
@@ -38876,12 +38606,12 @@ $root.lebai = (function() {
             SetModbusRetryRequest.prototype.device = "";
 
             /**
-             * SetModbusRetryRequest timeout.
-             * @member {number} timeout
+             * SetModbusRetryRequest retry.
+             * @member {number} retry
              * @memberof lebai.modbus.SetModbusRetryRequest
              * @instance
              */
-            SetModbusRetryRequest.prototype.timeout = 0;
+            SetModbusRetryRequest.prototype.retry = 0;
 
             /**
              * Creates a new SetModbusRetryRequest instance using the specified properties.
@@ -38909,8 +38639,8 @@ $root.lebai = (function() {
                     writer = $Writer.create();
                 if (message.device != null && Object.hasOwnProperty.call(message, "device"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
-                if (message.timeout != null && Object.hasOwnProperty.call(message, "timeout"))
-                    writer.uint32(/* id 11, wireType 0 =*/88).uint32(message.timeout);
+                if (message.retry != null && Object.hasOwnProperty.call(message, "retry"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).uint32(message.retry);
                 return writer;
             };
 
@@ -38938,21 +38668,19 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetModbusRetryRequest.decode = function decode(reader, length, error) {
+            SetModbusRetryRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetModbusRetryRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
                             break;
                         }
                     case 11: {
-                            message.timeout = reader.uint32();
+                            message.retry = reader.uint32();
                             break;
                         }
                     default:
@@ -38993,9 +38721,9 @@ $root.lebai = (function() {
                 if (message.device != null && message.hasOwnProperty("device"))
                     if (!$util.isString(message.device))
                         return "device: string expected";
-                if (message.timeout != null && message.hasOwnProperty("timeout"))
-                    if (!$util.isInteger(message.timeout))
-                        return "timeout: integer expected";
+                if (message.retry != null && message.hasOwnProperty("retry"))
+                    if (!$util.isInteger(message.retry))
+                        return "retry: integer expected";
                 return null;
             };
 
@@ -39013,8 +38741,8 @@ $root.lebai = (function() {
                 var message = new $root.lebai.modbus.SetModbusRetryRequest();
                 if (object.device != null)
                     message.device = String(object.device);
-                if (object.timeout != null)
-                    message.timeout = object.timeout >>> 0;
+                if (object.retry != null)
+                    message.retry = object.retry >>> 0;
                 return message;
             };
 
@@ -39033,12 +38761,12 @@ $root.lebai = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.device = "";
-                    object.timeout = 0;
+                    object.retry = 0;
                 }
                 if (message.device != null && message.hasOwnProperty("device"))
                     object.device = message.device;
-                if (message.timeout != null && message.hasOwnProperty("timeout"))
-                    object.timeout = message.timeout;
+                if (message.retry != null && message.hasOwnProperty("retry"))
+                    object.retry = message.retry;
                 return object;
             };
 
@@ -39178,14 +38906,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetCoilRequest.decode = function decode(reader, length, error) {
+            SetCoilRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetCoilRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -39435,14 +39161,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetCoilsRequest.decode = function decode(reader, length, error) {
+            SetCoilsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetCoilsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -39696,14 +39420,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetCoilRequest.decode = function decode(reader, length, error) {
+            GetCoilRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetCoilRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -39914,14 +39636,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetCoilResponse.decode = function decode(reader, length, error) {
+            GetCoilResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetCoilResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.value = reader.bool();
@@ -40141,14 +39861,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetCoilsRequest.decode = function decode(reader, length, error) {
+            GetCoilsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetCoilsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -40376,14 +40094,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetCoilsResponse.decode = function decode(reader, length, error) {
+            GetCoilsResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetCoilsResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.values && message.values.length))
@@ -40622,14 +40338,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetRegisterRequest.decode = function decode(reader, length, error) {
+            SetRegisterRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetRegisterRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -40879,14 +40593,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetRegistersRequest.decode = function decode(reader, length, error) {
+            SetRegistersRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.SetRegistersRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -41140,14 +40852,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetRegisterRequest.decode = function decode(reader, length, error) {
+            GetRegisterRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetRegisterRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -41358,14 +41068,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetRegisterResponse.decode = function decode(reader, length, error) {
+            GetRegisterResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetRegisterResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             message.value = reader.uint32();
@@ -41585,14 +41293,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetRegistersRequest.decode = function decode(reader, length, error) {
+            GetRegistersRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetRegistersRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -41820,14 +41526,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetRegistersResponse.decode = function decode(reader, length, error) {
+            GetRegistersResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.modbus.GetRegistersResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.values && message.values.length))
@@ -42652,14 +42356,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MotionIndex.decode = function decode(reader, length, error) {
+            MotionIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MotionIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -42873,14 +42575,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetMotionStateResponse.decode = function decode(reader, length, error) {
+            GetMotionStateResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.GetMotionStateResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.state = reader.int32();
@@ -43135,14 +42835,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MoveParam.decode = function decode(reader, length, error) {
+            MoveParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MoveParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.velocity = reader.double();
@@ -43388,14 +43086,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MoveRequest.decode = function decode(reader, length, error) {
+            MoveRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MoveRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.pose = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -43649,14 +43345,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MovecRequest.decode = function decode(reader, length, error) {
+            MovecRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MovecRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.poseVia = $root.lebai.posture.Pose.decode(reader, reader.uint32());
@@ -43928,14 +43622,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SpeedParam.decode = function decode(reader, length, error) {
+            SpeedParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SpeedParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 3: {
                             message.acc = reader.double();
@@ -44169,14 +43861,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SpeedJRequest.decode = function decode(reader, length, error) {
+            SpeedJRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SpeedJRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.speed = $root.lebai.posture.JointPose.decode(reader, reader.uint32());
@@ -44419,14 +44109,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SpeedLRequest.decode = function decode(reader, length, error) {
+            SpeedLRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SpeedLRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.speed = $root.lebai.posture.CartesianPose.decode(reader, reader.uint32());
@@ -44632,23 +44320,13 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * JointMove _velocity.
-             * @member {"velocity"|undefined} _velocity
-             * @memberof lebai.motion.JointMove
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(JointMove.prototype, "_velocity", {
                 get: $util.oneOfGetter($oneOfFields = ["velocity"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * JointMove _acc.
-             * @member {"acc"|undefined} _acc
-             * @memberof lebai.motion.JointMove
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(JointMove.prototype, "_acc", {
                 get: $util.oneOfGetter($oneOfFields = ["acc"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -44711,14 +44389,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            JointMove.decode = function decode(reader, length, error) {
+            JointMove.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.JointMove();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.pose = reader.double();
@@ -44978,14 +44654,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MovePvatRequest.decode = function decode(reader, length, error) {
+            MovePvatRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MovePvatRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 10: {
                             if (!(message.joints && message.joints.length))
@@ -45228,14 +44902,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Trajectory.decode = function decode(reader, length, error) {
+            Trajectory.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.Trajectory();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.kind = reader.int32();
@@ -45511,14 +45183,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveTrajectoryRequest.decode = function decode(reader, length, error) {
+            SaveTrajectoryRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SaveTrajectoryRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -45757,14 +45427,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StartRecordTrajectoryRequest.decode = function decode(reader, length, error) {
+            StartRecordTrajectoryRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.StartRecordTrajectoryRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.kind = reader.int32();
@@ -46010,14 +45678,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            EndRecordTrajectoryRequest.decode = function decode(reader, length, error) {
+            EndRecordTrajectoryRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.EndRecordTrajectoryRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -46239,14 +45905,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            MoveTrajectoryRequest.decode = function decode(reader, length, error) {
+            MoveTrajectoryRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.MoveTrajectoryRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -46468,14 +46132,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Wrench.decode = function decode(reader, length, error) {
+            Wrench.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.Wrench();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.force = $root.lebai.posture.Position.decode(reader, reader.uint32());
@@ -46727,14 +46389,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetForceSensorRequest.decode = function decode(reader, length, error) {
+            SetForceSensorRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SetForceSensorRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.sensor = reader.int32();
@@ -46990,14 +46650,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StartForceModeRequest.decode = function decode(reader, length, error) {
+            StartForceModeRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.StartForceModeRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.limit = $root.lebai.posture.CartesianPose.decode(reader, reader.uint32());
@@ -47240,14 +46898,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ForceModeParam.decode = function decode(reader, length, error) {
+            ForceModeParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.ForceModeParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.threshold = reader.double();
@@ -47447,45 +47103,25 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetForceModeParamRequest _damping.
-             * @member {"damping"|undefined} _damping
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_damping", {
                 get: $util.oneOfGetter($oneOfFields = ["damping"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _mass.
-             * @member {"mass"|undefined} _mass
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_mass", {
                 get: $util.oneOfGetter($oneOfFields = ["mass"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _forceThreshold.
-             * @member {"forceThreshold"|undefined} _forceThreshold
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_forceThreshold", {
                 get: $util.oneOfGetter($oneOfFields = ["forceThreshold"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _torqueThreshold.
-             * @member {"torqueThreshold"|undefined} _torqueThreshold
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_torqueThreshold", {
                 get: $util.oneOfGetter($oneOfFields = ["torqueThreshold"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -47550,14 +47186,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetForceModeParamRequest.decode = function decode(reader, length, error) {
+            SetForceModeParamRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motion.SetForceModeParamRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 2: {
                             message.damping = reader.double();
@@ -48827,14 +48461,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ServoParam.decode = function decode(reader, length, error) {
+            ServoParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.ServoParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.positionKp = reader.double();
@@ -49071,14 +48703,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ServoParams.decode = function decode(reader, length, error) {
+            ServoParams.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.ServoParams();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.params && message.params.length))
@@ -49316,14 +48946,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetZeroRequest.decode = function decode(reader, length, error) {
+            SetZeroRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.SetZeroRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.pose && message.pose.length))
@@ -49660,14 +49288,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ExtraServoParam.decode = function decode(reader, length, error) {
+            ExtraServoParam.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.ExtraServoParam();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.accPositionKp = reader.double();
@@ -49980,14 +49606,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetExtraServoParamsRequest.decode = function decode(reader, length, error) {
+            SetExtraServoParamsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.SetExtraServoParamsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.params && message.params.length))
@@ -50241,14 +49865,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ResetExtraServoParamsRequest.decode = function decode(reader, length, error) {
+            ResetExtraServoParamsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.motor.ResetExtraServoParamsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.valids && message.valids.length))
@@ -50743,14 +50365,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DeviceInfo.decode = function decode(reader, length, error) {
+            DeviceInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.multi_devices.DeviceInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -50987,14 +50607,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DiscoverRobotsResponse.decode = function decode(reader, length, error) {
+            DiscoverRobotsResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.multi_devices.DiscoverRobotsResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.devices && message.devices.length))
@@ -51368,14 +50986,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PluginInfo.decode = function decode(reader, length, error) {
+            PluginInfo.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.plugin.PluginInfo();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -51658,14 +51274,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            PluginIndex.decode = function decode(reader, length, error) {
+            PluginIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.plugin.PluginIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -51865,14 +51479,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Plugins.decode = function decode(reader, length, error) {
+            Plugins.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.plugin.Plugins();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.plugins && message.plugins.length))
@@ -52102,14 +51714,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            RunPluginCmdRequest.decode = function decode(reader, length, error) {
+            RunPluginCmdRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.plugin.RunPluginCmdRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -52623,14 +52233,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Auth.decode = function decode(reader, length, error) {
+            Auth.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.quality.Auth();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.time = reader.string();
@@ -52841,14 +52449,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            EmptyRequest.decode = function decode(reader, length, error) {
+            EmptyRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.quality.EmptyRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.auth = $root.lebai.quality.Auth.decode(reader, reader.uint32());
@@ -53051,14 +52657,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            BoxTestResponse.decode = function decode(reader, length, error) {
+            BoxTestResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.quality.BoxTestResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.status = reader.int32();
@@ -53267,14 +52871,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InitRobotRequest.decode = function decode(reader, length, error) {
+            InitRobotRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.quality.InitRobotRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.auth = $root.lebai.quality.Auth.decode(reader, reader.uint32());
@@ -53495,14 +53097,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            InitRobotResponse.decode = function decode(reader, length, error) {
+            InitRobotResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.quality.InitRobotResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.cup = reader.string();
@@ -53818,14 +53418,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CollisionTorqueDiff.decode = function decode(reader, length, error) {
+            CollisionTorqueDiff.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.safety.CollisionTorqueDiff();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.diffs && message.diffs.length))
@@ -54082,14 +53680,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CollisionDetector.decode = function decode(reader, length, error) {
+            CollisionDetector.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.safety.CollisionDetector();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.action = reader.int32();
@@ -54374,14 +53970,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            JointLimit.decode = function decode(reader, length, error) {
+            JointLimit.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.safety.JointLimit();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.minPosition = reader.double();
@@ -54618,14 +54212,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            JointsLimit.decode = function decode(reader, length, error) {
+            JointsLimit.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.safety.JointsLimit();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.joints && message.joints.length))
@@ -54864,14 +54456,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CartesianLimit.decode = function decode(reader, length, error) {
+            CartesianLimit.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.safety.CartesianLimit();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.maxA = reader.double();
@@ -55548,14 +55138,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetSerialTimeoutRequest.decode = function decode(reader, length, error) {
+            SetSerialTimeoutRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.SetSerialTimeoutRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -55777,14 +55365,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetSerialBaudRateRequest.decode = function decode(reader, length, error) {
+            SetSerialBaudRateRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.SetSerialBaudRateRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -56022,14 +55608,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetSerialParityRequest.decode = function decode(reader, length, error) {
+            SetSerialParityRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.SetSerialParityRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -56280,14 +55864,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            WriteSerialRequest.decode = function decode(reader, length, error) {
+            WriteSerialRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.WriteSerialRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -56528,14 +56110,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ReadSerialRequest.decode = function decode(reader, length, error) {
+            ReadSerialRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.ReadSerialRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.device = reader.string();
@@ -56751,14 +56331,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ReadSerialResponse.decode = function decode(reader, length, error) {
+            ReadSerialResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.ReadSerialResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 11: {
                             if (!(message.data && message.data.length))
@@ -57187,14 +56765,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ShortcutIndex.decode = function decode(reader, length, error) {
+            ShortcutIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.shortcut.ShortcutIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -57414,14 +56990,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Shortcut.decode = function decode(reader, length, error) {
+            Shortcut.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.shortcut.Shortcut();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -57646,14 +57220,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ShortcutList.decode = function decode(reader, length, error) {
+            ShortcutList.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.shortcut.ShortcutList();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.list && message.list.length))
@@ -58126,14 +57698,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetSignalRequest.decode = function decode(reader, length, error) {
+            SetSignalRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.SetSignalRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.uint32();
@@ -58360,14 +57930,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SetSignalsRequest.decode = function decode(reader, length, error) {
+            SetSignalsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.SetSignalsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.uint32();
@@ -58619,14 +58187,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            WaitSignalRequest.decode = function decode(reader, length, error) {
+            WaitSignalRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.WaitSignalRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.uint32();
@@ -58888,14 +58454,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetSignalRequest.decode = function decode(reader, length, error) {
+            GetSignalRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.GetSignalRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.uint32();
@@ -59093,14 +58657,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetSignalResponse.decode = function decode(reader, length, error) {
+            GetSignalResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.GetSignalResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.value = reader.int32();
@@ -59309,14 +58871,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetSignalsRequest.decode = function decode(reader, length, error) {
+            GetSignalsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.GetSignalsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.uint32();
@@ -59532,14 +59092,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetSignalsResponse.decode = function decode(reader, length, error) {
+            GetSignalsResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.signal.GetSignalsResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.values && message.values.length))
@@ -60001,14 +59559,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            ItemIndex.decode = function decode(reader, length, error) {
+            ItemIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.storage.ItemIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.string();
@@ -60217,14 +59773,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Item.decode = function decode(reader, length, error) {
+            Item.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.storage.Item();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.key = reader.string();
@@ -60435,14 +59989,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            GetItemsRequest.decode = function decode(reader, length, error) {
+            GetItemsRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.storage.GetItemsRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.prefix = reader.string();
@@ -60642,14 +60194,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Items.decode = function decode(reader, length, error) {
+            Items.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.storage.Items();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.items && message.items.length))
@@ -61078,14 +60628,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Structure.decode = function decode(reader, length, error) {
+            Structure.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.structure.Structure();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 10: {
                             message.active = reader.bool();
@@ -61407,14 +60955,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            SaveStructureRequest.decode = function decode(reader, length, error) {
+            SaveStructureRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.structure.SaveStructureRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -61830,14 +61376,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            TaskIndex.decode = function decode(reader, length, error) {
+            TaskIndex.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.TaskIndex();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -62213,14 +61757,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Task.decode = function decode(reader, length, error) {
+            Task.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.Task();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -62719,14 +62261,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            TaskIds.decode = function decode(reader, length, error) {
+            TaskIds.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.TaskIds();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.ids && message.ids.length))
@@ -62945,14 +62485,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Tasks.decode = function decode(reader, length, error) {
+            Tasks.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.Tasks();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.tasks && message.tasks.length))
@@ -63191,14 +62729,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            TaskStdout.decode = function decode(reader, length, error) {
+            TaskStdout.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.TaskStdout();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.id = reader.uint32();
@@ -63478,14 +63014,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            StartTaskRequest.decode = function decode(reader, length, error) {
+            StartTaskRequest.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.task.StartTaskRequest();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
@@ -64179,14 +63713,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Condition.decode = function decode(reader, length, error) {
+            Condition.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.trigger.Condition();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.pressed && message.pressed.length))
@@ -64488,14 +64020,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Trigger.decode = function decode(reader, length, error) {
+            Trigger.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.trigger.Trigger();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.condition = $root.lebai.trigger.Condition.decode(reader, reader.uint32());
@@ -64792,14 +64322,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Triggers.decode = function decode(reader, length, error) {
+            Triggers.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.trigger.Triggers();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             if (!(message.triggers && message.triggers.length))
@@ -65140,14 +64668,12 @@ $root.lebai = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            CheckUpgradeResponse.decode = function decode(reader, length, error) {
+            CheckUpgradeResponse.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.upgrade.CheckUpgradeResponse();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.needUpgrade = reader.bool();
@@ -65505,14 +65031,12 @@ $root.google = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Empty.decode = function decode(reader, length, error) {
+            Empty.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Empty();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     default:
                         reader.skipType(tag & 7);
@@ -65704,14 +65228,12 @@ $root.google = (function() {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Timestamp.decode = function decode(reader, length, error) {
+            Timestamp.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
                 var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.protobuf.Timestamp();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
-                    if (tag === error)
-                        break;
                     switch (tag >>> 3) {
                     case 1: {
                             message.seconds = reader.int64();
