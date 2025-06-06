@@ -76,8 +76,10 @@ enum Step {
   RESTART = 11;
 }
 message OtaState {
-  Step step = 1;
-  uint32 progress = 2;
+  Address address = 1;
+  FirmwarePartition partition = 2;
+  Step step = 11;
+  uint32 progress = 12;
 }
 
 // 硬件相关服务
