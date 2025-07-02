@@ -1219,6 +1219,7 @@ $root.lebai = (function() {
              * @memberof lebai.backup
              * @interface IOptions
              * @property {boolean|null} [tmp] Options tmp
+             * @property {boolean|null} [syslog] Options syslog
              * @property {boolean|null} [arm] Options arm
              * @property {boolean|null} [config] Options config
              * @property {boolean|null} [data] Options data
@@ -1249,6 +1250,14 @@ $root.lebai = (function() {
              * @instance
              */
             Options.prototype.tmp = false;
+
+            /**
+             * Options syslog.
+             * @member {boolean} syslog
+             * @memberof lebai.backup.Options
+             * @instance
+             */
+            Options.prototype.syslog = false;
 
             /**
              * Options arm.
@@ -1324,6 +1333,8 @@ $root.lebai = (function() {
                     writer = $Writer.create();
                 if (message.tmp != null && Object.hasOwnProperty.call(message, "tmp"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.tmp);
+                if (message.syslog != null && Object.hasOwnProperty.call(message, "syslog"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.syslog);
                 if (message.arm != null && Object.hasOwnProperty.call(message, "arm"))
                     writer.uint32(/* id 11, wireType 0 =*/88).bool(message.arm);
                 if (message.config != null && Object.hasOwnProperty.call(message, "config"))
@@ -1374,6 +1385,10 @@ $root.lebai = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.tmp = reader.bool();
+                            break;
+                        }
+                    case 2: {
+                            message.syslog = reader.bool();
                             break;
                         }
                     case 11: {
@@ -1438,6 +1453,9 @@ $root.lebai = (function() {
                 if (message.tmp != null && message.hasOwnProperty("tmp"))
                     if (typeof message.tmp !== "boolean")
                         return "tmp: boolean expected";
+                if (message.syslog != null && message.hasOwnProperty("syslog"))
+                    if (typeof message.syslog !== "boolean")
+                        return "syslog: boolean expected";
                 if (message.arm != null && message.hasOwnProperty("arm"))
                     if (typeof message.arm !== "boolean")
                         return "arm: boolean expected";
@@ -1473,6 +1491,8 @@ $root.lebai = (function() {
                 var message = new $root.lebai.backup.Options();
                 if (object.tmp != null)
                     message.tmp = Boolean(object.tmp);
+                if (object.syslog != null)
+                    message.syslog = Boolean(object.syslog);
                 if (object.arm != null)
                     message.arm = Boolean(object.arm);
                 if (object.config != null)
@@ -1503,6 +1523,7 @@ $root.lebai = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.tmp = false;
+                    object.syslog = false;
                     object.arm = false;
                     object.config = false;
                     object.data = false;
@@ -1512,6 +1533,8 @@ $root.lebai = (function() {
                 }
                 if (message.tmp != null && message.hasOwnProperty("tmp"))
                     object.tmp = message.tmp;
+                if (message.syslog != null && message.hasOwnProperty("syslog"))
+                    object.syslog = message.syslog;
                 if (message.arm != null && message.hasOwnProperty("arm"))
                     object.arm = message.arm;
                 if (message.config != null && message.hasOwnProperty("config"))

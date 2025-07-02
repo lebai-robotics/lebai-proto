@@ -516,6 +516,9 @@ export namespace lebai {
             /** Options tmp */
             tmp?: (boolean|null);
 
+            /** Options syslog */
+            syslog?: (boolean|null);
+
             /** Options arm */
             arm?: (boolean|null);
 
@@ -546,6 +549,9 @@ export namespace lebai {
 
             /** Options tmp. */
             public tmp: boolean;
+
+            /** Options syslog. */
+            public syslog: boolean;
 
             /** Options arm. */
             public arm: boolean;
