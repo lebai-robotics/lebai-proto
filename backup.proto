@@ -19,6 +19,8 @@ message BackupInfo {
 message Options {
   // 临时数据（任务运行历史、日志）
   bool tmp = 1;
+  // 系统日志
+  bool syslog = 2;
 
   // 手臂配置（精标、关节圈数、伺服参数）
   bool arm = 11;
@@ -32,7 +34,7 @@ message Options {
   // Docker数据
   bool docker = 24;
 
-  // DS数据
+  // UI2.0数据
   bool ds = 81;
 }
 
