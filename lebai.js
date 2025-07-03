@@ -57067,6 +57067,211 @@ $root.lebai = (function() {
             return ReadSerialResponse;
         })();
 
+        serial.ClearSerialRequest = (function() {
+
+            /**
+             * Properties of a ClearSerialRequest.
+             * @memberof lebai.serial
+             * @interface IClearSerialRequest
+             * @property {string|null} [device] ClearSerialRequest device
+             */
+
+            /**
+             * Constructs a new ClearSerialRequest.
+             * @memberof lebai.serial
+             * @classdesc Represents a ClearSerialRequest.
+             * @implements IClearSerialRequest
+             * @constructor
+             * @param {lebai.serial.IClearSerialRequest=} [properties] Properties to set
+             */
+            function ClearSerialRequest(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ClearSerialRequest device.
+             * @member {string} device
+             * @memberof lebai.serial.ClearSerialRequest
+             * @instance
+             */
+            ClearSerialRequest.prototype.device = "";
+
+            /**
+             * Creates a new ClearSerialRequest instance using the specified properties.
+             * @function create
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {lebai.serial.IClearSerialRequest=} [properties] Properties to set
+             * @returns {lebai.serial.ClearSerialRequest} ClearSerialRequest instance
+             */
+            ClearSerialRequest.create = function create(properties) {
+                return new ClearSerialRequest(properties);
+            };
+
+            /**
+             * Encodes the specified ClearSerialRequest message. Does not implicitly {@link lebai.serial.ClearSerialRequest.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {lebai.serial.IClearSerialRequest} message ClearSerialRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ClearSerialRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.device != null && Object.hasOwnProperty.call(message, "device"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ClearSerialRequest message, length delimited. Does not implicitly {@link lebai.serial.ClearSerialRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {lebai.serial.IClearSerialRequest} message ClearSerialRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ClearSerialRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ClearSerialRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.serial.ClearSerialRequest} ClearSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ClearSerialRequest.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.serial.ClearSerialRequest();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.device = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ClearSerialRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.serial.ClearSerialRequest} ClearSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ClearSerialRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ClearSerialRequest message.
+             * @function verify
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ClearSerialRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.device != null && message.hasOwnProperty("device"))
+                    if (!$util.isString(message.device))
+                        return "device: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ClearSerialRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.serial.ClearSerialRequest} ClearSerialRequest
+             */
+            ClearSerialRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.serial.ClearSerialRequest)
+                    return object;
+                var message = new $root.lebai.serial.ClearSerialRequest();
+                if (object.device != null)
+                    message.device = String(object.device);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ClearSerialRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {lebai.serial.ClearSerialRequest} message ClearSerialRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ClearSerialRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.device = "";
+                if (message.device != null && message.hasOwnProperty("device"))
+                    object.device = message.device;
+                return object;
+            };
+
+            /**
+             * Converts this ClearSerialRequest to JSON.
+             * @function toJSON
+             * @memberof lebai.serial.ClearSerialRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ClearSerialRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for ClearSerialRequest
+             * @function getTypeUrl
+             * @memberof lebai.serial.ClearSerialRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            ClearSerialRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.serial.ClearSerialRequest";
+            };
+
+            return ClearSerialRequest;
+        })();
+
         serial.SerialService = (function() {
 
             /**
@@ -57261,6 +57466,39 @@ $root.lebai = (function() {
              * @instance
              * @param {lebai.serial.IReadSerialRequest} request ReadSerialRequest message or plain object
              * @returns {Promise<lebai.serial.ReadSerialResponse>} Promise
+             * @variation 2
+             */
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#clearSerial}.
+             * @memberof lebai.serial.SerialService
+             * @typedef ClearSerialCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {google.protobuf.Empty} [response] Empty
+             */
+
+            /**
+             * Calls ClearSerial.
+             * @function clearSerial
+             * @memberof lebai.serial.SerialService
+             * @instance
+             * @param {lebai.serial.IClearSerialRequest} request ClearSerialRequest message or plain object
+             * @param {lebai.serial.SerialService.ClearSerialCallback} callback Node-style callback called with the error, if any, and Empty
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(SerialService.prototype.clearSerial = function clearSerial(request, callback) {
+                return this.rpcCall(clearSerial, $root.lebai.serial.ClearSerialRequest, $root.google.protobuf.Empty, request, callback);
+            }, "name", { value: "ClearSerial" });
+
+            /**
+             * Calls ClearSerial.
+             * @function clearSerial
+             * @memberof lebai.serial.SerialService
+             * @instance
+             * @param {lebai.serial.IClearSerialRequest} request ClearSerialRequest message or plain object
+             * @returns {Promise<google.protobuf.Empty>} Promise
              * @variation 2
              */
 

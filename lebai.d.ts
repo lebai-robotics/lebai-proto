@@ -24550,6 +24550,103 @@ export namespace lebai {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a ClearSerialRequest. */
+        interface IClearSerialRequest {
+
+            /** ClearSerialRequest device */
+            device?: (string|null);
+        }
+
+        /** Represents a ClearSerialRequest. */
+        class ClearSerialRequest implements IClearSerialRequest {
+
+            /**
+             * Constructs a new ClearSerialRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.serial.IClearSerialRequest);
+
+            /** ClearSerialRequest device. */
+            public device: string;
+
+            /**
+             * Creates a new ClearSerialRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ClearSerialRequest instance
+             */
+            public static create(properties?: lebai.serial.IClearSerialRequest): lebai.serial.ClearSerialRequest;
+
+            /**
+             * Encodes the specified ClearSerialRequest message. Does not implicitly {@link lebai.serial.ClearSerialRequest.verify|verify} messages.
+             * @param message ClearSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.serial.IClearSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ClearSerialRequest message, length delimited. Does not implicitly {@link lebai.serial.ClearSerialRequest.verify|verify} messages.
+             * @param message ClearSerialRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.serial.IClearSerialRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ClearSerialRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ClearSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.serial.ClearSerialRequest;
+
+            /**
+             * Decodes a ClearSerialRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ClearSerialRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.serial.ClearSerialRequest;
+
+            /**
+             * Verifies a ClearSerialRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ClearSerialRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ClearSerialRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.serial.ClearSerialRequest;
+
+            /**
+             * Creates a plain object from a ClearSerialRequest message. Also converts values to other types if specified.
+             * @param message ClearSerialRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.serial.ClearSerialRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ClearSerialRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ClearSerialRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Represents a SerialService */
         class SerialService extends $protobuf.rpc.Service {
 
@@ -24639,6 +24736,20 @@ export namespace lebai {
              * @returns Promise
              */
             public readSerial(request: lebai.serial.IReadSerialRequest): Promise<lebai.serial.ReadSerialResponse>;
+
+            /**
+             * Calls ClearSerial.
+             * @param request ClearSerialRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and Empty
+             */
+            public clearSerial(request: lebai.serial.IClearSerialRequest, callback: lebai.serial.SerialService.ClearSerialCallback): void;
+
+            /**
+             * Calls ClearSerial.
+             * @param request ClearSerialRequest message or plain object
+             * @returns Promise
+             */
+            public clearSerial(request: lebai.serial.IClearSerialRequest): Promise<google.protobuf.Empty>;
         }
 
         namespace SerialService {
@@ -24677,6 +24788,13 @@ export namespace lebai {
              * @param [response] ReadSerialResponse
              */
             type ReadSerialCallback = (error: (Error|null), response?: lebai.serial.ReadSerialResponse) => void;
+
+            /**
+             * Callback as used by {@link lebai.serial.SerialService#clearSerial}.
+             * @param error Error, if any
+             * @param [response] Empty
+             */
+            type ClearSerialCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
         }
     }
 
