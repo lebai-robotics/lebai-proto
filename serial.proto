@@ -44,6 +44,9 @@ message ReadSerialResponse {
   // u8数组
   repeated uint32 data = 11;
 }
+message ClearSerialRequest {
+  string device = 1;
+}
 
 // 串口相关服务
 service SerialService {
@@ -58,4 +61,6 @@ service SerialService {
   rpc WriteSerial(WriteSerialRequest) returns (google.protobuf.Empty);
   // 读取数据
   rpc ReadSerial(ReadSerialRequest) returns (ReadSerialResponse);
+  // 清除收发缓存的数据
+  rpc ClearSerial(ClearSerialRequest) returns (google.protobuf.Empty);
 }
