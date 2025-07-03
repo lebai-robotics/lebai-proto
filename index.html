@@ -1277,6 +1277,10 @@
             <ul>
               
                 <li>
+                  <a href="#lebai.serial.ClearSerialRequest"><span class="badge">M</span>ClearSerialRequest</a>
+                </li>
+              
+                <li>
                   <a href="#lebai.serial.ReadSerialRequest"><span class="badge">M</span>ReadSerialRequest</a>
                 </li>
               
@@ -10337,6 +10341,30 @@
       <p></p>
 
       
+        <h3 id="lebai.serial.ClearSerialRequest">ClearSerialRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>device</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="lebai.serial.ReadSerialRequest">ReadSerialRequest</h3>
         <p></p>
 
@@ -10592,6 +10620,13 @@
                 <td><a href="#lebai.serial.ReadSerialRequest">ReadSerialRequest</a></td>
                 <td><a href="#lebai.serial.ReadSerialResponse">ReadSerialResponse</a></td>
                 <td><p>读取数据</p></td>
+              </tr>
+            
+              <tr>
+                <td>ClearSerial</td>
+                <td><a href="#lebai.serial.ClearSerialRequest">ClearSerialRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>清除收发缓存的数据</p></td>
               </tr>
             
           </tbody>
@@ -12866,7 +12901,7 @@
               <tr>
                 <td>INTERRUPT</td>
                 <td>4</td>
-                <td><p>已停止</p></td>
+                <td><p>已中止</p></td>
               </tr>
             
               <tr>
