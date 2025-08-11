@@ -21938,6 +21938,206 @@ export namespace lebai {
     /** Namespace plugin. */
     namespace plugin {
 
+        /** Properties of a PluginUrl. */
+        interface IPluginUrl {
+
+            /** PluginUrl name */
+            name?: (string|null);
+
+            /** PluginUrl url */
+            url?: (string|null);
+        }
+
+        /** Represents a PluginUrl. */
+        class PluginUrl implements IPluginUrl {
+
+            /**
+             * Constructs a new PluginUrl.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.plugin.IPluginUrl);
+
+            /** PluginUrl name. */
+            public name: string;
+
+            /** PluginUrl url. */
+            public url: string;
+
+            /**
+             * Creates a new PluginUrl instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PluginUrl instance
+             */
+            public static create(properties?: lebai.plugin.IPluginUrl): lebai.plugin.PluginUrl;
+
+            /**
+             * Encodes the specified PluginUrl message. Does not implicitly {@link lebai.plugin.PluginUrl.verify|verify} messages.
+             * @param message PluginUrl message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.plugin.IPluginUrl, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PluginUrl message, length delimited. Does not implicitly {@link lebai.plugin.PluginUrl.verify|verify} messages.
+             * @param message PluginUrl message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.plugin.IPluginUrl, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PluginUrl message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PluginUrl
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.PluginUrl;
+
+            /**
+             * Decodes a PluginUrl message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PluginUrl
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.PluginUrl;
+
+            /**
+             * Verifies a PluginUrl message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PluginUrl message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PluginUrl
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.plugin.PluginUrl;
+
+            /**
+             * Creates a plain object from a PluginUrl message. Also converts values to other types if specified.
+             * @param message PluginUrl
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.plugin.PluginUrl, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PluginUrl to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PluginUrl
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a PluginStore. */
+        interface IPluginStore {
+
+            /** PluginStore plugins */
+            plugins?: (lebai.plugin.IPluginUrl[]|null);
+        }
+
+        /** Represents a PluginStore. */
+        class PluginStore implements IPluginStore {
+
+            /**
+             * Constructs a new PluginStore.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.plugin.IPluginStore);
+
+            /** PluginStore plugins. */
+            public plugins: lebai.plugin.IPluginUrl[];
+
+            /**
+             * Creates a new PluginStore instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PluginStore instance
+             */
+            public static create(properties?: lebai.plugin.IPluginStore): lebai.plugin.PluginStore;
+
+            /**
+             * Encodes the specified PluginStore message. Does not implicitly {@link lebai.plugin.PluginStore.verify|verify} messages.
+             * @param message PluginStore message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.plugin.IPluginStore, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PluginStore message, length delimited. Does not implicitly {@link lebai.plugin.PluginStore.verify|verify} messages.
+             * @param message PluginStore message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.plugin.IPluginStore, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PluginStore message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PluginStore
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.plugin.PluginStore;
+
+            /**
+             * Decodes a PluginStore message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PluginStore
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.plugin.PluginStore;
+
+            /**
+             * Verifies a PluginStore message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PluginStore message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PluginStore
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.plugin.PluginStore;
+
+            /**
+             * Creates a plain object from a PluginStore message. Also converts values to other types if specified.
+             * @param message PluginStore
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.plugin.PluginStore, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PluginStore to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PluginStore
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a PluginInfo. */
         interface IPluginInfo {
 
@@ -22395,6 +22595,20 @@ export namespace lebai {
             public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): PluginService;
 
             /**
+             * Calls GetPluginStore.
+             * @param request Empty message or plain object
+             * @param callback Node-style callback called with the error, if any, and PluginStore
+             */
+            public getPluginStore(request: google.protobuf.IEmpty, callback: lebai.plugin.PluginService.GetPluginStoreCallback): void;
+
+            /**
+             * Calls GetPluginStore.
+             * @param request Empty message or plain object
+             * @returns Promise
+             */
+            public getPluginStore(request: google.protobuf.IEmpty): Promise<lebai.plugin.PluginStore>;
+
+            /**
              * Calls LoadPlugin.
              * @param request PluginIndex message or plain object
              * @param callback Node-style callback called with the error, if any, and PluginInfo
@@ -22494,6 +22708,13 @@ export namespace lebai {
         }
 
         namespace PluginService {
+
+            /**
+             * Callback as used by {@link lebai.plugin.PluginService#getPluginStore}.
+             * @param error Error, if any
+             * @param [response] PluginStore
+             */
+            type GetPluginStoreCallback = (error: (Error|null), response?: lebai.plugin.PluginStore) => void;
 
             /**
              * Callback as used by {@link lebai.plugin.PluginService#loadPlugin}.
