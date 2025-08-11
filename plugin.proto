@@ -5,6 +5,17 @@ package lebai.plugin;
 import "google/protobuf/empty.proto";
 import "lebai.proto";
 
+message PluginUrl {
+  // 插件名称
+  string name = 1;
+  // 下载地址
+  string url = 2;
+}
+message PluginStore {
+  // 插件名称
+  repeated PluginUrl plugins = 1;
+}
+
 message PluginInfo {
   // 插件名称
   string name = 1;
@@ -40,6 +51,8 @@ message RunPluginCmdRequest {
 
 // 插件相关服务
 service PluginService {
+  // 查询插件市场
+  rpc GetPluginStore(google.protobuf.Empty) returns (PluginStore);
   // 查询插件信息
   rpc LoadPlugin(PluginIndex) returns (PluginInfo);
   // 查询已安装的插件列表
