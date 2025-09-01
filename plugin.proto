@@ -19,6 +19,10 @@ message PluginStore {
 message PluginInfo {
   // 插件名称
   string name = 1;
+  // 适用于机箱型号
+  repeated string boxs = 2;
+  // 适用于手臂型号
+  repeated string arms = 3;
   // 详细介绍
   string description = 6;
   // 项目主页网址
