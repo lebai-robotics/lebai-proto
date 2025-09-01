@@ -22144,6 +22144,12 @@ export namespace lebai {
             /** PluginInfo name */
             name?: (string|null);
 
+            /** PluginInfo boxs */
+            boxs?: (string[]|null);
+
+            /** PluginInfo arms */
+            arms?: (string[]|null);
+
             /** PluginInfo description */
             description?: (string|null);
 
@@ -22177,6 +22183,12 @@ export namespace lebai {
 
             /** PluginInfo name. */
             public name: string;
+
+            /** PluginInfo boxs. */
+            public boxs: string[];
+
+            /** PluginInfo arms. */
+            public arms: string[];
 
             /** PluginInfo description. */
             public description: string;

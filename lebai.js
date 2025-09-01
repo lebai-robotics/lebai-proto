@@ -51845,6 +51845,8 @@ $root.lebai = (function() {
              * @memberof lebai.plugin
              * @interface IPluginInfo
              * @property {string|null} [name] PluginInfo name
+             * @property {Array.<string>|null} [boxs] PluginInfo boxs
+             * @property {Array.<string>|null} [arms] PluginInfo arms
              * @property {string|null} [description] PluginInfo description
              * @property {string|null} [homepage] PluginInfo homepage
              * @property {boolean|null} [autoRestart] PluginInfo autoRestart
@@ -51863,6 +51865,8 @@ $root.lebai = (function() {
              * @param {lebai.plugin.IPluginInfo=} [properties] Properties to set
              */
             function PluginInfo(properties) {
+                this.boxs = [];
+                this.arms = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -51876,6 +51880,22 @@ $root.lebai = (function() {
              * @instance
              */
             PluginInfo.prototype.name = "";
+
+            /**
+             * PluginInfo boxs.
+             * @member {Array.<string>} boxs
+             * @memberof lebai.plugin.PluginInfo
+             * @instance
+             */
+            PluginInfo.prototype.boxs = $util.emptyArray;
+
+            /**
+             * PluginInfo arms.
+             * @member {Array.<string>} arms
+             * @memberof lebai.plugin.PluginInfo
+             * @instance
+             */
+            PluginInfo.prototype.arms = $util.emptyArray;
 
             /**
              * PluginInfo description.
@@ -51959,6 +51979,12 @@ $root.lebai = (function() {
                     writer = $Writer.create();
                 if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                if (message.boxs != null && message.boxs.length)
+                    for (var i = 0; i < message.boxs.length; ++i)
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.boxs[i]);
+                if (message.arms != null && message.arms.length)
+                    for (var i = 0; i < message.arms.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.arms[i]);
                 if (message.description != null && Object.hasOwnProperty.call(message, "description"))
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.description);
                 if (message.homepage != null && Object.hasOwnProperty.call(message, "homepage"))
@@ -52011,6 +52037,18 @@ $root.lebai = (function() {
                     switch (tag >>> 3) {
                     case 1: {
                             message.name = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.boxs && message.boxs.length))
+                                message.boxs = [];
+                            message.boxs.push(reader.string());
+                            break;
+                        }
+                    case 3: {
+                            if (!(message.arms && message.arms.length))
+                                message.arms = [];
+                            message.arms.push(reader.string());
                             break;
                         }
                     case 6: {
@@ -52079,6 +52117,20 @@ $root.lebai = (function() {
                 if (message.name != null && message.hasOwnProperty("name"))
                     if (!$util.isString(message.name))
                         return "name: string expected";
+                if (message.boxs != null && message.hasOwnProperty("boxs")) {
+                    if (!Array.isArray(message.boxs))
+                        return "boxs: array expected";
+                    for (var i = 0; i < message.boxs.length; ++i)
+                        if (!$util.isString(message.boxs[i]))
+                            return "boxs: string[] expected";
+                }
+                if (message.arms != null && message.hasOwnProperty("arms")) {
+                    if (!Array.isArray(message.arms))
+                        return "arms: array expected";
+                    for (var i = 0; i < message.arms.length; ++i)
+                        if (!$util.isString(message.arms[i]))
+                            return "arms: string[] expected";
+                }
                 if (message.description != null && message.hasOwnProperty("description"))
                     if (!$util.isString(message.description))
                         return "description: string expected";
@@ -52117,6 +52169,20 @@ $root.lebai = (function() {
                 var message = new $root.lebai.plugin.PluginInfo();
                 if (object.name != null)
                     message.name = String(object.name);
+                if (object.boxs) {
+                    if (!Array.isArray(object.boxs))
+                        throw TypeError(".lebai.plugin.PluginInfo.boxs: array expected");
+                    message.boxs = [];
+                    for (var i = 0; i < object.boxs.length; ++i)
+                        message.boxs[i] = String(object.boxs[i]);
+                }
+                if (object.arms) {
+                    if (!Array.isArray(object.arms))
+                        throw TypeError(".lebai.plugin.PluginInfo.arms: array expected");
+                    message.arms = [];
+                    for (var i = 0; i < object.arms.length; ++i)
+                        message.arms[i] = String(object.arms[i]);
+                }
                 if (object.description != null)
                     message.description = String(object.description);
                 if (object.homepage != null)
@@ -52147,6 +52213,10 @@ $root.lebai = (function() {
                 if (!options)
                     options = {};
                 var object = {};
+                if (options.arrays || options.defaults) {
+                    object.boxs = [];
+                    object.arms = [];
+                }
                 if (options.defaults) {
                     object.name = "";
                     object.description = "";
@@ -52159,6 +52229,16 @@ $root.lebai = (function() {
                 }
                 if (message.name != null && message.hasOwnProperty("name"))
                     object.name = message.name;
+                if (message.boxs && message.boxs.length) {
+                    object.boxs = [];
+                    for (var j = 0; j < message.boxs.length; ++j)
+                        object.boxs[j] = message.boxs[j];
+                }
+                if (message.arms && message.arms.length) {
+                    object.arms = [];
+                    for (var j = 0; j < message.arms.length; ++j)
+                        object.arms[j] = message.arms[j];
+                }
                 if (message.description != null && message.hasOwnProperty("description"))
                     object.description = message.description;
                 if (message.homepage != null && message.hasOwnProperty("homepage"))
