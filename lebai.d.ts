@@ -232,9 +232,6 @@ export namespace lebai {
             /** GetAutoResponse value. */
             public value?: (boolean|null);
 
-            /** GetAutoResponse _value. */
-            public _value?: "value";
-
             /**
              * Creates a new GetAutoResponse instance using the specified properties.
              * @param [properties] Properties to set
@@ -4470,12 +4467,6 @@ export namespace lebai {
             /** SetClawRequest amplitude. */
             public amplitude?: (number|null);
 
-            /** SetClawRequest _force. */
-            public _force?: "force";
-
-            /** SetClawRequest _amplitude. */
-            public _amplitude?: "amplitude";
-
             /**
              * Creates a new SetClawRequest instance using the specified properties.
              * @param [properties] Properties to set
@@ -6262,9 +6253,6 @@ export namespace lebai {
 
             /** SetPayloadRequest cog. */
             public cog?: (lebai.posture.IPosition|null);
-
-            /** SetPayloadRequest _mass. */
-            public _mass?: "mass";
 
             /**
              * Creates a new SetPayloadRequest instance using the specified properties.
@@ -18971,12 +18959,6 @@ export namespace lebai {
             /** JointMove acc. */
             public acc?: (number|null);
 
-            /** JointMove _velocity. */
-            public _velocity?: "velocity";
-
-            /** JointMove _acc. */
-            public _acc?: "acc";
-
             /**
              * Creates a new JointMove instance using the specified properties.
              * @param [properties] Properties to set
@@ -20149,18 +20131,6 @@ export namespace lebai {
 
             /** SetForceModeParamRequest torqueThreshold. */
             public torqueThreshold?: (number|null);
-
-            /** SetForceModeParamRequest _damping. */
-            public _damping?: "damping";
-
-            /** SetForceModeParamRequest _mass. */
-            public _mass?: "mass";
-
-            /** SetForceModeParamRequest _forceThreshold. */
-            public _forceThreshold?: "forceThreshold";
-
-            /** SetForceModeParamRequest _torqueThreshold. */
-            public _torqueThreshold?: "torqueThreshold";
 
             /**
              * Creates a new SetForceModeParamRequest instance using the specified properties.

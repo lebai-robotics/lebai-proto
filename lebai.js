@@ -560,12 +560,7 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * GetAutoResponse _value.
-             * @member {"value"|undefined} _value
-             * @memberof lebai.auto.GetAutoResponse
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(GetAutoResponse.prototype, "_value", {
                 get: $util.oneOfGetter($oneOfFields = ["value"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -10998,23 +10993,13 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetClawRequest _force.
-             * @member {"force"|undefined} _force
-             * @memberof lebai.claw.SetClawRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetClawRequest.prototype, "_force", {
                 get: $util.oneOfGetter($oneOfFields = ["force"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetClawRequest _amplitude.
-             * @member {"amplitude"|undefined} _amplitude
-             * @memberof lebai.claw.SetClawRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetClawRequest.prototype, "_amplitude", {
                 get: $util.oneOfGetter($oneOfFields = ["amplitude"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -15111,12 +15096,7 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetPayloadRequest _mass.
-             * @member {"mass"|undefined} _mass
-             * @memberof lebai.dynamic.SetPayloadRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetPayloadRequest.prototype, "_mass", {
                 get: $util.oneOfGetter($oneOfFields = ["mass"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -44809,23 +44789,13 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * JointMove _velocity.
-             * @member {"velocity"|undefined} _velocity
-             * @memberof lebai.motion.JointMove
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(JointMove.prototype, "_velocity", {
                 get: $util.oneOfGetter($oneOfFields = ["velocity"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * JointMove _acc.
-             * @member {"acc"|undefined} _acc
-             * @memberof lebai.motion.JointMove
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(JointMove.prototype, "_acc", {
                 get: $util.oneOfGetter($oneOfFields = ["acc"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -47624,45 +47594,25 @@ $root.lebai = (function() {
             // OneOf field names bound to virtual getters and setters
             var $oneOfFields;
 
-            /**
-             * SetForceModeParamRequest _damping.
-             * @member {"damping"|undefined} _damping
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_damping", {
                 get: $util.oneOfGetter($oneOfFields = ["damping"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _mass.
-             * @member {"mass"|undefined} _mass
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_mass", {
                 get: $util.oneOfGetter($oneOfFields = ["mass"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _forceThreshold.
-             * @member {"forceThreshold"|undefined} _forceThreshold
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_forceThreshold", {
                 get: $util.oneOfGetter($oneOfFields = ["forceThreshold"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
-            /**
-             * SetForceModeParamRequest _torqueThreshold.
-             * @member {"torqueThreshold"|undefined} _torqueThreshold
-             * @memberof lebai.motion.SetForceModeParamRequest
-             * @instance
-             */
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(SetForceModeParamRequest.prototype, "_torqueThreshold", {
                 get: $util.oneOfGetter($oneOfFields = ["torqueThreshold"]),
                 set: $util.oneOfSetter($oneOfFields)
