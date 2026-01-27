@@ -21905,6 +21905,279 @@ export namespace lebai {
         }
     }
 
+    /** Namespace network. */
+    namespace network {
+
+        /** Properties of a HttpRequest. */
+        interface IHttpRequest {
+
+            /** HttpRequest method */
+            method?: (string|null);
+
+            /** HttpRequest url */
+            url?: (string|null);
+
+            /** HttpRequest headers */
+            headers?: ({ [k: string]: string }|null);
+
+            /** HttpRequest body */
+            body?: (string|null);
+        }
+
+        /** Represents a HttpRequest. */
+        class HttpRequest implements IHttpRequest {
+
+            /**
+             * Constructs a new HttpRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.network.IHttpRequest);
+
+            /** HttpRequest method. */
+            public method: string;
+
+            /** HttpRequest url. */
+            public url: string;
+
+            /** HttpRequest headers. */
+            public headers: { [k: string]: string };
+
+            /** HttpRequest body. */
+            public body: string;
+
+            /**
+             * Creates a new HttpRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns HttpRequest instance
+             */
+            public static create(properties?: lebai.network.IHttpRequest): lebai.network.HttpRequest;
+
+            /**
+             * Encodes the specified HttpRequest message. Does not implicitly {@link lebai.network.HttpRequest.verify|verify} messages.
+             * @param message HttpRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.network.IHttpRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified HttpRequest message, length delimited. Does not implicitly {@link lebai.network.HttpRequest.verify|verify} messages.
+             * @param message HttpRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.network.IHttpRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a HttpRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns HttpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.network.HttpRequest;
+
+            /**
+             * Decodes a HttpRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns HttpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.network.HttpRequest;
+
+            /**
+             * Verifies a HttpRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a HttpRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns HttpRequest
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.network.HttpRequest;
+
+            /**
+             * Creates a plain object from a HttpRequest message. Also converts values to other types if specified.
+             * @param message HttpRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.network.HttpRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this HttpRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for HttpRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a HttpResponse. */
+        interface IHttpResponse {
+
+            /** HttpResponse status */
+            status?: (number|null);
+
+            /** HttpResponse headers */
+            headers?: ({ [k: string]: string }|null);
+
+            /** HttpResponse body */
+            body?: (string|null);
+        }
+
+        /** Represents a HttpResponse. */
+        class HttpResponse implements IHttpResponse {
+
+            /**
+             * Constructs a new HttpResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: lebai.network.IHttpResponse);
+
+            /** HttpResponse status. */
+            public status: number;
+
+            /** HttpResponse headers. */
+            public headers: { [k: string]: string };
+
+            /** HttpResponse body. */
+            public body: string;
+
+            /**
+             * Creates a new HttpResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns HttpResponse instance
+             */
+            public static create(properties?: lebai.network.IHttpResponse): lebai.network.HttpResponse;
+
+            /**
+             * Encodes the specified HttpResponse message. Does not implicitly {@link lebai.network.HttpResponse.verify|verify} messages.
+             * @param message HttpResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: lebai.network.IHttpResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified HttpResponse message, length delimited. Does not implicitly {@link lebai.network.HttpResponse.verify|verify} messages.
+             * @param message HttpResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: lebai.network.IHttpResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a HttpResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns HttpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): lebai.network.HttpResponse;
+
+            /**
+             * Decodes a HttpResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns HttpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): lebai.network.HttpResponse;
+
+            /**
+             * Verifies a HttpResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a HttpResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns HttpResponse
+             */
+            public static fromObject(object: { [k: string]: any }): lebai.network.HttpResponse;
+
+            /**
+             * Creates a plain object from a HttpResponse message. Also converts values to other types if specified.
+             * @param message HttpResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: lebai.network.HttpResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this HttpResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for HttpResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Represents a NetworkService */
+        class NetworkService extends $protobuf.rpc.Service {
+
+            /**
+             * Constructs a new NetworkService service.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             */
+            constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+            /**
+             * Creates new NetworkService service using the specified rpc implementation.
+             * @param rpcImpl RPC implementation
+             * @param [requestDelimited=false] Whether requests are length-delimited
+             * @param [responseDelimited=false] Whether responses are length-delimited
+             * @returns RPC service. Useful where requests and/or responses are streamed.
+             */
+            public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): NetworkService;
+
+            /**
+             * Calls Http.
+             * @param request HttpRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and HttpResponse
+             */
+            public http(request: lebai.network.IHttpRequest, callback: lebai.network.NetworkService.HttpCallback): void;
+
+            /**
+             * Calls Http.
+             * @param request HttpRequest message or plain object
+             * @returns Promise
+             */
+            public http(request: lebai.network.IHttpRequest): Promise<lebai.network.HttpResponse>;
+        }
+
+        namespace NetworkService {
+
+            /**
+             * Callback as used by {@link lebai.network.NetworkService#http}.
+             * @param error Error, if any
+             * @param [response] HttpResponse
+             */
+            type HttpCallback = (error: (Error|null), response?: lebai.network.HttpResponse) => void;
+        }
+    }
+
     /** Namespace plugin. */
     namespace plugin {
 

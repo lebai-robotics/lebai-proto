@@ -51324,6 +51324,685 @@ $root.lebai = (function() {
         return multi_devices;
     })();
 
+    lebai.network = (function() {
+
+        /**
+         * Namespace network.
+         * @memberof lebai
+         * @namespace
+         */
+        var network = {};
+
+        network.HttpRequest = (function() {
+
+            /**
+             * Properties of a HttpRequest.
+             * @memberof lebai.network
+             * @interface IHttpRequest
+             * @property {string|null} [method] HttpRequest method
+             * @property {string|null} [url] HttpRequest url
+             * @property {Object.<string,string>|null} [headers] HttpRequest headers
+             * @property {string|null} [body] HttpRequest body
+             */
+
+            /**
+             * Constructs a new HttpRequest.
+             * @memberof lebai.network
+             * @classdesc Represents a HttpRequest.
+             * @implements IHttpRequest
+             * @constructor
+             * @param {lebai.network.IHttpRequest=} [properties] Properties to set
+             */
+            function HttpRequest(properties) {
+                this.headers = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * HttpRequest method.
+             * @member {string} method
+             * @memberof lebai.network.HttpRequest
+             * @instance
+             */
+            HttpRequest.prototype.method = "";
+
+            /**
+             * HttpRequest url.
+             * @member {string} url
+             * @memberof lebai.network.HttpRequest
+             * @instance
+             */
+            HttpRequest.prototype.url = "";
+
+            /**
+             * HttpRequest headers.
+             * @member {Object.<string,string>} headers
+             * @memberof lebai.network.HttpRequest
+             * @instance
+             */
+            HttpRequest.prototype.headers = $util.emptyObject;
+
+            /**
+             * HttpRequest body.
+             * @member {string} body
+             * @memberof lebai.network.HttpRequest
+             * @instance
+             */
+            HttpRequest.prototype.body = "";
+
+            /**
+             * Creates a new HttpRequest instance using the specified properties.
+             * @function create
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {lebai.network.IHttpRequest=} [properties] Properties to set
+             * @returns {lebai.network.HttpRequest} HttpRequest instance
+             */
+            HttpRequest.create = function create(properties) {
+                return new HttpRequest(properties);
+            };
+
+            /**
+             * Encodes the specified HttpRequest message. Does not implicitly {@link lebai.network.HttpRequest.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {lebai.network.IHttpRequest} message HttpRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HttpRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.method != null && Object.hasOwnProperty.call(message, "method"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.method);
+                if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.url);
+                if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
+                    for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 15, wireType 2 =*/122).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
+                if (message.body != null && Object.hasOwnProperty.call(message, "body"))
+                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.body);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HttpRequest message, length delimited. Does not implicitly {@link lebai.network.HttpRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {lebai.network.IHttpRequest} message HttpRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HttpRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a HttpRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.network.HttpRequest} HttpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HttpRequest.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.network.HttpRequest(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.method = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.url = reader.string();
+                            break;
+                        }
+                    case 15: {
+                            if (message.headers === $util.emptyObject)
+                                message.headers = {};
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = "";
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                case 1:
+                                    key = reader.string();
+                                    break;
+                                case 2:
+                                    value = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag2 & 7);
+                                    break;
+                                }
+                            }
+                            message.headers[key] = value;
+                            break;
+                        }
+                    case 16: {
+                            message.body = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a HttpRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.network.HttpRequest} HttpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HttpRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HttpRequest message.
+             * @function verify
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HttpRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.method != null && message.hasOwnProperty("method"))
+                    if (!$util.isString(message.method))
+                        return "method: string expected";
+                if (message.url != null && message.hasOwnProperty("url"))
+                    if (!$util.isString(message.url))
+                        return "url: string expected";
+                if (message.headers != null && message.hasOwnProperty("headers")) {
+                    if (!$util.isObject(message.headers))
+                        return "headers: object expected";
+                    var key = Object.keys(message.headers);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.headers[key[i]]))
+                            return "headers: string{k:string} expected";
+                }
+                if (message.body != null && message.hasOwnProperty("body"))
+                    if (!$util.isString(message.body))
+                        return "body: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a HttpRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.network.HttpRequest} HttpRequest
+             */
+            HttpRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.network.HttpRequest)
+                    return object;
+                var message = new $root.lebai.network.HttpRequest();
+                if (object.method != null)
+                    message.method = String(object.method);
+                if (object.url != null)
+                    message.url = String(object.url);
+                if (object.headers) {
+                    if (typeof object.headers !== "object")
+                        throw TypeError(".lebai.network.HttpRequest.headers: object expected");
+                    message.headers = {};
+                    for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
+                        message.headers[keys[i]] = String(object.headers[keys[i]]);
+                }
+                if (object.body != null)
+                    message.body = String(object.body);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HttpRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {lebai.network.HttpRequest} message HttpRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HttpRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.headers = {};
+                if (options.defaults) {
+                    object.method = "";
+                    object.url = "";
+                    object.body = "";
+                }
+                if (message.method != null && message.hasOwnProperty("method"))
+                    object.method = message.method;
+                if (message.url != null && message.hasOwnProperty("url"))
+                    object.url = message.url;
+                var keys2;
+                if (message.headers && (keys2 = Object.keys(message.headers)).length) {
+                    object.headers = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.headers[keys2[j]] = message.headers[keys2[j]];
+                }
+                if (message.body != null && message.hasOwnProperty("body"))
+                    object.body = message.body;
+                return object;
+            };
+
+            /**
+             * Converts this HttpRequest to JSON.
+             * @function toJSON
+             * @memberof lebai.network.HttpRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HttpRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for HttpRequest
+             * @function getTypeUrl
+             * @memberof lebai.network.HttpRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            HttpRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.network.HttpRequest";
+            };
+
+            return HttpRequest;
+        })();
+
+        network.HttpResponse = (function() {
+
+            /**
+             * Properties of a HttpResponse.
+             * @memberof lebai.network
+             * @interface IHttpResponse
+             * @property {number|null} [status] HttpResponse status
+             * @property {Object.<string,string>|null} [headers] HttpResponse headers
+             * @property {string|null} [body] HttpResponse body
+             */
+
+            /**
+             * Constructs a new HttpResponse.
+             * @memberof lebai.network
+             * @classdesc Represents a HttpResponse.
+             * @implements IHttpResponse
+             * @constructor
+             * @param {lebai.network.IHttpResponse=} [properties] Properties to set
+             */
+            function HttpResponse(properties) {
+                this.headers = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * HttpResponse status.
+             * @member {number} status
+             * @memberof lebai.network.HttpResponse
+             * @instance
+             */
+            HttpResponse.prototype.status = 0;
+
+            /**
+             * HttpResponse headers.
+             * @member {Object.<string,string>} headers
+             * @memberof lebai.network.HttpResponse
+             * @instance
+             */
+            HttpResponse.prototype.headers = $util.emptyObject;
+
+            /**
+             * HttpResponse body.
+             * @member {string} body
+             * @memberof lebai.network.HttpResponse
+             * @instance
+             */
+            HttpResponse.prototype.body = "";
+
+            /**
+             * Creates a new HttpResponse instance using the specified properties.
+             * @function create
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {lebai.network.IHttpResponse=} [properties] Properties to set
+             * @returns {lebai.network.HttpResponse} HttpResponse instance
+             */
+            HttpResponse.create = function create(properties) {
+                return new HttpResponse(properties);
+            };
+
+            /**
+             * Encodes the specified HttpResponse message. Does not implicitly {@link lebai.network.HttpResponse.verify|verify} messages.
+             * @function encode
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {lebai.network.IHttpResponse} message HttpResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HttpResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).int32(message.status);
+                if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
+                    for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 15, wireType 2 =*/122).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
+                if (message.body != null && Object.hasOwnProperty.call(message, "body"))
+                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.body);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HttpResponse message, length delimited. Does not implicitly {@link lebai.network.HttpResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {lebai.network.IHttpResponse} message HttpResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HttpResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a HttpResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {lebai.network.HttpResponse} HttpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HttpResponse.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.lebai.network.HttpResponse(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 11: {
+                            message.status = reader.int32();
+                            break;
+                        }
+                    case 15: {
+                            if (message.headers === $util.emptyObject)
+                                message.headers = {};
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = "";
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                case 1:
+                                    key = reader.string();
+                                    break;
+                                case 2:
+                                    value = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag2 & 7);
+                                    break;
+                                }
+                            }
+                            message.headers[key] = value;
+                            break;
+                        }
+                    case 16: {
+                            message.body = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a HttpResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {lebai.network.HttpResponse} HttpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HttpResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HttpResponse message.
+             * @function verify
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HttpResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.status != null && message.hasOwnProperty("status"))
+                    if (!$util.isInteger(message.status))
+                        return "status: integer expected";
+                if (message.headers != null && message.hasOwnProperty("headers")) {
+                    if (!$util.isObject(message.headers))
+                        return "headers: object expected";
+                    var key = Object.keys(message.headers);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.headers[key[i]]))
+                            return "headers: string{k:string} expected";
+                }
+                if (message.body != null && message.hasOwnProperty("body"))
+                    if (!$util.isString(message.body))
+                        return "body: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a HttpResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {lebai.network.HttpResponse} HttpResponse
+             */
+            HttpResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.lebai.network.HttpResponse)
+                    return object;
+                var message = new $root.lebai.network.HttpResponse();
+                if (object.status != null)
+                    message.status = object.status | 0;
+                if (object.headers) {
+                    if (typeof object.headers !== "object")
+                        throw TypeError(".lebai.network.HttpResponse.headers: object expected");
+                    message.headers = {};
+                    for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
+                        message.headers[keys[i]] = String(object.headers[keys[i]]);
+                }
+                if (object.body != null)
+                    message.body = String(object.body);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HttpResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {lebai.network.HttpResponse} message HttpResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HttpResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.headers = {};
+                if (options.defaults) {
+                    object.status = 0;
+                    object.body = "";
+                }
+                if (message.status != null && message.hasOwnProperty("status"))
+                    object.status = message.status;
+                var keys2;
+                if (message.headers && (keys2 = Object.keys(message.headers)).length) {
+                    object.headers = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.headers[keys2[j]] = message.headers[keys2[j]];
+                }
+                if (message.body != null && message.hasOwnProperty("body"))
+                    object.body = message.body;
+                return object;
+            };
+
+            /**
+             * Converts this HttpResponse to JSON.
+             * @function toJSON
+             * @memberof lebai.network.HttpResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HttpResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for HttpResponse
+             * @function getTypeUrl
+             * @memberof lebai.network.HttpResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            HttpResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/lebai.network.HttpResponse";
+            };
+
+            return HttpResponse;
+        })();
+
+        network.NetworkService = (function() {
+
+            /**
+             * Constructs a new NetworkService service.
+             * @memberof lebai.network
+             * @classdesc Represents a NetworkService
+             * @extends $protobuf.rpc.Service
+             * @constructor
+             * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+             * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+             * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+             */
+            function NetworkService(rpcImpl, requestDelimited, responseDelimited) {
+                $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
+            }
+
+            (NetworkService.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = NetworkService;
+
+            /**
+             * Creates new NetworkService service using the specified rpc implementation.
+             * @function create
+             * @memberof lebai.network.NetworkService
+             * @static
+             * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+             * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+             * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+             * @returns {NetworkService} RPC service. Useful where requests and/or responses are streamed.
+             */
+            NetworkService.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+                return new this(rpcImpl, requestDelimited, responseDelimited);
+            };
+
+            /**
+             * Callback as used by {@link lebai.network.NetworkService#http}.
+             * @memberof lebai.network.NetworkService
+             * @typedef HttpCallback
+             * @type {function}
+             * @param {Error|null} error Error, if any
+             * @param {lebai.network.HttpResponse} [response] HttpResponse
+             */
+
+            /**
+             * Calls Http.
+             * @function http
+             * @memberof lebai.network.NetworkService
+             * @instance
+             * @param {lebai.network.IHttpRequest} request HttpRequest message or plain object
+             * @param {lebai.network.NetworkService.HttpCallback} callback Node-style callback called with the error, if any, and HttpResponse
+             * @returns {undefined}
+             * @variation 1
+             */
+            Object.defineProperty(NetworkService.prototype.http = function http(request, callback) {
+                return this.rpcCall(http, $root.lebai.network.HttpRequest, $root.lebai.network.HttpResponse, request, callback);
+            }, "name", { value: "Http" });
+
+            /**
+             * Calls Http.
+             * @function http
+             * @memberof lebai.network.NetworkService
+             * @instance
+             * @param {lebai.network.IHttpRequest} request HttpRequest message or plain object
+             * @returns {Promise<lebai.network.HttpResponse>} Promise
+             * @variation 2
+             */
+
+            return NetworkService;
+        })();
+
+        return network;
+    })();
+
     lebai.plugin = (function() {
 
         /**
