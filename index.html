@@ -1069,6 +1069,37 @@
         
           
           <li>
+            <a href="#network.proto">network.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#lebai.network.HttpRequest"><span class="badge">M</span>HttpRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.network.HttpRequest.HeadersEntry"><span class="badge">M</span>HttpRequest.HeadersEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.network.HttpResponse"><span class="badge">M</span>HttpResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#lebai.network.HttpResponse.HeadersEntry"><span class="badge">M</span>HttpResponse.HeadersEntry</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#lebai.network.NetworkService"><span class="badge">S</span>NetworkService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#plugin.proto">plugin.proto</a>
             <ul>
               
@@ -8631,6 +8662,184 @@
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><a href="#lebai.multi_devices.DiscoverRobotsResponse">DiscoverRobotsResponse</a></td>
                 <td><p>设备发现</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="network.proto">network.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="lebai.network.HttpRequest">HttpRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>method</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>url</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>headers</td>
+                  <td><a href="#lebai.network.HttpRequest.HeadersEntry">HttpRequest.HeadersEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>body</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.network.HttpRequest.HeadersEntry">HttpRequest.HeadersEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.network.HttpResponse">HttpResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>headers</td>
+                  <td><a href="#lebai.network.HttpResponse.HeadersEntry">HttpResponse.HeadersEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>body</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="lebai.network.HttpResponse.HeadersEntry">HttpResponse.HeadersEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="lebai.network.NetworkService">NetworkService</h3>
+        <p>网络相关服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Http</td>
+                <td><a href="#lebai.network.HttpRequest">HttpRequest</a></td>
+                <td><a href="#lebai.network.HttpResponse">HttpResponse</a></td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
