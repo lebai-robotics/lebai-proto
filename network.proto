@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package lebai.network;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+message HttpRequest {
+  string method = 1;
+  string url = 2;
+  map<string, string> headers = 15;
+  string body = 16;
+}
+message HttpResponse {
+  int32 status = 11;
+  map<string, string> headers = 15;
+  string body = 16;
+}
+
+// 网络相关服务
+service NetworkService {
+  rpc Http(HttpRequest) returns (HttpResponse);
+}
