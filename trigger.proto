@@ -23,6 +23,8 @@ enum Function {
   SET_ZERO = 3;
   // 改变手臂启停状态
   CHANGE_POWER = 4;
+  // 关机
+  POWERDOWN = 5;
   // 运行快捷任务1对应的场景
   SHORT_TASK1 = 11;
   // 运行快捷任务2对应的场景
