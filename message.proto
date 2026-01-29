@@ -18,20 +18,22 @@ enum Level {
 enum Kind {
   // 急停
   ESTOP = 0;
-  // 请释放硬件急停开关后重试
-  HARD_ESTOP_LOCK = 1;
-  // 硬件驱动故障
-  DRIVER_ERROR = 2;
-  // 关节超出临界位置
-  REACH_JOINT_LIMIT = 3;
-  // 机器人可能被碰撞
-  COLLISION_DETECTED = 4;
-  // 关节速度超出限制
-  JONIT_SPEED_EXCEED = 5;
-  // 机器人运动规划出错
-  TRAJECTOR_ERROR = 6;
   // OTA升级失败
-  OTA_FAILED = 7;
+  OTA_FAILED = 1005;
+  // 关节速度超出限制
+  JONIT_SPEED_EXCEED = 1007;
+  // 关节超出临界位置
+  REACH_JOINT_LIMIT = 1008;
+  // 机器人可能被碰撞
+  COLLISION_DETECTED = 1009;
+  // 请释放硬件急停开关后重试
+  HARD_ESTOP_LOCK = 1011;
+  // 硬件驱动故障
+  DRIVER_ERROR = 1100;
+  // 机器人运动规划出错
+  TRAJECTOR_ERROR = 1140;
+  // 关节位置异常
+  PositionAbnormal = 1141;
 }
 
 message Message {
