@@ -15198,13 +15198,14 @@ export namespace lebai {
         /** Kind enum. */
         enum Kind {
             ESTOP = 0,
-            HARD_ESTOP_LOCK = 1,
-            DRIVER_ERROR = 2,
-            REACH_JOINT_LIMIT = 3,
-            COLLISION_DETECTED = 4,
-            JONIT_SPEED_EXCEED = 5,
-            TRAJECTOR_ERROR = 6,
-            OTA_FAILED = 7
+            OTA_FAILED = 1005,
+            JONIT_SPEED_EXCEED = 1007,
+            REACH_JOINT_LIMIT = 1008,
+            COLLISION_DETECTED = 1009,
+            HARD_ESTOP_LOCK = 1011,
+            DRIVER_ERROR = 1100,
+            TRAJECTOR_ERROR = 1140,
+            PositionAbnormal = 1141
         }
 
         /** Properties of a Message. */

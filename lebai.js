@@ -36315,24 +36315,26 @@ $root.lebai = (function() {
          * @name lebai.message.Kind
          * @enum {number}
          * @property {number} ESTOP=0 ESTOP value
-         * @property {number} HARD_ESTOP_LOCK=1 HARD_ESTOP_LOCK value
-         * @property {number} DRIVER_ERROR=2 DRIVER_ERROR value
-         * @property {number} REACH_JOINT_LIMIT=3 REACH_JOINT_LIMIT value
-         * @property {number} COLLISION_DETECTED=4 COLLISION_DETECTED value
-         * @property {number} JONIT_SPEED_EXCEED=5 JONIT_SPEED_EXCEED value
-         * @property {number} TRAJECTOR_ERROR=6 TRAJECTOR_ERROR value
-         * @property {number} OTA_FAILED=7 OTA_FAILED value
+         * @property {number} OTA_FAILED=1005 OTA_FAILED value
+         * @property {number} JONIT_SPEED_EXCEED=1007 JONIT_SPEED_EXCEED value
+         * @property {number} REACH_JOINT_LIMIT=1008 REACH_JOINT_LIMIT value
+         * @property {number} COLLISION_DETECTED=1009 COLLISION_DETECTED value
+         * @property {number} HARD_ESTOP_LOCK=1011 HARD_ESTOP_LOCK value
+         * @property {number} DRIVER_ERROR=1100 DRIVER_ERROR value
+         * @property {number} TRAJECTOR_ERROR=1140 TRAJECTOR_ERROR value
+         * @property {number} PositionAbnormal=1141 PositionAbnormal value
          */
         message.Kind = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "ESTOP"] = 0;
-            values[valuesById[1] = "HARD_ESTOP_LOCK"] = 1;
-            values[valuesById[2] = "DRIVER_ERROR"] = 2;
-            values[valuesById[3] = "REACH_JOINT_LIMIT"] = 3;
-            values[valuesById[4] = "COLLISION_DETECTED"] = 4;
-            values[valuesById[5] = "JONIT_SPEED_EXCEED"] = 5;
-            values[valuesById[6] = "TRAJECTOR_ERROR"] = 6;
-            values[valuesById[7] = "OTA_FAILED"] = 7;
+            values[valuesById[1005] = "OTA_FAILED"] = 1005;
+            values[valuesById[1007] = "JONIT_SPEED_EXCEED"] = 1007;
+            values[valuesById[1008] = "REACH_JOINT_LIMIT"] = 1008;
+            values[valuesById[1009] = "COLLISION_DETECTED"] = 1009;
+            values[valuesById[1011] = "HARD_ESTOP_LOCK"] = 1011;
+            values[valuesById[1100] = "DRIVER_ERROR"] = 1100;
+            values[valuesById[1140] = "TRAJECTOR_ERROR"] = 1140;
+            values[valuesById[1141] = "PositionAbnormal"] = 1141;
             return values;
         })();
 
@@ -36528,13 +36530,14 @@ $root.lebai = (function() {
                     default:
                         return "kind: enum value expected";
                     case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
+                    case 1005:
+                    case 1007:
+                    case 1008:
+                    case 1009:
+                    case 1011:
+                    case 1100:
+                    case 1140:
+                    case 1141:
                         break;
                     }
                 if (message.detail != null && message.hasOwnProperty("detail"))
@@ -36591,33 +36594,37 @@ $root.lebai = (function() {
                 case 0:
                     message.kind = 0;
                     break;
-                case "HARD_ESTOP_LOCK":
-                case 1:
-                    message.kind = 1;
-                    break;
-                case "DRIVER_ERROR":
-                case 2:
-                    message.kind = 2;
-                    break;
-                case "REACH_JOINT_LIMIT":
-                case 3:
-                    message.kind = 3;
-                    break;
-                case "COLLISION_DETECTED":
-                case 4:
-                    message.kind = 4;
+                case "OTA_FAILED":
+                case 1005:
+                    message.kind = 1005;
                     break;
                 case "JONIT_SPEED_EXCEED":
-                case 5:
-                    message.kind = 5;
+                case 1007:
+                    message.kind = 1007;
+                    break;
+                case "REACH_JOINT_LIMIT":
+                case 1008:
+                    message.kind = 1008;
+                    break;
+                case "COLLISION_DETECTED":
+                case 1009:
+                    message.kind = 1009;
+                    break;
+                case "HARD_ESTOP_LOCK":
+                case 1011:
+                    message.kind = 1011;
+                    break;
+                case "DRIVER_ERROR":
+                case 1100:
+                    message.kind = 1100;
                     break;
                 case "TRAJECTOR_ERROR":
-                case 6:
-                    message.kind = 6;
+                case 1140:
+                    message.kind = 1140;
                     break;
-                case "OTA_FAILED":
-                case 7:
-                    message.kind = 7;
+                case "PositionAbnormal":
+                case 1141:
+                    message.kind = 1141;
                     break;
                 }
                 if (object.detail != null)
