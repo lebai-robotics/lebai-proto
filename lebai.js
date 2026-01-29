@@ -65982,6 +65982,7 @@ $root.lebai = (function() {
          * @property {number} END_TEACH_MODE=2 END_TEACH_MODE value
          * @property {number} SET_ZERO=3 SET_ZERO value
          * @property {number} CHANGE_POWER=4 CHANGE_POWER value
+         * @property {number} POWERDOWN=5 POWERDOWN value
          * @property {number} SHORT_TASK1=11 SHORT_TASK1 value
          * @property {number} SHORT_TASK2=12 SHORT_TASK2 value
          * @property {number} SHORT_TASK3=13 SHORT_TASK3 value
@@ -65999,6 +66000,7 @@ $root.lebai = (function() {
             values[valuesById[2] = "END_TEACH_MODE"] = 2;
             values[valuesById[3] = "SET_ZERO"] = 3;
             values[valuesById[4] = "CHANGE_POWER"] = 4;
+            values[valuesById[5] = "POWERDOWN"] = 5;
             values[valuesById[11] = "SHORT_TASK1"] = 11;
             values[valuesById[12] = "SHORT_TASK2"] = 12;
             values[valuesById[13] = "SHORT_TASK3"] = 13;
@@ -66173,6 +66175,7 @@ $root.lebai = (function() {
                     case 2:
                     case 3:
                     case 4:
+                    case 5:
                     case 11:
                     case 12:
                     case 13:
@@ -66230,6 +66233,10 @@ $root.lebai = (function() {
                 case "CHANGE_POWER":
                 case 4:
                     message["function"] = 4;
+                    break;
+                case "POWERDOWN":
+                case 5:
+                    message["function"] = 5;
                     break;
                 case "SHORT_TASK1":
                 case 11:

@@ -28509,6 +28509,7 @@ export namespace lebai {
             END_TEACH_MODE = 2,
             SET_ZERO = 3,
             CHANGE_POWER = 4,
+            POWERDOWN = 5,
             SHORT_TASK1 = 11,
             SHORT_TASK2 = 12,
             SHORT_TASK3 = 13,
