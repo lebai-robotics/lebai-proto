@@ -15198,6 +15198,7 @@ export namespace lebai {
         /** Kind enum. */
         enum Kind {
             ESTOP = 0,
+            OTA_STATE_ERROR = 1004,
             OTA_FAILED = 1005,
             JONIT_SPEED_EXCEED = 1007,
             REACH_JOINT_LIMIT = 1008,

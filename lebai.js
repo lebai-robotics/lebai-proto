@@ -36315,6 +36315,7 @@ $root.lebai = (function() {
          * @name lebai.message.Kind
          * @enum {number}
          * @property {number} ESTOP=0 ESTOP value
+         * @property {number} OTA_STATE_ERROR=1004 OTA_STATE_ERROR value
          * @property {number} OTA_FAILED=1005 OTA_FAILED value
          * @property {number} JONIT_SPEED_EXCEED=1007 JONIT_SPEED_EXCEED value
          * @property {number} REACH_JOINT_LIMIT=1008 REACH_JOINT_LIMIT value
@@ -36327,6 +36328,7 @@ $root.lebai = (function() {
         message.Kind = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "ESTOP"] = 0;
+            values[valuesById[1004] = "OTA_STATE_ERROR"] = 1004;
             values[valuesById[1005] = "OTA_FAILED"] = 1005;
             values[valuesById[1007] = "JONIT_SPEED_EXCEED"] = 1007;
             values[valuesById[1008] = "REACH_JOINT_LIMIT"] = 1008;
@@ -36530,6 +36532,7 @@ $root.lebai = (function() {
                     default:
                         return "kind: enum value expected";
                     case 0:
+                    case 1004:
                     case 1005:
                     case 1007:
                     case 1008:
@@ -36593,6 +36596,10 @@ $root.lebai = (function() {
                 case "ESTOP":
                 case 0:
                     message.kind = 0;
+                    break;
+                case "OTA_STATE_ERROR":
+                case 1004:
+                    message.kind = 1004;
                     break;
                 case "OTA_FAILED":
                 case 1005:
