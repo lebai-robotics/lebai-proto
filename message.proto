@@ -18,6 +18,8 @@ enum Level {
 enum Kind {
   // 急停
   ESTOP = 0;
+  // 当前状态不能OTA升级
+  OTA_STATE_ERROR = 1004;
   // OTA升级失败
   OTA_FAILED = 1005;
   // 关节速度超出限制
