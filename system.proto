@@ -253,6 +253,8 @@ service SystemService {
   rpc SubPhyData(SubscribeRequest) returns (stream PhyData);
   // 关闭机器人电源（关机）
   rpc Powerdown(google.protobuf.Empty) returns (google.protobuf.Empty);
+  // 机器人上电
+  rpc Poweron(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 重启系统
   rpc Reboot(google.protobuf.Empty) returns (google.protobuf.Empty);
   // 启动机器人
