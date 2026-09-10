@@ -89,6 +89,7 @@ message EndRecordTrajectoryRequest {
 message MoveTrajectoryRequest {
   string name = 1;
   string dir = 11;
+  bool back = 21;
 }
 
 message Wrench {
@@ -184,7 +185,7 @@ service MotionService {
   rpc EndRecordTrajectory(EndRecordTrajectoryRequest)
       returns (google.protobuf.Empty);
   // 执行轨迹运行
-  rpc MoveTrajectory(db.LoadRequest) returns (MotionIndex);
+  rpc MoveTrajectory(MoveTrajectoryRequest) returns (MotionIndex);
 
   // 进入示教模式
   rpc StartTeachMode(google.protobuf.Empty) returns (google.protobuf.Empty);
