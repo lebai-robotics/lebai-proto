@@ -5,7 +5,7 @@ var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
-var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $TypeError = $util.global.TypeError, $Boolean = $util.global.Boolean, $String = $util.global.String, $Number = $util.global.Number, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Array = $util.global.Array, $isFinite = $util.global.isFinite;
+var $Object = $util.global.Object, $undefined = $util.global.undefined, $Error = $util.global.Error, $RangeError = $util.global.RangeError, $TypeError = $util.global.TypeError, $Boolean = $util.global.Boolean, $String = $util.global.String, $Number = $util.global.Number, $parseInt = $util.global.parseInt, $BigInt = $util.global.BigInt, $Array = $util.global.Array, $isFinite = $util.global.isFinite;
 
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
@@ -150,7 +150,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetAutoRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -171,7 +171,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.auto.SetAutoRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.auto.SetAutoRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -205,6 +215,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -444,7 +459,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAutoRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -465,7 +480,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.auto.GetAutoRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.auto.GetAutoRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -490,6 +515,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -728,7 +758,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAutoResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -749,7 +779,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.auto.GetAutoResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.auto.GetAutoResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -772,6 +812,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -1170,7 +1215,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BackupInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1191,7 +1236,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.backup.BackupInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.backup.BackupInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -1243,6 +1298,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -1604,7 +1664,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Options.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -1625,7 +1685,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.backup.Options(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.backup.Options();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -1713,6 +1783,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -2002,7 +2077,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BackupRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2023,7 +2098,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.backup.BackupRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.backup.BackupRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -2054,6 +2139,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -2282,7 +2372,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetBackupInfoRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2303,7 +2393,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.backup.GetBackupInfoRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.backup.GetBackupInfoRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -2328,6 +2428,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -2553,7 +2658,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RestoreRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -2574,7 +2679,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.backup.RestoreRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.backup.RestoreRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -2605,6 +2720,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -3044,7 +3164,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             HelloData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3065,7 +3185,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.HelloData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.HelloData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -3090,6 +3220,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -3337,7 +3472,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MemoryInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3358,7 +3493,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.MemoryInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.MemoryInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -3410,6 +3555,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -3738,7 +3888,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DiskInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -3759,7 +3909,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.DiskInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.DiskInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -3802,6 +3962,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -4161,7 +4326,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             NetworkInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4182,7 +4347,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.NetworkInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.NetworkInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -4259,6 +4434,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -4627,7 +4807,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CpuInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -4648,7 +4828,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.CpuInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.CpuInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -4709,6 +4899,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -5057,7 +5252,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SystemInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5078,7 +5273,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.SystemInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.SystemInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -5158,6 +5363,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -5478,7 +5688,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetBoxDevicesRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5499,7 +5709,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.GetBoxDevicesRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.GetBoxDevicesRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -5524,6 +5744,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -5740,7 +5965,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetBoxDevicesResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -5761,7 +5986,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.GetBoxDevicesResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.GetBoxDevicesResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -5785,6 +6020,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -6021,7 +6261,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetVirtualIpRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6042,7 +6282,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.SetVirtualIpRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.SetVirtualIpRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -6076,6 +6326,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -6387,7 +6642,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RobotInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6408,7 +6663,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.RobotInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.RobotInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -6478,6 +6743,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -6856,7 +7126,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeviceInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -6877,7 +7147,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.DeviceInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.DeviceInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -6974,6 +7254,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -7326,7 +7611,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             HardwareInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7347,7 +7632,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.HardwareInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.HardwareInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -7395,6 +7690,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -7690,7 +7990,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SoftwareItemInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7711,7 +8011,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.SoftwareItemInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.SoftwareItemInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -7745,6 +8055,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -7973,7 +8288,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SoftwareInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -7994,7 +8309,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.SoftwareInfo(), key, value;
+                var end, message, key, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.SoftwareInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -8010,6 +8335,9 @@ $root.lebai = (function() {
                             if (message.software === $util.emptyObject)
                                 message.software = {};
                             var end2 = reader.uint32() + reader.pos;
+                            if (end2 > reader.len)
+                                throw $RangeError("index out of range");
+                            reader.len = end2;
                             key = "";
                             value = null;
                             while (reader.pos < end2) {
@@ -8024,11 +8352,14 @@ $root.lebai = (function() {
                                 case 2:
                                     if (wireType !== 2)
                                         break;
-                                    value = $root.lebai.system.SoftwareItemInfo.decode(reader, reader.uint32(), $undefined, _depth + 1);
+                                    value = $root.lebai.system.SoftwareItemInfo.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
                                     continue;
                                 }
                                 reader.skipType(wireType, _depth, tag2);
                             }
+                            if (reader.pos !== end2)
+                                throw $RangeError("index out of range");
+                            reader.len = end;
                             if (key === "__proto__")
                                 $util.makeProp(message.software, key);
                             message.software[key] = value || new $root.lebai.system.SoftwareItemInfo();
@@ -8040,6 +8371,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -8313,7 +8649,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetRobotStateResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8334,7 +8670,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.GetRobotStateResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.GetRobotStateResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -8359,6 +8705,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -8630,18 +8981,10 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.jointTemp != null && message.jointTemp.length) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                    for (var i = 0; i < message.jointTemp.length; ++i)
-                        writer.double(message.jointTemp[i]);
-                    writer.ldelim();
-                }
-                if (message.jointVoltage != null && message.jointVoltage.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.jointVoltage.length; ++i)
-                        writer.double(message.jointVoltage[i]);
-                    writer.ldelim();
-                }
+                if (message.jointTemp != null && message.jointTemp.length)
+                    writer.uint32(/* id 2, wireType 2 =*/18).doubles(message.jointTemp);
+                if (message.jointVoltage != null && message.jointVoltage.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).doubles(message.jointVoltage);
                 if (message.flangeVoltage != null && $Object.hasOwnProperty.call(message, "flangeVoltage") && !$Object.is(message.flangeVoltage, 0))
                     writer.uint32(/* id 12, wireType 1 =*/97).double(message.flangeVoltage);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
@@ -8660,7 +9003,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PhyData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -8681,7 +9024,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.PhyData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.PhyData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -8695,9 +9048,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.jointTemp && message.jointTemp.length))
                                     message.jointTemp = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.jointTemp.push(reader.double());
+                                reader.doubles(message.jointTemp);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -8711,9 +9062,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.jointVoltage && message.jointVoltage.length))
                                     message.jointVoltage = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.jointVoltage.push(reader.double());
+                                reader.doubles(message.jointVoltage);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -8738,6 +9087,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -9026,7 +9380,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetEstopReasonResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -9047,7 +9401,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.system.GetEstopReasonResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.system.GetEstopReasonResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -9072,6 +9436,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -10161,7 +10530,7 @@ $root.lebai = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         SubscribeRequest.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -10182,7 +10551,17 @@ $root.lebai = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.SubscribeRequest(), value;
+            var end, message, value;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.lebai.SubscribeRequest();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -10216,6 +10595,11 @@ $root.lebai = (function() {
                     $util.makeProp(message, "$unknowns", false);
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
             }
             if (_end !== $undefined)
                 throw $Error("missing end group");
@@ -10505,7 +10889,7 @@ $root.lebai = (function() {
          * @returns {$protobuf.Writer} Writer
          */
         CommandStdout.encodeDelimited = function(message, writer) {
-            return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+            return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
         };
 
         /**
@@ -10526,7 +10910,17 @@ $root.lebai = (function() {
                 _depth = 0;
             if (_depth > $Reader.recursionLimit)
                 throw $Error("max depth exceeded");
-            var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.CommandStdout(), value;
+            var end, message, value;
+            if (length === $undefined)
+                end = reader.len;
+            else {
+                end = reader.pos + length;
+                if (end > reader.len)
+                    throw $RangeError("index out of range");
+                length = reader.len;
+                reader.len = end;
+            }
+            message = _target || new $root.lebai.CommandStdout();
             while (reader.pos < end) {
                 var start = reader.pos;
                 var tag = reader.tag();
@@ -10578,6 +10972,11 @@ $root.lebai = (function() {
                     $util.makeProp(message, "$unknowns", false);
                     (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                 }
+            }
+            if (length !== $undefined) {
+                if (reader.pos !== end)
+                    throw $RangeError("index out of range");
+                reader.len = length;
             }
             if (_end !== $undefined)
                 throw $Error("missing end group");
@@ -10907,7 +11306,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             FirmwareInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -10928,7 +11327,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.hardware.FirmwareInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.hardware.FirmwareInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -10971,6 +11380,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -11245,7 +11659,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StartOtaRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -11266,7 +11680,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.hardware.StartOtaRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.hardware.StartOtaRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -11309,6 +11733,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -11631,7 +12060,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SwitchPartitionRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -11652,7 +12081,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.hardware.SwitchPartitionRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.hardware.SwitchPartitionRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -11686,6 +12125,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -12045,7 +12489,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             OtaState.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -12066,7 +12510,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.hardware.OtaState(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.hardware.OtaState();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -12118,6 +12572,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -12708,7 +13167,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Claw.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -12729,7 +13188,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.Claw(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.Claw();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -12781,6 +13250,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -13023,7 +13497,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InitClawRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13044,7 +13518,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.InitClawRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.InitClawRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -13069,6 +13553,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -13309,7 +13798,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetClawRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13330,7 +13819,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.SetClawRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.SetClawRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -13360,6 +13859,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -13594,7 +14098,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetClawAoRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13615,7 +14119,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.SetClawAoRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.SetClawAoRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -13649,6 +14163,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -13928,7 +14447,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetClawAiRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -13949,7 +14468,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.GetClawAiRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.GetClawAiRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -13974,6 +14503,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -14243,7 +14777,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetClawAiResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14264,7 +14798,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.GetClawAiResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.GetClawAiResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -14289,6 +14833,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -14525,7 +15074,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WaitClawAiRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -14546,7 +15095,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.claw.WaitClawAiRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.claw.WaitClawAiRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -14589,6 +15148,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -15269,7 +15833,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15290,7 +15854,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.SaveRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.SaveRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -15333,6 +15907,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -15577,7 +16156,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15598,7 +16177,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.LoadRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.LoadRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -15632,6 +16221,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -15856,7 +16450,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -15877,7 +16471,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.LoadResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.LoadResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -15902,6 +16506,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -16116,7 +16725,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadListRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16137,7 +16746,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.LoadListRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.LoadListRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -16162,6 +16781,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -16378,7 +17002,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadListResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16399,7 +17023,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.LoadListResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.LoadListResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -16423,6 +17057,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -16659,7 +17298,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeleteRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16680,7 +17319,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.DeleteRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.DeleteRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -16714,6 +17363,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -16949,7 +17603,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Dir.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -16970,7 +17624,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.Dir(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.Dir();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17004,6 +17668,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -17239,7 +17908,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UpdateDirRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17260,7 +17929,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.UpdateDirRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.UpdateDirRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17294,6 +17973,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -17520,7 +18204,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Dirs.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17541,7 +18225,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.db.Dirs();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.db.Dirs();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -17565,6 +18259,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -17976,7 +18675,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Payload.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -17997,7 +18696,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.dynamic.Payload(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.dynamic.Payload();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -18028,6 +18737,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -18276,7 +18990,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetPayloadRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18297,7 +19011,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.dynamic.SetPayloadRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.dynamic.SetPayloadRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -18326,6 +19050,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -18576,7 +19305,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SavePayloadRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -18597,7 +19326,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.dynamic.SavePayloadRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.dynamic.SavePayloadRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -18637,6 +19376,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -19191,12 +19935,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.joint != null && message.joint.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.joint.length; ++i)
-                        writer.double(message.joint[i]);
-                    writer.ldelim();
-                }
+                if (message.joint != null && message.joint.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).doubles(message.joint);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -19213,7 +19953,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             JointPose.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19234,7 +19974,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.JointPose();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.JointPose();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -19248,9 +19998,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.joint && message.joint.length))
                                     message.joint = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.joint.push(reader.double());
+                                reader.doubles(message.joint);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -19266,6 +20014,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -19502,7 +20255,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             JointFrame.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19523,7 +20276,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.JointFrame(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.JointFrame();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -19554,6 +20317,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -19907,7 +20675,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RotationMatrix.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -19928,7 +20696,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.RotationMatrix(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.RotationMatrix();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20025,6 +20803,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -20334,7 +21117,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             EulerZyx.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20355,7 +21138,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.EulerZyx(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.EulerZyx();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20398,6 +21191,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -20664,7 +21462,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Quaternion.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -20685,7 +21483,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.Quaternion(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.Quaternion();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -20737,6 +21545,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -21001,7 +21814,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Rotation.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21022,7 +21835,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.Rotation(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.Rotation();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -21056,6 +21879,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -21323,7 +22151,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Position.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21344,7 +22172,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.Position(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.Position();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -21387,6 +22225,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -21631,7 +22474,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CartesianPose.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -21652,7 +22495,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.CartesianPose(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.CartesianPose();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -21680,6 +22533,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -22077,7 +22935,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CartesianMatrix.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22098,7 +22956,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.CartesianMatrix(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.CartesianMatrix();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -22258,6 +23126,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -22641,7 +23514,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CartesianFrame.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -22662,7 +23535,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.CartesianFrame(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.CartesianFrame();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -22708,6 +23591,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -23078,7 +23966,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Pose.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23099,7 +23987,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.Pose(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.Pose();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -23148,6 +24046,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -23468,7 +24371,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SavePoseRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23489,7 +24392,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.SavePoseRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.SavePoseRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -23529,6 +24442,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -23788,7 +24706,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveFrameRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -23809,7 +24727,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.SaveFrameRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.SaveFrameRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -23849,6 +24777,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -24086,7 +25019,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PoseRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24107,7 +25040,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.PoseRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.PoseRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -24129,6 +25072,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -24358,7 +25306,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetInverseKinRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24379,7 +25327,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.GetInverseKinRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.GetInverseKinRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -24407,6 +25365,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -24650,7 +25613,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetPoseTransRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24671,7 +25634,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.GetPoseTransRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.GetPoseTransRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -24699,6 +25672,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -24942,7 +25920,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetPoseAddRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -24963,7 +25941,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.GetPoseAddRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.GetPoseAddRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -24991,6 +25979,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -25223,7 +26216,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Manipulation.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -25244,7 +26237,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.posture.Manipulation(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.posture.Manipulation();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -25269,6 +26272,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -26033,7 +27041,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             File.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -26054,7 +27062,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.File(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.File();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -26088,6 +27106,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -26332,7 +27355,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             FileIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -26353,7 +27376,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.FileIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.FileIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -26387,6 +27420,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -26622,7 +27660,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             FileName.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -26643,7 +27681,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.FileName(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.FileName();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -26677,6 +27725,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -26923,7 +27976,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveFileRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -26944,7 +27997,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.SaveFileRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.SaveFileRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -26984,6 +28047,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -27243,7 +28311,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DownloadFileRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27264,7 +28332,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.DownloadFileRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.DownloadFileRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -27307,6 +28385,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -27551,7 +28634,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RenameFileRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27572,7 +28655,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.RenameFileRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.RenameFileRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -27600,6 +28693,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -27854,7 +28952,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadFileListRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -27875,7 +28973,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.LoadFileListRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.LoadFileListRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -27918,6 +29026,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -28153,7 +29266,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadFileListResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -28174,7 +29287,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.LoadFileListResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.LoadFileListResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -28198,6 +29321,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -28452,7 +29580,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ZipRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -28473,7 +29601,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.ZipRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.ZipRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -28512,6 +29650,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -28785,7 +29928,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             UnzipRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -28806,7 +29949,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.UnzipRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.UnzipRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -28845,6 +29998,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -29127,7 +30285,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadZipListRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -29148,7 +30306,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.LoadZipListRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.LoadZipListRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -29197,6 +30365,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -29445,7 +30618,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadZipListResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -29466,7 +30639,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.file.LoadZipListResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.file.LoadZipListResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -29490,6 +30673,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -30095,7 +31283,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetFlangeBaudRateRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30116,7 +31304,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.flange.SetFlangeBaudRateRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.flange.SetFlangeBaudRateRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -30141,6 +31339,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -30533,7 +31736,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetDoPinRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30554,7 +31757,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.SetDoPinRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.SetDoPinRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -30597,6 +31810,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -30862,12 +32080,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.device);
                 if (message.pin != null && $Object.hasOwnProperty.call(message, "pin") && message.pin !== 0)
                     writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.pin);
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.uint32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -30884,7 +32098,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetDoPinsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -30905,7 +32119,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.SetDoPinsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.SetDoPinsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -30937,9 +32161,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.uint32());
+                                reader.uint32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -30955,6 +32177,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -31238,7 +32465,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioPinRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31259,7 +32486,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioPinRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioPinRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -31293,6 +32530,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -31544,7 +32786,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioPinResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31565,7 +32807,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioPinResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioPinResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -31590,6 +32842,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -31826,7 +33083,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioPinsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -31847,7 +33104,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioPinsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioPinsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -31890,6 +33157,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -32133,12 +33405,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.uint32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -32155,7 +33423,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioPinsResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32176,7 +33444,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioPinsResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioPinsResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -32190,9 +33468,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.uint32());
+                                reader.uint32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -32208,6 +33484,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -32455,7 +33736,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetAoPinRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32476,7 +33757,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.SetAoPinRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.SetAoPinRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -32519,6 +33810,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -32784,12 +34080,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.device);
                 if (message.pin != null && $Object.hasOwnProperty.call(message, "pin") && message.pin !== 0)
                     writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.pin);
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.double(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).doubles(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -32806,7 +34098,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetAoPinsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -32827,7 +34119,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.SetAoPinsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.SetAoPinsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -32859,9 +34161,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.double());
+                                reader.doubles(message.values);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -32877,6 +34177,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -33160,7 +34465,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAioPinRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33181,7 +34486,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetAioPinRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetAioPinRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -33215,6 +34530,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -33466,7 +34786,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAioPinResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33487,7 +34807,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetAioPinResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetAioPinResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -33512,6 +34842,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -33748,7 +35083,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAioPinsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -33769,7 +35104,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetAioPinsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetAioPinsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -33812,6 +35157,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -34055,12 +35405,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.double(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).doubles(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -34077,7 +35423,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetAioPinsResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34098,7 +35444,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetAioPinsResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetAioPinsResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -34112,9 +35468,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.double());
+                                reader.doubles(message.values);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -34130,6 +35484,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -34366,7 +35725,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ButtonIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34387,7 +35746,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.ButtonIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.ButtonIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -34421,6 +35790,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -34701,7 +36075,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ButtonStatus.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -34722,7 +36096,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.ButtonStatus(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.ButtonStatus();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -34756,6 +36140,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -35010,7 +36399,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ButtonsStatus.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -35031,7 +36420,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.ButtonsStatus(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.ButtonsStatus();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -35059,6 +36458,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -35313,7 +36717,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetDioModeRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -35334,7 +36738,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.SetDioModeRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.SetDioModeRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -35377,6 +36791,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -35659,7 +37078,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioModeRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -35680,7 +37099,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioModeRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioModeRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -35714,6 +37143,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -35965,7 +37399,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDioModeResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -35986,7 +37420,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDioModeResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDioModeResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -36011,6 +37455,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -36258,7 +37707,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDiosModeRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -36279,7 +37728,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDiosModeRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDiosModeRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -36322,6 +37781,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -36565,12 +38029,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.modes != null && message.modes.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.modes.length; ++i)
-                        writer.int32(message.modes[i]);
-                    writer.ldelim();
-                }
+                if (message.modes != null && message.modes.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).int32s(message.modes);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -36587,7 +38047,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetDiosModeResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -36608,7 +38068,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.io.GetDiosModeResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.io.GetDiosModeResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -36622,9 +38092,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.modes && message.modes.length))
                                     message.modes = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.modes.push(reader.int32());
+                                reader.int32s(message.modes);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -36640,6 +38108,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -37695,7 +39168,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DhParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -37716,7 +39189,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.DhParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.DhParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -37768,6 +39251,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -38012,7 +39500,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DhParams.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -38033,7 +39521,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.DhParams();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.DhParams();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -38057,6 +39555,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -38287,7 +39790,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             KinFactor.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -38308,7 +39811,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.KinFactor(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.KinFactor();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -38333,6 +39846,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -38627,54 +40145,22 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.actualJointPose != null && message.actualJointPose.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.actualJointPose.length; ++i)
-                        writer.double(message.actualJointPose[i]);
-                    writer.ldelim();
-                }
-                if (message.actualJointSpeed != null && message.actualJointSpeed.length) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                    for (var i = 0; i < message.actualJointSpeed.length; ++i)
-                        writer.double(message.actualJointSpeed[i]);
-                    writer.ldelim();
-                }
-                if (message.actualJointAcc != null && message.actualJointAcc.length) {
-                    writer.uint32(/* id 3, wireType 2 =*/26).fork();
-                    for (var i = 0; i < message.actualJointAcc.length; ++i)
-                        writer.double(message.actualJointAcc[i]);
-                    writer.ldelim();
-                }
-                if (message.actualJointTorque != null && message.actualJointTorque.length) {
-                    writer.uint32(/* id 4, wireType 2 =*/34).fork();
-                    for (var i = 0; i < message.actualJointTorque.length; ++i)
-                        writer.double(message.actualJointTorque[i]);
-                    writer.ldelim();
-                }
-                if (message.targetJointPose != null && message.targetJointPose.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.targetJointPose.length; ++i)
-                        writer.double(message.targetJointPose[i]);
-                    writer.ldelim();
-                }
-                if (message.targetJointSpeed != null && message.targetJointSpeed.length) {
-                    writer.uint32(/* id 12, wireType 2 =*/98).fork();
-                    for (var i = 0; i < message.targetJointSpeed.length; ++i)
-                        writer.double(message.targetJointSpeed[i]);
-                    writer.ldelim();
-                }
-                if (message.targetJointAcc != null && message.targetJointAcc.length) {
-                    writer.uint32(/* id 13, wireType 2 =*/106).fork();
-                    for (var i = 0; i < message.targetJointAcc.length; ++i)
-                        writer.double(message.targetJointAcc[i]);
-                    writer.ldelim();
-                }
-                if (message.targetJointTorque != null && message.targetJointTorque.length) {
-                    writer.uint32(/* id 14, wireType 2 =*/114).fork();
-                    for (var i = 0; i < message.targetJointTorque.length; ++i)
-                        writer.double(message.targetJointTorque[i]);
-                    writer.ldelim();
-                }
+                if (message.actualJointPose != null && message.actualJointPose.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).doubles(message.actualJointPose);
+                if (message.actualJointSpeed != null && message.actualJointSpeed.length)
+                    writer.uint32(/* id 2, wireType 2 =*/18).doubles(message.actualJointSpeed);
+                if (message.actualJointAcc != null && message.actualJointAcc.length)
+                    writer.uint32(/* id 3, wireType 2 =*/26).doubles(message.actualJointAcc);
+                if (message.actualJointTorque != null && message.actualJointTorque.length)
+                    writer.uint32(/* id 4, wireType 2 =*/34).doubles(message.actualJointTorque);
+                if (message.targetJointPose != null && message.targetJointPose.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).doubles(message.targetJointPose);
+                if (message.targetJointSpeed != null && message.targetJointSpeed.length)
+                    writer.uint32(/* id 12, wireType 2 =*/98).doubles(message.targetJointSpeed);
+                if (message.targetJointAcc != null && message.targetJointAcc.length)
+                    writer.uint32(/* id 13, wireType 2 =*/106).doubles(message.targetJointAcc);
+                if (message.targetJointTorque != null && message.targetJointTorque.length)
+                    writer.uint32(/* id 14, wireType 2 =*/114).doubles(message.targetJointTorque);
                 if (message.actualTcpPose != null && $Object.hasOwnProperty.call(message, "actualTcpPose"))
                     $root.lebai.posture.CartesianPose.encode(message.actualTcpPose, writer.uint32(/* id 21, wireType 2 =*/170).fork(), _depth + 1).ldelim();
                 if (message.targetTcpPose != null && $Object.hasOwnProperty.call(message, "targetTcpPose"))
@@ -38697,7 +40183,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             KinData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -38718,7 +40204,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.KinData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.KinData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -38732,9 +40228,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.actualJointPose && message.actualJointPose.length))
                                     message.actualJointPose = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.actualJointPose.push(reader.double());
+                                reader.doubles(message.actualJointPose);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38748,9 +40242,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.actualJointSpeed && message.actualJointSpeed.length))
                                     message.actualJointSpeed = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.actualJointSpeed.push(reader.double());
+                                reader.doubles(message.actualJointSpeed);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38764,9 +40256,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.actualJointAcc && message.actualJointAcc.length))
                                     message.actualJointAcc = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.actualJointAcc.push(reader.double());
+                                reader.doubles(message.actualJointAcc);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38780,9 +40270,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.actualJointTorque && message.actualJointTorque.length))
                                     message.actualJointTorque = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.actualJointTorque.push(reader.double());
+                                reader.doubles(message.actualJointTorque);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38796,9 +40284,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.targetJointPose && message.targetJointPose.length))
                                     message.targetJointPose = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.targetJointPose.push(reader.double());
+                                reader.doubles(message.targetJointPose);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38812,9 +40298,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.targetJointSpeed && message.targetJointSpeed.length))
                                     message.targetJointSpeed = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.targetJointSpeed.push(reader.double());
+                                reader.doubles(message.targetJointSpeed);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38828,9 +40312,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.targetJointAcc && message.targetJointAcc.length))
                                     message.targetJointAcc = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.targetJointAcc.push(reader.double());
+                                reader.doubles(message.targetJointAcc);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38844,9 +40326,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.targetJointTorque && message.targetJointTorque.length))
                                     message.targetJointTorque = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.targetJointTorque.push(reader.double());
+                                reader.doubles(message.targetJointTorque);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -38880,6 +40360,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -39309,7 +40794,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveTcpRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -39330,7 +40815,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.SaveTcpRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.SaveTcpRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -39370,6 +40865,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -39629,7 +41129,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CalcFrameRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -39650,7 +41150,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.CalcFrameRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.CalcFrameRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -39684,6 +41194,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -39931,7 +41446,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CalcTcpRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -39952,7 +41467,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.kinematic.CalcTcpRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.kinematic.CalcTcpRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -39976,6 +41501,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -40875,12 +42405,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 0 =*/8).int32(message.mode);
                 if (message.speed != null && $Object.hasOwnProperty.call(message, "speed") && message.speed !== 0)
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.speed);
-                if (message.colors != null && message.colors.length) {
-                    writer.uint32(/* id 3, wireType 2 =*/26).fork();
-                    for (var i = 0; i < message.colors.length; ++i)
-                        writer.int32(message.colors[i]);
-                    writer.ldelim();
-                }
+                if (message.colors != null && message.colors.length)
+                    writer.uint32(/* id 3, wireType 2 =*/26).int32s(message.colors);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -40897,7 +42423,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LedData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -40918,7 +42444,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.LedData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.LedData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -40950,9 +42486,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.colors && message.colors.length))
                                     message.colors = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.colors.push(reader.int32());
+                                reader.int32s(message.colors);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -40968,6 +42502,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -41347,7 +42886,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             FanData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -41368,7 +42907,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.FanData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.FanData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -41393,6 +42942,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -41693,7 +43247,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             VoiceData.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -41714,7 +43268,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.VoiceData(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.VoiceData();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -41748,6 +43312,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -42080,7 +43649,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LedStyle.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -42101,7 +43670,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.LedStyle(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.LedStyle();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -42141,6 +43720,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -42486,7 +44070,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveLedStyleRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -42507,7 +44091,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.SaveLedStyleRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.SaveLedStyleRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -42547,6 +44141,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -42795,7 +44394,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LedStyleItem.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -42816,7 +44415,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.LedStyleItem(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.LedStyleItem();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -42847,6 +44456,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -43134,7 +44748,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LedStyles.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -43155,7 +44769,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.led.LedStyles(), key, value;
+                var end, message, key, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.led.LedStyles();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -43171,6 +44795,9 @@ $root.lebai = (function() {
                             if (message.styles === $util.emptyObject)
                                 message.styles = {};
                             var end2 = reader.uint32() + reader.pos;
+                            if (end2 > reader.len)
+                                throw $RangeError("index out of range");
+                            reader.len = end2;
                             key = 0;
                             value = null;
                             while (reader.pos < end2) {
@@ -43185,11 +44812,14 @@ $root.lebai = (function() {
                                 case 2:
                                     if (wireType !== 2)
                                         break;
-                                    value = $root.lebai.led.LedStyle.decode(reader, reader.uint32(), $undefined, _depth + 1);
+                                    value = $root.lebai.led.LedStyle.decode(reader, reader.uint32(), $undefined, _depth + 1, value);
                                     continue;
                                 }
                                 reader.skipType(wireType, _depth, tag2);
                             }
+                            if (reader.pos !== end2)
+                                throw $RangeError("index out of range");
+                            reader.len = end;
                             message.styles[key] = value || new $root.lebai.led.LedStyle();
                             continue;
                         }
@@ -43199,6 +44829,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -43935,7 +45570,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Message.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -43956,7 +45591,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.message.Message(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.message.Message();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -44005,6 +45650,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -44311,7 +45961,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Messages.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -44332,7 +45982,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.message.Messages();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.message.Messages();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -44356,6 +46016,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -44770,7 +46435,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Modbus.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -44791,7 +46456,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.Modbus(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.Modbus();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -44843,6 +46518,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -45123,7 +46803,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveModbusRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -45144,7 +46824,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SaveModbusRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SaveModbusRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -45175,6 +46865,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -45432,7 +47127,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ModbusRegister.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -45453,7 +47148,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.ModbusRegister(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.ModbusRegister();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -45487,6 +47192,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -45752,7 +47462,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveModbusRegisterRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -45773,7 +47483,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SaveModbusRegisterRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SaveModbusRegisterRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -45813,6 +47533,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -46061,7 +47786,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadModbusRegisterRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -46082,7 +47807,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.LoadModbusRegisterRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.LoadModbusRegisterRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -46116,6 +47851,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -46340,7 +48080,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             LoadModbusRegisterListRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -46361,7 +48101,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.LoadModbusRegisterListRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.LoadModbusRegisterListRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -46386,6 +48136,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -46600,7 +48355,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DisconnectModbusRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -46621,7 +48376,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.DisconnectModbusRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.DisconnectModbusRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -46646,6 +48411,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -46871,7 +48641,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetModbusTimeoutRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -46892,7 +48662,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetModbusTimeoutRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetModbusTimeoutRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -46926,6 +48706,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -47161,7 +48946,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetModbusRetryRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -47182,7 +48967,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetModbusRetryRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetModbusRetryRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -47216,6 +49011,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -47462,7 +49262,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetCoilRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -47483,7 +49283,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetCoilRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetCoilRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -47526,6 +49336,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -47764,12 +49579,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
                 if (message.pin != null && $Object.hasOwnProperty.call(message, "pin") && message.pin !== "")
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.pin);
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.bool(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).bools(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -47786,7 +49597,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetCoilsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -47807,7 +49618,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetCoilsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetCoilsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -47839,9 +49660,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.bool());
+                                reader.bools(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -47857,6 +49676,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -48113,7 +49937,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetCoilRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -48134,7 +49958,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetCoilRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetCoilRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -48168,6 +50002,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -48392,7 +50231,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetCoilResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -48413,7 +50252,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetCoilResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetCoilResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -48438,6 +50287,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -48674,7 +50528,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetCoilsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -48695,7 +50549,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetCoilsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetCoilsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -48738,6 +50602,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -48954,12 +50823,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.bool(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).bools(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -48976,7 +50841,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetCoilsResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -48997,7 +50862,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetCoilsResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetCoilsResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -49011,9 +50886,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.bool());
+                                reader.bools(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -49029,6 +50902,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -49276,7 +51154,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetRegisterRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -49297,7 +51175,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetRegisterRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetRegisterRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -49340,6 +51228,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -49578,12 +51471,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
                 if (message.pin != null && $Object.hasOwnProperty.call(message, "pin") && message.pin !== "")
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.pin);
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.uint32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -49600,7 +51489,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetRegistersRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -49621,7 +51510,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.SetRegistersRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.SetRegistersRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -49653,9 +51552,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.uint32());
+                                reader.uint32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -49671,6 +51568,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -49927,7 +51829,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetRegisterRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -49948,7 +51850,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetRegisterRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetRegisterRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -49982,6 +51894,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -50206,7 +52123,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetRegisterResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -50227,7 +52144,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetRegisterResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetRegisterResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -50252,6 +52179,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -50488,7 +52420,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetRegistersRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -50509,7 +52441,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetRegistersRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetRegistersRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -50552,6 +52494,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -50768,12 +52715,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.uint32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -50790,7 +52733,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetRegistersResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -50811,7 +52754,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.modbus.GetRegistersResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.modbus.GetRegistersResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -50825,9 +52778,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.uint32());
+                                reader.uint32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -50843,6 +52794,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -51812,7 +53768,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MotionIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -51833,7 +53789,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MotionIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MotionIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -51858,6 +53824,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -52088,7 +54059,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetMotionStateResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -52109,7 +54080,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.GetMotionStateResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.GetMotionStateResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -52134,6 +54115,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -52396,7 +54382,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MoveParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -52417,7 +54403,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MoveParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MoveParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -52469,6 +54465,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -52722,7 +54723,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MoveRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -52743,7 +54744,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MoveRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MoveRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -52771,6 +54782,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -53036,7 +55052,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MovecRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -53057,7 +55073,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MovecRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MovecRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -53100,6 +55126,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -53376,7 +55407,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SpeedParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -53397,7 +55428,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SpeedParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SpeedParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -53440,6 +55481,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -53684,7 +55730,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SpeedJRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -53705,7 +55751,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SpeedJRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SpeedJRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -53733,6 +55789,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -53987,7 +56048,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SpeedLRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -54008,7 +56069,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SpeedLRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SpeedLRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -54042,6 +56113,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -54324,7 +56400,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             JointMove.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -54345,7 +56421,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.JointMove(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.JointMove();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -54384,6 +56470,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -54646,7 +56737,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MovePvatRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -54667,7 +56758,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MovePvatRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MovePvatRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -54700,6 +56801,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -54953,7 +57059,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Trajectory.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -54974,7 +57080,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.Trajectory(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.Trajectory();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -55007,6 +57123,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -55284,7 +57405,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveTrajectoryRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -55305,7 +57426,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SaveTrajectoryRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SaveTrajectoryRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -55345,6 +57476,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -55593,7 +57729,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StartRecordTrajectoryRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -55614,7 +57750,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.StartRecordTrajectoryRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.StartRecordTrajectoryRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -55648,6 +57794,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -55898,7 +58049,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             EndRecordTrajectoryRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -55919,7 +58070,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.EndRecordTrajectoryRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.EndRecordTrajectoryRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -55953,6 +58114,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -56089,6 +58255,7 @@ $root.lebai = (function() {
              * @typedef {Object} lebai.motion.MoveTrajectoryRequest.$Properties
              * @property {string|null} [name] MoveTrajectoryRequest name
              * @property {string|null} [dir] MoveTrajectoryRequest dir
+             * @property {boolean|null} [back] MoveTrajectoryRequest back
              * @property {Array.<Uint8Array>} [$unknowns] Unknown fields preserved while decoding when enabled
              */
 
@@ -56137,6 +58304,14 @@ $root.lebai = (function() {
             MoveTrajectoryRequest.prototype.dir = "";
 
             /**
+             * MoveTrajectoryRequest back.
+             * @member {boolean} back
+             * @memberof lebai.motion.MoveTrajectoryRequest
+             * @instance
+             */
+            MoveTrajectoryRequest.prototype.back = false;
+
+            /**
              * Creates a new MoveTrajectoryRequest instance using the specified properties.
              * @function create
              * @memberof lebai.motion.MoveTrajectoryRequest
@@ -56172,6 +58347,8 @@ $root.lebai = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
                 if (message.dir != null && $Object.hasOwnProperty.call(message, "dir") && message.dir !== "")
                     writer.uint32(/* id 11, wireType 2 =*/90).string(message.dir);
+                if (message.back != null && $Object.hasOwnProperty.call(message, "back") && message.back !== false)
+                    writer.uint32(/* id 21, wireType 0 =*/168).bool(message.back);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -56188,7 +58365,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             MoveTrajectoryRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -56209,7 +58386,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.MoveTrajectoryRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.MoveTrajectoryRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -56237,12 +58424,26 @@ $root.lebai = (function() {
                                 delete message.dir;
                             continue;
                         }
+                    case 21: {
+                            if (wireType !== 0)
+                                break;
+                            if (value = reader.bool())
+                                message.back = value;
+                            else
+                                delete message.back;
+                            continue;
+                        }
                     }
                     reader.skipType(wireType, _depth, tag);
                     if (!reader.discardUnknown) {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -56286,6 +58487,9 @@ $root.lebai = (function() {
                 if (message.dir != null && $Object.hasOwnProperty.call(message, "dir"))
                     if (!$util.isString(message.dir))
                         return "dir: string expected";
+                if (message.back != null && $Object.hasOwnProperty.call(message, "back"))
+                    if (typeof message.back !== "boolean")
+                        return "back: boolean expected";
                 return null;
             };
 
@@ -56313,6 +58517,9 @@ $root.lebai = (function() {
                 if (object.dir != null)
                     if (typeof object.dir !== "string" || object.dir.length)
                         message.dir = $String(object.dir);
+                if (object.back != null)
+                    if (object.back)
+                        message.back = $Boolean(object.back);
                 return message;
             };
 
@@ -56336,11 +58543,14 @@ $root.lebai = (function() {
                 if (options.defaults) {
                     object.name = "";
                     object.dir = "";
+                    object.back = false;
                 }
                 if (message.name != null && $Object.hasOwnProperty.call(message, "name"))
                     object.name = message.name;
                 if (message.dir != null && $Object.hasOwnProperty.call(message, "dir"))
                     object.dir = message.dir;
+                if (message.back != null && $Object.hasOwnProperty.call(message, "back"))
+                    object.back = message.back;
                 return object;
             };
 
@@ -56478,7 +58688,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Wrench.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -56499,7 +58709,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.Wrench(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.Wrench();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -56527,6 +58747,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -56790,7 +59015,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetForceSensorRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -56811,7 +59036,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SetForceSensorRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SetForceSensorRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -56845,6 +59080,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -57103,7 +59343,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StartForceModeRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -57124,7 +59364,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.StartForceModeRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.StartForceModeRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -57152,6 +59402,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -57406,7 +59661,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ForceModeParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -57427,7 +59682,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.ForceModeParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.ForceModeParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -57470,6 +59735,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -57763,7 +60033,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetForceModeParamRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -57784,7 +60054,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motion.SetForceModeParamRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motion.SetForceModeParamRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -57828,6 +60108,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -59313,7 +61598,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ServoParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -59334,7 +61619,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.ServoParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.ServoParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -59386,6 +61681,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -59630,7 +61930,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ServoParams.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -59651,7 +61951,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.ServoParams();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.ServoParams();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -59675,6 +61985,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -59898,18 +62213,10 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.pose != null && message.pose.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.pose.length; ++i)
-                        writer.double(message.pose[i]);
-                    writer.ldelim();
-                }
-                if (message.valids != null && message.valids.length) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                    for (var i = 0; i < message.valids.length; ++i)
-                        writer.bool(message.valids[i]);
-                    writer.ldelim();
-                }
+                if (message.pose != null && message.pose.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).doubles(message.pose);
+                if (message.valids != null && message.valids.length)
+                    writer.uint32(/* id 2, wireType 2 =*/18).bools(message.valids);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -59926,7 +62233,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetZeroRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -59947,7 +62254,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.SetZeroRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.SetZeroRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -59961,9 +62278,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.pose && message.pose.length))
                                     message.pose = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.pose.push(reader.double());
+                                reader.doubles(message.pose);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -59977,9 +62292,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.valids && message.valids.length))
                                     message.valids = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.valids.push(reader.bool());
+                                reader.bools(message.valids);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -59995,6 +62308,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -60329,7 +62647,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ExtraServoParam.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -60350,7 +62668,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.ExtraServoParam(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.ExtraServoParam();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -60447,6 +62775,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -60730,12 +63063,8 @@ $root.lebai = (function() {
                 if (message.params != null && message.params.length)
                     for (var i = 0; i < message.params.length; ++i)
                         $root.lebai.motor.ExtraServoParam.encode(message.params[i], writer.uint32(/* id 1, wireType 2 =*/10).fork(), _depth + 1).ldelim();
-                if (message.valids != null && message.valids.length) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                    for (var i = 0; i < message.valids.length; ++i)
-                        writer.bool(message.valids[i]);
-                    writer.ldelim();
-                }
+                if (message.valids != null && message.valids.length)
+                    writer.uint32(/* id 2, wireType 2 =*/18).bools(message.valids);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -60752,7 +63081,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetExtraServoParamsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -60773,7 +63102,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.SetExtraServoParamsRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.SetExtraServoParamsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -60795,9 +63134,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.valids && message.valids.length))
                                     message.valids = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.valids.push(reader.bool());
+                                reader.bools(message.valids);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -60813,6 +63150,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -61047,12 +63389,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.valids != null && message.valids.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.valids.length; ++i)
-                        writer.bool(message.valids[i]);
-                    writer.ldelim();
-                }
+                if (message.valids != null && message.valids.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).bools(message.valids);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -61069,7 +63407,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ResetExtraServoParamsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -61090,7 +63428,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.motor.ResetExtraServoParamsRequest();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.motor.ResetExtraServoParamsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -61104,9 +63452,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.valids && message.valids.length))
                                     message.valids = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.valids.push(reader.bool());
+                                reader.bools(message.valids);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -61122,6 +63468,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -61673,7 +64024,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DeviceInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -61694,7 +64045,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.multi_devices.DeviceInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.multi_devices.DeviceInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -61746,6 +64107,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -61990,7 +64356,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             DiscoverRobotsResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -62011,7 +64377,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.multi_devices.DiscoverRobotsResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.multi_devices.DiscoverRobotsResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -62035,6 +64411,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -62388,7 +64769,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             HttpRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -62409,7 +64790,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.network.HttpRequest(), key, value;
+                var end, message, key, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.network.HttpRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -62443,6 +64834,9 @@ $root.lebai = (function() {
                             if (message.headers === $util.emptyObject)
                                 message.headers = {};
                             var end2 = reader.uint32() + reader.pos;
+                            if (end2 > reader.len)
+                                throw $RangeError("index out of range");
+                            reader.len = end2;
                             key = "";
                             value = "";
                             while (reader.pos < end2) {
@@ -62462,6 +64856,9 @@ $root.lebai = (function() {
                                 }
                                 reader.skipType(wireType, _depth, tag2);
                             }
+                            if (reader.pos !== end2)
+                                throw $RangeError("index out of range");
+                            reader.len = end;
                             if (key === "__proto__")
                                 $util.makeProp(message.headers, key);
                             message.headers[key] = value;
@@ -62482,6 +64879,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -62768,7 +65170,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             HttpResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -62789,7 +65191,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.network.HttpResponse(), key, value;
+                var end, message, key, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.network.HttpResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -62814,6 +65226,9 @@ $root.lebai = (function() {
                             if (message.headers === $util.emptyObject)
                                 message.headers = {};
                             var end2 = reader.uint32() + reader.pos;
+                            if (end2 > reader.len)
+                                throw $RangeError("index out of range");
+                            reader.len = end2;
                             key = "";
                             value = "";
                             while (reader.pos < end2) {
@@ -62833,6 +65248,9 @@ $root.lebai = (function() {
                                 }
                                 reader.skipType(wireType, _depth, tag2);
                             }
+                            if (reader.pos !== end2)
+                                throw $RangeError("index out of range");
+                            reader.len = end;
                             if (key === "__proto__")
                                 $util.makeProp(message.headers, key);
                             message.headers[key] = value;
@@ -62853,6 +65271,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -63205,7 +65628,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PluginUrl.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -63226,7 +65649,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.PluginUrl(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.PluginUrl();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -63260,6 +65693,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -63486,7 +65924,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PluginStore.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -63507,7 +65945,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.PluginStore();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.PluginStore();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -63531,6 +65979,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -63864,7 +66317,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PluginInfo.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -63885,7 +66338,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.PluginInfo(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.PluginInfo();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -63989,6 +66452,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -64309,7 +66777,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             PluginIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -64330,7 +66798,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.PluginIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.PluginIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -64355,6 +66833,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -64571,7 +67054,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Plugins.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -64592,7 +67075,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.Plugins();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.Plugins();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -64616,6 +67109,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -64859,7 +67357,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             RunPluginCmdRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -64880,7 +67378,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.plugin.RunPluginCmdRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.plugin.RunPluginCmdRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -64913,6 +67421,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -65534,7 +68047,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Auth.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -65555,7 +68068,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.quality.Auth(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.quality.Auth();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -65589,6 +68112,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -65813,7 +68341,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             EmptyRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -65834,7 +68362,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.quality.EmptyRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.quality.EmptyRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -65856,6 +68394,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -66074,7 +68617,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             BoxTestResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -66095,7 +68638,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.quality.BoxTestResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.quality.BoxTestResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -66120,6 +68673,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -66345,7 +68903,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InitRobotRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -66366,7 +68924,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.quality.InitRobotRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.quality.InitRobotRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -66394,6 +68962,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -66626,7 +69199,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             InitRobotResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -66647,7 +69220,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.quality.InitRobotResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.quality.InitRobotResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -66672,6 +69255,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -66998,12 +69586,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.diffs != null && message.diffs.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.diffs.length; ++i)
-                        writer.double(message.diffs[i]);
-                    writer.ldelim();
-                }
+                if (message.diffs != null && message.diffs.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).doubles(message.diffs);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -67020,7 +69604,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CollisionTorqueDiff.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -67041,7 +69625,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.safety.CollisionTorqueDiff();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.safety.CollisionTorqueDiff();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -67055,9 +69649,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.diffs && message.diffs.length))
                                     message.diffs = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.diffs.push(reader.double());
+                                reader.doubles(message.diffs);
                                 continue;
                             }
                             if (wireType !== 1)
@@ -67073,6 +69665,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -67338,7 +69935,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CollisionDetector.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -67359,7 +69956,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.safety.CollisionDetector(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.safety.CollisionDetector();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -67402,6 +70009,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -67687,7 +70299,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             JointLimit.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -67708,7 +70320,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.safety.JointLimit(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.safety.JointLimit();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -67760,6 +70382,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -68004,7 +70631,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             JointsLimit.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -68025,7 +70652,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.safety.JointsLimit();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.safety.JointsLimit();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -68049,6 +70686,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -68301,7 +70943,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CartesianLimit.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -68322,7 +70964,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.safety.CartesianLimit(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.safety.CartesianLimit();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -68365,6 +71017,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -69148,7 +71805,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetSerialTimeoutRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -69169,7 +71826,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.SetSerialTimeoutRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.SetSerialTimeoutRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -69203,6 +71870,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -69438,7 +72110,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetSerialBaudRateRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -69459,7 +72131,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.SetSerialBaudRateRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.SetSerialBaudRateRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -69493,6 +72175,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -69744,7 +72431,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetSerialParityRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -69765,7 +72452,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.SetSerialParityRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.SetSerialParityRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -69799,6 +72496,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -70032,12 +72734,8 @@ $root.lebai = (function() {
                     throw $Error("max depth exceeded");
                 if (message.device != null && $Object.hasOwnProperty.call(message, "device") && message.device !== "")
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.device);
-                if (message.data != null && message.data.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.data.length; ++i)
-                        writer.uint32(message.data[i]);
-                    writer.ldelim();
-                }
+                if (message.data != null && message.data.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.data);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -70054,7 +72752,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WriteSerialRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -70075,7 +72773,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.WriteSerialRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.WriteSerialRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70098,9 +72806,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.data && message.data.length))
                                     message.data = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.data.push(reader.uint32());
+                                reader.uint32s(message.data);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -70116,6 +72822,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -70362,7 +73073,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ReadSerialRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -70383,7 +73094,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.ReadSerialRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.ReadSerialRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70417,6 +73138,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -70624,12 +73350,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.data != null && message.data.length) {
-                    writer.uint32(/* id 11, wireType 2 =*/90).fork();
-                    for (var i = 0; i < message.data.length; ++i)
-                        writer.uint32(message.data[i]);
-                    writer.ldelim();
-                }
+                if (message.data != null && message.data.length)
+                    writer.uint32(/* id 11, wireType 2 =*/90).uint32s(message.data);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -70646,7 +73368,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ReadSerialResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -70667,7 +73389,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.ReadSerialResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.ReadSerialResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70681,9 +73413,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.data && message.data.length))
                                     message.data = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.data.push(reader.uint32());
+                                reader.uint32s(message.data);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -70699,6 +73429,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -70924,7 +73659,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ClearSerialRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -70945,7 +73680,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.serial.ClearSerialRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.serial.ClearSerialRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -70970,6 +73715,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -71477,7 +74227,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ShortcutIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -71498,7 +74248,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.shortcut.ShortcutIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.shortcut.ShortcutIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -71523,6 +74283,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -71759,7 +74524,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Shortcut.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -71780,7 +74545,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.shortcut.Shortcut(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.shortcut.Shortcut();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -71823,6 +74598,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -72058,7 +74838,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ShortcutList.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -72079,7 +74859,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.shortcut.ShortcutList();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.shortcut.ShortcutList();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -72103,6 +74893,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -72637,7 +75432,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetSignalRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -72658,7 +75453,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.SetSignalRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.SetSignalRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -72692,6 +75497,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -72910,12 +75720,8 @@ $root.lebai = (function() {
                     throw $Error("max depth exceeded");
                 if (message.key != null && $Object.hasOwnProperty.call(message, "key") && message.key !== 0)
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.key);
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.int32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 2, wireType 2 =*/18).int32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -72932,7 +75738,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SetSignalsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -72953,7 +75759,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.SetSignalsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.SetSignalsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -72976,9 +75792,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.int32());
+                                reader.int32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -72994,6 +75808,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -73251,7 +76070,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             WaitSignalRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -73272,7 +76091,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.WaitSignalRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.WaitSignalRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -73315,6 +76144,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -73575,7 +76409,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetSignalRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -73596,7 +76430,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.GetSignalRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.GetSignalRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -73621,6 +76465,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -73835,7 +76684,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetSignalResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -73856,7 +76705,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.GetSignalResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.GetSignalResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -73881,6 +76740,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -74106,7 +76970,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetSignalsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -74127,7 +76991,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.GetSignalsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.GetSignalsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -74161,6 +77035,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -74368,12 +77247,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.values != null && message.values.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.values.length; ++i)
-                        writer.int32(message.values[i]);
-                    writer.ldelim();
-                }
+                if (message.values != null && message.values.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).int32s(message.values);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -74390,7 +77265,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetSignalsResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -74411,7 +77286,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.signal.GetSignalsResponse();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.signal.GetSignalsResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -74425,9 +77310,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.values && message.values.length))
                                     message.values = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.values.push(reader.int32());
+                                reader.int32s(message.values);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -74443,6 +77326,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -74961,7 +77849,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             ItemIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -74982,7 +77870,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.storage.ItemIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.storage.ItemIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -75007,6 +77905,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -75232,7 +78135,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Item.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -75253,7 +78156,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.storage.Item(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.storage.Item();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -75287,6 +78200,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -75511,7 +78429,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             GetItemsRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -75532,7 +78450,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.storage.GetItemsRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.storage.GetItemsRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -75557,6 +78485,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -75773,7 +78706,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Items.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -75794,7 +78727,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.storage.Items();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.storage.Items();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -75818,6 +78761,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -76284,7 +79232,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Structure.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -76305,7 +79253,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.structure.Structure(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.structure.Structure();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -76384,6 +79342,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -76694,7 +79657,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             SaveStructureRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -76715,7 +79678,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.structure.SaveStructureRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.structure.SaveStructureRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -76755,6 +79728,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -77204,7 +80182,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TaskIndex.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -77225,7 +80203,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.TaskIndex(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.TaskIndex();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -77250,6 +80238,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -77642,7 +80635,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Task.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -77663,7 +80656,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.Task(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.Task();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -77822,6 +80825,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -78238,12 +81246,8 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $util.recursionLimit)
                     throw $Error("max depth exceeded");
-                if (message.ids != null && message.ids.length) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
-                    for (var i = 0; i < message.ids.length; ++i)
-                        writer.uint32(message.ids[i]);
-                    writer.ldelim();
-                }
+                if (message.ids != null && message.ids.length)
+                    writer.uint32(/* id 1, wireType 2 =*/10).uint32s(message.ids);
                 if (message.$unknowns != null && $Object.hasOwnProperty.call(message, "$unknowns"))
                     for (var i = 0; i < message.$unknowns.length; ++i)
                         writer.raw(message.$unknowns[i]);
@@ -78260,7 +81264,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TaskIds.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -78281,7 +81285,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.TaskIds();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.TaskIds();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -78295,9 +81309,7 @@ $root.lebai = (function() {
                             if (wireType === 2) {
                                 if (!(message.ids && message.ids.length))
                                     message.ids = [];
-                                var end2 = reader.uint32() + reader.pos;
-                                while (reader.pos < end2)
-                                    message.ids.push(reader.uint32());
+                                reader.uint32s(message.ids);
                                 continue;
                             }
                             if (wireType !== 0)
@@ -78313,6 +81325,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -78540,7 +81557,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Tasks.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -78561,7 +81578,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.Tasks();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.Tasks();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -78585,6 +81612,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -78837,7 +81869,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             TaskStdout.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -78858,7 +81890,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.TaskStdout(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.TaskStdout();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -78901,6 +81943,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -79191,7 +82238,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             StartTaskRequest.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -79212,7 +82259,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.task.StartTaskRequest(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.task.StartTaskRequest();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -79281,6 +82338,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -80045,7 +83107,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Condition.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -80066,7 +83128,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.trigger.Condition(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.trigger.Condition();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -80102,6 +83174,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -80411,7 +83488,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Trigger.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -80432,7 +83509,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.trigger.Trigger(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.trigger.Trigger();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -80463,6 +83550,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -80756,7 +83848,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Triggers.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -80777,7 +83869,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.trigger.Triggers();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.trigger.Triggers();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -80801,6 +83903,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -81171,7 +84278,7 @@ $root.lebai = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             CheckUpgradeResponse.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -81192,7 +84299,17 @@ $root.lebai = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.lebai.upgrade.CheckUpgradeResponse(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.lebai.upgrade.CheckUpgradeResponse();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -81226,6 +84343,11 @@ $root.lebai = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -81621,7 +84743,7 @@ $root.google = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Empty.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -81642,7 +84764,17 @@ $root.google = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.google.protobuf.Empty();
+                var end, message;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.google.protobuf.Empty();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -81655,6 +84787,11 @@ $root.google = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");
@@ -81862,7 +84999,7 @@ $root.google = (function() {
              * @returns {$protobuf.Writer} Writer
              */
             Timestamp.encodeDelimited = function(message, writer) {
-                return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+                return this.encode(message, (writer || $Writer.create()).fork()).ldelim();
             };
 
             /**
@@ -81883,7 +85020,17 @@ $root.google = (function() {
                     _depth = 0;
                 if (_depth > $Reader.recursionLimit)
                     throw $Error("max depth exceeded");
-                var end = length === $undefined ? reader.len : reader.pos + length, message = _target || new $root.google.protobuf.Timestamp(), value;
+                var end, message, value;
+                if (length === $undefined)
+                    end = reader.len;
+                else {
+                    end = reader.pos + length;
+                    if (end > reader.len)
+                        throw $RangeError("index out of range");
+                    length = reader.len;
+                    reader.len = end;
+                }
+                message = _target || new $root.google.protobuf.Timestamp();
                 while (reader.pos < end) {
                     var start = reader.pos;
                     var tag = reader.tag();
@@ -81917,6 +85064,11 @@ $root.google = (function() {
                         $util.makeProp(message, "$unknowns", false);
                         (message.$unknowns || (message.$unknowns = [])).push(reader.raw(start, reader.pos));
                     }
+                }
+                if (length !== $undefined) {
+                    if (reader.pos !== end)
+                        throw $RangeError("index out of range");
+                    reader.len = length;
                 }
                 if (_end !== $undefined)
                     throw $Error("missing end group");

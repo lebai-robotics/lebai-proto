@@ -23163,6 +23163,9 @@ export namespace lebai {
             /** MoveTrajectoryRequest dir. */
             dir: string;
 
+            /** MoveTrajectoryRequest back. */
+            back: boolean;
+
             /**
              * Creates a new MoveTrajectoryRequest instance using the specified properties.
              * @param [properties] Properties to set
@@ -23252,6 +23255,9 @@ export namespace lebai {
 
                 /** MoveTrajectoryRequest dir */
                 dir?: (string|null);
+
+                /** MoveTrajectoryRequest back */
+                back?: (boolean|null);
 
                 /** Unknown fields preserved while decoding when enabled */
                 $unknowns?: Uint8Array[];
