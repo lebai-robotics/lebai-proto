@@ -24396,11 +24396,11 @@ export namespace lebai {
 
             /** Calls MoveTrajectory. */
             type MoveTrajectory = {
-              (request: lebai.db.ILoadRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
-              (request: lebai.db.ILoadRequest): Promise<lebai.motion.MotionIndex>;
+              (request: lebai.motion.IMoveTrajectoryRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
+              (request: lebai.motion.IMoveTrajectoryRequest): Promise<lebai.motion.MotionIndex>;
               readonly name: "MoveTrajectory";
               readonly path: "/lebai.motion.MotionService/MoveTrajectory";
-              readonly requestType: "db.LoadRequest";
+              readonly requestType: "MoveTrajectoryRequest";
               readonly responseType: "MotionIndex";
               readonly requestStream: undefined;
               readonly responseStream: undefined;

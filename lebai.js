@@ -61084,11 +61084,11 @@ $root.lebai = (function() {
              * @memberof lebai.motion.MotionService
              * @typedef MoveTrajectory
              * @type {{
-             *   (request: lebai.db.ILoadRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
-             *   (request: lebai.db.ILoadRequest): Promise<lebai.motion.MotionIndex>;
+             *   (request: lebai.motion.IMoveTrajectoryRequest, callback: lebai.motion.MotionService.MoveTrajectoryCallback): void;
+             *   (request: lebai.motion.IMoveTrajectoryRequest): Promise<lebai.motion.MotionIndex>;
              *   readonly name: "MoveTrajectory";
              *   readonly path: "/lebai.motion.MotionService/MoveTrajectory";
-             *   readonly requestType: "db.LoadRequest";
+             *   readonly requestType: "MoveTrajectoryRequest";
              *   readonly responseType: "MotionIndex";
              *   readonly requestStream: undefined;
              *   readonly responseStream: undefined;
@@ -61101,11 +61101,11 @@ $root.lebai = (function() {
              * @type {lebai.motion.MotionService.MoveTrajectory}
              */
             $Object.defineProperties(MotionService.prototype.moveTrajectory = function(request, callback) {
-                return $protobuf.rpc.Service.prototype.rpcCall.call(this, MotionService.prototype.moveTrajectory, $root.lebai.db.LoadRequest, $root.lebai.motion.MotionIndex, request, callback);
+                return $protobuf.rpc.Service.prototype.rpcCall.call(this, MotionService.prototype.moveTrajectory, $root.lebai.motion.MoveTrajectoryRequest, $root.lebai.motion.MotionIndex, request, callback);
             }, {
                 name: { value: "MoveTrajectory" },
                 path: { value: "/lebai.motion.MotionService/MoveTrajectory" },
-                requestType: { value: "db.LoadRequest" },
+                requestType: { value: "MoveTrajectoryRequest" },
                 responseType: { value: "MotionIndex" },
                 requestStream: { value: $undefined },
                 responseStream: { value: $undefined }
